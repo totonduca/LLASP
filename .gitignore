@@ -1,0 +1,18 @@
+#ignoro cartelle inutili
+__pycache__/
+wandb/
+
+#ignoro risultati inutili
+exhaustive/PromptEng/
+exhaustive/InvarianceOnly/
+
+#evito di caricare i pesi dei modelli che pesano un casino
+toto/
+
+#codici inutili
+a.py
+output.txt
+provacarica.py
+
+#invece dei csv carico i compressi in modo da risparmiare spazio
+*.csv
