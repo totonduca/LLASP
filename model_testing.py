@@ -28,11 +28,12 @@ import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'  ################################################################### Set to use GPUs 0 and 1
 
 
-hugging_token = "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"
 
 from huggingface_hub import login
 
-login(hugging_token)
+# decommentare e prendere il token
+# hugging_token = ""
+# login(hugging_token)
 
 torch.manual_seed(56)
 

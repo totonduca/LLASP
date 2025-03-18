@@ -1,8 +1,10 @@
-hugging_token = "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"
+
 
 from huggingface_hub import login
 
-login(hugging_token)
+# decommentare e prendere il token
+# hugging_token = ""
+# login(hugging_token)
 
 import os
 from tqdm import tqdm

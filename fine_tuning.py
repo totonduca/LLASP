@@ -38,8 +38,9 @@ import string
 
 os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2"
 
-hugging_token = "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"
-login(hugging_token)
+# decommentare e premdere il token
+# hugging_token = "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"
+# login(hugging_token)
 
 torch.cuda.is_available()
 

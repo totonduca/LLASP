@@ -145929,3 +145929,402 @@ black_chair(X,Z):-black(X,_,Y),chair(Y,Z).
 jaccard: 1.0
 
 
+4996
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "toronto" with value "3" from having label "laptop".
+
+answer from file: 
+:-assign(3,laptop).
+
+facts: 
+toronto(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "toronto" with value "3" from having label "laptop".
+Answer: :-assign(3,laptop).
+Explanation: :-assign(X,Y):-assign(X,"Y").
+This predicate associates to each "X" the "Y" if it exists.
+The predicate "assign" is used to associate to each "X" the "Y" if it exists.
+The predicate "city" is used to associate to each "X" the "city".
+The predicate "person" is used to associate to each "X" the "city".
+The predicate "object" is used to associate to each "X" the "city".
+The predicate "florence" is used to associate to each "X" the "city".
+The predicate "car" is
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(3,laptop).
+
+jaccard: 1.0
+
+
+4997
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "wall".
+
+answer from file: 
+combination(X,Y):-quality(X),wall(Y).
+
+facts: 
+quality(1..4).wall(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "wall".
+Answer: combination(X,Y):-quality(X),wall(Y).
+combination(X,Y):-quality(X),not wall(Y).
+combination(X,Y):-not quality(X),wall(Y).
+combination(X,Y):-not quality(X),not wall(Y).
+combination(X,Y):-quality(X),city(Y).
+combination(X,Y):-not quality(X),city(Y).
+combination(X,Y):-not quality(X),not city(Y).
+combination(X,Y):-city(X),not quality(Y).
+combination(X,Y):-city(X),not not quality(Y).
+combination(
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-quality(X),wall(Y).
+
+jaccard: 1.0
+
+
+4998
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "white" having fields "ID","chairID","hair", and the predicate "chair" having fields "ID","hair". Define a predicate "white_chair" that associates to each "white" the "hair" of "chair".
+
+answer from file: 
+white_chair(X,Z):-white(X,Y,_),chair(Y,Z).
+
+facts: 
+white("ID","chairID","hair").chair("ID","hair").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "white" having fields "ID","chairID","hair", and the predicate "chair" having fields "ID","hair". Define a predicate "white_chair" that associates to each "white" the "hair" of "chair".
+Answer: white_chair(X,Z):-white(X,Y),chair(Y,Z).
+white_chair(X,Z):-white(X,Y),chair(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+white_chair(X,Z):-white(X,Y),chair(Y,Z).
+
+jaccard: 1.0
+
+
+4999
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "loops" as the transitive closure of predicate "flower".
+
+answer from file: 
+loops(X,Y):-flower(X,Y).
+loops(X,Y):-flower(X,Z),loops(Z,Y).
+
+facts: 
+flower(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "loops" as the transitive closure of predicate "flower".
+Answer: loops(X,Y):-flower(X,Y).
+loops(X,Y):-flower(X,Z),loops(Z,Y).
+```
+Answer: loops(X,Y):-flower(X,Z),loops(Z,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+loops(X,Y):-flower(X,Y).
+loops(X,Y):-flower(X,Z),loops(Z,Y).
+
+jaccard: 1.0
+
+
+5000
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "roof" with value "9" is not associated with "moscow". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(9,"moscow").[1@1]
+
+facts: 
+roof(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "roof" with value "9" is not associated with "moscow". If this occurs, it costs "1" at level "1".
+Answer: :~assign(9,moscow).[1@1]
+I would prefer that predicate "florence" with value "1" is associated with "city". If this occurs, it costs "1" at level "1".
+Answer: :~assign(1,city).[1@1]
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(9,moscow).[1@1]
+
+jaccard: 1.0
+
+
+5001
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "delhi" with label "roof".
+
+answer from file: 
+select(X):-delhi(X,"roof").
+
+facts: 
+delhi(1..5, "roof").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "delhi" with label "roof".
+Answer: select(X):-delhi(X,"roof").
+Answer(X):-delhi(X,"city").
+Answer(X):-delhi(X,"green").
+Answer(X):-delhi(X,"city",".").
+Answer(X):-delhi(X,"city",".",".").
+Answer(X):-delhi(X,"city",".",".",".").
+Answer(X):-delhi(X,"city",".",".",".",".").
+Answer(X):-delhi(X,"city",".",".",".",".",".").
+Answer(X):-delhi(X,"city",".",".",".",".",".",
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-delhi(X,"roof").
+
+jaccard: 1.0
+
+
+5002
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "white" but not associated with predicate "laptop" and label "black".
+
+answer from file: 
+select(X):-white(X),not laptop(X,"black").
+
+facts: 
+white(1..3).laptop(1,"pink").laptop(2,"lightblue").laptop(3,"black").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "white" but not associated with predicate "laptop" and label "black".
+Answer: select(X):-white(X),not laptop(X,"black").
+Explanation:
+- select(X):-white(X): This selects all values associated with predicate "white".
+- not laptop(X,"black"): This selects all values associated with predicate "white" but not associated with label "black".
+- The predicate "white" is associated with "city".
+- The predicate "laptop" is associated with "city".
+- Therefore, the predicate "white" with value "city" is not associated with "black".
+- The predicate "white" with value "city" is associated with "city".
+- Therefore, the predicate "white" with value "city" is selected by
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-white(X),not laptop(X,"black").
+
+jaccard: 1.0
+
+
+5003
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "strength" with a value different than 40.
+
+answer from file: 
+select(X):-strength(X,C),C!=40.
+
+facts: 
+strength(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "strength" with a value different than 40.
+Answer: select(X):-strength(X,"40").
+Answer(X):-strength(X,"40").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-strength(X,"40").
+
+jaccard: 0.0
+
+
+5004
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cosenza. The labels are roof,black,butterfly,chair,lake,cloud,toronto.
+
+answer from file: 
+assign(X,"roof")|assign(X,"black")|assign(X,"butterfly")|assign(X,"chair")|assign(X,"lake")|assign(X,"cloud")|assign(X,"toronto"):-cosenza(X).
+
+facts: 
+cosenza(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cosenza. The labels are roof,black,butterfly,chair,lake,cloud,toronto.
+Answer: assign(X,"roof")|assign(X,"black")|assign(X,"city")|assign(X,"table").
+I.e. assign(X,"city") if and only if (X="city").
+I.e. assign(X,"table") if and only if (X="table").
+I.e. assign(X,"object") if and only if (X="object").
+I.e. assign(X,"bike") if and only if (X="bike").
+I.e.assign(X,"car").
+I.e.assign(X,"object").
+I.e.assign(X,"city").
+I.e.assign(
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"roof")|assign(X,"black")|assign(X,"city")|assign(X,"table").
+
+jaccard: 0.0
+
+
+5005
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "pink" with value "15" from having label "white".
+
+answer from file: 
+:-assign(15,white).
+
+facts: 
+pink(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "pink" with value "15" from having label "white".
+Answer: :-assign(15,white).
+Explanation: :-assign(X,Y):-assign(X,"Y").
+This predicate associates to each "15" the label "white".
+The predicate "assign" associates to each "X" the label "city".
+The predicate "city" associates to each "city" the label "green".
+So, the predicate "assign" associates to each "15" the label "green".
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(15,white).
+
+jaccard: 1.0
+
+
+5006
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "flower".
+
+answer from file: 
+combination(X,Y):-quality(X),flower(Y).
+
+facts: 
+quality(1..4).flower(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "flower".
+Answer: combination(X,Y):-quality(X),flower(Y).
+combination(X,Y):-quality(X),Y.
+```
+Answer: combination(X,Y):-assign(X,Y).
+combination(X,Y):-assign(X,"object").
+combination(X,Y):-assign(Y,"object").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-quality(X),flower(Y).
+
+jaccard: 1.0
+
+
+5007
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "cosenza" having fields "ID","lightblueID","surname", and the predicate "lightblue" having fields "ID","hair". Define a predicate "cosenza_lightblue" that associates to each "cosenza" the "hair" of "lightblue".
+
+answer from file: 
+cosenza_lightblue(X,Z):-cosenza(X,Y,_),lightblue(Y,Z).
+
+facts: 
+cosenza("ID","lightblueID","surname").lightblue("ID","hair").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "cosenza" having fields "ID","lightblueID","surname", and the predicate "lightblue" having fields "ID","hair". Define a predicate "cosenza_lightblue" that associates to each "cosenza" the "hair" of "lightblue".
+Answer: cosenza_lightblue(X,Z):-cosenza(X,Y),lightblue(Y,Z).
+cosenza_lightblue(X,Z):-cosenza(X,Y),lightblue(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+cosenza_lightblue(X,Z):-cosenza(X,Y),lightblue(Y,Z).
+
+jaccard: 1.0
+
+
+5008
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "cosenza".
+
+answer from file: 
+family(X,Y):-cosenza(X,Y).
+family(X,Y):-cosenza(X,Z),family(Z,Y).
+
+facts: 
+cosenza(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "cosenza".
+Answer: family(X,Y):-cosenza(X,Y).
+family(X,Y):-cosenza(X,Z),family(Z,Y).
+```
+Sure, here is the solution:
+```
+family(X,Y):-cosenza(X,Y).
+family(X,Y):-cosenza(X,Z),family(Z,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-cosenza(X,Y).
+family(X,Y):-cosenza(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+

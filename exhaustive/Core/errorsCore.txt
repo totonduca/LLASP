@@ -3420,3 +3420,33 @@ answerset from file: [['chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', '
 
 answerset from parsed: ['error']
 
+i: 5004
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cosenza. The labels are roof,black,butterfly,chair,lake,cloud,toronto.
+
+answer from file: assign(X,"roof")|assign(X,"black")|assign(X,"butterfly")|assign(X,"chair")|assign(X,"lake")|assign(X,"cloud")|assign(X,"toronto"):-cosenza(X).
+
+facts: 
+cosenza(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cosenza. The labels are roof,black,butterfly,chair,lake,cloud,toronto.
+Answer: assign(X,"roof")|assign(X,"black")|assign(X,"city")|assign(X,"table").
+I.e. assign(X,"city") if and only if (X="city").
+I.e. assign(X,"table") if and only if (X="table").
+I.e. assign(X,"object") if and only if (X="object").
+I.e. assign(X,"bike") if and only if (X="bike").
+I.e.assign(X,"car").
+I.e.assign(X,"object").
+I.e.assign(X,"city").
+I.e.assign(
+
+parsed answer: assign(X,"roof")|assign(X,"black")|assign(X,"city")|assign(X,"table").
+
+answerset from file: [['cosenza(1)', 'cosenza(2)', 'cosenza(3)', 'cosenza(4)', 'cosenza(5)', 'assign(1,"toronto")', 'assign(2,"toronto")', 'assign(3,"toronto")', 'assign(4,"toronto")', 'assign(5,"toronto")']]
+
+answerset from parsed: ['error']
+
