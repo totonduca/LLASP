@@ -2616,3 +2616,28 @@ answerset from file: [['surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', '
 
 answerset from parsed: ['error']
 
+i: 4080
+
+index: 3
+
+join
+
+question: Generate an ASP program to create the predicate "owner_mumbai" that associates each owner with the lake of mumbai, with the fields "ID","mumbaiID","surname","owner" of "owner" and the fields "ID","strength","lake" of "mumbai".
+
+answer from file: owner_mumbai(X,Z):-owner(X,Y,_,_),mumbai(Y,_,Z).
+
+facts: 
+owner("ID","mumbaiID","surname","owner").mumbai("ID","strength","lake").
+
+generated_answer: Generate an ASP program to create the predicate "owner_mumbai" that associates each owner with the lake of mumbai, with the fields "ID","mumbaiID","surname","owner" of "owner" and the fields "ID","strength","lake" of "mumbai".
+Answer: owner_mumbai(X,Y,_,_),owner(Y,_,_,_).
+```
+owner_mumbai(X,Y,_,_) :-owner(Y,_,_,_),mumbai(Y,_,_).
+```
+
+parsed answer: owner_mumbai(X,Y,_,_),owner(Y,_,_,_).
+
+answerset from file: [['owner("ID","mumbaiID","surname","owner")', 'mumbai("ID","strength","lake")']]
+
+answerset from parsed: ['error']
+

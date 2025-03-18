@@ -7324,3 +7324,170 @@ generated answer_Set: [['singapore(1,"surname")', 'singapore(2,"surname")', 'sin
 jaccard: 0.0
 
 
+i: 4080
+
+index: 3
+
+join
+
+question: Generate an ASP program to create the predicate "owner_mumbai" that associates each owner with the lake of mumbai, with the fields "ID","mumbaiID","surname","owner" of "owner" and the fields "ID","strength","lake" of "mumbai".
+
+answer from file: owner_mumbai(X,Z):-owner(X,Y,_,_),mumbai(Y,_,Z).
+
+facts: 
+owner("ID","mumbaiID","surname","owner").mumbai("ID","strength","lake").
+
+generated: 
+Generate an ASP program to create the predicate "owner_mumbai" that associates each owner with the lake of mumbai, with the fields "ID","mumbaiID","surname","owner" of "owner" and the fields "ID","strength","lake" of "mumbai".
+Answer: owner_mumbai(X,Y,_,_),owner(Y,_,_,_).
+```
+owner_mumbai(X,Y,_,_) :-owner(Y,_,_,_),mumbai(Y,_,_).
+```
+
+parsed: 
+owner_mumbai(X,Y,_,_),owner(Y,_,_,_).
+
+wanted answer_Set: [['owner("ID","mumbaiID","surname","owner")', 'mumbai("ID","strength","lake")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 4129
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "moscow" but not associated with predicate "flower" and label "flower".
+
+answer from file: select(X):-moscow(X),not flower(X,"flower").
+
+facts: 
+moscow(1..3).flower(1,"pink").flower(2,"hair").flower(3,"flower").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "moscow" but not associated with predicate "flower" and label "flower".
+Answer: select(X):-cow(X),not flower(X,"flower").
+```
+The predicate "cow" has value "1" and the predicate "flower" has value "1".
+The label "flower" is not associated with the value "1".
+The predicate "moto" has value "1" and the label "flower".
+The answer is select(X):-cow(X),not flower(X,"flower").
+```
+
+parsed: 
+select(X):-cow(X),not flower(X,"flower").
+
+wanted answer_Set: [['moscow(1)', 'moscow(2)', 'moscow(3)', 'flower(1,"pink")', 'flower(2,"hair")', 'flower(3,"flower")', 'select(1)', 'select(2)']]
+
+generated answer_Set: [['flower(1,"pink")', 'flower(2,"hair")', 'flower(3,"flower")', 'moscow(1)', 'moscow(2)', 'moscow(3)']]
+
+jaccard: 0.0
+
+
+i: 4140
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate moscow. The labels are toronto,desk,surname,owner.
+
+answer from file: assign(X,"toronto")|assign(X,"desk")|assign(X,"surname")|assign(X,"owner"):-moscow(X).
+
+facts: 
+moscow(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate moscow. The labels are toronto,desk,surname,owner.
+Answer: assign(X,"tokyo")|assign(X,"desk")|assign(X,"name")|assign(X,"creator"):-moscow(X).
+```
+Assign(X,"tokyo")|Assign(X,"desk")|Assign(X,"name")|Assign(X,"creator"):-moscow(X).
+```
+
+parsed: 
+assign(X,"tokyo")|assign(X,"desk")|assign(X,"name")|assign(X,"creator"):-moscow(X).
+
+wanted answer_Set: [['moscow(1)', 'moscow(2)', 'moscow(3)', 'moscow(4)', 'moscow(5)', 'assign(1,"surname")', 'assign(2,"owner")', 'assign(3,"surname")', 'assign(4,"owner")', 'assign(5,"owner")']]
+
+generated answer_Set: [['moscow(1)', 'moscow(2)', 'moscow(3)', 'moscow(4)', 'moscow(5)', 'assign(1,"name")', 'assign(2,"creator")', 'assign(3,"name")', 'assign(4,"creator")', 'assign(5,"creator")']]
+
+jaccard: 0.0
+
+
+i: 4191
+
+index: 6
+
+filtering
+
+question: Produce an ASP program to gather and retrieve values linked to the "surname" label in the "hair" predicate.
+
+answer from file: select(X):-hair(X,"surname").
+
+facts: 
+hair(1..5, "surname").
+
+generated: 
+Produce an ASP program to gather and retrieve values linked to the "surname" label in the "hair" predicate.
+Answer: select(X):-hair(X,"shape").
+select(X):-hair(X,"shape").
+```
+The predicate "hair" includes fields "ID","shape","cityID", and the label "shape" is not associated with the "city" predicate.
+The predicate "city" contains fields "ID","shape".
+The predicate "shape" contains fields "ID","height".
+So, the predicate "hair" includes fields "ID","shape","cityID", and the label "shape" is not associated with the "city" predicate.
+The predicate "city" contains fields "ID","shape".
+The predicate "shape" contains fields "ID","height".
+So, the predicate "
+
+parsed: 
+select(X):-hair(X,"shape").
+
+wanted answer_Set: [['hair(1,"surname")', 'hair(2,"surname")', 'hair(3,"surname")', 'hair(4,"surname")', 'hair(5,"surname")', 'select(1)', 'select(2)', 'select(3)', 'select(4)', 'select(5)']]
+
+generated answer_Set: [['hair(1,"surname")', 'hair(2,"surname")', 'hair(3,"surname")', 'hair(4,"surname")', 'hair(5,"surname")']]
+
+jaccard: 0.0
+
+
+i: 4200
+
+index: 6
+
+filtering
+
+question: Write an ASP program for the following problem. Select all values associated to the predicate "laptop" with label "mumbai".
+
+answer from file: select(X):-laptop(X,"mumbai").
+
+facts: 
+laptop(1..5, "mumbai").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "laptop" with label "mumbai".
+Answer: select(X):- arrivant(X,"mumbai").
+ arrivant(X,C):-tokyo(X,C).
+tokyo(X,C):-shape(X,C).
+shape(X,C):-brown(X,C).
+brown(X,C):-purple(X,C).
+purple(X,C):-florence(X,C).
+florence(X,C):-rome(X,C).
+rome(X,C):-table(X,C).
+table(X,C):-gray(X,C).
+gray(X,C):-amsterdam(X,C).
+amsterdam(X,C):-florence(X,C).
+
+
+parsed: 
+select(X):- arrivant(X,"mumbai").
+
+wanted answer_Set: [['laptop(1,"mumbai")', 'laptop(2,"mumbai")', 'laptop(3,"mumbai")', 'laptop(4,"mumbai")', 'laptop(5,"mumbai")', 'select(1)', 'select(2)', 'select(3)', 'select(4)', 'select(5)']]
+
+generated answer_Set: [['laptop(1,"mumbai")', 'laptop(2,"mumbai")', 'laptop(3,"mumbai")', 'laptop(4,"mumbai")', 'laptop(5,"mumbai")']]
+
+jaccard: 0.0
+
+

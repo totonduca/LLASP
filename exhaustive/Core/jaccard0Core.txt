@@ -8936,3 +8936,420 @@ generated answer_Set: ['error']
 jaccard: 0.0
 
 
+i: 5030
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "surname" with a value different than 12.
+
+answer from file: select(X):-surname(X,C),C!=12.
+
+facts: 
+surname(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "surname" with a value different than 12.
+Answer: select(X):-surname(X,"12").
+Answer(X):-surname(X,"12").
+
+parsed: 
+select(X):-surname(X,"12").
+
+wanted answer_Set: [['surname(1,1)', 'surname(1,2)', 'surname(1,3)', 'surname(1,4)', 'surname(1,5)', 'surname(1,6)', 'surname(1,7)', 'surname(1,8)', 'surname(1,9)', 'surname(1,10)', 'surname(1,11)', 'surname(1,12)', 'surname(1,13)', 'surname(1,14)', 'surname(1,15)', 'surname(1,16)', 'surname(1,17)', 'surname(1,18)', 'surname(1,19)', 'surname(1,20)', 'surname(1,21)', 'surname(1,22)', 'surname(1,23)', 'surname(1,24)', 'surname(1,25)', 'surname(1,26)', 'surname(1,27)', 'surname(1,28)', 'surname(1,29)', 'surname(1,30)', 'surname(1,31)', 'surname(1,32)', 'surname(1,33)', 'surname(1,34)', 'surname(1,35)', 'surname(1,36)', 'surname(1,37)', 'surname(1,38)', 'surname(1,39)', 'surname(1,40)', 'surname(1,41)', 'surname(1,42)', 'surname(1,43)', 'surname(1,44)', 'surname(1,45)', 'surname(1,46)', 'surname(1,47)', 'surname(1,48)', 'surname(1,49)', 'surname(1,50)', 'surname(1,51)', 'surname(1,52)', 'surname(1,53)', 'surname(1,54)', 'surname(1,55)', 'surname(1,56)', 'surname(1,57)', 'surname(1,58)', 'surname(1,59)', 'surname(1,60)', 'surname(1,61)', 'surname(1,62)', 'surname(1,63)', 'surname(1,64)', 'surname(1,65)', 'surname(1,66)', 'surname(1,67)', 'surname(1,68)', 'surname(1,69)', 'surname(1,70)', 'surname(1,71)', 'surname(1,72)', 'surname(1,73)', 'surname(1,74)', 'surname(1,75)', 'surname(1,76)', 'surname(1,77)', 'surname(1,78)', 'surname(1,79)', 'surname(1,80)', 'surname(1,81)', 'surname(1,82)', 'surname(1,83)', 'surname(1,84)', 'surname(1,85)', 'surname(1,86)', 'surname(1,87)', 'surname(1,88)', 'surname(1,89)', 'surname(1,90)', 'surname(1,91)', 'surname(1,92)', 'surname(1,93)', 'surname(1,94)', 'surname(1,95)', 'surname(1,96)', 'surname(1,97)', 'surname(1,98)', 'surname(1,99)', 'surname(1,100)', 'surname(2,1)', 'surname(2,2)', 'surname(2,3)', 'surname(2,4)', 'surname(2,5)', 'surname(2,6)', 'surname(2,7)', 'surname(2,8)', 'surname(2,9)', 'surname(2,10)', 'surname(2,11)', 'surname(2,12)', 'surname(2,13)', 'surname(2,14)', 'surname(2,15)', 'surname(2,16)', 'surname(2,17)', 'surname(2,18)', 'surname(2,19)', 'surname(2,20)', 'surname(2,21)', 'surname(2,22)', 'surname(2,23)', 'surname(2,24)', 'surname(2,25)', 'surname(2,26)', 'surname(2,27)', 'surname(2,28)', 'surname(2,29)', 'surname(2,30)', 'surname(2,31)', 'surname(2,32)', 'surname(2,33)', 'surname(2,34)', 'surname(2,35)', 'surname(2,36)', 'surname(2,37)', 'surname(2,38)', 'surname(2,39)', 'surname(2,40)', 'surname(2,41)', 'surname(2,42)', 'surname(2,43)', 'surname(2,44)', 'surname(2,45)', 'surname(2,46)', 'surname(2,47)', 'surname(2,48)', 'surname(2,49)', 'surname(2,50)', 'surname(2,51)', 'surname(2,52)', 'surname(2,53)', 'surname(2,54)', 'surname(2,55)', 'surname(2,56)', 'surname(2,57)', 'surname(2,58)', 'surname(2,59)', 'surname(2,60)', 'surname(2,61)', 'surname(2,62)', 'surname(2,63)', 'surname(2,64)', 'surname(2,65)', 'surname(2,66)', 'surname(2,67)', 'surname(2,68)', 'surname(2,69)', 'surname(2,70)', 'surname(2,71)', 'surname(2,72)', 'surname(2,73)', 'surname(2,74)', 'surname(2,75)', 'surname(2,76)', 'surname(2,77)', 'surname(2,78)', 'surname(2,79)', 'surname(2,80)', 'surname(2,81)', 'surname(2,82)', 'surname(2,83)', 'surname(2,84)', 'surname(2,85)', 'surname(2,86)', 'surname(2,87)', 'surname(2,88)', 'surname(2,89)', 'surname(2,90)', 'surname(2,91)', 'surname(2,92)', 'surname(2,93)', 'surname(2,94)', 'surname(2,95)', 'surname(2,96)', 'surname(2,97)', 'surname(2,98)', 'surname(2,99)', 'surname(2,100)', 'surname(3,1)', 'surname(3,2)', 'surname(3,3)', 'surname(3,4)', 'surname(3,5)', 'surname(3,6)', 'surname(3,7)', 'surname(3,8)', 'surname(3,9)', 'surname(3,10)', 'surname(3,11)', 'surname(3,12)', 'surname(3,13)', 'surname(3,14)', 'surname(3,15)', 'surname(3,16)', 'surname(3,17)', 'surname(3,18)', 'surname(3,19)', 'surname(3,20)', 'surname(3,21)', 'surname(3,22)', 'surname(3,23)', 'surname(3,24)', 'surname(3,25)', 'surname(3,26)', 'surname(3,27)', 'surname(3,28)', 'surname(3,29)', 'surname(3,30)', 'surname(3,31)', 'surname(3,32)', 'surname(3,33)', 'surname(3,34)', 'surname(3,35)', 'surname(3,36)', 'surname(3,37)', 'surname(3,38)', 'surname(3,39)', 'surname(3,40)', 'surname(3,41)', 'surname(3,42)', 'surname(3,43)', 'surname(3,44)', 'surname(3,45)', 'surname(3,46)', 'surname(3,47)', 'surname(3,48)', 'surname(3,49)', 'surname(3,50)', 'surname(3,51)', 'surname(3,52)', 'surname(3,53)', 'surname(3,54)', 'surname(3,55)', 'surname(3,56)', 'surname(3,57)', 'surname(3,58)', 'surname(3,59)', 'surname(3,60)', 'surname(3,61)', 'surname(3,62)', 'surname(3,63)', 'surname(3,64)', 'surname(3,65)', 'surname(3,66)', 'surname(3,67)', 'surname(3,68)', 'surname(3,69)', 'surname(3,70)', 'surname(3,71)', 'surname(3,72)', 'surname(3,73)', 'surname(3,74)', 'surname(3,75)', 'surname(3,76)', 'surname(3,77)', 'surname(3,78)', 'surname(3,79)', 'surname(3,80)', 'surname(3,81)', 'surname(3,82)', 'surname(3,83)', 'surname(3,84)', 'surname(3,85)', 'surname(3,86)', 'surname(3,87)', 'surname(3,88)', 'surname(3,89)', 'surname(3,90)', 'surname(3,91)', 'surname(3,92)', 'surname(3,93)', 'surname(3,94)', 'surname(3,95)', 'surname(3,96)', 'surname(3,97)', 'surname(3,98)', 'surname(3,99)', 'surname(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['surname(1,1)', 'surname(1,2)', 'surname(1,3)', 'surname(1,4)', 'surname(1,5)', 'surname(1,6)', 'surname(1,7)', 'surname(1,8)', 'surname(1,9)', 'surname(1,10)', 'surname(1,11)', 'surname(1,12)', 'surname(1,13)', 'surname(1,14)', 'surname(1,15)', 'surname(1,16)', 'surname(1,17)', 'surname(1,18)', 'surname(1,19)', 'surname(1,20)', 'surname(1,21)', 'surname(1,22)', 'surname(1,23)', 'surname(1,24)', 'surname(1,25)', 'surname(1,26)', 'surname(1,27)', 'surname(1,28)', 'surname(1,29)', 'surname(1,30)', 'surname(1,31)', 'surname(1,32)', 'surname(1,33)', 'surname(1,34)', 'surname(1,35)', 'surname(1,36)', 'surname(1,37)', 'surname(1,38)', 'surname(1,39)', 'surname(1,40)', 'surname(1,41)', 'surname(1,42)', 'surname(1,43)', 'surname(1,44)', 'surname(1,45)', 'surname(1,46)', 'surname(1,47)', 'surname(1,48)', 'surname(1,49)', 'surname(1,50)', 'surname(1,51)', 'surname(1,52)', 'surname(1,53)', 'surname(1,54)', 'surname(1,55)', 'surname(1,56)', 'surname(1,57)', 'surname(1,58)', 'surname(1,59)', 'surname(1,60)', 'surname(1,61)', 'surname(1,62)', 'surname(1,63)', 'surname(1,64)', 'surname(1,65)', 'surname(1,66)', 'surname(1,67)', 'surname(1,68)', 'surname(1,69)', 'surname(1,70)', 'surname(1,71)', 'surname(1,72)', 'surname(1,73)', 'surname(1,74)', 'surname(1,75)', 'surname(1,76)', 'surname(1,77)', 'surname(1,78)', 'surname(1,79)', 'surname(1,80)', 'surname(1,81)', 'surname(1,82)', 'surname(1,83)', 'surname(1,84)', 'surname(1,85)', 'surname(1,86)', 'surname(1,87)', 'surname(1,88)', 'surname(1,89)', 'surname(1,90)', 'surname(1,91)', 'surname(1,92)', 'surname(1,93)', 'surname(1,94)', 'surname(1,95)', 'surname(1,96)', 'surname(1,97)', 'surname(1,98)', 'surname(1,99)', 'surname(1,100)', 'surname(2,1)', 'surname(2,2)', 'surname(2,3)', 'surname(2,4)', 'surname(2,5)', 'surname(2,6)', 'surname(2,7)', 'surname(2,8)', 'surname(2,9)', 'surname(2,10)', 'surname(2,11)', 'surname(2,12)', 'surname(2,13)', 'surname(2,14)', 'surname(2,15)', 'surname(2,16)', 'surname(2,17)', 'surname(2,18)', 'surname(2,19)', 'surname(2,20)', 'surname(2,21)', 'surname(2,22)', 'surname(2,23)', 'surname(2,24)', 'surname(2,25)', 'surname(2,26)', 'surname(2,27)', 'surname(2,28)', 'surname(2,29)', 'surname(2,30)', 'surname(2,31)', 'surname(2,32)', 'surname(2,33)', 'surname(2,34)', 'surname(2,35)', 'surname(2,36)', 'surname(2,37)', 'surname(2,38)', 'surname(2,39)', 'surname(2,40)', 'surname(2,41)', 'surname(2,42)', 'surname(2,43)', 'surname(2,44)', 'surname(2,45)', 'surname(2,46)', 'surname(2,47)', 'surname(2,48)', 'surname(2,49)', 'surname(2,50)', 'surname(2,51)', 'surname(2,52)', 'surname(2,53)', 'surname(2,54)', 'surname(2,55)', 'surname(2,56)', 'surname(2,57)', 'surname(2,58)', 'surname(2,59)', 'surname(2,60)', 'surname(2,61)', 'surname(2,62)', 'surname(2,63)', 'surname(2,64)', 'surname(2,65)', 'surname(2,66)', 'surname(2,67)', 'surname(2,68)', 'surname(2,69)', 'surname(2,70)', 'surname(2,71)', 'surname(2,72)', 'surname(2,73)', 'surname(2,74)', 'surname(2,75)', 'surname(2,76)', 'surname(2,77)', 'surname(2,78)', 'surname(2,79)', 'surname(2,80)', 'surname(2,81)', 'surname(2,82)', 'surname(2,83)', 'surname(2,84)', 'surname(2,85)', 'surname(2,86)', 'surname(2,87)', 'surname(2,88)', 'surname(2,89)', 'surname(2,90)', 'surname(2,91)', 'surname(2,92)', 'surname(2,93)', 'surname(2,94)', 'surname(2,95)', 'surname(2,96)', 'surname(2,97)', 'surname(2,98)', 'surname(2,99)', 'surname(2,100)', 'surname(3,1)', 'surname(3,2)', 'surname(3,3)', 'surname(3,4)', 'surname(3,5)', 'surname(3,6)', 'surname(3,7)', 'surname(3,8)', 'surname(3,9)', 'surname(3,10)', 'surname(3,11)', 'surname(3,12)', 'surname(3,13)', 'surname(3,14)', 'surname(3,15)', 'surname(3,16)', 'surname(3,17)', 'surname(3,18)', 'surname(3,19)', 'surname(3,20)', 'surname(3,21)', 'surname(3,22)', 'surname(3,23)', 'surname(3,24)', 'surname(3,25)', 'surname(3,26)', 'surname(3,27)', 'surname(3,28)', 'surname(3,29)', 'surname(3,30)', 'surname(3,31)', 'surname(3,32)', 'surname(3,33)', 'surname(3,34)', 'surname(3,35)', 'surname(3,36)', 'surname(3,37)', 'surname(3,38)', 'surname(3,39)', 'surname(3,40)', 'surname(3,41)', 'surname(3,42)', 'surname(3,43)', 'surname(3,44)', 'surname(3,45)', 'surname(3,46)', 'surname(3,47)', 'surname(3,48)', 'surname(3,49)', 'surname(3,50)', 'surname(3,51)', 'surname(3,52)', 'surname(3,53)', 'surname(3,54)', 'surname(3,55)', 'surname(3,56)', 'surname(3,57)', 'surname(3,58)', 'surname(3,59)', 'surname(3,60)', 'surname(3,61)', 'surname(3,62)', 'surname(3,63)', 'surname(3,64)', 'surname(3,65)', 'surname(3,66)', 'surname(3,67)', 'surname(3,68)', 'surname(3,69)', 'surname(3,70)', 'surname(3,71)', 'surname(3,72)', 'surname(3,73)', 'surname(3,74)', 'surname(3,75)', 'surname(3,76)', 'surname(3,77)', 'surname(3,78)', 'surname(3,79)', 'surname(3,80)', 'surname(3,81)', 'surname(3,82)', 'surname(3,83)', 'surname(3,84)', 'surname(3,85)', 'surname(3,86)', 'surname(3,87)', 'surname(3,88)', 'surname(3,89)', 'surname(3,90)', 'surname(3,91)', 'surname(3,92)', 'surname(3,93)', 'surname(3,94)', 'surname(3,95)', 'surname(3,96)', 'surname(3,97)', 'surname(3,98)', 'surname(3,99)', 'surname(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5049
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate toronto. The labels are barcelona,strength,singapore,delhi,quality,white,mumbai,laptop,surname.
+
+answer from file: assign(X,"barcelona")|assign(X,"strength")|assign(X,"singapore")|assign(X,"delhi")|assign(X,"quality")|assign(X,"white")|assign(X,"mumbai")|assign(X,"laptop")|assign(X,"surname"):-toronto(X).
+
+facts: 
+toronto(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate toronto. The labels are barcelona,strength,singapore,delhi,quality,white,mumbai,laptop,surname.
+Answer: assign(X,"barcelona")|assign(X,"strength")|assign(X,"city")|assign(X,"delhi")|assign(X,"quality")|assign(X,"white")|assign(X,"mumbai")|assign(X,"laptop")|assign(X,"surname"):-tokyo(X).
+I would prefer that predicate "city" with value "1" is not associated with "object".
+Answer: assign(X,"city")|assign(X,"object"):-tokyo(X).
+Answer: assign(X,"city")|assign(X,"object"):-tokyo(X).
+
+parsed: 
+assign(X,"barcelona")|assign(X,"strength")|assign(X,"city")|assign(X,"delhi")|assign(X,"quality")|assign(X,"white")|assign(X,"mumbai")|assign(X,"laptop")|assign(X,"surname"):-tokyo(X).
+
+wanted answer_Set: [['toronto(1)', 'toronto(2)', 'toronto(3)', 'toronto(4)', 'toronto(5)', 'assign(1,"surname")', 'assign(2,"surname")', 'assign(3,"surname")', 'assign(4,"surname")', 'assign(5,"surname")']]
+
+generated answer_Set: [['toronto(1)', 'toronto(2)', 'toronto(3)', 'toronto(4)', 'toronto(5)']]
+
+jaccard: 0.0
+
+
+i: 5060
+
+index: 2
+
+combination
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "flower".
+
+answer from file: combination(X,Y):-butterfly(X),flower(Y).
+
+facts: 
+butterfly(1..4).flower(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "flower".
+Answer: combination(X,Y):-assign(X,"flower").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(X,"object").
+combination(X,Y):-assign(X,"object").
+combination(X,Y):-assign(X,"price").
+combination(X,Y):-assign(X,"price").
+combination(X,Y):-assign(X,"venice").
+combination(X,Y):-assign(X,"venice").
+```
+
+parsed: 
+combination(X,Y):-assign(X,"flower").
+
+wanted answer_Set: [['flower(1)', 'flower(2)', 'flower(3)', 'flower(4)', 'flower(5)', 'butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'butterfly(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5078
+
+index: 2
+
+combination
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "singapore".
+
+answer from file: combination(X,Y):-butterfly(X),singapore(Y).
+
+facts: 
+butterfly(1..4).singapore(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "singapore".
+Answer: combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,
+
+parsed: 
+combination(X,Y):-assign(X,"city").
+
+wanted answer_Set: [['singapore(1)', 'singapore(2)', 'singapore(3)', 'singapore(4)', 'singapore(5)', 'butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'butterfly(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5112
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate chair. The labels are storm,lake,flower,singapore,roof,wall,strength,toronto.
+
+answer from file: assign(X,"storm")|assign(X,"lake")|assign(X,"flower")|assign(X,"singapore")|assign(X,"roof")|assign(X,"wall")|assign(X,"strength")|assign(X,"toronto"):-chair(X).
+
+facts: 
+chair(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate chair. The labels are storm,lake,flower,singapore,roof,wall,strength,toronto.
+Answer: assign(X,"storm")|assign(X,"lake")|assign(X,"city")|assign(X,"green").
+I.e. assign(X,"city") if and only if (X="city").
+I.e. assign(X,"green") if and only if (X="green").
+I.e. assign(X,"city") if and only if (X="object").
+I.e. assign(X,"green") if and only if (X="object").
+I.e. assign(X,"city") if and only if (X="object").
+I.e. assign(X,"green") if and only if (X="object").
+
+parsed: 
+assign(X,"storm")|assign(X,"lake")|assign(X,"city")|assign(X,"green").
+
+wanted answer_Set: [['chair(1)', 'chair(2)', 'chair(3)', 'chair(4)', 'chair(5)', 'assign(1,"toronto")', 'assign(2,"toronto")', 'assign(3,"strength")', 'assign(4,"toronto")', 'assign(5,"toronto")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5121
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate barcelona. The labels are surname,owner,moscow,laptop,strength,butterfly,hair,cloud.
+
+answer from file: assign(X,"surname")|assign(X,"owner")|assign(X,"moscow")|assign(X,"laptop")|assign(X,"strength")|assign(X,"butterfly")|assign(X,"hair")|assign(X,"cloud"):-barcelona(X).
+
+facts: 
+barcelona(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate barcelona. The labels are surname,owner,moscow,laptop,strength,butterfly,hair,cloud.
+Answer: assign(X,"surname")|assign(X,"owner")|assign(X,"moto")|assign(X,"purple")|assign(X,"street").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+
+
+parsed: 
+assign(X,"surname")|assign(X,"owner")|assign(X,"moto")|assign(X,"purple")|assign(X,"street").
+
+wanted answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'assign(1,"cloud")', 'assign(2,"cloud")', 'assign(3,"hair")', 'assign(4,"cloud")', 'assign(5,"cloud")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5148
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lightblue. The labels are lake,desk,barcelona,pink.
+
+answer from file: assign(X,"lake")|assign(X,"desk")|assign(X,"barcelona")|assign(X,"pink"):-lightblue(X).
+
+facts: 
+lightblue(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lightblue. The labels are lake,desk,barcelona,pink.
+Answer: assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city").
+I.e. assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city"):-lightblue(X).
+I.e. assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city"):-lightblue(X).
+I.e. assign(X,"lake")|assign(X,"city"):-lightblue(X).
+I.e. assign(X,"city"):-lightblue(X).
+I.
+
+parsed: 
+assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city").
+
+wanted answer_Set: [['lightblue(1)', 'lightblue(2)', 'lightblue(3)', 'lightblue(4)', 'lightblue(5)', 'assign(1,"barcelona")', 'assign(2,"pink")', 'assign(3,"barcelona")', 'assign(4,"pink")', 'assign(5,"pink")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5164
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "roof" and label "hair".
+
+answer from file: select(X):-butterfly(X),not roof(X,"hair").
+
+facts: 
+butterfly(1..3).roof(1,"cairo").roof(2,"hair").roof(3,"chicago").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "roof" and label "hair".
+Answer: select(X):-bike(X,"city")&not roof(X,"hair").
+Explanation:
+- "bike(X,"city")": associates to each "city" the "city" of "bike".
+- "not roof(X,"hair)": associates to each "hair" the "city" of "city".
+- "select(X):-bike(X,"city")&not roof(X,"hair"): selects all "city" associated with "bike" but not associated with "city" and label "hair".
+
+parsed: 
+select(X):-bike(X,"city")&not roof(X,"hair").
+
+wanted answer_Set: [['butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'roof(1,"cairo")', 'roof(2,"hair")', 'roof(3,"chicago")', 'select(1)', 'select(3)']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5174
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "lake" with a value different than 60.
+
+answer from file: select(X):-lake(X,C),C!=60.
+
+facts: 
+lake(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "lake" with a value different than 60.
+Answer: select(X):-lake(X,"60").
+Answer(X):-lake(X,"60").
+
+parsed: 
+select(X):-lake(X,"60").
+
+wanted answer_Set: [['lake(1,1)', 'lake(1,2)', 'lake(1,3)', 'lake(1,4)', 'lake(1,5)', 'lake(1,6)', 'lake(1,7)', 'lake(1,8)', 'lake(1,9)', 'lake(1,10)', 'lake(1,11)', 'lake(1,12)', 'lake(1,13)', 'lake(1,14)', 'lake(1,15)', 'lake(1,16)', 'lake(1,17)', 'lake(1,18)', 'lake(1,19)', 'lake(1,20)', 'lake(1,21)', 'lake(1,22)', 'lake(1,23)', 'lake(1,24)', 'lake(1,25)', 'lake(1,26)', 'lake(1,27)', 'lake(1,28)', 'lake(1,29)', 'lake(1,30)', 'lake(1,31)', 'lake(1,32)', 'lake(1,33)', 'lake(1,34)', 'lake(1,35)', 'lake(1,36)', 'lake(1,37)', 'lake(1,38)', 'lake(1,39)', 'lake(1,40)', 'lake(1,41)', 'lake(1,42)', 'lake(1,43)', 'lake(1,44)', 'lake(1,45)', 'lake(1,46)', 'lake(1,47)', 'lake(1,48)', 'lake(1,49)', 'lake(1,50)', 'lake(1,51)', 'lake(1,52)', 'lake(1,53)', 'lake(1,54)', 'lake(1,55)', 'lake(1,56)', 'lake(1,57)', 'lake(1,58)', 'lake(1,59)', 'lake(1,60)', 'lake(1,61)', 'lake(1,62)', 'lake(1,63)', 'lake(1,64)', 'lake(1,65)', 'lake(1,66)', 'lake(1,67)', 'lake(1,68)', 'lake(1,69)', 'lake(1,70)', 'lake(1,71)', 'lake(1,72)', 'lake(1,73)', 'lake(1,74)', 'lake(1,75)', 'lake(1,76)', 'lake(1,77)', 'lake(1,78)', 'lake(1,79)', 'lake(1,80)', 'lake(1,81)', 'lake(1,82)', 'lake(1,83)', 'lake(1,84)', 'lake(1,85)', 'lake(1,86)', 'lake(1,87)', 'lake(1,88)', 'lake(1,89)', 'lake(1,90)', 'lake(1,91)', 'lake(1,92)', 'lake(1,93)', 'lake(1,94)', 'lake(1,95)', 'lake(1,96)', 'lake(1,97)', 'lake(1,98)', 'lake(1,99)', 'lake(1,100)', 'lake(2,1)', 'lake(2,2)', 'lake(2,3)', 'lake(2,4)', 'lake(2,5)', 'lake(2,6)', 'lake(2,7)', 'lake(2,8)', 'lake(2,9)', 'lake(2,10)', 'lake(2,11)', 'lake(2,12)', 'lake(2,13)', 'lake(2,14)', 'lake(2,15)', 'lake(2,16)', 'lake(2,17)', 'lake(2,18)', 'lake(2,19)', 'lake(2,20)', 'lake(2,21)', 'lake(2,22)', 'lake(2,23)', 'lake(2,24)', 'lake(2,25)', 'lake(2,26)', 'lake(2,27)', 'lake(2,28)', 'lake(2,29)', 'lake(2,30)', 'lake(2,31)', 'lake(2,32)', 'lake(2,33)', 'lake(2,34)', 'lake(2,35)', 'lake(2,36)', 'lake(2,37)', 'lake(2,38)', 'lake(2,39)', 'lake(2,40)', 'lake(2,41)', 'lake(2,42)', 'lake(2,43)', 'lake(2,44)', 'lake(2,45)', 'lake(2,46)', 'lake(2,47)', 'lake(2,48)', 'lake(2,49)', 'lake(2,50)', 'lake(2,51)', 'lake(2,52)', 'lake(2,53)', 'lake(2,54)', 'lake(2,55)', 'lake(2,56)', 'lake(2,57)', 'lake(2,58)', 'lake(2,59)', 'lake(2,60)', 'lake(2,61)', 'lake(2,62)', 'lake(2,63)', 'lake(2,64)', 'lake(2,65)', 'lake(2,66)', 'lake(2,67)', 'lake(2,68)', 'lake(2,69)', 'lake(2,70)', 'lake(2,71)', 'lake(2,72)', 'lake(2,73)', 'lake(2,74)', 'lake(2,75)', 'lake(2,76)', 'lake(2,77)', 'lake(2,78)', 'lake(2,79)', 'lake(2,80)', 'lake(2,81)', 'lake(2,82)', 'lake(2,83)', 'lake(2,84)', 'lake(2,85)', 'lake(2,86)', 'lake(2,87)', 'lake(2,88)', 'lake(2,89)', 'lake(2,90)', 'lake(2,91)', 'lake(2,92)', 'lake(2,93)', 'lake(2,94)', 'lake(2,95)', 'lake(2,96)', 'lake(2,97)', 'lake(2,98)', 'lake(2,99)', 'lake(2,100)', 'lake(3,1)', 'lake(3,2)', 'lake(3,3)', 'lake(3,4)', 'lake(3,5)', 'lake(3,6)', 'lake(3,7)', 'lake(3,8)', 'lake(3,9)', 'lake(3,10)', 'lake(3,11)', 'lake(3,12)', 'lake(3,13)', 'lake(3,14)', 'lake(3,15)', 'lake(3,16)', 'lake(3,17)', 'lake(3,18)', 'lake(3,19)', 'lake(3,20)', 'lake(3,21)', 'lake(3,22)', 'lake(3,23)', 'lake(3,24)', 'lake(3,25)', 'lake(3,26)', 'lake(3,27)', 'lake(3,28)', 'lake(3,29)', 'lake(3,30)', 'lake(3,31)', 'lake(3,32)', 'lake(3,33)', 'lake(3,34)', 'lake(3,35)', 'lake(3,36)', 'lake(3,37)', 'lake(3,38)', 'lake(3,39)', 'lake(3,40)', 'lake(3,41)', 'lake(3,42)', 'lake(3,43)', 'lake(3,44)', 'lake(3,45)', 'lake(3,46)', 'lake(3,47)', 'lake(3,48)', 'lake(3,49)', 'lake(3,50)', 'lake(3,51)', 'lake(3,52)', 'lake(3,53)', 'lake(3,54)', 'lake(3,55)', 'lake(3,56)', 'lake(3,57)', 'lake(3,58)', 'lake(3,59)', 'lake(3,60)', 'lake(3,61)', 'lake(3,62)', 'lake(3,63)', 'lake(3,64)', 'lake(3,65)', 'lake(3,66)', 'lake(3,67)', 'lake(3,68)', 'lake(3,69)', 'lake(3,70)', 'lake(3,71)', 'lake(3,72)', 'lake(3,73)', 'lake(3,74)', 'lake(3,75)', 'lake(3,76)', 'lake(3,77)', 'lake(3,78)', 'lake(3,79)', 'lake(3,80)', 'lake(3,81)', 'lake(3,82)', 'lake(3,83)', 'lake(3,84)', 'lake(3,85)', 'lake(3,86)', 'lake(3,87)', 'lake(3,88)', 'lake(3,89)', 'lake(3,90)', 'lake(3,91)', 'lake(3,92)', 'lake(3,93)', 'lake(3,94)', 'lake(3,95)', 'lake(3,96)', 'lake(3,97)', 'lake(3,98)', 'lake(3,99)', 'lake(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['lake(1,1)', 'lake(1,2)', 'lake(1,3)', 'lake(1,4)', 'lake(1,5)', 'lake(1,6)', 'lake(1,7)', 'lake(1,8)', 'lake(1,9)', 'lake(1,10)', 'lake(1,11)', 'lake(1,12)', 'lake(1,13)', 'lake(1,14)', 'lake(1,15)', 'lake(1,16)', 'lake(1,17)', 'lake(1,18)', 'lake(1,19)', 'lake(1,20)', 'lake(1,21)', 'lake(1,22)', 'lake(1,23)', 'lake(1,24)', 'lake(1,25)', 'lake(1,26)', 'lake(1,27)', 'lake(1,28)', 'lake(1,29)', 'lake(1,30)', 'lake(1,31)', 'lake(1,32)', 'lake(1,33)', 'lake(1,34)', 'lake(1,35)', 'lake(1,36)', 'lake(1,37)', 'lake(1,38)', 'lake(1,39)', 'lake(1,40)', 'lake(1,41)', 'lake(1,42)', 'lake(1,43)', 'lake(1,44)', 'lake(1,45)', 'lake(1,46)', 'lake(1,47)', 'lake(1,48)', 'lake(1,49)', 'lake(1,50)', 'lake(1,51)', 'lake(1,52)', 'lake(1,53)', 'lake(1,54)', 'lake(1,55)', 'lake(1,56)', 'lake(1,57)', 'lake(1,58)', 'lake(1,59)', 'lake(1,60)', 'lake(1,61)', 'lake(1,62)', 'lake(1,63)', 'lake(1,64)', 'lake(1,65)', 'lake(1,66)', 'lake(1,67)', 'lake(1,68)', 'lake(1,69)', 'lake(1,70)', 'lake(1,71)', 'lake(1,72)', 'lake(1,73)', 'lake(1,74)', 'lake(1,75)', 'lake(1,76)', 'lake(1,77)', 'lake(1,78)', 'lake(1,79)', 'lake(1,80)', 'lake(1,81)', 'lake(1,82)', 'lake(1,83)', 'lake(1,84)', 'lake(1,85)', 'lake(1,86)', 'lake(1,87)', 'lake(1,88)', 'lake(1,89)', 'lake(1,90)', 'lake(1,91)', 'lake(1,92)', 'lake(1,93)', 'lake(1,94)', 'lake(1,95)', 'lake(1,96)', 'lake(1,97)', 'lake(1,98)', 'lake(1,99)', 'lake(1,100)', 'lake(2,1)', 'lake(2,2)', 'lake(2,3)', 'lake(2,4)', 'lake(2,5)', 'lake(2,6)', 'lake(2,7)', 'lake(2,8)', 'lake(2,9)', 'lake(2,10)', 'lake(2,11)', 'lake(2,12)', 'lake(2,13)', 'lake(2,14)', 'lake(2,15)', 'lake(2,16)', 'lake(2,17)', 'lake(2,18)', 'lake(2,19)', 'lake(2,20)', 'lake(2,21)', 'lake(2,22)', 'lake(2,23)', 'lake(2,24)', 'lake(2,25)', 'lake(2,26)', 'lake(2,27)', 'lake(2,28)', 'lake(2,29)', 'lake(2,30)', 'lake(2,31)', 'lake(2,32)', 'lake(2,33)', 'lake(2,34)', 'lake(2,35)', 'lake(2,36)', 'lake(2,37)', 'lake(2,38)', 'lake(2,39)', 'lake(2,40)', 'lake(2,41)', 'lake(2,42)', 'lake(2,43)', 'lake(2,44)', 'lake(2,45)', 'lake(2,46)', 'lake(2,47)', 'lake(2,48)', 'lake(2,49)', 'lake(2,50)', 'lake(2,51)', 'lake(2,52)', 'lake(2,53)', 'lake(2,54)', 'lake(2,55)', 'lake(2,56)', 'lake(2,57)', 'lake(2,58)', 'lake(2,59)', 'lake(2,60)', 'lake(2,61)', 'lake(2,62)', 'lake(2,63)', 'lake(2,64)', 'lake(2,65)', 'lake(2,66)', 'lake(2,67)', 'lake(2,68)', 'lake(2,69)', 'lake(2,70)', 'lake(2,71)', 'lake(2,72)', 'lake(2,73)', 'lake(2,74)', 'lake(2,75)', 'lake(2,76)', 'lake(2,77)', 'lake(2,78)', 'lake(2,79)', 'lake(2,80)', 'lake(2,81)', 'lake(2,82)', 'lake(2,83)', 'lake(2,84)', 'lake(2,85)', 'lake(2,86)', 'lake(2,87)', 'lake(2,88)', 'lake(2,89)', 'lake(2,90)', 'lake(2,91)', 'lake(2,92)', 'lake(2,93)', 'lake(2,94)', 'lake(2,95)', 'lake(2,96)', 'lake(2,97)', 'lake(2,98)', 'lake(2,99)', 'lake(2,100)', 'lake(3,1)', 'lake(3,2)', 'lake(3,3)', 'lake(3,4)', 'lake(3,5)', 'lake(3,6)', 'lake(3,7)', 'lake(3,8)', 'lake(3,9)', 'lake(3,10)', 'lake(3,11)', 'lake(3,12)', 'lake(3,13)', 'lake(3,14)', 'lake(3,15)', 'lake(3,16)', 'lake(3,17)', 'lake(3,18)', 'lake(3,19)', 'lake(3,20)', 'lake(3,21)', 'lake(3,22)', 'lake(3,23)', 'lake(3,24)', 'lake(3,25)', 'lake(3,26)', 'lake(3,27)', 'lake(3,28)', 'lake(3,29)', 'lake(3,30)', 'lake(3,31)', 'lake(3,32)', 'lake(3,33)', 'lake(3,34)', 'lake(3,35)', 'lake(3,36)', 'lake(3,37)', 'lake(3,38)', 'lake(3,39)', 'lake(3,40)', 'lake(3,41)', 'lake(3,42)', 'lake(3,43)', 'lake(3,44)', 'lake(3,45)', 'lake(3,46)', 'lake(3,47)', 'lake(3,48)', 'lake(3,49)', 'lake(3,50)', 'lake(3,51)', 'lake(3,52)', 'lake(3,53)', 'lake(3,54)', 'lake(3,55)', 'lake(3,56)', 'lake(3,57)', 'lake(3,58)', 'lake(3,59)', 'lake(3,60)', 'lake(3,61)', 'lake(3,62)', 'lake(3,63)', 'lake(3,64)', 'lake(3,65)', 'lake(3,66)', 'lake(3,67)', 'lake(3,68)', 'lake(3,69)', 'lake(3,70)', 'lake(3,71)', 'lake(3,72)', 'lake(3,73)', 'lake(3,74)', 'lake(3,75)', 'lake(3,76)', 'lake(3,77)', 'lake(3,78)', 'lake(3,79)', 'lake(3,80)', 'lake(3,81)', 'lake(3,82)', 'lake(3,83)', 'lake(3,84)', 'lake(3,85)', 'lake(3,86)', 'lake(3,87)', 'lake(3,88)', 'lake(3,89)', 'lake(3,90)', 'lake(3,91)', 'lake(3,92)', 'lake(3,93)', 'lake(3,94)', 'lake(3,95)', 'lake(3,96)', 'lake(3,97)', 'lake(3,98)', 'lake(3,99)', 'lake(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5184
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate mumbai. The labels are moscow,toronto,darkmagenta,butterfly,chicago,chair,storm,black.
+
+answer from file: assign(X,"moscow")|assign(X,"toronto")|assign(X,"darkmagenta")|assign(X,"butterfly")|assign(X,"chicago")|assign(X,"chair")|assign(X,"storm")|assign(X,"black"):-mumbai(X).
+
+facts: 
+mumbai(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate mumbai. The labels are moscow,toronto,darkmagenta,butterfly,chicago,chair,storm,black.
+Answer: assign(X,"moscow")|assign(X,"toronto")|assign(X,"darkmagenta")|assign(X,"butterfly")|assign(X,"chicago")|assign(X,"chair")|assign(X,"storm")|assign(X,"black"):-city(X).
+I would prefer that predicate "city" with value "X" is assigned "london".
+Answer: assign(X,"london"):-city(X).
+I would prefer that predicate "city" with value "X" is assigned "city".
+Answer: assign(X,"city"):-city(X).
+
+parsed: 
+assign(X,"moscow")|assign(X,"toronto")|assign(X,"darkmagenta")|assign(X,"butterfly")|assign(X,"chicago")|assign(X,"chair")|assign(X,"storm")|assign(X,"black"):-city(X).
+
+wanted answer_Set: [['mumbai(1)', 'mumbai(2)', 'mumbai(3)', 'mumbai(4)', 'mumbai(5)', 'assign(1,"black")', 'assign(2,"black")', 'assign(3,"storm")', 'assign(4,"black")', 'assign(5,"black")']]
+
+generated answer_Set: [['mumbai(1)', 'mumbai(2)', 'mumbai(3)', 'mumbai(4)', 'mumbai(5)']]
+
+jaccard: 0.0
+
+
+i: 5200
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "butterfly" and label "butterfly".
+
+answer from file: select(X):-cairo(X),not butterfly(X,"butterfly").
+
+facts: 
+cairo(1..3).butterfly(1,"butterfly").butterfly(2,"wall").butterfly(3,"hair").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "butterfly" and label "butterfly".
+Answer: select(X):-city(X,"cairo")&not city(X,"butterfly").
+Answer(X):-city(X,"cairo")&not city(X,"butterfly").
+
+parsed: 
+select(X):-city(X,"cairo")&not city(X,"butterfly").
+
+wanted answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'butterfly(1,"butterfly")', 'butterfly(2,"wall")', 'butterfly(3,"hair")', 'select(2)', 'select(3)']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5201
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "toronto" with a value different than 98.
+
+answer from file: select(X):-toronto(X,C),C!=98.
+
+facts: 
+toronto(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "toronto" with a value different than 98.
+Answer: select(X):-toronto(X,"98").
+Answer(X):-city(X,"98").
+Answer(X):-city(X,"98").
+
+parsed: 
+select(X):-toronto(X,"98").
+
+wanted answer_Set: [['toronto(1,1)', 'toronto(1,2)', 'toronto(1,3)', 'toronto(1,4)', 'toronto(1,5)', 'toronto(1,6)', 'toronto(1,7)', 'toronto(1,8)', 'toronto(1,9)', 'toronto(1,10)', 'toronto(1,11)', 'toronto(1,12)', 'toronto(1,13)', 'toronto(1,14)', 'toronto(1,15)', 'toronto(1,16)', 'toronto(1,17)', 'toronto(1,18)', 'toronto(1,19)', 'toronto(1,20)', 'toronto(1,21)', 'toronto(1,22)', 'toronto(1,23)', 'toronto(1,24)', 'toronto(1,25)', 'toronto(1,26)', 'toronto(1,27)', 'toronto(1,28)', 'toronto(1,29)', 'toronto(1,30)', 'toronto(1,31)', 'toronto(1,32)', 'toronto(1,33)', 'toronto(1,34)', 'toronto(1,35)', 'toronto(1,36)', 'toronto(1,37)', 'toronto(1,38)', 'toronto(1,39)', 'toronto(1,40)', 'toronto(1,41)', 'toronto(1,42)', 'toronto(1,43)', 'toronto(1,44)', 'toronto(1,45)', 'toronto(1,46)', 'toronto(1,47)', 'toronto(1,48)', 'toronto(1,49)', 'toronto(1,50)', 'toronto(1,51)', 'toronto(1,52)', 'toronto(1,53)', 'toronto(1,54)', 'toronto(1,55)', 'toronto(1,56)', 'toronto(1,57)', 'toronto(1,58)', 'toronto(1,59)', 'toronto(1,60)', 'toronto(1,61)', 'toronto(1,62)', 'toronto(1,63)', 'toronto(1,64)', 'toronto(1,65)', 'toronto(1,66)', 'toronto(1,67)', 'toronto(1,68)', 'toronto(1,69)', 'toronto(1,70)', 'toronto(1,71)', 'toronto(1,72)', 'toronto(1,73)', 'toronto(1,74)', 'toronto(1,75)', 'toronto(1,76)', 'toronto(1,77)', 'toronto(1,78)', 'toronto(1,79)', 'toronto(1,80)', 'toronto(1,81)', 'toronto(1,82)', 'toronto(1,83)', 'toronto(1,84)', 'toronto(1,85)', 'toronto(1,86)', 'toronto(1,87)', 'toronto(1,88)', 'toronto(1,89)', 'toronto(1,90)', 'toronto(1,91)', 'toronto(1,92)', 'toronto(1,93)', 'toronto(1,94)', 'toronto(1,95)', 'toronto(1,96)', 'toronto(1,97)', 'toronto(1,98)', 'toronto(1,99)', 'toronto(1,100)', 'toronto(2,1)', 'toronto(2,2)', 'toronto(2,3)', 'toronto(2,4)', 'toronto(2,5)', 'toronto(2,6)', 'toronto(2,7)', 'toronto(2,8)', 'toronto(2,9)', 'toronto(2,10)', 'toronto(2,11)', 'toronto(2,12)', 'toronto(2,13)', 'toronto(2,14)', 'toronto(2,15)', 'toronto(2,16)', 'toronto(2,17)', 'toronto(2,18)', 'toronto(2,19)', 'toronto(2,20)', 'toronto(2,21)', 'toronto(2,22)', 'toronto(2,23)', 'toronto(2,24)', 'toronto(2,25)', 'toronto(2,26)', 'toronto(2,27)', 'toronto(2,28)', 'toronto(2,29)', 'toronto(2,30)', 'toronto(2,31)', 'toronto(2,32)', 'toronto(2,33)', 'toronto(2,34)', 'toronto(2,35)', 'toronto(2,36)', 'toronto(2,37)', 'toronto(2,38)', 'toronto(2,39)', 'toronto(2,40)', 'toronto(2,41)', 'toronto(2,42)', 'toronto(2,43)', 'toronto(2,44)', 'toronto(2,45)', 'toronto(2,46)', 'toronto(2,47)', 'toronto(2,48)', 'toronto(2,49)', 'toronto(2,50)', 'toronto(2,51)', 'toronto(2,52)', 'toronto(2,53)', 'toronto(2,54)', 'toronto(2,55)', 'toronto(2,56)', 'toronto(2,57)', 'toronto(2,58)', 'toronto(2,59)', 'toronto(2,60)', 'toronto(2,61)', 'toronto(2,62)', 'toronto(2,63)', 'toronto(2,64)', 'toronto(2,65)', 'toronto(2,66)', 'toronto(2,67)', 'toronto(2,68)', 'toronto(2,69)', 'toronto(2,70)', 'toronto(2,71)', 'toronto(2,72)', 'toronto(2,73)', 'toronto(2,74)', 'toronto(2,75)', 'toronto(2,76)', 'toronto(2,77)', 'toronto(2,78)', 'toronto(2,79)', 'toronto(2,80)', 'toronto(2,81)', 'toronto(2,82)', 'toronto(2,83)', 'toronto(2,84)', 'toronto(2,85)', 'toronto(2,86)', 'toronto(2,87)', 'toronto(2,88)', 'toronto(2,89)', 'toronto(2,90)', 'toronto(2,91)', 'toronto(2,92)', 'toronto(2,93)', 'toronto(2,94)', 'toronto(2,95)', 'toronto(2,96)', 'toronto(2,97)', 'toronto(2,98)', 'toronto(2,99)', 'toronto(2,100)', 'toronto(3,1)', 'toronto(3,2)', 'toronto(3,3)', 'toronto(3,4)', 'toronto(3,5)', 'toronto(3,6)', 'toronto(3,7)', 'toronto(3,8)', 'toronto(3,9)', 'toronto(3,10)', 'toronto(3,11)', 'toronto(3,12)', 'toronto(3,13)', 'toronto(3,14)', 'toronto(3,15)', 'toronto(3,16)', 'toronto(3,17)', 'toronto(3,18)', 'toronto(3,19)', 'toronto(3,20)', 'toronto(3,21)', 'toronto(3,22)', 'toronto(3,23)', 'toronto(3,24)', 'toronto(3,25)', 'toronto(3,26)', 'toronto(3,27)', 'toronto(3,28)', 'toronto(3,29)', 'toronto(3,30)', 'toronto(3,31)', 'toronto(3,32)', 'toronto(3,33)', 'toronto(3,34)', 'toronto(3,35)', 'toronto(3,36)', 'toronto(3,37)', 'toronto(3,38)', 'toronto(3,39)', 'toronto(3,40)', 'toronto(3,41)', 'toronto(3,42)', 'toronto(3,43)', 'toronto(3,44)', 'toronto(3,45)', 'toronto(3,46)', 'toronto(3,47)', 'toronto(3,48)', 'toronto(3,49)', 'toronto(3,50)', 'toronto(3,51)', 'toronto(3,52)', 'toronto(3,53)', 'toronto(3,54)', 'toronto(3,55)', 'toronto(3,56)', 'toronto(3,57)', 'toronto(3,58)', 'toronto(3,59)', 'toronto(3,60)', 'toronto(3,61)', 'toronto(3,62)', 'toronto(3,63)', 'toronto(3,64)', 'toronto(3,65)', 'toronto(3,66)', 'toronto(3,67)', 'toronto(3,68)', 'toronto(3,69)', 'toronto(3,70)', 'toronto(3,71)', 'toronto(3,72)', 'toronto(3,73)', 'toronto(3,74)', 'toronto(3,75)', 'toronto(3,76)', 'toronto(3,77)', 'toronto(3,78)', 'toronto(3,79)', 'toronto(3,80)', 'toronto(3,81)', 'toronto(3,82)', 'toronto(3,83)', 'toronto(3,84)', 'toronto(3,85)', 'toronto(3,86)', 'toronto(3,87)', 'toronto(3,88)', 'toronto(3,89)', 'toronto(3,90)', 'toronto(3,91)', 'toronto(3,92)', 'toronto(3,93)', 'toronto(3,94)', 'toronto(3,95)', 'toronto(3,96)', 'toronto(3,97)', 'toronto(3,98)', 'toronto(3,99)', 'toronto(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['toronto(1,1)', 'toronto(1,2)', 'toronto(1,3)', 'toronto(1,4)', 'toronto(1,5)', 'toronto(1,6)', 'toronto(1,7)', 'toronto(1,8)', 'toronto(1,9)', 'toronto(1,10)', 'toronto(1,11)', 'toronto(1,12)', 'toronto(1,13)', 'toronto(1,14)', 'toronto(1,15)', 'toronto(1,16)', 'toronto(1,17)', 'toronto(1,18)', 'toronto(1,19)', 'toronto(1,20)', 'toronto(1,21)', 'toronto(1,22)', 'toronto(1,23)', 'toronto(1,24)', 'toronto(1,25)', 'toronto(1,26)', 'toronto(1,27)', 'toronto(1,28)', 'toronto(1,29)', 'toronto(1,30)', 'toronto(1,31)', 'toronto(1,32)', 'toronto(1,33)', 'toronto(1,34)', 'toronto(1,35)', 'toronto(1,36)', 'toronto(1,37)', 'toronto(1,38)', 'toronto(1,39)', 'toronto(1,40)', 'toronto(1,41)', 'toronto(1,42)', 'toronto(1,43)', 'toronto(1,44)', 'toronto(1,45)', 'toronto(1,46)', 'toronto(1,47)', 'toronto(1,48)', 'toronto(1,49)', 'toronto(1,50)', 'toronto(1,51)', 'toronto(1,52)', 'toronto(1,53)', 'toronto(1,54)', 'toronto(1,55)', 'toronto(1,56)', 'toronto(1,57)', 'toronto(1,58)', 'toronto(1,59)', 'toronto(1,60)', 'toronto(1,61)', 'toronto(1,62)', 'toronto(1,63)', 'toronto(1,64)', 'toronto(1,65)', 'toronto(1,66)', 'toronto(1,67)', 'toronto(1,68)', 'toronto(1,69)', 'toronto(1,70)', 'toronto(1,71)', 'toronto(1,72)', 'toronto(1,73)', 'toronto(1,74)', 'toronto(1,75)', 'toronto(1,76)', 'toronto(1,77)', 'toronto(1,78)', 'toronto(1,79)', 'toronto(1,80)', 'toronto(1,81)', 'toronto(1,82)', 'toronto(1,83)', 'toronto(1,84)', 'toronto(1,85)', 'toronto(1,86)', 'toronto(1,87)', 'toronto(1,88)', 'toronto(1,89)', 'toronto(1,90)', 'toronto(1,91)', 'toronto(1,92)', 'toronto(1,93)', 'toronto(1,94)', 'toronto(1,95)', 'toronto(1,96)', 'toronto(1,97)', 'toronto(1,98)', 'toronto(1,99)', 'toronto(1,100)', 'toronto(2,1)', 'toronto(2,2)', 'toronto(2,3)', 'toronto(2,4)', 'toronto(2,5)', 'toronto(2,6)', 'toronto(2,7)', 'toronto(2,8)', 'toronto(2,9)', 'toronto(2,10)', 'toronto(2,11)', 'toronto(2,12)', 'toronto(2,13)', 'toronto(2,14)', 'toronto(2,15)', 'toronto(2,16)', 'toronto(2,17)', 'toronto(2,18)', 'toronto(2,19)', 'toronto(2,20)', 'toronto(2,21)', 'toronto(2,22)', 'toronto(2,23)', 'toronto(2,24)', 'toronto(2,25)', 'toronto(2,26)', 'toronto(2,27)', 'toronto(2,28)', 'toronto(2,29)', 'toronto(2,30)', 'toronto(2,31)', 'toronto(2,32)', 'toronto(2,33)', 'toronto(2,34)', 'toronto(2,35)', 'toronto(2,36)', 'toronto(2,37)', 'toronto(2,38)', 'toronto(2,39)', 'toronto(2,40)', 'toronto(2,41)', 'toronto(2,42)', 'toronto(2,43)', 'toronto(2,44)', 'toronto(2,45)', 'toronto(2,46)', 'toronto(2,47)', 'toronto(2,48)', 'toronto(2,49)', 'toronto(2,50)', 'toronto(2,51)', 'toronto(2,52)', 'toronto(2,53)', 'toronto(2,54)', 'toronto(2,55)', 'toronto(2,56)', 'toronto(2,57)', 'toronto(2,58)', 'toronto(2,59)', 'toronto(2,60)', 'toronto(2,61)', 'toronto(2,62)', 'toronto(2,63)', 'toronto(2,64)', 'toronto(2,65)', 'toronto(2,66)', 'toronto(2,67)', 'toronto(2,68)', 'toronto(2,69)', 'toronto(2,70)', 'toronto(2,71)', 'toronto(2,72)', 'toronto(2,73)', 'toronto(2,74)', 'toronto(2,75)', 'toronto(2,76)', 'toronto(2,77)', 'toronto(2,78)', 'toronto(2,79)', 'toronto(2,80)', 'toronto(2,81)', 'toronto(2,82)', 'toronto(2,83)', 'toronto(2,84)', 'toronto(2,85)', 'toronto(2,86)', 'toronto(2,87)', 'toronto(2,88)', 'toronto(2,89)', 'toronto(2,90)', 'toronto(2,91)', 'toronto(2,92)', 'toronto(2,93)', 'toronto(2,94)', 'toronto(2,95)', 'toronto(2,96)', 'toronto(2,97)', 'toronto(2,98)', 'toronto(2,99)', 'toronto(2,100)', 'toronto(3,1)', 'toronto(3,2)', 'toronto(3,3)', 'toronto(3,4)', 'toronto(3,5)', 'toronto(3,6)', 'toronto(3,7)', 'toronto(3,8)', 'toronto(3,9)', 'toronto(3,10)', 'toronto(3,11)', 'toronto(3,12)', 'toronto(3,13)', 'toronto(3,14)', 'toronto(3,15)', 'toronto(3,16)', 'toronto(3,17)', 'toronto(3,18)', 'toronto(3,19)', 'toronto(3,20)', 'toronto(3,21)', 'toronto(3,22)', 'toronto(3,23)', 'toronto(3,24)', 'toronto(3,25)', 'toronto(3,26)', 'toronto(3,27)', 'toronto(3,28)', 'toronto(3,29)', 'toronto(3,30)', 'toronto(3,31)', 'toronto(3,32)', 'toronto(3,33)', 'toronto(3,34)', 'toronto(3,35)', 'toronto(3,36)', 'toronto(3,37)', 'toronto(3,38)', 'toronto(3,39)', 'toronto(3,40)', 'toronto(3,41)', 'toronto(3,42)', 'toronto(3,43)', 'toronto(3,44)', 'toronto(3,45)', 'toronto(3,46)', 'toronto(3,47)', 'toronto(3,48)', 'toronto(3,49)', 'toronto(3,50)', 'toronto(3,51)', 'toronto(3,52)', 'toronto(3,53)', 'toronto(3,54)', 'toronto(3,55)', 'toronto(3,56)', 'toronto(3,57)', 'toronto(3,58)', 'toronto(3,59)', 'toronto(3,60)', 'toronto(3,61)', 'toronto(3,62)', 'toronto(3,63)', 'toronto(3,64)', 'toronto(3,65)', 'toronto(3,66)', 'toronto(3,67)', 'toronto(3,68)', 'toronto(3,69)', 'toronto(3,70)', 'toronto(3,71)', 'toronto(3,72)', 'toronto(3,73)', 'toronto(3,74)', 'toronto(3,75)', 'toronto(3,76)', 'toronto(3,77)', 'toronto(3,78)', 'toronto(3,79)', 'toronto(3,80)', 'toronto(3,81)', 'toronto(3,82)', 'toronto(3,83)', 'toronto(3,84)', 'toronto(3,85)', 'toronto(3,86)', 'toronto(3,87)', 'toronto(3,88)', 'toronto(3,89)', 'toronto(3,90)', 'toronto(3,91)', 'toronto(3,92)', 'toronto(3,93)', 'toronto(3,94)', 'toronto(3,95)', 'toronto(3,96)', 'toronto(3,97)', 'toronto(3,98)', 'toronto(3,99)', 'toronto(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5202
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are flower,white,quality,toronto,lightblue,owner,lake,pink.
+
+answer from file: assign(X,"flower")|assign(X,"white")|assign(X,"quality")|assign(X,"toronto")|assign(X,"lightblue")|assign(X,"owner")|assign(X,"lake")|assign(X,"pink"):-flower(X).
+
+facts: 
+flower(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are flower,white,quality,toronto,lightblue,owner,lake,pink.
+Answer: assign(X,"flower")|assign(X,"white")|assign(X,"city")|assign(X,"london").
+I would prefer that predicate "city" with value "1" is not associated with "city".
+Answer: assign(X,"city")|assign(X,"city").
+Answer: assign(X,"city")|assign(X,"florence").
+Answer: assign(X,"city").
+Answer: assign(X,"florence").
+Answer: assign(X,"city").
+Answer: assign(X,"florence").
+Answer: assign(X,"city").
+Answer: assign(X,"florence").
+Answer: assign(X,"city").
+
+parsed: 
+assign(X,"flower")|assign(X,"white")|assign(X,"city")|assign(X,"london").
+
+wanted answer_Set: [['flower(1)', 'flower(2)', 'flower(3)', 'flower(4)', 'flower(5)', 'assign(1,"pink")', 'assign(2,"pink")', 'assign(3,"lake")', 'assign(4,"pink")', 'assign(5,"pink")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+

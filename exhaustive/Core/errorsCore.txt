@@ -3450,3 +3450,234 @@ answerset from file: [['cosenza(1)', 'cosenza(2)', 'cosenza(3)', 'cosenza(4)', '
 
 answerset from parsed: ['error']
 
+i: 5060
+
+index: 2
+
+combination
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "flower".
+
+answer from file: combination(X,Y):-butterfly(X),flower(Y).
+
+facts: 
+butterfly(1..4).flower(1..5).
+
+generated_answer: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "flower".
+Answer: combination(X,Y):-assign(X,"flower").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(X,"object").
+combination(X,Y):-assign(X,"object").
+combination(X,Y):-assign(X,"price").
+combination(X,Y):-assign(X,"price").
+combination(X,Y):-assign(X,"venice").
+combination(X,Y):-assign(X,"venice").
+```
+
+parsed answer: combination(X,Y):-assign(X,"flower").
+
+answerset from file: [['flower(1)', 'flower(2)', 'flower(3)', 'flower(4)', 'flower(5)', 'butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'butterfly(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+answerset from parsed: ['error']
+
+i: 5078
+
+index: 2
+
+combination
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "singapore".
+
+answer from file: combination(X,Y):-butterfly(X),singapore(Y).
+
+facts: 
+butterfly(1..4).singapore(1..5).
+
+generated_answer: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "singapore".
+Answer: combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(Y,"city").
+combination(X,Y):-assign(X,"city").
+combination(X,
+
+parsed answer: combination(X,Y):-assign(X,"city").
+
+answerset from file: [['singapore(1)', 'singapore(2)', 'singapore(3)', 'singapore(4)', 'singapore(5)', 'butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'butterfly(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+answerset from parsed: ['error']
+
+i: 5112
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate chair. The labels are storm,lake,flower,singapore,roof,wall,strength,toronto.
+
+answer from file: assign(X,"storm")|assign(X,"lake")|assign(X,"flower")|assign(X,"singapore")|assign(X,"roof")|assign(X,"wall")|assign(X,"strength")|assign(X,"toronto"):-chair(X).
+
+facts: 
+chair(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate chair. The labels are storm,lake,flower,singapore,roof,wall,strength,toronto.
+Answer: assign(X,"storm")|assign(X,"lake")|assign(X,"city")|assign(X,"green").
+I.e. assign(X,"city") if and only if (X="city").
+I.e. assign(X,"green") if and only if (X="green").
+I.e. assign(X,"city") if and only if (X="object").
+I.e. assign(X,"green") if and only if (X="object").
+I.e. assign(X,"city") if and only if (X="object").
+I.e. assign(X,"green") if and only if (X="object").
+
+parsed answer: assign(X,"storm")|assign(X,"lake")|assign(X,"city")|assign(X,"green").
+
+answerset from file: [['chair(1)', 'chair(2)', 'chair(3)', 'chair(4)', 'chair(5)', 'assign(1,"toronto")', 'assign(2,"toronto")', 'assign(3,"strength")', 'assign(4,"toronto")', 'assign(5,"toronto")']]
+
+answerset from parsed: ['error']
+
+i: 5121
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate barcelona. The labels are surname,owner,moscow,laptop,strength,butterfly,hair,cloud.
+
+answer from file: assign(X,"surname")|assign(X,"owner")|assign(X,"moscow")|assign(X,"laptop")|assign(X,"strength")|assign(X,"butterfly")|assign(X,"hair")|assign(X,"cloud"):-barcelona(X).
+
+facts: 
+barcelona(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate barcelona. The labels are surname,owner,moscow,laptop,strength,butterfly,hair,cloud.
+Answer: assign(X,"surname")|assign(X,"owner")|assign(X,"moto")|assign(X,"purple")|assign(X,"street").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+I would prefer that predicate "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+
+
+parsed answer: assign(X,"surname")|assign(X,"owner")|assign(X,"moto")|assign(X,"purple")|assign(X,"street").
+
+answerset from file: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'assign(1,"cloud")', 'assign(2,"cloud")', 'assign(3,"hair")', 'assign(4,"cloud")', 'assign(5,"cloud")']]
+
+answerset from parsed: ['error']
+
+i: 5148
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lightblue. The labels are lake,desk,barcelona,pink.
+
+answer from file: assign(X,"lake")|assign(X,"desk")|assign(X,"barcelona")|assign(X,"pink"):-lightblue(X).
+
+facts: 
+lightblue(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lightblue. The labels are lake,desk,barcelona,pink.
+Answer: assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city").
+I.e. assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city"):-lightblue(X).
+I.e. assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city"):-lightblue(X).
+I.e. assign(X,"lake")|assign(X,"city"):-lightblue(X).
+I.e. assign(X,"city"):-lightblue(X).
+I.
+
+parsed answer: assign(X,"lake")|assign(X,"desk")|assign(X,"london")|assign(X,"city").
+
+answerset from file: [['lightblue(1)', 'lightblue(2)', 'lightblue(3)', 'lightblue(4)', 'lightblue(5)', 'assign(1,"barcelona")', 'assign(2,"pink")', 'assign(3,"barcelona")', 'assign(4,"pink")', 'assign(5,"pink")']]
+
+answerset from parsed: ['error']
+
+i: 5164
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "roof" and label "hair".
+
+answer from file: select(X):-butterfly(X),not roof(X,"hair").
+
+facts: 
+butterfly(1..3).roof(1,"cairo").roof(2,"hair").roof(3,"chicago").
+
+generated_answer: Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "roof" and label "hair".
+Answer: select(X):-bike(X,"city")&not roof(X,"hair").
+Explanation:
+- "bike(X,"city")": associates to each "city" the "city" of "bike".
+- "not roof(X,"hair)": associates to each "hair" the "city" of "city".
+- "select(X):-bike(X,"city")&not roof(X,"hair"): selects all "city" associated with "bike" but not associated with "city" and label "hair".
+
+parsed answer: select(X):-bike(X,"city")&not roof(X,"hair").
+
+answerset from file: [['butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'roof(1,"cairo")', 'roof(2,"hair")', 'roof(3,"chicago")', 'select(1)', 'select(3)']]
+
+answerset from parsed: ['error']
+
+i: 5200
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "butterfly" and label "butterfly".
+
+answer from file: select(X):-cairo(X),not butterfly(X,"butterfly").
+
+facts: 
+cairo(1..3).butterfly(1,"butterfly").butterfly(2,"wall").butterfly(3,"hair").
+
+generated_answer: Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "butterfly" and label "butterfly".
+Answer: select(X):-city(X,"cairo")&not city(X,"butterfly").
+Answer(X):-city(X,"cairo")&not city(X,"butterfly").
+
+parsed answer: select(X):-city(X,"cairo")&not city(X,"butterfly").
+
+answerset from file: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'butterfly(1,"butterfly")', 'butterfly(2,"wall")', 'butterfly(3,"hair")', 'select(2)', 'select(3)']]
+
+answerset from parsed: ['error']
+
+i: 5202
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are flower,white,quality,toronto,lightblue,owner,lake,pink.
+
+answer from file: assign(X,"flower")|assign(X,"white")|assign(X,"quality")|assign(X,"toronto")|assign(X,"lightblue")|assign(X,"owner")|assign(X,"lake")|assign(X,"pink"):-flower(X).
+
+facts: 
+flower(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are flower,white,quality,toronto,lightblue,owner,lake,pink.
+Answer: assign(X,"flower")|assign(X,"white")|assign(X,"city")|assign(X,"london").
+I would prefer that predicate "city" with value "1" is not associated with "city".
+Answer: assign(X,"city")|assign(X,"city").
+Answer: assign(X,"city")|assign(X,"florence").
+Answer: assign(X,"city").
+Answer: assign(X,"florence").
+Answer: assign(X,"city").
+Answer: assign(X,"florence").
+Answer: assign(X,"city").
+Answer: assign(X,"florence").
+Answer: assign(X,"city").
+
+parsed answer: assign(X,"flower")|assign(X,"white")|assign(X,"city")|assign(X,"london").
+
+answerset from file: [['flower(1)', 'flower(2)', 'flower(3)', 'flower(4)', 'flower(5)', 'assign(1,"pink")', 'assign(2,"pink")', 'assign(3,"lake")', 'assign(4,"pink")', 'assign(5,"pink")']]
+
+answerset from parsed: ['error']
+
