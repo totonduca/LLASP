@@ -7491,3 +7491,31 @@ generated answer_Set: [['laptop(1,"mumbai")', 'laptop(2,"mumbai")', 'laptop(3,"m
 jaccard: 0.0
 
 
+i: 4212
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are strength,singapore,storm,moscow,wall,lightblue,delhi,weight.
+
+answer from file: assign(X,"strength")|assign(X,"singapore")|assign(X,"storm")|assign(X,"moscow")|assign(X,"wall")|assign(X,"lightblue")|assign(X,"delhi")|assign(X,"weight"):-cairo(X).
+
+facts: 
+cairo(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are strength,singapore,storm,moscow,wall,lightblue,delhi,weight.
+Answer: assign(X,"strength")|assign(X,"singapore")|assign(X,"tokyo")|assign(X,"street")|assign(X,"london")|assign(X,"gray")|assign(X,"purple")|assign(X,"city")|assign(X,"shape")|assign(X,"rome")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"city")|assign(X,"shape")|assign(X,"rome")|assign(X,"table")|...:cairo(X).
+Explanation: The predicate "cairo" assigns one label from the set "street","london","gray
+
+parsed: 
+assign(X,"strength")|assign(X,"singapore")|assign(X,"tokyo")|assign(X,"street")|assign(X,"london")|assign(X,"gray")|assign(X,"purple")|assign(X,"city")|assign(X,"shape")|assign(X,"rome")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"city")|assign(X,"shape")|assign(X,"rome")|assign(X,"table")|.
+
+wanted answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'assign(1,"weight")', 'assign(2,"weight")', 'assign(3,"delhi")', 'assign(4,"weight")', 'assign(5,"weight")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+

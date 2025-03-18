@@ -3681,3 +3681,65 @@ answerset from file: [['flower(1)', 'flower(2)', 'flower(3)', 'flower(4)', 'flow
 
 answerset from parsed: ['error']
 
+i: 5220
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate chair. The labels are storm,lake,flower,singapore,roof,wall,strength,toronto.
+
+answer from file: assign(X,"storm")|assign(X,"lake")|assign(X,"flower")|assign(X,"singapore")|assign(X,"roof")|assign(X,"wall")|assign(X,"strength")|assign(X,"toronto"):-chair(X).
+
+facts: 
+chair(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate chair. The labels are storm,lake,flower,singapore,roof,wall,strength,toronto.
+Answer: assign(X,"storm")|assign(X,"lake")|assign(X,"city")|assign(X,"green").
+I.e. assign(X,"city") if and only if (X="city").
+I.e. assign(X,"green") if and only if (X="green").
+I.e. assign(X,"city") if and only if (X="object").
+I.e. assign(X,"green") if and only if (X="object").
+I.e. assign(X,"city") if and only if (X="object").
+I.e. assign(X,"green") if and only if (X="object").
+
+parsed answer: assign(X,"storm")|assign(X,"lake")|assign(X,"city")|assign(X,"green").
+
+answerset from file: [['chair(1)', 'chair(2)', 'chair(3)', 'chair(4)', 'chair(5)', 'assign(1,"toronto")', 'assign(2,"toronto")', 'assign(3,"strength")', 'assign(4,"toronto")', 'assign(5,"toronto")']]
+
+answerset from parsed: ['error']
+
+i: 5249
+
+index: 2
+
+combination
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "mumbai".
+
+answer from file: combination(X,Y):-butterfly(X),mumbai(Y).
+
+facts: 
+butterfly(1..4).mumbai(1..5).
+
+generated_answer: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "mumbai".
+Answer: combination(X,Y):-assign(X,"mumbai").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(X,"venice").
+combination(X,Y):-assign(X,"florence").
+combination(X,Y):-assign(X,"city".).
+```
+Explanation:
+- combination(X,Y):-assign(X,"mumbai").
+This predicate associates to each element of X the label "mumbai".
+- combination(X,Y):-assign(X,"city").
+This predicate associates to each element of X the label "city".
+- combination(X,Y):-assign(X,"venice").
+
+
+parsed answer: combination(X,Y):-assign(X,"mumbai").
+
+answerset from file: [['mumbai(1)', 'mumbai(2)', 'mumbai(3)', 'mumbai(4)', 'mumbai(5)', 'butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'butterfly(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+answerset from parsed: ['error']
+
