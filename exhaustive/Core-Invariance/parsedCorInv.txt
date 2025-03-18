@@ -131600,3 +131600,5954 @@ parsed:
 jaccard: 1.0
 
 
+4245
+filtering
+
+question: 
+Design an ASP program to gather values tied to the "chair" label within the context of the predicate "chicago".
+
+answer from file: 
+select(X):-chicago(X,"chair").
+
+facts: 
+chicago(1..5, "chair").
+
+generated: 
+Design an ASP program to gather values tied to the "chair" label within the context of the predicate "chicago".
+Answer: select(X):-chicago(X,"chair").
+```
+select(X):-chicago(X,"chair").
+```
+The predicate "chicago" includes fields "ID","shape","city","price","name", and the label "chair" is associated with the "name" predicate.
+The predicate "name" includes fields "ID","shape".
+So, the predicate "select" includes fields "ID","shape".
+The predicate "tokyo" includes fields "ID","shape".
+So, the predicate "select" includes fields "ID","shape".
+The predicate "shape" includes fields "ID","shape".
+So, the predicate "select" includes fields "ID","shape".
+The predicate "
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-chicago(X,"chair").
+
+jaccard: 1.0
+
+
+4246
+negative_filtering
+
+question: 
+Create an ASP program to capture values associated with the predicate "chicago" but not to the predicate "owner" and labeled "moscow".
+
+answer from file: 
+select(X):-chicago(X),not owner(X,"moscow").
+
+facts: 
+chicago(1..3).owner(1,"toronto").owner(2,"flower").owner(3,"roof").
+
+generated: 
+Create an ASP program to capture values associated with the predicate "chicago" but not to the predicate "owner" and labeled "moscow".
+Answer: select(X):-chicago(X),not owner(X,"moscow").
+```
+select(X):-chicago(X),not owner(X,"moscow").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-chicago(X),not owner(X,"moscow").
+
+jaccard: 1.0
+
+
+4247
+numeric_filtering
+
+question: 
+Develop an ASP application to retrieve all values connected to the predicate "black" with a value different than 66.
+
+answer from file: 
+select(X):-black(X,C),C!=66.
+
+facts: 
+black(1..3, 1..100).
+
+generated: 
+Develop an ASP application to retrieve all values connected to the predicate "black" with a value different than 66.
+Answer: select(X):-black(X,C),C!=66.
+```
+The predicate "black" has fields "ID","shape","city","price","name", and the predicate "name" has fields "ID","shape". Define a predicate "table" that links each black to the shape of name.
+Answer: select(X):-black(X,_,_,_,_),name(X,_,).
+```
+The predicate "table" has fields "ID","shape". Define a predicate "purple" that links each black to the shape of table.
+Answer: select(X):-black(X,_,_,_,_),table(X,_,).
+```
+The predicate "purple" has
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-black(X,C),C!=66.
+
+jaccard: 1.0
+
+
+4248
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate darkmagenta. The labels are chicago,surname,strength.
+
+answer from file: 
+assign(X,"chicago")|assign(X,"surname")|assign(X,"strength"):-darkmagenta(X).
+
+facts: 
+darkmagenta(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate darkmagenta. The labels are chicago,surname,strength.
+Answer: assign(X,"chicago")|assign(X,"surname")|assign(X,"strength"):-darkmagenta(X).
+```
+The predicate "darkmagenta" is defined as the transitive closure of the predicate "purple".
+```
+darkmagenta(X,Y):-purple(X,Y).
+darkmagenta(X,Y):-purple(X,Z),assign(Z,"tokyo").
+```
+The predicate "purple" is defined as the transitive closure of the predicate "shape".
+```
+purple(X,Y):-shape(X,Y).
+purple(X,Y):-shape(X,Z),assign(Z,"paris").
+```
+The predicate "shape" is defined
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"chicago")|assign(X,"surname")|assign(X,"strength"):-darkmagenta(X).
+
+jaccard: 1.0
+
+
+4249
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "darkmagenta" with value "10" from having label "chair".
+
+answer from file: 
+:-assign(10,chair).
+
+facts: 
+darkmagenta(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "darkmagenta" with value "10" from having label "chair".
+Answer: :-assign(10,chair).
+Explanation: The predicate "darkmagenta" with value "10" does not have label "chair".
+```
+assign(10,chair).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(10,chair).
+
+jaccard: 1.0
+
+
+4250
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "owner" and "pink".
+
+answer from file: 
+combination(X,Y):-owner(X),pink(Y).
+
+facts: 
+owner(1..4).pink(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "owner" and "pink".
+Answer: combination(X,Y):-owner(X),pink(Y).
+combination(X,Y):-owner(X),not pink(Y).
+combination(X,Y):-not owner(X),pink(Y).
+combination(X,Y):-not owner(X),not pink(Y).
+combination(X,Y):-owner(X),city(Y).
+combination(X,Y):-city(X),pink(Y).
+combination(X,Y):-city(X),not pink(Y).
+combination(X,Y):-not city(X),pink(Y).
+combination(X,Y):-not city(X),not pink(Y).
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-owner(X),pink(Y).
+
+jaccard: 1.0
+
+
+4251
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "darkmagenta" having fields "ID","wallID","owner", and the predicate "wall" having fields "ID","strength". Define a predicate "darkmagenta_wall" that associates to each "darkmagenta" the "strength" of "wall".
+
+answer from file: 
+darkmagenta_wall(X,Z):-darkmagenta(X,Y,_),wall(Y,Z).
+
+facts: 
+darkmagenta("ID","wallID","owner").wall("ID","strength").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "darkmagenta" having fields "ID","wallID","owner", and the predicate "wall" having fields "ID","strength". Define a predicate "darkmagenta_wall" that associates to each "darkmagenta" the "strength" of "wall".
+Answer: darkmagenta_wall(X,Z):-darkmagenta(X,Y,_),wall(Y,Z).
+darkmagenta_wall(X,Z):-darkmagenta(X,Y,_),not wall(Y,Z).
+darkmagenta_wall(X,Z):-darkmagenta(X,Y,_),wall(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+darkmagenta_wall(X,Z):-darkmagenta(X,Y,_),wall(Y,Z).
+
+jaccard: 1.0
+
+
+4252
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "trains" as the transitive closure of predicate "moscow".
+
+answer from file: 
+trains(X,Y):-moscow(X,Y).
+trains(X,Y):-moscow(X,Z),trains(Z,Y).
+
+facts: 
+moscow(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "trains" as the transitive closure of predicate "moscow".
+Answer: trains(X,Y):-moscow(X,Y).
+trains(X,Y):-moscow(X,Z),trains(Z,Y).
+```
+The predicate "trains" defines the transitive closure of "moscow" and the predicate "flights" defines the transitive closure of "trains".
+```
+flights(X,Y):-trains(X,Y).
+flights(X,Y):-trains(X,Z),flights(Z,Y).
+```
+The predicate "trains" is the transitive closure of "moscow" and the predicate "flights" is the transitive closure of "trains".
+
+unique_rules: 
+[]
+
+parsed: 
+trains(X,Y):-moscow(X,Y).
+trains(X,Y):-moscow(X,Z),trains(Z,Y).
+
+jaccard: 1.0
+
+
+4253
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "roof" with value "11" is not associated with "mumbai". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(11,"mumbai").[1@1]
+
+facts: 
+roof(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "roof" with value "11" is not associated with "mumbai". If this occurs, it costs "1" at level "1".
+Answer: :~assign(11,"mumbai").[1@1]
+This predicate ensures that the "11" is not associated with "mumbai". It costs "1" at level "1" if this association occurs.
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(11,"mumbai").[1@1]
+
+jaccard: 1.0
+
+
+4254
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "roof" with label "barcelona".
+
+answer from file: 
+select(X):-roof(X,"barcelona").
+
+facts: 
+roof(1..5, "barcelona").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "roof" with label "barcelona".
+Answer: select(X):-roof(X,"barcelona").
+```
+roof(X,"london").
+roof(X,"gray").
+```
+The predicate "london" does not exist, and the predicate "gray" has a value different than 19.
+The predicate "rome" has a value different than 19.
+The predicate "table" has a value different than 19.
+The predicate "purple" has a value different than 19.
+The predicate "shape" has a value different than 19.
+The predicate "florence" has a value different than 19.
+The predicate "paris" has a value different than 19.
+The predicate
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-roof(X,"barcelona").
+
+jaccard: 1.0
+
+
+4255
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "laptop" but not associated with predicate "black" and label "roof".
+
+answer from file: 
+select(X):-laptop(X),not black(X,"roof").
+
+facts: 
+laptop(1..3).black(1,"strength").black(2,"desk").black(3,"weight").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "laptop" but not associated with predicate "black" and label "roof".
+Answer: select(X):-laptop(X),not black(X,"roof").
+```
+The predicate "brown" is the negation of the predicate "purple".
+The predicate "black" is the negation of the predicate "purple".
+The predicate "roof" is the transitive closure of the predicate "purple".
+So, the predicate "select" is the negation of the predicate "brown".
+The predicate "brown" is the negation of the predicate "purple".
+The predicate "roof" is the transitive closure of the predicate "purple".
+The predicate "select" is the combination of the predicates "brown" and "rome".
+The predicate "rome" is the transitive closure of the predicate "brown".
+
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-laptop(X),not black(X,"roof").
+
+jaccard: 1.0
+
+
+4256
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "white" with a value different than 1.
+
+answer from file: 
+select(X):-white(X,C),C!=1.
+
+facts: 
+white(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "white" with a value different than 1.
+Answer: select(X):-white(X,C),C!=1.
+```
+The predicate "white" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "gray" that links each white to the shape of city.
+Answer: gray(X,Z):-white(X,C),C!=1,city(C,Z).
+```
+The predicate "gray" links each white to the shape of city.
+The predicate "city" links each city to the shape of white.
+The predicate "gray" is the transitive closure of the predicate "white".
+The predicate "city" is the transitive closure of the predicate
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-white(X,C),C!=1.
+
+jaccard: 1.0
+
+
+4257
+assignment
+
+question: 
+Develop an ASP application to assign one label from "storm","wall","weight","flower","delhi","pink","singapore","mumbai" to elements defined by the predicate "surname".
+
+answer from file: 
+assign(X,"storm")|assign(X,"wall")|assign(X,"weight")|assign(X,"flower")|assign(X,"delhi")|assign(X,"pink")|assign(X,"singapore")|assign(X,"mumbai"):-surname(X).
+
+facts: 
+surname(1..5).
+
+generated: 
+Develop an ASP application to assign one label from "storm","wall","weight","flower","delhi","pink","singapore","mumbai" to elements defined by the predicate "surname".
+Answer: assign(X,"storm")|assign(X,"wall")|assign(X,"weight")|assign(X,"flower")|assign(X,"delhi")|assign(X,"pink")|assign(X,"singapore")|assign(X,"mumbai"):-surname(X).
+```
+The predicate "name" is the transitive closure of the predicate "table".
+```
+name(X,Y):-table(X,Y).
+name(X,Y):-table(X,Z),name(Z,Y).
+```
+The predicate "table" assigns one label from "table","purple","shape","city","amsterdam","gray","purple","shape","city","
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"storm")|assign(X,"wall")|assign(X,"weight")|assign(X,"flower")|assign(X,"delhi")|assign(X,"pink")|assign(X,"singapore")|assign(X,"mumbai"):-surname(X).
+
+jaccard: 1.0
+
+
+4258
+constraint
+
+question: 
+Compose an ASP solution to ensure the "pink" predicate with value 7 is not associated with the label "chicago".
+
+answer from file: 
+:-assign(7,chicago).
+
+facts: 
+pink(1..20).
+
+generated: 
+Compose an ASP solution to ensure the "pink" predicate with value 7 is not associated with the label "chicago".
+Answer: :-assign(7,chicago).
+Answer: :-assign(7,shape).
+Answer: :-assign(7,gray).
+Answer: :-assign(7,florence).
+Answer: :-assign(7,purple).
+Answer: :-assign(7,table).
+Answer: :-assign(7,gray).
+Answer: :-assign(7,shape).
+Answer: :-assign(7,florence).
+Answer: :-assign(7,purple).
+Answer: :-assign(7,table).
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(7,chicago).
+
+jaccard: 1.0
+
+
+4259
+combination
+
+question: 
+Compose an ASP script that generates the cross-product of elements between the predicates "quality" and "lake".
+
+answer from file: 
+combination(X,Y):-quality(X),lake(Y).
+
+facts: 
+quality(1..4).lake(1..5).
+
+generated: 
+Compose an ASP script that generates the cross-product of elements between the predicates "quality" and "lake".
+Answer: combination(X,Y):-quality(X),lake(Y).
+combination(X,Y):-quality(X),not lake(Y).
+combination(X,Y):-not quality(X),lake(Y).
+combination(X,Y):-not quality(X),not lake(Y).
+combination(X,Y):-quality(X),shape(Y).
+combination(X,Y):-shape(X),quality(Y).
+combination(X,Y):-shape(X),not quality(Y).
+combination(X,Y):-not shape(X),quality(Y).
+combination(X,Y):-not shape(X),not quality(Y).
+```
+The predicate
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-quality(X),lake(Y).
+
+jaccard: 1.0
+
+
+4260
+join
+
+question: 
+Compose an ASP code snippet to define the predicate "strength_singapore" linking each strength to the strength of singapore, using the fields "ID","quality","singaporeID" of "strength" and the fields "ID","strength" of "singapore".
+
+answer from file: 
+strength_singapore(X,Z):-strength(X,_,Y),singapore(Y,Z).
+
+facts: 
+strength("ID","quality","singaporeID").singapore("ID","strength").
+
+generated: 
+Compose an ASP code snippet to define the predicate "strength_singapore" linking each strength to the strength of singapore, using the fields "ID","quality","singaporeID" of "strength" and the fields "ID","strength" of "singapore".
+Answer: strength_singapore(X,Z):-strength(X,_,Y),singapore(Y,Z,_).
+strength_singapore(X,_,Y):-strength(X,_,Y),Y!=Z.
+```
+The predicate "strength_singapore" links each strength to the strength of singapore.
+The predicate "strength" has fields "ID","height","shape","name", and the predicate "singapore" has fields "ID","height".
+The predicate "strength_singapore" uses the fields "ID","height","shape" of "strength" and the fields "ID","height" of "singapore".
+The predicate "strength_singapore" defines a transitive closure of
+
+unique_rules: 
+[]
+
+parsed: 
+strength_singapore(X,Z):-strength(X,_,Y),singapore(Y,Z,_).
+
+jaccard: 1.0
+
+
+4261
+closure
+
+question: 
+Design an ASP code to link the predicate "cloud" to its transitive closure, defined as "family".
+
+answer from file: 
+family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+
+facts: 
+cloud(1..3, 1..4).
+
+generated: 
+Design an ASP code to link the predicate "cloud" to its transitive closure, defined as "family".
+Answer: family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+```
+The predicate "cloud" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "family" that links each cloud to the shape of city.
+The predicate "family" is defined as:
+family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4262
+preference
+
+question: 
+Create an ASP program that keeps the predicate "weight" with value "5" unlinked from "white". If linked, it incurs a cost of "1" at level "1".
+
+answer from file: 
+:~assign(5,"white").[1@1]
+
+facts: 
+weight(1..20).
+
+generated: 
+Create an ASP program that keeps the predicate "weight" with value "5" unlinked from "white". If linked, it incurs a cost of "1" at level "1".
+Answer: :~assign(5,"white").[1@1]
+This predicate ensures that the "gray" label is not assigned to the "purple" label.
+The predicate "gray" has value "1", and the predicate "purple" has value "1".
+The predicate "price" has value "1" at level "1".
+The predicate "table" has value "1".
+The predicate "purple" has value "1".
+The predicate "price" has value "1" at level "1".
+The predicate "table" has value "1".
+The predicate "gray" has value "1".
+The predicate "purple" has value "1".
+The predicate "price
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(5,"white").[1@1]
+
+jaccard: 1.0
+
+
+4263
+filtering
+
+question: 
+Design an ASP program to gather values tied to the "flower" label within the context of the predicate "weight".
+
+answer from file: 
+select(X):-weight(X,"flower").
+
+facts: 
+weight(1..5, "flower").
+
+generated: 
+Design an ASP program to gather values tied to the "flower" label within the context of the predicate "weight".
+Answer: select(X):-weight(X,"flower").
+```
+select(X):-weight(X,"flower").
+```
+The predicate "weight" includes fields "ID","shape","cityID", and the predicate "city" contains fields "ID","shape". Define a predicate "flower" that links each flower to the shape of "shape".
+```
+select(X):-weight(X,"flower").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-weight(X,"flower").
+
+jaccard: 1.0
+
+
+4264
+negative_filtering
+
+question: 
+Design an ASP solution to capture values associated with the predicate "mumbai" but not tied to the predicate "laptop" and labeled "surname".
+
+answer from file: 
+select(X):-mumbai(X),not laptop(X,"surname").
+
+facts: 
+mumbai(1..3).laptop(1,"barcelona").laptop(2,"surname").laptop(3,"chicago").
+
+generated: 
+Design an ASP solution to capture values associated with the predicate "mumbai" but not tied to the predicate "laptop" and labeled "surname".
+Answer: select(X):-mumbai(X),not laptop(X,"surname").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-mumbai(X),not laptop(X,"surname").
+
+jaccard: 1.0
+
+
+4265
+numeric_filtering
+
+question: 
+Write an ASP solution to identify values tied to the predicate "singapore" with a value different than 35.
+
+answer from file: 
+select(X):-singapore(X,C),C!=35.
+
+facts: 
+singapore(1..3, 1..100).
+
+generated: 
+Write an ASP solution to identify values tied to the predicate "singapore" with a value different than 35.
+Answer: select(X):-singapore(X,C),C!=35.
+```
+The predicate "table" is the negation of the predicate "purple".
+```
+table(X):-purple(X).
+```
+The predicate "purple" is the negation of the predicate "table".
+```
+purple(X):-table(X).
+```
+The predicate "tokyo" is the transitive closure of the predicate "table".
+```
+tokyo(X,Y):-table(X,Y).
+```
+The predicate "venice" is the transitive closure of the predicate "purple".
+```
+venice(X,Y):-purple(X,Y).
+```
+The predicate "shape
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-singapore(X,C),C!=35.
+
+jaccard: 1.0
+
+
+4266
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate pink. The labels are laptop,quality,barcelona,chicago,mumbai.
+
+answer from file: 
+assign(X,"laptop")|assign(X,"quality")|assign(X,"barcelona")|assign(X,"chicago")|assign(X,"mumbai"):-pink(X).
+
+facts: 
+pink(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate pink. The labels are laptop,quality,barcelona,chicago,mumbai.
+Answer: assign(X,"laptop")|assign(X,"quality")|assign(X,"london")|assign(X,"city")|assign(X,"dubai"):-pink(X).
+```
+The predicate "pink" assigns one label from the set "london","city","dubai","shape","gray" to elements as per the predicate "pink".
+```
+assign(X,"london")|assign(X,"city")|assign(X,"dubai"):-pink(X).
+```
+The predicate "shape" assigns one label from the set "moto","purple","gray","shape" to elements as per the predicate "shape".
+```
+assign(X,"moto")|assign(X,"
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"laptop")|assign(X,"quality")|assign(X,"london")|assign(X,"city")|assign(X,"dubai"):-pink(X).
+
+jaccard: 0.0
+
+
+4267
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "wall" with value "17" from having label "flower".
+
+answer from file: 
+:-assign(17,flower).
+
+facts: 
+wall(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "wall" with value "17" from having label "flower".
+Answer: :-assign(17,flower).
+Explanation: The predicate "wall" with value "17" does not have the label "flower".
+The predicate "flower" with value "17" does not have the label "wall".
+The predicate "person" with value "17" has the label "purple".
+The predicate "purple" with value "17" has the label "florence".
+The predicate "florence" with value "17" has the label "purple".
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(17,flower).
+
+jaccard: 1.0
+
+
+4268
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cairo" and "pink".
+
+answer from file: 
+combination(X,Y):-cairo(X),pink(Y).
+
+facts: 
+cairo(1..4).pink(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cairo" and "pink".
+Answer: combination(X,Y):-cairo(X),pink(Y).
+combination(X,Y):-cairo(X),not pink(Y).
+combination(X,Y):-not cairo(X),pink(Y).
+combination(X,Y):-not cairo(X),not pink(Y).
+combination(X,Y):-cairo(X),city(Y).
+combination(X,Y):-city(X),not cairo(Y).
+combination(X,Y):-city(X),not pink(Y).
+combination(X,Y):-city(X),not city(Y).
+combination(X,Y):-city(X),city(Y).
+combination(
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-cairo(X),pink(Y).
+
+jaccard: 1.0
+
+
+4269
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "singapore" having fields "ID","quality","mumbaiID", and the predicate "mumbai" having fields "ID","quality". Define a predicate "singapore_mumbai" that associates to each "singapore" the "quality" of "mumbai".
+
+answer from file: 
+singapore_mumbai(X,Z):-singapore(X,_,Y),mumbai(Y,Z).
+
+facts: 
+singapore("ID","quality","mumbaiID").mumbai("ID","quality").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "singapore" having fields "ID","quality","mumbaiID", and the predicate "mumbai" having fields "ID","quality". Define a predicate "singapore_mumbai" that associates to each "singapore" the "quality" of "mumbai".
+Answer: singapore_mumbai(X,Z):-singapore(X,_,Y),mumbai(Y,Z).
+```
+ ángulo
+```
+ ángulo(X,Y,_):-singapore(X,_,Y).
+ ángulo(X,Y,Z):-singapore(X,_,Y),mumbai(Y,Z).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+singapore_mumbai(X,Z):-singapore(X,_,Y),mumbai(Y,Z).
+
+jaccard: 1.0
+
+
+4270
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "journey" as the transitive closure of predicate "moscow".
+
+answer from file: 
+journey(X,Y):-moscow(X,Y).
+journey(X,Y):-moscow(X,Z),journey(Z,Y).
+
+facts: 
+moscow(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "journey" as the transitive closure of predicate "moscow".
+Answer: journey(X,Y):-cow(X,Y).
+journey(X,Y):-cow(X,Z),journey(Z,Y).
+```
+The predicate "journey" defines the transitive closure of "cow" and is defined as the predicate "journey".
+The predicate "cow" defines the transitive closure of "moto" and is defined as the predicate "moto".
+The predicate "moto" defines the transitive closure of "table" and is defined as the predicate "table".
+So, the predicate "journey" is defined as the transitive closure of "moto".
+
+unique_rules: 
+[]
+
+parsed: 
+journey(X,Y):-cow(X,Y).
+journey(X,Y):-cow(X,Z),journey(Z,Y).
+
+jaccard: 0.0
+
+
+4271
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "laptop" with value "5" is not associated with "lightblue". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(5,"lightblue").[1@1]
+
+facts: 
+laptop(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "laptop" with value "5" is not associated with "lightblue". If this occurs, it costs "1" at level "1".
+Answer: :~assign(5,"lightblue").[1@1]
+This predicate ensures that the "price" label is not assigned to the "brown" label.
+The predicate "brown" has value "1".
+The predicate "price" has value "1".
+The predicate "lightblue" has value "1".
+The predicate "brown" has value "1".
+The predicate "price" has value "1".
+The predicate "lightblue" has value "1".
+The predicate "brown" has value "1".
+The predicate "price" has value "1".
+The predicate "lightblue" has value "1".
+The predicate "brown" has value "1".
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(5,"lightblue").[1@1]
+
+jaccard: 1.0
+
+
+4272
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "delhi" with label "barcelona".
+
+answer from file: 
+select(X):-delhi(X,"barcelona").
+
+facts: 
+delhi(1..5, "barcelona").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "delhi" with label "barcelona".
+Answer: select(X):-delhi(X,"barcelona").
+```
+delhi(X,"london").
+delhi(X,"gray").
+```
+The predicate "london" is not associated with "gray".
+The predicate "gray" is not associated with "london".
+The predicate "table" is associated with "gray".
+The predicate "table" is not associated with "london".
+The predicate "rome" is associated with "gray".
+The predicate "rome" is not associated with "london".
+The predicate "purple" is associated with "gray".
+The predicate "purple" is not associated with "london".
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-delhi(X,"barcelona").
+
+jaccard: 1.0
+
+
+4273
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "delhi" but not associated with predicate "laptop" and label "black".
+
+answer from file: 
+select(X):-delhi(X),not laptop(X,"black").
+
+facts: 
+delhi(1..3).laptop(1,"singapore").laptop(2,"butterfly").laptop(3,"black").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "delhi" but not associated with predicate "laptop" and label "black".
+Answer: select(X):-delhi(X),not laptop(X,"black").
+```
+The predicate "delhi" has value "1", the predicate "laptop" has value "1", and the label "black" has value "1".
+```
+select(X):-delhi(X),not laptop(X,"black").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-delhi(X),not laptop(X,"black").
+
+jaccard: 1.0
+
+
+4274
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "toronto" with a value different than 28.
+
+answer from file: 
+select(X):-toronto(X,C),C!=28.
+
+facts: 
+toronto(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "toronto" with a value different than 28.
+Answer: select(X):-toronto(X,C),C!=28.
+```
+The predicate "toronto" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "tokyo" that links each toronto to the shape of city.
+```
+tokyo(X,Z):-toronto(X,_,Y),Z!=28.
+```
+The predicate "tokyo" has fields "ID","shape".
+The predicate "city" has fields "ID","shape".
+The predicate "tokyo" links each toronto to the shape of city.
+The predicate "shape" has fields "ID","shape".
+The predicate "city" has fields
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-toronto(X,C),C!=28.
+
+jaccard: 1.0
+
+
+4275
+assignment
+
+question: 
+Develop an ASP solution to map one specific label from "weight","flower","surname","desk" to each element defined by the predicate "moscow".
+
+answer from file: 
+assign(X,"weight")|assign(X,"flower")|assign(X,"surname")|assign(X,"desk"):-moscow(X).
+
+facts: 
+moscow(1..5).
+
+generated: 
+Develop an ASP solution to map one specific label from "weight","flower","surname","desk" to each element defined by the predicate "moscow".
+Answer: assign(X,"weight")|assign(X,"flower")|assign(X,"name")|assign(X,"desk"):-moscow(X).
+```
+assign(X,"weight")|assign(X,"flower")|assign(X,"name")|assign(X,"desk"):-moscow(X).
+```
+The predicate "moscow" is used to define the elements to be mapped.
+The predicate "person" is used to define the labels.
+The predicate "moto" is used to define the transitive closure of the predicate "person".
+The predicate "moto" is the solution to the problem.
+The predicate "person" is the predicate that defines the elements.
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"weight")|assign(X,"flower")|assign(X,"name")|assign(X,"desk"):-moscow(X).
+
+jaccard: 0.0
+
+
+4276
+constraint
+
+question: 
+Design an ASP application that prohibits assigning the "wall" predicate with value 17 to the label "quality".
+
+answer from file: 
+:-assign(17,quality).
+
+facts: 
+wall(1..20).
+
+generated: 
+Design an ASP application that prohibits assigning the "wall" predicate with value 17 to the label "quality".
+Answer: :-assign(17,quality).
+Explanation: The predicate "author" includes the "description" label, and the predicate "wall" includes the "price" label. If the "wall" predicate with value 17 is assigned the label "quality", it is not included in the "description" label.
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(17,quality).
+
+jaccard: 1.0
+
+
+4277
+combination
+
+question: 
+Compose an ASP script to calculate the Cartesian product of elements represented by the predicates "surname" and "toronto".
+
+answer from file: 
+combination(X,Y):-surname(X),toronto(Y).
+
+facts: 
+surname(1..4).toronto(1..5).
+
+generated: 
+Compose an ASP script to calculate the Cartesian product of elements represented by the predicates "surname" and "toronto".
+Answer: combination(X,Y):-surname(X),toronto(Y).
+combination(X,Y):-tokyo(X),shape(Y).
+combination(X,Y):-person(X),shape(Y).
+combination(X,Y):-person(X),tokyo(Y).
+combination(X,Y):-shape(X),tokyo(Y).
+combination(X,Y):-shape(X),person(Y).
+combination(X,Y):-tokyo(X),person(Y).
+```
+The predicate "person" is not defined in the context, but it is assumed to be a transitive closure of the predicates "shape" and "tokyo".
+The predicate "shape" is defined as
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-surname(X),toronto(Y).
+
+jaccard: 1.0
+
+
+4278
+join
+
+question: 
+Create an ASP program to define the predicate "cairo_toronto" that links each cairo to the weight of toronto, using fields "ID","hair","torontoID","owner","weight" for "cairo" and fields "ID","weight","hair" for "toronto".
+
+answer from file: 
+cairo_toronto(X,Z):-cairo(X,_,Y,_,_),toronto(Y,Z,_).
+
+facts: 
+cairo("ID","hair","torontoID","owner","weight").toronto("ID","weight","hair").
+
+generated: 
+Create an ASP program to define the predicate "cairo_toronto" that links each cairo to the weight of toronto, using fields "ID","hair","torontoID","owner","weight" for "cairo" and fields "ID","weight","hair" for "toronto".
+Answer: cairo_toronto(X,Z):-cairo(X,_,Y,_,_),toronto(Y,Z,_).
+```
+cario_toronto(X,Z):-cairo(X,_,Y,_,_),toronto(Y,Z,_).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+cairo_toronto(X,Z):-cairo(X,_,Y,_,_),toronto(Y,Z,_).
+
+jaccard: 1.0
+
+
+4279
+closure
+
+question: 
+Develop an ASP script to link the predicate "cairo" to its transitive closure, resulting in the predicate "family".
+
+answer from file: 
+family(X,Y):-cairo(X,Y).
+family(X,Y):-cairo(X,Z),family(Z,Y).
+
+facts: 
+cairo(1..3, 1..4).
+
+generated: 
+Develop an ASP script to link the predicate "cairo" to its transitive closure, resulting in the predicate "family".
+Answer: family(X,Y):-cairo(X,Y).
+family(X,Y):-cairo(X,Z),family(Z,Y).
+```
+The predicate "family" links each element to its transitive closure.
+```
+table(X,Y):-city(X,Y).
+table(X,Y):-city(X,Z),table(Z,Y).
+```
+The predicate "city" links each element to the transitive closure of the "city" predicate.
+The predicate "city" is defined as follows:
+```
+city(X,Y):-person(X,Y).
+city(X,Y):-person(X,Z),city(Z,Y
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-cairo(X,Y).
+family(X,Y):-cairo(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4280
+preference
+
+question: 
+Generate an ASP script to ensure the "white" predicate with value "8" is not linked to "moscow". Any occurrence incurs a cost of "1" at level "1".
+
+answer from file: 
+:~assign(8,"moscow").[1@1]
+
+facts: 
+white(1..20).
+
+generated: 
+Generate an ASP script to ensure the "white" predicate with value "8" is not linked to "moscow". Any occurrence incurs a cost of "1" at level "1".
+Answer: :~assign(8,"moscow").[1@1]
+The "white" predicate with value "8" is not linked to "city". Any occurrence incurs a cost of "1" at level "1".
+Answer: :~assign(8,"city").[1@1]
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(8,"moscow").[1@1]
+
+jaccard: 1.0
+
+
+4281
+filtering
+
+question: 
+Create an ASP solution that retrieves all values labeled "laptop" within the predicate "mumbai".
+
+answer from file: 
+select(X):-mumbai(X,"laptop").
+
+facts: 
+mumbai(1..5, "laptop").
+
+generated: 
+Create an ASP solution that retrieves all values labeled "laptop" within the predicate "mumbai".
+Answer: select(X):-mumbai(X,"laptop").
+```
+select(X):-mumbai(X,"brown").
+```
+Explanation:
+1. **select(X):-mumbai(X,"brown").** This predicate selects all values associated with the label "brown" within the predicate "mumbai".
+2. **select(X):-mumbai(X,"laptop").** This predicate selects all values associated with the label "laptop" within the predicate "mumbai".
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-mumbai(X,"laptop").
+
+jaccard: 1.0
+
+
+4282
+negative_filtering
+
+question: 
+Create an ASP application to fetch values associated with the predicate "surname" but not linked to the predicate "weight" and labeled "strength".
+
+answer from file: 
+select(X):-surname(X),not weight(X,"strength").
+
+facts: 
+surname(1..3).weight(1,"strength").weight(2,"pink").weight(3,"storm").
+
+generated: 
+Create an ASP application to fetch values associated with the predicate "surname" but not linked to the predicate "weight" and labeled "strength".
+Answer: select(X):-surname(X),not weight(X,"strength").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-surname(X),not weight(X,"strength").
+
+jaccard: 1.0
+
+
+4283
+numeric_filtering
+
+question: 
+Generate an ASP application to select all values linked to the predicate "surname" with a value different than 12.
+
+answer from file: 
+select(X):-surname(X,C),C!=12.
+
+facts: 
+surname(1..3, 1..100).
+
+generated: 
+Generate an ASP application to select all values linked to the predicate "surname" with a value different than 12.
+Answer: select(X):-surname(X,C),C!=12.
+```
+The predicate "name" has fields "ID","shape","city","price","height", and the predicate "shape" has fields "ID","height". Define a predicate "name_shape" that links each name to the height of shape.
+```
+name_shape(X,Z):-name(X,_,_,_,_),shape(Z,Z).
+```
+The predicate "name_shape" selects all values linked to the predicate "name" with a value different than 12.
+```
+select(X):-name_shape(X,Z),Z!=12.
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-surname(X,C),C!=12.
+
+jaccard: 1.0
+
+
+4284
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate hair. The labels are darkmagenta,pink,storm,lightblue,hair,roof.
+
+answer from file: 
+assign(X,"darkmagenta")|assign(X,"pink")|assign(X,"storm")|assign(X,"lightblue")|assign(X,"hair")|assign(X,"roof"):-hair(X).
+
+facts: 
+hair(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate hair. The labels are darkmagenta,pink,storm,lightblue,hair,roof.
+Answer: assign(X,"darkmagenta")|assign(X,"pink")|assign(X,"storm")|assign(X,"lightblue")|assign(X,"hair")|assign(X,"roof"):-hair(X).
+Explanation: The predicate "purple" assigns exactly one label from the set "darkmagenta","pink","table","shape","gray","purple" to a set of elements determined by the predicate "gray".
+The predicate "gray" assigns exactly one label from the set "moto","purple","shape","gray" to a set of elements determined by the predicate "purple".
+The predicate "shape" assigns exactly one label from the set "moto","purple","shape" to a set of
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"darkmagenta")|assign(X,"pink")|assign(X,"storm")|assign(X,"lightblue")|assign(X,"hair")|assign(X,"roof"):-hair(X).
+
+jaccard: 1.0
+
+
+4285
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "surname" with value "15" from having label "singapore".
+
+answer from file: 
+:-assign(15,singapore).
+
+facts: 
+surname(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "surname" with value "15" from having label "singapore".
+Answer: :-assign(15,singapore).
+Explanation: The predicate "author" includes the label "table". Define a predicate "person" that links each person to the label "table". The predicate "shape" links each person to the label "purple".
+The predicate "price" links each person to the label "purple".
+The predicate "brown" links each person to the label "table".
+The predicate "cyan" links each person to the label "purple".
+The predicate "florence" links each person to the label "table".
+The predicate "rome" links each person to the label "purple".
+The predicate "amsterdam" links each person to the label "table".
+The
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(15,singapore).
+
+jaccard: 1.0
+
+
+4286
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "weight" and "pink".
+
+answer from file: 
+combination(X,Y):-weight(X),pink(Y).
+
+facts: 
+weight(1..4).pink(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "weight" and "pink".
+Answer: combination(X,Y):-weight(X),pink(Y).
+combination(X,Y):-weight(X),not pink(Y).
+combination(X,Y):-not weight(X),pink(Y).
+combination(X,Y):-not weight(X),not pink(Y).
+combination(X,Y):-weight(X),shape(Y).
+combination(X,Y):-shape(X),weight(Y).
+combination(X,Y):-shape(X),not weight(Y).
+combination(X,Y):-not shape(X),weight(Y).
+combination(X,Y):-not shape(X),not weight(Y).
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-weight(X),pink(Y).
+
+jaccard: 1.0
+
+
+4287
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "laptop" having fields "ID","cairoID","strength", and the predicate "cairo" having fields "ID","owner". Define a predicate "laptop_cairo" that associates to each "laptop" the "owner" of "cairo".
+
+answer from file: 
+laptop_cairo(X,Z):-laptop(X,Y,_),cairo(Y,Z).
+
+facts: 
+laptop("ID","cairoID","strength").cairo("ID","owner").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "laptop" having fields "ID","cairoID","strength", and the predicate "cairo" having fields "ID","owner". Define a predicate "laptop_cairo" that associates to each "laptop" the "owner" of "cairo".
+Answer: laptop_cairo(X,Z):-laptop(X,Y,_),cairo(Y,Z).
+```
+laptop_cairo(X,Z):-laptop(X,Y,_),Z(Y,Z).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+laptop_cairo(X,Z):-laptop(X,Y,_),cairo(Y,Z).
+
+jaccard: 1.0
+
+
+4288
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "cairo".
+
+answer from file: 
+family(X,Y):-cairo(X,Y).
+family(X,Y):-cairo(X,Z),family(Z,Y).
+
+facts: 
+cairo(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "cairo".
+Answer: family(X,Y):-cairo(X,Y).
+family(X,Y):-cairo(X,Z),family(Z,Y).
+```
+The predicate "family" defines the transitive closure of "table" and the predicate "table" defines the transitive closure of "city".
+```
+table(X,Y):-city(X,Y).
+table(X,Y):-city(X,Z),table(Z,Y).
+```
+The predicate "city" defines the transitive closure of "shape".
+```
+city(X,Y):-shape(X,Y).
+city(X,Y):-shape(X,Z),city(Z,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-cairo(X,Y).
+family(X,Y):-cairo(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4289
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "quality" with value "16" is not associated with "cosenza". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(16,"cosenza").[1@1]
+
+facts: 
+quality(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "quality" with value "16" is not associated with "cosenza". If this occurs, it costs "1" at level "1".
+Answer: :~assign(16,"cosenza").[1@1]
+The predicate "price" has fields "ID","shape","city","name". Define a predicate "cyan" that links each price to the name of the element.
+Answer: cyan(X,Z):-price(X,_,_,Z).
+cyan(X,_,_,Z):-price(X,_,_,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(16,"cosenza").[1@1]
+
+jaccard: 1.0
+
+
+4290
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "barcelona" with label "barcelona".
+
+answer from file: 
+select(X):-barcelona(X,"barcelona").
+
+facts: 
+barcelona(1..5, "barcelona").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "barcelona" with label "barcelona".
+Answer: select(X):-barcelona(X,"barcelona").
+```
+ ángar(X,"barcelona").
+```
+The predicate " ángar" selects all values associated to the predicate "paris" with the label "brown".
+```
+select(X):-paris(X,"brown").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-barcelona(X,"barcelona").
+
+jaccard: 1.0
+
+
+4291
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "roof" but not associated with predicate "moscow" and label "cloud".
+
+answer from file: 
+select(X):-roof(X),not moscow(X,"cloud").
+
+facts: 
+roof(1..3).moscow(1,"cloud").moscow(2,"barcelona").moscow(3,"singapore").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "roof" but not associated with predicate "moscow" and label "cloud".
+Answer: select(X):-roof(X),not moscow(X,"cloud").
+```
+The predicate "roof" has value "1" and the predicate "moscow" has value "1".
+The label "cloud" is not associated with the value "1".
+So, the answer is select(X):-roof(X),not moscow(X,"cloud").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-roof(X),not moscow(X,"cloud").
+
+jaccard: 1.0
+
+
+4292
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "singapore" with a value different than 89.
+
+answer from file: 
+select(X):-singapore(X,C),C!=89.
+
+facts: 
+singapore(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "singapore" with a value different than 89.
+Answer: select(X):-singapore(X,C),C!=89.
+```
+The predicate "table" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "table_city" that links each table to the shape of city.
+```
+table_city(X,Z):-table(X,_,Y),city(Y,Z).
+```
+The predicate "table_city_red" links each table to the shape of city with a value different than 89.
+```
+table_city_red(X,Z):-table(X,_,Y),city(Y,Z).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-singapore(X,C),C!=89.
+
+jaccard: 1.0
+
+
+4293
+assignment
+
+question: 
+Write an ASP application that maps a single label from "black","surname","desk","cloud","toronto","chicago","chair","delhi","strength" to every element identified by the predicate "cosenza".
+
+answer from file: 
+assign(X,"black")|assign(X,"surname")|assign(X,"desk")|assign(X,"cloud")|assign(X,"toronto")|assign(X,"chicago")|assign(X,"chair")|assign(X,"delhi")|assign(X,"strength"):-cosenza(X).
+
+facts: 
+cosenza(1..5).
+
+generated: 
+Write an ASP application that maps a single label from "black","surname","desk","cloud","toronto","chicago","chair","delhi","strength" to every element identified by the predicate "cosenza".
+Answer: assign(X,"black")|assign(X,"surname")|assign(X,"desk")|assign(X,"cloud")|assign(X,"toronto")|assign(X,"chicago")|assign(X,"chair")|assign(X,"delhi")|assign(X,"strength"):-cosenza(X).
+```
+The predicate "cosenza" is defined as:
+```
+cosenza(X):-age(X,"brown").
+```
+The predicate "age" is defined as:
+```
+age(X,Z):-person(X,Z).
+```
+The predicate "person" is defined as:
+```
+person(X,Z):-shape(X
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"black")|assign(X,"surname")|assign(X,"desk")|assign(X,"cloud")|assign(X,"toronto")|assign(X,"chicago")|assign(X,"chair")|assign(X,"delhi")|assign(X,"strength"):-cosenza(X).
+
+jaccard: 1.0
+
+
+4294
+constraint
+
+question: 
+Design an ASP application that prohibits assigning the "cosenza" predicate with value 2 to the label "chicago".
+
+answer from file: 
+:-assign(2,chicago).
+
+facts: 
+cosenza(1..20).
+
+generated: 
+Design an ASP application that prohibits assigning the "cosenza" predicate with value 2 to the label "chicago".
+Answer: :-assign(2,chicago).
+Explanation: The predicate "london" includes the label "chicago", and the predicate "cosenza" with value 2 does not include the label "chicago".
+The predicate "prohibit" prohibits the assignment of the "paris" label to the "table" predicate.
+Answer: :-assign(2,paris).
+Explanation: The predicate "table" includes the label "paris".
+The predicate "london" includes the label "paris".
+The predicate "prohibit" prevents the assignment of the "paris" label to the "table" predicate.
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(2,chicago).
+
+jaccard: 1.0
+
+
+4295
+combination
+
+question: 
+Compose an ASP script to calculate the Cartesian product of elements represented by the predicates "darkmagenta" and "storm".
+
+answer from file: 
+combination(X,Y):-darkmagenta(X),storm(Y).
+
+facts: 
+darkmagenta(1..4).storm(1..5).
+
+generated: 
+Compose an ASP script to calculate the Cartesian product of elements represented by the predicates "darkmagenta" and "storm".
+Answer: combination(X,Y):-darkmagenta(X),storm(Y).
+combination(X,Y):-darkmagenta(X),not storm(Y).
+combination(X,Y):-not darkmagenta(X),storm(Y).
+combination(X,Y):-darkmagenta(X),shape(Y).
+combination(X,Y):-shape(X),darkmagenta(Y).
+combination(X,Y):-shape(X),not darkmagenta(Y).
+combination(X,Y):-darkmagenta(X),moto(Y).
+combination(X,Y):-moto(X),darkmagenta(Y).
+combination(X,Y):-moto(X),not darkmagenta(Y).
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-darkmagenta(X),storm(Y).
+
+jaccard: 1.0
+
+
+4296
+join
+
+question: 
+Create an ASP solution to define the predicate "mumbai_toronto" that links each mumbai to the surname of toronto, given "mumbai" has fields "ID","lake","owner","torontoID","quality" and "toronto" has fields "ID","surname".
+
+answer from file: 
+mumbai_toronto(X,Z):-mumbai(X,_,_,Y,_),toronto(Y,Z).
+
+facts: 
+mumbai("ID","lake","owner","torontoID","quality").toronto("ID","surname").
+
+generated: 
+Create an ASP solution to define the predicate "mumbai_toronto" that links each mumbai to the surname of toronto, given "mumbai" has fields "ID","lake","owner","torontoID","quality" and "toronto" has fields "ID","surname". Define the predicate "mumbai_toronto" that links each mumbai to the surname of toronto.
+Answer: mumbai_toronto(X,Z):-mumbai(X,_,_,Y,_),toronto(Y,Z).
+```
+mumbai_toronto(X,Z):-mumbai(X,_,_,Y,_),toronto(Y,Z).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+mumbai_toronto(X,Z):-mumbai(X,_,_,Y,_),toronto(Y,Z).
+
+jaccard: 1.0
+
+
+4297
+closure
+
+question: 
+Develop an ASP application that constructs the "loops" predicate based on the transitive closure of the "butterfly" predicate.
+
+answer from file: 
+loops(X,Y):-butterfly(X,Y).
+loops(X,Y):-butterfly(X,Z),loops(Z,Y).
+
+facts: 
+butterfly(1..3, 1..4).
+
+generated: 
+Develop an ASP application that constructs the "loops" predicate based on the transitive closure of the "butterfly" predicate.
+Answer: loops(X,Y):-butterfly(X,Y).
+loops(X,Y):-brown(X,Y).
+loops(X,Y):-shape(X,Y).
+loops(X,Y):-city(X,Y).
+loops(X,Y):-florence(X,Y).
+loops(X,Y):-purple(X,Y).
+loops(X,Y):-rome(X,Y).
+loops(X,Y):-shape(X,Y).
+```
+The "loops" predicate constructs the transitive closure of the "brown" predicate, resulting in the "florence" predicate.
+The "florence" predicate then constructs the transitive closure of the "
+
+unique_rules: 
+[]
+
+parsed: 
+loops(X,Y):-butterfly(X,Y).
+loops(X,Y):-brown(X,Y).
+
+jaccard: 1.0
+
+
+4298
+preference
+
+question: 
+Create an ASP program that keeps the predicate "cosenza" with value "1" unlinked from "cloud". If linked, it incurs a cost of "1" at level "1".
+
+answer from file: 
+:~assign(1,"cloud").[1@1]
+
+facts: 
+cosenza(1..20).
+
+generated: 
+Create an ASP program that keeps the predicate "cosenza" with value "1" unlinked from "cloud". If linked, it incurs a cost of "1" at level "1".
+Answer: :~assign(1,"cloud").[1@1]
+The predicate "table" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "table_city" that links each table to the shape of city.
+Answer: table_city(X,Z):-table(X,_,Y),city(Y,Z).
+table_city(X,Z):-table(X,_,Y),city(Y,Z).
+table_city(X,Z):-table(X,_,Y),city(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(1,"cloud").[1@1]
+
+jaccard: 1.0
+
+
+4299
+filtering
+
+question: 
+Craft an ASP code snippet to capture all relevant values for the "quality" label within the "cosenza" predicate.
+
+answer from file: 
+select(X):-cosenza(X,"quality").
+
+facts: 
+cosenza(1..5, "quality").
+
+generated: 
+Craft an ASP code snippet to capture all relevant values for the "quality" label within the "cosenza" predicate.
+Answer: select(X):-cosenza(X,"quality").
+```
+select(X):-cosenza(X,"price").
+```
+These snippets capture all values associated with the "price" label within the "cosenza" predicate.
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-cosenza(X,"quality").
+
+jaccard: 1.0
+
+
+4300
+negative_filtering
+
+question: 
+Design an ASP program to identify values linked to the predicate "singapore" but not to the predicate "storm" and labeled "singapore".
+
+answer from file: 
+select(X):-singapore(X),not storm(X,"singapore").
+
+facts: 
+singapore(1..3).storm(1,"cosenza").storm(2,"surname").storm(3,"singapore").
+
+generated: 
+Design an ASP program to identify values linked to the predicate "singapore" but not to the predicate "storm" and labeled "singapore".
+Answer: select(X):-singapore(X),not storm(X,"singapore").
+```
+select(X):-singapore(X),not storm(X,"singapore").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-singapore(X),not storm(X,"singapore").
+
+jaccard: 1.0
+
+
+4301
+numeric_filtering
+
+question: 
+Formulate an ASP script to identify values tied to the predicate "delhi" with a value different than 40.
+
+answer from file: 
+select(X):-delhi(X,C),C!=40.
+
+facts: 
+delhi(1..3, 1..100).
+
+generated: 
+Formulate an ASP script to identify values tied to the predicate "delhi" with a value different than 40.
+Answer: select(X):-delhi(X,C),C!=40.
+```
+The predicate "delhi" includes values linked to the "table" label, and the predicate "table" contains the value 40.
+The predicate "select" identifies all values tied to the "table" label.
+The predicate "C" has a value different than 40.
+The predicate "select" selects all values tied to the "table" label and having a value different than 40.
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-delhi(X,C),C!=40.
+
+jaccard: 1.0
+
+
+4302
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate white. The labels are singapore,barcelona,moscow,owner,chair,darkmagenta,cosenza,black.
+
+answer from file: 
+assign(X,"singapore")|assign(X,"barcelona")|assign(X,"moscow")|assign(X,"owner")|assign(X,"chair")|assign(X,"darkmagenta")|assign(X,"cosenza")|assign(X,"black"):-white(X).
+
+facts: 
+white(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate white. The labels are singapore,barcelona,moscow,owner,chair,darkmagenta,cosenza,black.
+Answer: assign(X," assurent")|assign(X,"london")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X," assurent")|assign(X,"london")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|.
+
+jaccard: 0.0
+
+
+4303
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "desk" with value "13" from having label "moscow".
+
+answer from file: 
+:-assign(13,moscow).
+
+facts: 
+desk(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "desk" with value "13" from having label "moscow".
+Answer: :-assign(13,moscow).
+Explanation: The predicate "moto" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "assign" that links each element to the shape of "city".
+The predicate "moto" is the transitive closure of the predicate "city".
+The predicate "assign" is the transitive closure of the predicate "moto".
+The predicate "shape" has fields "ID","height". Define a predicate "moto" that links each element to the height of "shape".
+The predicate "shape" is the transitive closure of the predicate "moto".
+The predicate "city" has fields "ID","shape
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(13,moscow).
+
+jaccard: 1.0
+
+
+4304
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "pink" and "chair".
+
+answer from file: 
+combination(X,Y):-pink(X),chair(Y).
+
+facts: 
+pink(1..4).chair(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "pink" and "chair".
+Answer: combination(X,Y):-pink(X),chair(Y).
+combination(X,Y):-pink(X),not chair(Y).
+combination(X,Y):-not pink(X),chair(Y).
+combination(X,Y):-not pink(X),not chair(Y).
+combination(X,Y):-pink(X),shape(Y).
+combination(X,Y):-shape(X),pink(Y).
+combination(X,Y):-shape(X),not pink(Y).
+combination(X,Y):-not shape(X),pink(Y).
+combination(X,Y):-not shape(X),not pink(Y).
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-pink(X),chair(Y).
+
+jaccard: 1.0
+
+
+4305
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "wall" having fields "ID","hair","cosenzaID", and the predicate "cosenza" having fields "ID","quality". Define a predicate "wall_cosenza" that associates to each "wall" the "quality" of "cosenza".
+
+answer from file: 
+wall_cosenza(X,Z):-wall(X,_,Y),cosenza(Y,Z).
+
+facts: 
+wall("ID","hair","cosenzaID").cosenza("ID","quality").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "wall" having fields "ID","hair","cosenzaID", and the predicate "cosenza" having fields "ID","quality". Define a predicate "wall_cosenza" that associates to each "wall" the "quality" of "cosenza".
+Answer: wall_cosenza(X,Z):-wall(X,_,Y),cosenza(Y,Z).
+wall_cosenza(X,Z):-wall(X,_,Y),not cosenza(Y,Z).
+wall_cosenza(X,Z):-wall(X,_,Y),not wall_cosenza(X,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+wall_cosenza(X,Z):-wall(X,_,Y),cosenza(Y,Z).
+
+jaccard: 1.0
+
+
+4306
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "journey" as the transitive closure of predicate "hair".
+
+answer from file: 
+journey(X,Y):-hair(X,Y).
+journey(X,Y):-hair(X,Z),journey(Z,Y).
+
+facts: 
+hair(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "journey" as the transitive closure of predicate "hair".
+Answer: journey(X,Y):-hair(X,Y).
+journey(X,Y):-hair(X,Z),journey(Z,Y).
+```
+The predicate "journey" defines the transitive closure of the predicate "hair".
+The predicate "journey" is defined as the transitive closure of the predicate "hair" with the predicate "table" as the transitive closure of the predicate "height".
+The predicate "height" is defined as the transitive closure of the predicate "table" with the predicate "shape" as the transitive closure of the predicate "table".
+The predicate "shape" is defined as the transitive closure of the predicate "table" with the predicate "city" as the transitive closure of the
+
+unique_rules: 
+[]
+
+parsed: 
+journey(X,Y):-hair(X,Y).
+journey(X,Y):-hair(X,Z),journey(Z,Y).
+
+jaccard: 1.0
+
+
+4307
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "chicago" with value "6" is not associated with "cloud". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(6,"cloud").[1@1]
+
+facts: 
+chicago(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "chicago" with value "6" is not associated with "cloud". If this occurs, it costs "1" at level "1".
+Answer: :~assign(6,"cloud").[1@1]
+This predicate "paris" has fields "ID","shape","cityID","height".
+Define a predicate "tokyo" that links each paris to the height of chicago.
+Answer: tokyo(X,Z):-paris(X,_,Y,_),Z(Y,_,1).
+tokyo(X,_,Y,_):-paris(X,_,Y,_),not(assign(X,"cloud").[1@1].
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(6,"cloud").[1@1]
+
+jaccard: 1.0
+
+
+4308
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "mumbai" with label "black".
+
+answer from file: 
+select(X):-mumbai(X,"black").
+
+facts: 
+mumbai(1..5, "black").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "mumbai" with label "black".
+Answer: select(X):-mumbai(X,"black").
+```
+mumbai(X,"black").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-mumbai(X,"black").
+
+jaccard: 1.0
+
+
+4309
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "pink" but not associated with predicate "white" and label "lake".
+
+answer from file: 
+select(X):-pink(X),not white(X,"lake").
+
+facts: 
+pink(1..3).white(1,"lake").white(2,"desk").white(3,"lightblue").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "pink" but not associated with predicate "white" and label "lake".
+Answer: select(X):-pink(X),not white(X,"lake").
+```
+The predicate "pink" has value "1","purple","city","shape","table","brown","gray","purple","shape","table","city","gray","purple","shape","table","city".
+The predicate "white" has value "1","purple","shape".
+The predicate "lake" has value "1".
+So, the solution is select(X):-pink(X),not white(X,"lake").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-pink(X),not white(X,"lake").
+
+jaccard: 1.0
+
+
+4310
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "lightblue" with a value different than 8.
+
+answer from file: 
+select(X):-lightblue(X,C),C!=8.
+
+facts: 
+lightblue(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "lightblue" with a value different than 8.
+Answer: select(X):-lightblue(X,C),C!=8.
+```
+The predicate "lightblue" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple" that links each lightblue to the shape of city.
+Answer: purple(X,Z):-lightblue(X,_,Y),Z==Z.
+```
+The predicate "purple" links each lightblue to the shape of city.
+The predicate "shape" has fields "ID","shape". Define a predicate "purple" that links each lightblue to the shape of city.
+Answer: purple(X,Z):-lightblue(X,
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-lightblue(X,C),C!=8.
+
+jaccard: 1.0
+
+
+4311
+assignment
+
+question: 
+Write an ASP application that maps a single label from "laptop","storm","lightblue" to every element identified by the predicate "quality".
+
+answer from file: 
+assign(X,"laptop")|assign(X,"storm")|assign(X,"lightblue"):-quality(X).
+
+facts: 
+quality(1..5).
+
+generated: 
+Write an ASP application that maps a single label from "laptop","storm","lightblue" to every element identified by the predicate "quality".
+Answer: assign(X,"laptop")|assign(X,"storm")|assign(X,"lightblue"):-quality(X).
+```
+assign(X," arrivant")|assign(X,"purple")|assign(X,"gray"):-quality(X).
+```
+The predicate "quality" is defined as:
+```
+quality(X):-age(X,"brown").
+```
+The predicate "age" is defined as:
+```
+age(X,C):-person(X,C).
+person(X,C):-shape(X,C).
+shape(X,C):-height(X,C).
+height(X,C):-shape(X,C).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"laptop")|assign(X,"storm")|assign(X,"lightblue"):-quality(X).
+
+jaccard: 1.0
+
+
+4312
+constraint
+
+question: 
+Write an ASP application that excludes the "cosenza" predicate with value 12 from being assigned to the label "white".
+
+answer from file: 
+:-assign(12,white).
+
+facts: 
+cosenza(1..20).
+
+generated: 
+Write an ASP application that excludes the "cosenza" predicate with value 12 from being assigned to the label "white".
+Answer: :-assign(12,white).
+Explanation: The predicate "white" includes all values that are not assigned to the label "table". The predicate "cosenza" includes the value 12, so it does not match the predicate "white".
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(12,white).
+
+jaccard: 1.0
+
+
+4313
+combination
+
+question: 
+Design an ASP solution to compute all possible pairings of elements from two sets defined by the predicates "butterfly" and "singapore".
+
+answer from file: 
+combination(X,Y):-butterfly(X),singapore(Y).
+
+facts: 
+butterfly(1..4).singapore(1..5).
+
+generated: 
+Design an ASP solution to compute all possible pairings of elements from two sets defined by the predicates "butterfly" and "singapore".
+Answer: combination(X,Y):-butterfly(X),singapore(Y).
+combination(X,Y):-tokyo(X),florence(Y).
+combination(X,Y):-purple(X),city.
+combination(X,Y):-rome(X),amsterdam.
+combination(X,Y):-florence(X),city.
+combination(X,Y):-purple(X),rome.
+combination(X,Y):-amsterdam(X),city.
+combination(X,Y):-city(X),rome.
+combination(X,Y):-rome(X),city.
+combination(X,Y):-city(X),florence.
+combination(X,Y):-flo
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-butterfly(X),singapore(Y).
+
+jaccard: 1.0
+
+
+4314
+join
+
+question: 
+Write an ASP application to address the problem where the predicate "mumbai" has fields "ID","singaporeID","surname","weight", and the predicate "singapore" has fields "ID","quality","lake". Define the predicate "mumbai_singapore" that associates each mumbai with the quality of singapore.
+
+answer from file: 
+mumbai_singapore(X,Z):-mumbai(X,Y,_,_),singapore(Y,Z,_).
+
+facts: 
+mumbai("ID","singaporeID","surname","weight").singapore("ID","quality","lake").
+
+generated: 
+Write an ASP application to address the problem where the predicate "mumbai" has fields "ID","singaporeID","surname","weight", and the predicate "singapore" has fields "ID","quality","lake". Define the predicate "mumbai_singapore" that associates each mumbai with the quality of singapore.
+Answer: mumbai_singapore(X,Z):-mumbai(X,Y,_,_),singapore(Y,Z,_).
+mumbai_singapore(X,Z):-mumbai(X,Y,_,_),not singapore(Y,Z,_).
+
+unique_rules: 
+[]
+
+parsed: 
+mumbai_singapore(X,Z):-mumbai(X,Y,_,_),singapore(Y,Z,_).
+
+jaccard: 1.0
+
+
+4315
+closure
+
+question: 
+Develop an ASP application that constructs the "trains" predicate based on the transitive closure of the "hair" predicate.
+
+answer from file: 
+trains(X,Y):-hair(X,Y).
+trains(X,Y):-hair(X,Z),trains(Z,Y).
+
+facts: 
+hair(1..3, 1..4).
+
+generated: 
+Develop an ASP application that constructs the "trains" predicate based on the transitive closure of the "hair" predicate.
+Answer: trains(X,Y):-hair(X,Y).
+trains(X,Y):-hair(X,Z),trains(Z,Y).
+trains(X,Y):-hair(X,Z), assurent(Z,Y).
+ assurent(X,Y):-trains(X,Y).
+ assurent(X,Y):-car(X,Y).
+car(X,Y):-age(X,Y).
+age(X,Y):-car(X,Y).
+age(X,Y):-city(X,Y).
+city(X,Y):-age(X,Y).
+city(X,Y):-car(X,Y).
+city(X,Y
+
+unique_rules: 
+[]
+
+parsed: 
+trains(X,Y):-hair(X,Y).
+trains(X,Y):-hair(X,Z),trains(Z,Y).
+
+jaccard: 1.0
+
+
+4316
+preference
+
+question: 
+Craft an ASP program to ensure that the "flower" predicate with value "14" is not associated with "delhi", incurring a cost of "1" at level "1" if it does.
+
+answer from file: 
+:~assign(14,"delhi").[1@1]
+
+facts: 
+flower(1..20).
+
+generated: 
+Craft an ASP program to ensure that the "flower" predicate with value "14" is not associated with "delhi", incurring a cost of "1" at level "1" if it does.
+Answer: :~assign(14,"delhi").[1@1]
+This program uses the "assign" predicate to link the "flower" predicate with value "14" to the "delhi" label. The "cost" predicate is used to calculate the cost of the association, and the "level" predicate specifies the level of the "rome" predicate.
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(14,"delhi").[1@1]
+
+jaccard: 1.0
+
+
+4317
+filtering
+
+question: 
+Design an ASP application to fetch values tied to the label "lightblue" within the context of the "desk" predicate.
+
+answer from file: 
+select(X):-desk(X,"lightblue").
+
+facts: 
+desk(1..5, "lightblue").
+
+generated: 
+Design an ASP application to fetch values tied to the label "lightblue" within the context of the "desk" predicate.
+Answer: select(X):-desk(X,"lightblue").
+```
+desk(X,"lightblue")
+```
+The predicate "desk" includes fields "ID","shape","city","price","height", and the label "lightblue" is not included in the context of the "shape" predicate.
+The predicate "lightblue" contains fields "ID","shape".
+So, the predicate "select" includes fields "ID","shape".
+The predicate "shape" contains fields "ID","height".
+So, the predicate "select" includes fields "ID","height".
+The predicate "desk" includes fields "ID","shape","city","price","height".
+The predicate "lightblue" contains fields
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-desk(X,"lightblue").
+
+jaccard: 1.0
+
+
+4318
+negative_filtering
+
+question: 
+Design an ASP solution to capture values associated with the predicate "lightblue" but not tied to the predicate "strength" and labeled "chicago".
+
+answer from file: 
+select(X):-lightblue(X),not strength(X,"chicago").
+
+facts: 
+lightblue(1..3).strength(1,"cosenza").strength(2,"barcelona").strength(3,"desk").
+
+generated: 
+Design an ASP solution to capture values associated with the predicate "lightblue" but not tied to the predicate "strength" and labeled "chicago".
+Answer: select(X):-lightblue(X),not strength(X,"chicago").
+```
+select(X):-lightblue(X),not strength(X,"chicago").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-lightblue(X),not strength(X,"chicago").
+
+jaccard: 1.0
+
+
+4319
+numeric_filtering
+
+question: 
+Create an ASP application to fetch all values tied to the predicate "darkmagenta" with a value different than 92.
+
+answer from file: 
+select(X):-darkmagenta(X,C),C!=92.
+
+facts: 
+darkmagenta(1..3, 1..100).
+
+generated: 
+Create an ASP application to fetch all values tied to the predicate "darkmagenta" with a value different than 92.
+Answer: select(X):-darkmagenta(X,C),C!=92.
+```
+The predicate "darkmagenta" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple" that links each darkmagenta to the shape of city.
+Answer: select(X):-darkmagenta(X,_,Y),city(Y,shape).
+```
+The predicate "purple" has fields "ID","shape". Define a predicate "florence" that links each darkmagenta to the shape of purple.
+Answer: select(X):-darkmagenta(X,_,Y),purple(Y,shape).
+```
+The predicate "flo
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-darkmagenta(X,C),C!=92.
+
+jaccard: 1.0
+
+
+4320
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate owner. The labels are cosenza,strength,chair,moscow,butterfly,surname,black,mumbai.
+
+answer from file: 
+assign(X,"cosenza")|assign(X,"strength")|assign(X,"chair")|assign(X,"moscow")|assign(X,"butterfly")|assign(X,"surname")|assign(X,"black")|assign(X,"mumbai"):-owner(X).
+
+facts: 
+owner(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate owner. The labels are cosenza,strength,chair,moscow,butterfly,surname,black,mumbai.
+Answer: assign(X,"cosenza")|assign(X,"strength")|assign(X,"chair")|assign(X,"moscow")|assign(X,"butterfly")|assign(X,"name")|assign(X,"black")|assign(X,"mumbai"):-owner(X).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"cosenza")|assign(X,"strength")|assign(X,"chair")|assign(X,"moscow")|assign(X,"butterfly")|assign(X,"name")|assign(X,"black")|assign(X,"mumbai"):-owner(X).
+
+jaccard: 1.0
+
+
+4321
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "butterfly" with value "3" from having label "roof".
+
+answer from file: 
+:-assign(3,roof).
+
+facts: 
+butterfly(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "butterfly" with value "3" from having label "roof".
+Answer: :-assign(3,roof).
+Explanation: The predicate "author" includes the label "roof". The predicate "brown" includes the label "author". Define a predicate "shape" that links each element to the label of "author".
+The predicate "purple" includes the label "shape".
+The predicate "brown" includes the label "purple".
+The predicate "florence" includes the label "brown".
+The predicate "table" includes the label "florence".
+The predicate "cyan" includes the label "table".
+The predicate "gray" includes the label "cyan".
+The predicate "purple" includes the label "gray".
+The predicate "shape" includes the label "purple".
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(3,roof).
+
+jaccard: 1.0
+
+
+4322
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cosenza" and "cairo".
+
+answer from file: 
+combination(X,Y):-cosenza(X),cairo(Y).
+
+facts: 
+cosenza(1..4).cairo(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cosenza" and "cairo".
+Answer: combination(X,Y):-cosenza(X),cairo(Y).
+combination(X,Y):-cosenza(X),not cairo(Y).
+combination(X,Y):-not cosenza(X),cairo(Y).
+combination(X,Y):-not cosenza(X),not cairo(Y).
+combination(X,Y):-cosenza(X),city(Y).
+combination(X,Y):-city(X),not cairo(Y).
+combination(X,Y):-city(X),not cosenza(Y).
+combination(X,Y):-not city(X),not cairo(Y).
+combination(X,Y):-city(X
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-cosenza(X),cairo(Y).
+
+jaccard: 1.0
+
+
+4323
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "desk" having fields "ID","surname","qualityID", and the predicate "quality" having fields "ID","owner". Define a predicate "desk_quality" that associates to each "desk" the "owner" of "quality".
+
+answer from file: 
+desk_quality(X,Z):-desk(X,_,Y),quality(Y,Z).
+
+facts: 
+desk("ID","surname","qualityID").quality("ID","owner").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "desk" having fields "ID","surname","qualityID", and the predicate "quality" having fields "ID","owner". Define a predicate "desk_quality" that associates to each "desk" the "owner" of "quality".
+Answer: desk_quality(X,Z):-desk(X,_,Y),quality(Y,Z).
+desk_quality(X,Z):-desk(X,_,Y),not quality(Y,Z).
+```
+The predicate "desk_quality" is defined as the transitive closure of the predicate "desk".
+The predicate "table" is defined as the transitive closure of the predicate "price".
+The predicate "price" is defined as the transitive closure of the predicate "shape".
+The predicate "shape" is the transitive closure of the predicate "table".
+The predicate "table_price" is the transitive closure of the predicate "table".
+The predicate "table_shape" is the transitive
+
+unique_rules: 
+[]
+
+parsed: 
+desk_quality(X,Z):-desk(X,_,Y),quality(Y,Z).
+
+jaccard: 1.0
+
+
+4324
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "pink".
+
+answer from file: 
+family(X,Y):-pink(X,Y).
+family(X,Y):-pink(X,Z),family(Z,Y).
+
+facts: 
+pink(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "pink".
+Answer: family(X,Y):-pink(X,Y).
+family(X,Y):-pink(X,Z),family(Z,Y).
+```
+The predicate "family" defines the transitive closure of "pink".
+The predicate "pink" defines the transitive closure of "age".
+The predicate "age" defines the transitive closure of "table".
+So, the predicate "family" defines the transitive closure of "table".
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-pink(X,Y).
+family(X,Y):-pink(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4325
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "toronto" with value "11" is not associated with "surname". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(11,"surname").[1@1]
+
+facts: 
+toronto(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "toronto" with value "11" is not associated with "surname". If this occurs, it costs "1" at level "1".
+Answer: :~assign(11,"surname").[1@1]
+This predicate ensures that the label "brown" is not assigned to the combination "11".
+The predicate "brown" has value "1".
+The predicate "shape" has value "1".
+The predicate "florence" has value "1".
+The predicate "table" has value "1".
+The predicate "purple" has value "1".
+The predicate "rome" has value "1".
+The predicate "gray" has value "1".
+The predicate "venice" has value "1".
+The predicate "paris" has value "1".
+The predicate "table" has value "1".
+
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(11,"surname").[1@1]
+
+jaccard: 1.0
+
+
+4326
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "darkmagenta" with label "delhi".
+
+answer from file: 
+select(X):-darkmagenta(X,"delhi").
+
+facts: 
+darkmagenta(1..5, "delhi").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "darkmagenta" with label "delhi".
+Answer: select(X):-darkmagenta(X,"delhi").
+```
+The predicate "darkmagenta" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "darkmagenta_city" that links each darkmagenta to the shape of city.
+```
+darkmagenta_city(X,Z):-darkmagenta(X,C),city(C,Z).
+```
+The predicate "darkmagenta_city" is the transitive closure of the predicate "darkmagenta".
+```
+darkmagenta_city(X,Z):-darkmagenta(X,C),city(C,Z).
+```
+The predicate "darkmagenta_city"
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-darkmagenta(X,"delhi").
+
+jaccard: 1.0
+
+
+4327
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "desk" but not associated with predicate "barcelona" and label "chicago".
+
+answer from file: 
+select(X):-desk(X),not barcelona(X,"chicago").
+
+facts: 
+desk(1..3).barcelona(1,"flower").barcelona(2,"singapore").barcelona(3,"chicago").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "desk" but not associated with predicate "barcelona" and label "chicago".
+Answer: select(X):-desk(X),not barcelona(X,"chicago").
+```
+The predicate "table" selects all values associated with the predicate "table" but not associated with the predicate "purple" and label "shape".
+```
+select(X):-table(X),not purple(X,"shape").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-desk(X),not barcelona(X,"chicago").
+
+jaccard: 1.0
+
+
+4328
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "chicago" with a value different than 52.
+
+answer from file: 
+select(X):-chicago(X,C),C!=52.
+
+facts: 
+chicago(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "chicago" with a value different than 52.
+Answer: select(X):-chicago(X,C),C!=52.
+```
+The predicate "chicago" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "tokyo" that links each chicago to the shape of city.
+```
+tokyo(X,Z):-chicago(X,_,Y),city(Y,Z).
+```
+The predicate "tokyo" has fields "ID","shape".
+The predicate "city" has fields "ID","shape".
+The predicate "tokyo_city" links each tokyo to the shape of city.
+```
+tokyo_city(X,Z):-tokyo(X,Z).
+
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-chicago(X,C),C!=52.
+
+jaccard: 1.0
+
+
+4329
+assignment
+
+question: 
+Create an ASP solution to assign one specific label from "delhi","cairo","white","desk","lightblue" to a group of elements as defined by the predicate "white".
+
+answer from file: 
+assign(X,"delhi")|assign(X,"cairo")|assign(X,"white")|assign(X,"desk")|assign(X,"lightblue"):-white(X).
+
+facts: 
+white(1..5).
+
+generated: 
+Create an ASP solution to assign one specific label from "delhi","cairo","white","desk","lightblue" to a group of elements as defined by the predicate "white".
+Answer: assign(X,"delhi")|assign(X,"cairo")|assign(X,"white")|assign(X,"desk")|assign(X,"lightblue"):-white(X).
+white(X):-age(X,"table").
+age(X,"table").
+The predicate "white" assigns one label from the set "delhi","cairo","white","desk","lightblue" to elements defined by the predicate "white".
+The predicate "age" defines the predicate "table".
+The predicate "table" assigns one label from the set "table","purple","gray","shape","city" to elements defined by the predicate "white".
+The predicate "city" assigns one label from
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"delhi")|assign(X,"cairo")|assign(X,"white")|assign(X,"desk")|assign(X,"lightblue"):-white(X).
+
+jaccard: 1.0
+
+
+4330
+constraint
+
+question: 
+Formulate an ASP script to ensure the "lake" predicate having value 6 is not associated with the label "darkmagenta".
+
+answer from file: 
+:-assign(6,darkmagenta).
+
+facts: 
+lake(1..20).
+
+generated: 
+Formulate an ASP script to ensure the "lake" predicate having value 6 is not associated with the label "darkmagenta".
+Answer: :-assign(6,darkmagenta).
+Answer: :-assign(6,gray).
+Answer: :-assign(6,purple).
+Answer: :-assign(6,shape).
+Answer: :-assign(6,gray).
+Answer: :-assign(6,purple).
+Answer: :-assign(6,shape).
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(6,darkmagenta).
+
+jaccard: 1.0
+
+
+4331
+combination
+
+question: 
+Produce an ASP script to generate all valid pairings of elements as represented by the predicates "surname" and "chicago".
+
+answer from file: 
+combination(X,Y):-surname(X),chicago(Y).
+
+facts: 
+surname(1..4).chicago(1..5).
+
+generated: 
+Produce an ASP script to generate all valid pairings of elements as represented by the predicates "surname" and "chicago".
+Answer: combination(X,Y):-surname(X),chicago(Y).
+combination(X,Y):-tokyo(X),city(Y).
+combination(X,Y):-purple(X),florence(Y).
+combination(X,Y):-rome(X),table(Y).
+combination(X,Y):-shape(X),city(Y).
+combination(X,Y):-shape(X),florence(Y).
+combination(X,Y):-purple(X),table(Y).
+combination(X,Y):-rome(X),florence(Y).
+combination(X,Y):-shape(X),florence(Y).
+combination(X,Y):-purple(
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-surname(X),chicago(Y).
+
+jaccard: 1.0
+
+
+4332
+join
+
+question: 
+Write an ASP application to address the problem where the predicate "wall" has fields "ID","surname","strength","blackID", and the predicate "black" has fields "ID","hair". Define the predicate "wall_black" that associates each wall with the hair of black.
+
+answer from file: 
+wall_black(X,Z):-wall(X,_,_,Y),black(Y,Z).
+
+facts: 
+wall("ID","surname","strength","blackID").black("ID","hair").
+
+generated: 
+Write an ASP application to address the problem where the predicate "wall" has fields "ID","surname","strength","blackID", and the predicate "black" has fields "ID","hair". Define the predicate "wall_black" that associates each wall with the hair of black.
+Answer: wall_black(X,Z):-wall(X,_,_,Y),black(Y,Z).
+wall_black(X,Z):-wall(X,_,_,Y),black(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+wall_black(X,Z):-wall(X,_,_,Y),black(Y,Z).
+
+jaccard: 1.0
+
+
+4333
+closure
+
+question: 
+Craft an ASP script that infers the "journey" predicate by computing the transitive closure of the "cosenza" predicate.
+
+answer from file: 
+journey(X,Y):-cosenza(X,Y).
+journey(X,Y):-cosenza(X,Z),journey(Z,Y).
+
+facts: 
+cosenza(1..3, 1..4).
+
+generated: 
+Craft an ASP script that infers the "journey" predicate by computing the transitive closure of the "cosenza" predicate.
+Answer: journey(X,Y):-cosenza(X,Y).
+journey(X,Y):-cosenza(X,Z),journey(Z,Y).
+```
+The predicate "journey" is defined as the transitive closure of the predicate "cosenza".
+```
+journey(X,Y):-cosenza(X,Y).
+journey(X,Y):-cosenza(X,Z),journey(Z,Y).
+```
+The predicate "cosenza" is defined as the transitive closure of the predicate "shape".
+```
+shape(X,Y):- dépens(X,Y).
+shape(X,Y):-shape(X,Z), dépens(Z,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+journey(X,Y):-cosenza(X,Y).
+journey(X,Y):-cosenza(X,Z),journey(Z,Y).
+
+jaccard: 1.0
+
+
+4334
+preference
+
+question: 
+Compose an ASP program to keep the predicate "laptop" with value "18" separate from "cairo". If this association occurs, it incurs a cost of "1" at level "1".
+
+answer from file: 
+:~assign(18,"cairo").[1@1]
+
+facts: 
+laptop(1..20).
+
+generated: 
+Compose an ASP program to keep the predicate "laptop" with value "18" separate from "cairo". If this association occurs, it incurs a cost of "1" at level "1".
+Answer: :~assign(18,"cairo").[1@1]
+This predicate ensures the "18" and "cairo" are not linked. It incurs a cost of "1" at level "1" for each association.
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(18,"cairo").[1@1]
+
+jaccard: 1.0
+
+
+4335
+filtering
+
+question: 
+Craft an ASP code snippet to capture all relevant values for the "desk" label within the "hair" predicate.
+
+answer from file: 
+select(X):-hair(X,"desk").
+
+facts: 
+hair(1..5, "desk").
+
+generated: 
+Craft an ASP code snippet to capture all relevant values for the "desk" label within the "hair" predicate.
+Answer: select(X):-hair(X,"desk").
+```
+select(X):-hair(X,"table").
+```
+The predicate "hair" includes the "table" label, but not the "desk" label. The predicate "table" includes the "desk" label. Therefore, the code snippet captures all relevant values for the "desk" label within the "hair" predicate.
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-hair(X,"desk").
+
+jaccard: 1.0
+
+
+4336
+negative_filtering
+
+question: 
+Write an ASP script to select all values tied to the predicate "darkmagenta" but not to the predicate "barcelona" and labeled as "flower".
+
+answer from file: 
+select(X):-darkmagenta(X),not barcelona(X,"flower").
+
+facts: 
+darkmagenta(1..3).barcelona(1,"lake").barcelona(2,"cloud").barcelona(3,"flower").
+
+generated: 
+Write an ASP script to select all values tied to the predicate "darkmagenta" but not to the predicate "barcelona" and labeled as "flower".
+Answer: select(X):-darkmagenta(X),not barcelona(X,"flower").
+```
+select(X):-darkmagenta(X),not barcelona(X,"flower").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-darkmagenta(X),not barcelona(X,"flower").
+
+jaccard: 1.0
+
+
+4337
+numeric_filtering
+
+question: 
+Craft an ASP code to retrieve values connected to the predicate "flower" with a value different than 14.
+
+answer from file: 
+select(X):-flower(X,C),C!=14.
+
+facts: 
+flower(1..3, 1..100).
+
+generated: 
+Craft an ASP code to retrieve values connected to the predicate "flower" with a value different than 14.
+Answer: select(X):-flower(X,C),C!=14.
+```
+The predicate "flower" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple" that links each flower to the shape of city.
+Answer: select(X):-purple(X,"city").
+```
+The predicate "purple" has fields "ID","shape". Define a predicate "green" that links each flower to the shape of city.
+Answer: select(X):-green(X,"city").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-flower(X,C),C!=14.
+
+jaccard: 1.0
+
+
+4338
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate owner. The labels are delhi,surname,moscow,quality,butterfly,chair,desk,lake.
+
+answer from file: 
+assign(X,"delhi")|assign(X,"surname")|assign(X,"moscow")|assign(X,"quality")|assign(X,"butterfly")|assign(X,"chair")|assign(X,"desk")|assign(X,"lake"):-owner(X).
+
+facts: 
+owner(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate owner. The labels are delhi,surname,moscow,quality,butterfly,chair,desk,lake.
+Answer: assign(X,"tokyo")|assign(X,"shape")|assign(X,"city")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"tokyo")|assign(X,"shape")|assign(X,"city")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|.
+
+jaccard: 0.0
+
+
+4339
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "quality" with value "2" from having label "lake".
+
+answer from file: 
+:-assign(2,lake).
+
+facts: 
+quality(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "quality" with value "2" from having label "lake".
+Answer: :-assign(2,lake).
+Explanation: The predicate "author" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "price" that links each price to the shape of the "shape" predicate.
+The predicate "assign" links each label to the elements it is attached to.
+The predicate "author" prevents the label "table" from being assigned to the elements it is linked to.
+The predicate "price" links each price to the shape of the "shape" predicate.
+The predicate "city" links each price to the shape of the "shape" predicate.
+The predicate "shape" links each element to the
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(2,lake).
+
+jaccard: 1.0
+
+
+4340
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "lake" and "moscow".
+
+answer from file: 
+combination(X,Y):-lake(X),moscow(Y).
+
+facts: 
+lake(1..4).moscow(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "lake" and "moscow".
+Answer: combination(X,Y):-lake(X),moscow(Y).
+combination(X,Y):-lake(X),not moscow(Y).
+combination(X,Y):-not lake(X),moscow(Y).
+combination(X,Y):-not lake(X),not moscow(Y).
+combination(X,Y):-lake(X),city(Y).
+combination(X,Y):-city(X),moto(Y).
+combination(X,Y):-moto(X),city(Y).
+combination(X,Y):-city(X),moto(Y).
+combination(X,Y):-moto(X),city(Y).
+combination(X,
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-lake(X),moscow(Y).
+
+jaccard: 1.0
+
+
+4341
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "chicago" having fields "ID","moscowID","lake", and the predicate "moscow" having fields "ID","owner". Define a predicate "chicago_moscow" that associates to each "chicago" the "owner" of "moscow".
+
+answer from file: 
+chicago_moscow(X,Z):-chicago(X,Y,_),moscow(Y,Z).
+
+facts: 
+chicago("ID","moscowID","lake").moscow("ID","owner").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "chicago" having fields "ID","moscowID","lake", and the predicate "moscow" having fields "ID","owner". Define a predicate "chicago_moscow" that associates to each "chicago" the "owner" of "moscow".
+Answer: chicago_moscow(X,Z):-chicago(X,Y,_),moscow(Y,Z).
+chicago_moscow(X,Z):-chicago(X,Y,_),not moscow(Y,Z).
+chicago_moscow(X,Z):-chicago(X,Y,_),not moscow(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+chicago_moscow(X,Z):-chicago(X,Y,_),moscow(Y,Z).
+
+jaccard: 1.0
+
+
+4342
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "journey" as the transitive closure of predicate "barcelona".
+
+answer from file: 
+journey(X,Y):-barcelona(X,Y).
+journey(X,Y):-barcelona(X,Z),journey(Z,Y).
+
+facts: 
+barcelona(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "journey" as the transitive closure of predicate "barcelona".
+Answer: journey(X,Y):-barcelona(X,Y).
+journey(X,Y):-barcelona(X,Z),journey(Z,Y).
+```
+The predicate "journey" defines the transitive closure of "brown".
+```
+journey(X,Y):-brown(X,Y).
+journey(X,Y):-brown(X,Z),journey(Z,Y).
+```
+The predicate "brown" defines the transitive closure of "table".
+```
+brown(X,Y):-table(X,Y).
+brown(X,Y):-table(X,Z),brown(Z,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+journey(X,Y):-barcelona(X,Y).
+journey(X,Y):-barcelona(X,Z),journey(Z,Y).
+
+jaccard: 1.0
+
+
+4343
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "chair" with value "13" is not associated with "surname". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(13,"surname").[1@1]
+
+facts: 
+chair(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "chair" with value "13" is not associated with "surname". If this occurs, it costs "1" at level "1".
+Answer: :~assign(13,"surname").[1@1]
+This predicate ensures that the label "brown" is not assigned to the combination "13,table".
+``` assurent
+:~assign(13,"brown").[1@1]
+```
+The predicate "brown" is not associated with the combination "13,table".
+``` assurent
+:~assign(13,"brown").[1@1]
+```
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(13,"surname").[1@1]
+
+jaccard: 1.0
+
+
+4344
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "moscow" with label "chair".
+
+answer from file: 
+select(X):-moscow(X,"chair").
+
+facts: 
+moscow(1..5, "chair").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "moscow" with label "chair".
+Answer: select(X):-moscow(X,"chair").
+```
+select(X):-moscow(X,"chair").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-moscow(X,"chair").
+
+jaccard: 1.0
+
+
+4345
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "owner" but not associated with predicate "weight" and label "storm".
+
+answer from file: 
+select(X):-owner(X),not weight(X,"storm").
+
+facts: 
+owner(1..3).weight(1,"flower").weight(2,"desk").weight(3,"storm").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "owner" but not associated with predicate "weight" and label "storm".
+Answer: select(X):-owner(X),not weight(X,"storm").
+```
+The predicate "owner" has value "1" and the predicate "weight" has value "1".
+The label "storm" is not associated with "1".
+So, the answer is select(X):-owner(X),not weight(X,"storm").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-owner(X),not weight(X,"storm").
+
+jaccard: 1.0
+
+
+4346
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "wall" with a value different than 39.
+
+answer from file: 
+select(X):-wall(X,C),C!=39.
+
+facts: 
+wall(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "wall" with a value different than 39.
+Answer: select(X):-wall(X,C),C!=39.
+```
+The predicate "wall" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "table" that links each element of "wall" to the shape of "city".
+Answer: table(X,Z):-wall(X,_,Y),Z!=39.
+```
+The predicate "table" links each element of "wall" to the shape of "city".
+The predicate "purple" selects all values associated with the predicate "wall" with a value different than 39.
+Answer: purple(X):-wall(X,_,
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-wall(X,C),C!=39.
+
+jaccard: 1.0
+
+
+4347
+assignment
+
+question: 
+Write an ASP code snippet to connect a single label from "owner","mumbai","roof","delhi","weight" to elements specified by the predicate "laptop".
+
+answer from file: 
+assign(X,"owner")|assign(X,"mumbai")|assign(X,"roof")|assign(X,"delhi")|assign(X,"weight"):-laptop(X).
+
+facts: 
+laptop(1..5).
+
+generated: 
+Write an ASP code snippet to connect a single label from "owner","mumbai","roof","delhi","weight" to elements specified by the predicate "laptop".
+Answer: assign(X,"owner")|assign(X,"mumbai")|assign(X,"roof")|assign(X,"delhi")|assign(X,"weight"):-laptop(X).
+```
+assign(X,"owner")|assign(X,"mumbai")|assign(X,"roof")|assign(X,"delhi")|assign(X,"weight"):-laptop(X).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"owner")|assign(X,"mumbai")|assign(X,"roof")|assign(X,"delhi")|assign(X,"weight"):-laptop(X).
+
+jaccard: 1.0
+
+
+4348
+constraint
+
+question: 
+Design an ASP application that prohibits assigning the "laptop" predicate with value 9 to the label "desk".
+
+answer from file: 
+:-assign(9,desk).
+
+facts: 
+laptop(1..20).
+
+generated: 
+Design an ASP application that prohibits assigning the "laptop" predicate with value 9 to the label "desk".
+Answer: :-assign(9,desk).
+Explanation: The predicate "table" includes the label "desk". The predicate "brown" includes the label "table". The predicate "shape" includes the label "table". Define a predicate "london" that prohibits assigning the "table" predicate with value 9 to the label "desk".
+Answer: :-assign(9,desk).
+Explanation: The predicate "london" includes the label "table". The predicate "shape" includes the label "table". The predicate "brown" includes the label "table". Define a predicate "london" that prohibits assigning the "table" predicate with value 9 to the label "desk".
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(9,desk).
+
+jaccard: 1.0
+
+
+4349
+combination
+
+question: 
+Write an ASP program that computes the cross-product of elements in the sets defined by "wall" and "butterfly".
+
+answer from file: 
+combination(X,Y):-wall(X),butterfly(Y).
+
+facts: 
+wall(1..4).butterfly(1..5).
+
+generated: 
+Write an ASP program that computes the cross-product of elements in the sets defined by "wall" and "butterfly".
+Answer: combination(X,Y):-wall(X),butterfly(Y).
+combination(X,Y):-wall(X),not butterfly(Y).
+combination(X,Y):-not wall(X),florence(Y).
+combination(X,Y):-not wall(X),shape(Y).
+combination(X,Y):-not wall(X),purple(Y).
+combination(X,Y):-not wall(X),table(Y).
+combination(X,Y):-not wall(X),rome(Y).
+combination(X,Y):-not wall(X),city(Y).
+combination(X,Y):-not wall(X),amsterdam(Y).
+combination(
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-wall(X),butterfly(Y).
+
+jaccard: 1.0
+
+
+4350
+join
+
+question: 
+Develop an ASP solution that defines the predicate "darkmagenta_laptop" to link each darkmagenta to the weight of laptop, with "darkmagenta" having fields "ID","owner","hair","laptopID","quality" and "laptop" having fields "ID","surname","weight".
+
+answer from file: 
+darkmagenta_laptop(X,Z):-darkmagenta(X,_,_,Y,_),laptop(Y,_,Z).
+
+facts: 
+darkmagenta("ID","owner","hair","laptopID","quality").laptop("ID","surname","weight").
+
+generated: 
+Develop an ASP solution that defines the predicate "darkmagenta_laptop" to link each darkmagenta to the weight of laptop, with "darkmagenta" having fields "ID","owner","hair","laptopID","quality" and "laptop" having fields "ID","surname","weight". Define the predicate "darkmagenta_laptop_table" that links each darkmagenta to the weight of laptop.
+Answer: darkmagenta_laptop_table(X,Z):-darkmagenta(X,_,_,Y,_),laptop(Y,_,Z).
+darkmagenta(X,_,_,Y,_):-darkmagenta(X,_,_,Y,_),shape(Y,_,Z).
+darkmagenta(X,_,_,Y,_):-darkmagenta(X,_,_,Y,_),shape(Y,_,Z).
+darkmagenta(X,_,_,Y,_):-darkmagenta(X,_,_,Y,_),shape(Y,_,Z).
+darkmagenta(X,_,_,Y,_
+
+unique_rules: 
+[]
+
+parsed: 
+darkmagenta_laptop_table(X,Z):-darkmagenta(X,_,_,Y,_),laptop(Y,_,Z).
+
+jaccard: 1.0
+
+
+4351
+closure
+
+question: 
+Design an ASP code to link the predicate "storm" to its transitive closure, defined as "trains".
+
+answer from file: 
+trains(X,Y):-storm(X,Y).
+trains(X,Y):-storm(X,Z),trains(Z,Y).
+
+facts: 
+storm(1..3, 1..4).
+
+generated: 
+Design an ASP code to link the predicate "storm" to its transitive closure, defined as "trains".
+Answer: trains(X,Y):-storm(X,Y).
+trains(X,Y):-storm(X,Z),trains(Z,Y).
+```
+The predicate " assurent" links each element to its transitive closure.
+Answer: amsterdam(X,Y):- assurent(X,Y).
+amsterdam(X,Y):- assurent(X,Z),amsterdam(Z,Y).
+```
+The predicate "person" links each element to the transitive closure of "person".
+Answer: person(X,Y):-person(X,Y).
+person(X,Y):-person(X,Z),person(Z,Y).
+```
+The predicate "shape" links each element
+
+unique_rules: 
+[]
+
+parsed: 
+trains(X,Y):-storm(X,Y).
+trains(X,Y):-storm(X,Z),trains(Z,Y).
+
+jaccard: 1.0
+
+
+4352
+preference
+
+question: 
+Compose an ASP solution to prevent the linking of the predicate "black" with value "17" to "cloud". Any link incurs a cost of "1" at level "1".
+
+answer from file: 
+:~assign(17,"cloud").[1@1]
+
+facts: 
+black(1..20).
+
+generated: 
+Compose an ASP solution to prevent the linking of the predicate "black" with value "17" to "cloud". Any link incurs a cost of "1" at level "1".
+Answer: :~assign(17,"cloud").[1@1]
+```
+:~assign(17,"cloud").[1@1]
+```
+This predicate ensures that the "17" predicate is not linked to "cloud". It also incurs a cost of "1" at level "1".
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(17,"cloud").[1@1]
+
+jaccard: 1.0
+
+
+4353
+filtering
+
+question: 
+Craft an ASP application to fetch all values linked to the "cairo" label in the context of the "surname" predicate.
+
+answer from file: 
+select(X):-surname(X,"cairo").
+
+facts: 
+surname(1..5, "cairo").
+
+generated: 
+Craft an ASP application to fetch all values linked to the "cairo" label in the context of the "surname" predicate.
+Answer: select(X):-surname(X,"cairo").
+```
+select(X):-age(X,"city","red").
+```
+The predicate "age" includes fields "ID","city","shape".
+The predicate "red" includes fields "ID","shape".
+The predicate "city" includes fields "ID","shape".
+The predicate "shape" includes fields "ID","height".
+The predicate "brown" includes fields "ID","shape".
+The predicate "person" includes fields "ID","shape".
+The predicate "table" includes fields "ID","shape".
+The predicate "florence" includes fields "ID","shape".
+The predicate "rome" includes fields "ID","shape".
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-surname(X,"cairo").
+
+jaccard: 1.0
+
+
+4354
+negative_filtering
+
+question: 
+Formulate an ASP code to gather values associated with the predicate "storm" but not connected to the predicate "owner" and labeled "surname".
+
+answer from file: 
+select(X):-storm(X),not owner(X,"surname").
+
+facts: 
+storm(1..3).owner(1,"pink").owner(2,"surname").owner(3,"weight").
+
+generated: 
+Formulate an ASP code to gather values associated with the predicate "storm" but not connected to the predicate "owner" and labeled "surname".
+Answer: select(X):-storm(X),not owner(X,"surname").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-storm(X),not owner(X,"surname").
+
+jaccard: 1.0
+
+
+4355
+numeric_filtering
+
+question: 
+Draft an ASP code snippet to identify values linked to the predicate "lightblue" with a value different than 96.
+
+answer from file: 
+select(X):-lightblue(X,C),C!=96.
+
+facts: 
+lightblue(1..3, 1..100).
+
+generated: 
+Draft an ASP code snippet to identify values linked to the predicate "lightblue" with a value different than 96.
+Answer: select(X):-lightblue(X,C),C!=96.
+```
+The predicate "lightblue" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple" that links each blue to the shape of city.
+Answer: select(X):-lightblue(X,_,Y),city(Y,_,X).
+```
+The predicate "purple" has fields "ID","shape". Define a predicate "blue_city" that links each blue to the shape of city.
+Answer: select(X):-lightblue(X,_,Y),purple(Y,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-lightblue(X,C),C!=96.
+
+jaccard: 1.0
+
+
+4356
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lake. The labels are laptop,white.
+
+answer from file: 
+assign(X,"laptop")|assign(X,"white"):-lake(X).
+
+facts: 
+lake(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lake. The labels are laptop,white.
+Answer: assign(X,"laptop")|assign(X,"white"):-lake(X).
+```
+The predicate "lake" includes elements that are "tablets" or "gray".
+The predicate "white" includes elements that are "purple" or "gray".
+The predicate "assign" includes elements that are "tablets".
+The predicate "gray" includes elements that are "gray".
+The predicate "purple" includes elements that are "purple".
+The predicate "tablets" includes elements that are "tablets".
+The predicate "purple" includes elements that are "purple".
+The predicate "gray" includes elements that are "gray".
+The predicate "brown" includes elements that are "
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"laptop")|assign(X,"white"):-lake(X).
+
+jaccard: 1.0
+
+
+4357
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "lightblue" with value "7" from having label "pink".
+
+answer from file: 
+:-assign(7,pink).
+
+facts: 
+lightblue(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "lightblue" with value "7" from having label "pink".
+Answer: :-assign(7,pink).
+Explanation: The predicate "lightblue" with value "7" is not assigned the label "pink".
+The predicate "pink" has value "7".
+The predicate "lightblue" with value "7" does not have the label "pink".
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(7,pink).
+
+jaccard: 1.0
+
+
+4358
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "white" and "barcelona".
+
+answer from file: 
+combination(X,Y):-white(X),barcelona(Y).
+
+facts: 
+white(1..4).barcelona(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "white" and "barcelona".
+Answer: combination(X,Y):-white(X),barcelona(Y).
+combination(X,Y):-white(X),not barcelona(Y).
+combination(X,Y):-not white(X),barcelona(Y).
+combination(X,Y):-not white(X),not barcelona(Y).
+combination(X,Y):-white(X),london(Y).
+combination(X,Y):-london(X),white(Y).
+combination(X,Y):-london(X),not white(Y).
+combination(X,Y):-not london(X),white(Y).
+combination(X,Y):-not london(X),not white(Y).
+combination(X,
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-white(X),barcelona(Y).
+
+jaccard: 1.0
+
+
+4359
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "lightblue" having fields "ID","moscowID","strength", and the predicate "moscow" having fields "ID","surname". Define a predicate "lightblue_moscow" that associates to each "lightblue" the "surname" of "moscow".
+
+answer from file: 
+lightblue_moscow(X,Z):-lightblue(X,Y,_),moscow(Y,Z).
+
+facts: 
+lightblue("ID","moscowID","strength").moscow("ID","surname").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "lightblue" having fields "ID","moscowID","strength", and the predicate "moscow" having fields "ID","surname". Define a predicate "lightblue_moscow" that associates to each "lightblue" the "surname" of "moscow".
+Answer: lightblue_moscow(X,Z):-lightblue(X,Y,_),moscow(Y,Z).
+lightblue_moscow(X,Z):-lightblue(X,Y,_),not moscow(Y,Z).
+lightblue(X,Y,_):-lightblue(X,Y,_).
+lightblue(X,Y,_):-lightblue(X,Y,_),not moscow(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+lightblue_moscow(X,Z):-lightblue(X,Y,_),moscow(Y,Z).
+
+jaccard: 1.0
+
+
+4360
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "cloud".
+
+answer from file: 
+family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+
+facts: 
+cloud(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "cloud".
+Answer: family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+```
+The predicate "family" defines the transitive closure of the predicate "cloud".
+The predicate "family" is defined as the transitive closure of the predicate "cloud".
+The predicate "family" is defined as the transitive closure of the predicate "cloud".
+```
+family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-cloud(X,Y).
+family(X,Y):-cloud(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4361
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "darkmagenta" with value "11" is not associated with "black". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(11,"black").[1@1]
+
+facts: 
+darkmagenta(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "darkmagenta" with value "11" is not associated with "black". If this occurs, it costs "1" at level "1".
+Answer: :~assign(11,"black").[1@1]
+This predicate ensures that the "11" is not associated with "black". It costs "1" at level "1" for each such association.
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(11,"black").[1@1]
+
+jaccard: 1.0
+
+
+4362
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "hair" with label "cosenza".
+
+answer from file: 
+select(X):-hair(X,"cosenza").
+
+facts: 
+hair(1..5, "cosenza").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "hair" with label "cosenza".
+Answer: select(X):-hair(X,"cosenza").
+```
+select(X):-hair(X,"cosenza").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-hair(X,"cosenza").
+
+jaccard: 1.0
+
+
+4363
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "owner" but not associated with predicate "white" and label "singapore".
+
+answer from file: 
+select(X):-owner(X),not white(X,"singapore").
+
+facts: 
+owner(1..3).white(1,"butterfly").white(2,"desk").white(3,"singapore").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "owner" but not associated with predicate "white" and label "singapore".
+Answer: select(X):-owner(X),not white(X,"singapore").
+```
+The predicate "owner" has value "1", and the predicate "white" has value "1".
+The label "singapore" is not associated with the value "1".
+So, the answer is select(X):-owner(X),not white(X,"singapore").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-owner(X),not white(X,"singapore").
+
+jaccard: 1.0
+
+
+4364
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "barcelona" with a value different than 37.
+
+answer from file: 
+select(X):-barcelona(X,C),C!=37.
+
+facts: 
+barcelona(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "barcelona" with a value different than 37.
+Answer: select(X):-barcelona(X,C),C!=37.
+```
+The predicate "london" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "london_city" that links each london to the shape of city.
+```
+london_city(X,Z):-london(X,_,Y),city(Y,Z).
+```
+The predicate "brown" has fields "ID","shape". Define a predicate "brown_city" that links each brown to the shape of city.
+```
+brown_city(X,Z):-brown(X,Z).
+```
+The predicate "shape" has
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-barcelona(X,C),C!=37.
+
+jaccard: 1.0
+
+
+4365
+assignment
+
+question: 
+Create an ASP script that maps a single label from "flower","delhi","quality","chair","lightblue" to a collection of elements specified by the predicate "singapore".
+
+answer from file: 
+assign(X,"flower")|assign(X,"delhi")|assign(X,"quality")|assign(X,"chair")|assign(X,"lightblue"):-singapore(X).
+
+facts: 
+singapore(1..5).
+
+generated: 
+Create an ASP script that maps a single label from "flower","delhi","quality","chair","lightblue" to a collection of elements specified by the predicate "singapore".
+Answer: assign(X,"flower")|assign(X,"delhi")|assign(X,"quality")|assign(X,"chair")|assign(X,"lightblue"):-singapore(X).
+```
+The predicate "singapore" returns all values associated with the label "purple".
+```
+assign(X,"purple"):-singapore(X).
+```
+The predicate "florence" returns all values associated with the label "purple".
+```
+assign(X,"purple"):-florence(X).
+```
+The predicate "car" returns all values associated with the label "purple".
+```
+assign(X,"purple"):-car(X).
+```
+The predicate
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"flower")|assign(X,"delhi")|assign(X,"quality")|assign(X,"chair")|assign(X,"lightblue"):-singapore(X).
+
+jaccard: 1.0
+
+
+4366
+constraint
+
+question: 
+Formulate an ASP code that ensures the "desk" predicate having value 15 is not connected to the label "black".
+
+answer from file: 
+:-assign(15,black).
+
+facts: 
+desk(1..20).
+
+generated: 
+Formulate an ASP code that ensures the "desk" predicate having value 15 is not connected to the label "black".
+Answer: :-assign(15,black).
+Answer: :-assign(15,gray).
+Answer: :-assign(15,purple).
+Answer: :-assign(15,green).
+Answer: :-assign(15,orange).
+Answer: :-assign(15,shape).
+Answer: :-assign(15,city).
+Answer: :-assign(15,florence).
+Answer: :-assign(15,rome).
+Answer: :-assign(15,gray).
+Answer: :-assign(15,purple).
+Answer: :-assign(15,green).
+Answer: :-assign(15,orange).
+Answer: :-assign(
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(15,black).
+
+jaccard: 1.0
+
+
+4367
+combination
+
+question: 
+Craft an ASP application to list valid combinations of elements between the predicates "strength" and "laptop".
+
+answer from file: 
+combination(X,Y):-strength(X),laptop(Y).
+
+facts: 
+strength(1..4).laptop(1..5).
+
+generated: 
+Craft an ASP application to list valid combinations of elements between the predicates "strength" and "laptop".
+Answer: combination(X,Y):-strength(X),laptop(Y).
+combination(X,Y):-strength(X),not laptop(Y).
+combination(X,Y):-not strength(X),laptop(Y).
+combination(X,Y):-not strength(X),not laptop(Y).
+combination(X,Y):-strength(X),car(Y).
+combination(X,Y):-car(X),height(Y).
+combination(X,Y):-height(X),car(Y).
+combination(X,Y):-car(X),height(Y).
+combination(X,Y):-height(X),car(Y).
+combination(X,Y):-car(
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-strength(X),laptop(Y).
+
+jaccard: 1.0
+
+
+4368
+join
+
+question: 
+Create an ASP script to define the predicate "singapore_delhi" that links each singapore to the weight of delhi, given that "singapore" has fields "ID","hair","delhiID" and "delhi" has fields "ID","hair","weight".
+
+answer from file: 
+singapore_delhi(X,Z):-singapore(X,_,Y),delhi(Y,_,Z).
+
+facts: 
+singapore("ID","hair","delhiID").delhi("ID","hair","weight").
+
+generated: 
+Create an ASP script to define the predicate "singapore_delhi" that links each singapore to the weight of delhi, given that "singapore" has fields "ID","hair","delhiID" and "delhi" has fields "ID","hair","weight". Define a predicate "singapore_delhi" that links each singapore to the weight of delhi.
+Answer: singapore_delhi(X,Z):-singapore(X,_,Y,_),delhi(Y,_,Z).
+```
+ ángulo-table(X,Y):-singapore(X,_,Y,_),delhi(Y,_,Z).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+singapore_delhi(X,Z):-singapore(X,_,Y,_),delhi(Y,_,Z).
+
+jaccard: 1.0
+
+
+4369
+closure
+
+question: 
+Design an ASP program that infers the "loops" predicate using the transitive closure of the "pink" predicate.
+
+answer from file: 
+loops(X,Y):-pink(X,Y).
+loops(X,Y):-pink(X,Z),loops(Z,Y).
+
+facts: 
+pink(1..3, 1..4).
+
+generated: 
+Design an ASP program that infers the "loops" predicate using the transitive closure of the "pink" predicate.
+Answer: loops(X,Y):-pink(X,Y).
+loops(X,Y):-pink(X,Z),loops(Z,Y).
+```
+The predicate "loops" is defined as the transitive closure of the predicate "pink".
+The predicate "pink" is defined as the transitive closure of the predicate "age".
+The predicate "age" is defined as the transitive closure of the predicate "shape".
+So, the predicate "loops" is defined as the transitive closure of the predicate "shape".
+
+unique_rules: 
+[]
+
+parsed: 
+loops(X,Y):-pink(X,Y).
+loops(X,Y):-pink(X,Z),loops(Z,Y).
+
+jaccard: 1.0
+
+
+4370
+preference
+
+question: 
+Formulate an ASP solution to prevent the association of the predicate "black" with value "11" with "cloud". If this association occurs, it incurs a cost of "1" at level "1".
+
+answer from file: 
+:~assign(11,"cloud").[1@1]
+
+facts: 
+black(1..20).
+
+generated: 
+Formulate an ASP solution to prevent the association of the predicate "black" with value "11" with "cloud". If this association occurs, it incurs a cost of "1" at level "1".
+Answer: :~assign(11,"cloud").[1@1]
+This predicate ensures that the "cloud" label is not assigned to the combination of "11" and "table".
+The "table" label is not considered in the cost calculation.
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(11,"cloud").[1@1]
+
+jaccard: 1.0
+
+
+4371
+filtering
+
+question: 
+Develop an ASP script to capture all values linked to the "lightblue" label within the "cairo" predicate.
+
+answer from file: 
+select(X):-cairo(X,"lightblue").
+
+facts: 
+cairo(1..5, "lightblue").
+
+generated: 
+Develop an ASP script to capture all values linked to the "lightblue" label within the "cairo" predicate.
+Answer: select(X):-cairo(X,"lightblue").
+```
+select(X):-cairo(X,"lightblue").
+```
+The predicate "city" includes the "lightblue" label, and the predicate "table" contains the "city" predicate.
+```
+select(X):-city(X,"lightblue").
+```
+The predicate "purple" contains the "lightblue" label, and the predicate "shape" contains the "purple" predicate.
+```
+select(X):-purple(X,"lightblue").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-cairo(X,"lightblue").
+
+jaccard: 1.0
+
+
+4372
+negative_filtering
+
+question: 
+Formulate an ASP code to gather values associated with the predicate "surname" but not connected to the predicate "white" and labeled "quality".
+
+answer from file: 
+select(X):-surname(X),not white(X,"quality").
+
+facts: 
+surname(1..3).white(1,"desk").white(2,"quality").white(3,"butterfly").
+
+generated: 
+Formulate an ASP code to gather values associated with the predicate "surname" but not connected to the predicate "white" and labeled "quality".
+Answer: select(X):-surname(X),not white(X,"quality").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-surname(X),not white(X,"quality").
+
+jaccard: 1.0
+
+
+4373
+numeric_filtering
+
+question: 
+Formulate an ASP application to fetch values connected to the predicate "quality" with a value different than 57.
+
+answer from file: 
+select(X):-quality(X,C),C!=57.
+
+facts: 
+quality(1..3, 1..100).
+
+generated: 
+Formulate an ASP application to fetch values connected to the predicate "quality" with a value different than 57.
+Answer: select(X):-quality(X,C),C!=57.
+```
+The predicate "quality" includes elements connected to the predicate "table" with a value different than 57.
+```
+select(X):-table(X,C),C!=57.
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-quality(X,C),C!=57.
+
+jaccard: 1.0
+
+
+4374
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate singapore. The labels are wall,singapore,roof,white,darkmagenta,quality,chicago,cosenza.
+
+answer from file: 
+assign(X,"wall")|assign(X,"singapore")|assign(X,"roof")|assign(X,"white")|assign(X,"darkmagenta")|assign(X,"quality")|assign(X,"chicago")|assign(X,"cosenza"):-singapore(X).
+
+facts: 
+singapore(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate singapore. The labels are wall,singapore,roof,white,darkmagenta,quality,chicago,cosenza.
+Answer: assign(X,"wall")|assign(X,"singapore")|assign(X,"roof")|assign(X,"white")|assign(X,"darkmagenta")|assign(X,"quality")|assign(X,"chicago")|assign(X,"cosenza"):-table(table( áng)).
+The predicate table is defined as table(X,Y,Z):- áng(X,Y,Z).
+ áng(X,Y,Z):-table(X,Y,Z).
+ áng(X,Y,Z):-table(X,Y,Z).
+ áng(X,Y,Z):-table(X,Y,Z).
+ áng(X,Y,Z
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"wall")|assign(X,"singapore")|assign(X,"roof")|assign(X,"white")|assign(X,"darkmagenta")|assign(X,"quality")|assign(X,"chicago")|assign(X,"cosenza"):-table(table( áng)).
+
+jaccard: 0.0
+
+
+4375
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "surname" with value "1" from having label "wall".
+
+answer from file: 
+:-assign(1,wall).
+
+facts: 
+surname(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "surname" with value "1" from having label "wall".
+Answer: :-assign(1,wall).
+Explanation: The predicate "author" includes the label "wall". The predicate "shape" includes the label "author". Define a predicate "person" that links each person to the label "author".
+The predicate "price" links each person to the label "author".
+The predicate "brown" links each person to the label "author".
+The predicate "florence" links each person to the label "author".
+The predicate "rome" links each person to the label "author".
+The predicate "table" links each person to the label "author".
+The predicate "purple" links each person to the label "author".
+The predicate "gray" links each
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(1,wall).
+
+jaccard: 1.0
+
+
+4376
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "weight" and "chicago".
+
+answer from file: 
+combination(X,Y):-weight(X),chicago(Y).
+
+facts: 
+weight(1..4).chicago(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "weight" and "chicago".
+Answer: combination(X,Y):-weight(X),chicago(Y).
+combination(X,Y):-weight(X),not chicago(Y).
+combination(X,Y):-not weight(X),chicago(Y).
+combination(X,Y):-not weight(X),not chicago(Y).
+combination(X,Y):-weight(X),city(Y).
+combination(X,Y):-not weight(X),city(Y).
+combination(X,Y):-weight(X),city(Y).
+combination(X,Y):-not weight(X),not city(Y).
+combination(X,Y):-weight(X),shape(Y).
+combination(X,Y
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-weight(X),chicago(Y).
+
+jaccard: 1.0
+
+
+4377
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "strength" having fields "ID","strength","chicagoID", and the predicate "chicago" having fields "ID","strength". Define a predicate "strength_chicago" that associates to each "strength" the "strength" of "chicago".
+
+answer from file: 
+strength_chicago(X,Z):-strength(X,_,Y),chicago(Y,Z).
+
+facts: 
+strength("ID","strength","chicagoID").chicago("ID","strength").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "strength" having fields "ID","strength","chicagoID", and the predicate "chicago" having fields "ID","strength". Define a predicate "strength_chicago" that associates to each "strength" the "strength" of "chicago".
+Answer: strength_chicago(X,Z):-strength(X,_,Y),chicago(Y,Z).
+strength_chicago(X,Z):-strength(X,_,Y),not chicago(Y,Z).
+strength_chicago(X,Z):-strength(X,_,Y),not strength(Y,Z).
+
+unique_rules: 
+[]
+
+parsed: 
+strength_chicago(X,Z):-strength(X,_,Y),chicago(Y,Z).
+
+jaccard: 1.0
+
+
+4378
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "barcelona".
+
+answer from file: 
+family(X,Y):-barcelona(X,Y).
+family(X,Y):-barcelona(X,Z),family(Z,Y).
+
+facts: 
+barcelona(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "barcelona".
+Answer: family(X,Y):-barcelona(X,Y).
+family(X,Y):-barcelona(X,Z),family(Z,Y).
+```
+The predicate "family" defines the transitive closure of "brownard" and is expressed as "family(X,Y):-brownard(X,Y)".
+The predicate "brownard" defines the transitive closure of "table" and is expressed as "brownard(X,Y):-table(X,Y)".
+The predicate "table" defines the transitive closure of "shape" and is expressed as "table(X,Y):-shape(X,Y)".
+So, the predicate "family" defines the transitive closure of "brownard"
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-barcelona(X,Y).
+family(X,Y):-barcelona(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4379
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "white" with value "10" is not associated with "toronto". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(10,"toronto").[1@1]
+
+facts: 
+white(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "white" with value "10" is not associated with "toronto". If this occurs, it costs "1" at level "1".
+Answer: :~assign(10,"toronto").[1@1]
+This predicate ensures that the label "tokyo" is not assigned to the element with value "10".
+The label "tokyo" is assigned to elements that are associated with the predicate "gray".
+The predicate "gray" has value "1".
+The predicate "price" has value "1".
+The predicate "table" has value "1".
+The predicate "purple" has value "1".
+The predicate "florence" has value "1".
+The predicate "rome" has value "1".
+The predicate "cyan" has value "1".
+The predicate "venice" has value "1".
+The
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(10,"toronto").[1@1]
+
+jaccard: 1.0
+
+
+4380
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "owner" with label "wall".
+
+answer from file: 
+select(X):-owner(X,"wall").
+
+facts: 
+owner(1..5, "wall").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "owner" with label "wall".
+Answer: select(X):-owner(X,"wall").
+```
+The predicate "owner" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "author" that links each owner to the shape of city.
+Answer: select(X):-owner(X,"wall").
+author(X,"city").
+```
+The predicate "author" has fields "ID","shape". Define a predicate "city" that links each city to the shape of owner.
+Answer: select(X):-city(X,"shape").
+author(X,"city").
+```
+The predicate "shape" has fields "ID","shape". Define a predicate "
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-owner(X,"wall").
+
+jaccard: 1.0
+
+
+4381
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "chair" but not associated with predicate "wall" and label "delhi".
+
+answer from file: 
+select(X):-chair(X),not wall(X,"delhi").
+
+facts: 
+chair(1..3).wall(1,"cosenza").wall(2,"delhi").wall(3,"hair").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "chair" but not associated with predicate "wall" and label "delhi".
+Answer: select(X):-chair(X),not wall(X,"delhi").
+```
+The predicate "chair" has value "1", and the predicate "wall" has value "1".
+The label "delhi" is not associated with the value "1".
+So, the answer is select(X):-chair(X),not wall(X,"delhi").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-chair(X),not wall(X,"delhi").
+
+jaccard: 1.0
+
+
+4382
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "wall" with a value different than 2.
+
+answer from file: 
+select(X):-wall(X,C),C!=2.
+
+facts: 
+wall(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "wall" with a value different than 2.
+Answer: select(X):-wall(X,C),C!=2.
+```
+The predicate "wall" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "table" that links each element of "wall" to the shape of "city".
+Answer: table(X,Z):-wall(X,_,Y),Z!=2.
+```
+The predicate "table" links each element of "wall" to the shape of "city".
+The predicate "name" links each element of "table" to the name of "city".
+Answer: name(X,Z):-table(X,Z).
+```
+The
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-wall(X,C),C!=2.
+
+jaccard: 1.0
+
+
+4383
+assignment
+
+question: 
+Create an ASP solution to assign one specific label from "roof","cairo","wall","surname","cosenza","owner","flower" to a group of elements as defined by the predicate "lightblue".
+
+answer from file: 
+assign(X,"roof")|assign(X,"cairo")|assign(X,"wall")|assign(X,"surname")|assign(X,"cosenza")|assign(X,"owner")|assign(X,"flower"):-lightblue(X).
+
+facts: 
+lightblue(1..5).
+
+generated: 
+Create an ASP solution to assign one specific label from "roof","cairo","wall","surname","cosenza","owner","flower" to a group of elements as defined by the predicate "lightblue".
+Answer: assign(X,"roof")|assign(X,"cairo")|assign(X,"wall")|assign(X,"surname")|assign(X,"cosenza")|assign(X,"owner")|assign(X,"flower"):-lightblue(X).
+```
+lightblue(X):-age(X,"rome").
+age(X,"rome").
+```
+This solution uses the predicate "age" to link each element to the label "rome".
+The predicate "lightblue" then assigns one label from "roof","cairo","wall","surname","cosenza","owner","flower" to a group of elements as defined by the predicate "lightblue".
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"roof")|assign(X,"cairo")|assign(X,"wall")|assign(X,"surname")|assign(X,"cosenza")|assign(X,"owner")|assign(X,"flower"):-lightblue(X).
+
+jaccard: 1.0
+
+
+4384
+constraint
+
+question: 
+Draft an ASP program to prevent the predicate "cloud" with value 3 from being linked to the label "wall".
+
+answer from file: 
+:-assign(3,wall).
+
+facts: 
+cloud(1..20).
+
+generated: 
+Draft an ASP program to prevent the predicate "cloud" with value 3 from being linked to the label "wall".
+Answer: :-assign(3,wall).
+Explanation: The predicate "cloud" with value 3 is linked to the label "table". The predicate "table" with value 3 is linked to the label "wall". Therefore, the predicate "cloud" with value 3 is not linked to the label "wall".
+```
+assign(3,wall).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(3,wall).
+
+jaccard: 1.0
+
+
+4385
+combination
+
+question: 
+Create an ASP program to calculate the Cartesian product of elements from sets represented by the predicates "flower" and "storm".
+
+answer from file: 
+combination(X,Y):-flower(X),storm(Y).
+
+facts: 
+flower(1..4).storm(1..5).
+
+generated: 
+Create an ASP program to calculate the Cartesian product of elements from sets represented by the predicates "flower" and "storm".
+Answer: combination(X,Y):-flower(X),storm(Y).
+combination(X,Y):-flower(X),not storm(Y).
+combination(X,Y):-not flower(X),storm(Y).
+combination(X,Y):-not flower(X),not storm(Y).
+combination(X,Y):-flower(X),shape(Y).
+combination(X,Y):-shape(X),flower(Y).
+combination(X,Y):-shape(X),not flower(Y).
+combination(X,Y):-not shape(X),flower(Y).
+combination(X,Y):-not shape(X),not flower(Y).
+combination(X,
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-flower(X),storm(Y).
+
+jaccard: 1.0
+
+
+4386
+join
+
+question: 
+Compose an ASP script to address the problem by defining the predicate "owner_chair" which associates each owner with the quality of chair, with "owner" having fields "ID","quality","chairID" and "chair" having fields "ID","quality".
+
+answer from file: 
+owner_chair(X,Z):-owner(X,_,Y),chair(Y,Z).
+
+facts: 
+owner("ID","quality","chairID").chair("ID","quality").
+
+generated: 
+Compose an ASP script to address the problem by defining the predicate "owner_chair" which associates each owner with the quality of chair, with "owner" having fields "ID","quality","chairID" and "chair" having fields "ID","quality". Define a predicate "owner_chair_table" which links each owner with the quality of chair.
+Answer: owner_chair_table(X,Z):-owner(X,_,Y),chair(Y,Z).
+```
+```
+owner_chair(X,Z,_):-owner(X,Z,_),chair(Y,Z).
+owner_chair_table(X,Z):-owner(X,Z,_),owner_chair(X,Z,_).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+owner_chair_table(X,Z):-owner(X,_,Y),chair(Y,Z).
+
+jaccard: 1.0
+
+
+4387
+closure
+
+question: 
+Create an ASP solution that establishes the predicate "loops" through the transitive closure of the "white" predicate.
+
+answer from file: 
+loops(X,Y):-white(X,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+
+facts: 
+white(1..3, 1..4).
+
+generated: 
+Create an ASP solution that establishes the predicate "loops" through the transitive closure of the "white" predicate.
+Answer: loops(X,Y):-white(X,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+loops
+
+unique_rules: 
+[]
+
+parsed: 
+loops(X,Y):-white(X,Y).
+loops(X,Y):-white(X,Z),loops(Z,Y).
+
+jaccard: 1.0
+
+
+4388
+preference
+
+question: 
+Craft an ASP program to ensure that the "lake" predicate with value "15" is not associated with "toronto", incurring a cost of "1" at level "1" if it does.
+
+answer from file: 
+:~assign(15,"toronto").[1@1]
+
+facts: 
+lake(1..20).
+
+generated: 
+Craft an ASP program to ensure that the "lake" predicate with value "15" is not associated with "toronto", incurring a cost of "1" at level "1" if it does.
+Answer: :~assign(15,"toronto").[1@1]
+This predicate ensures the "lake" predicate with value "15" is not associated with "toronto". It incurs a cost of "1" at level "1" if it does.
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(15,"toronto").[1@1]
+
+jaccard: 1.0
+
+
+4389
+filtering
+
+question: 
+Compose an ASP program to identify values labeled as "moscow" within the predicate "mumbai".
+
+answer from file: 
+select(X):-mumbai(X,"moscow").
+
+facts: 
+mumbai(1..5, "moscow").
+
+generated: 
+Compose an ASP program to identify values labeled as "moscow" within the predicate "mumbai".
+Answer: select(X):-mumbai(X,"moscow").
+```
+select(X):-mumbai(X,"paris").
+```
+The predicate "mumbai" includes fields "ID","shape","city","nameID", and the predicate "paris" contains fields "ID","shape". Define a predicate "table" that links each element of the predicate "mumbai" to the element of the predicate "paris" that has the same shape.
+```
+table(X,Z):-mumbai(X,"paris").
+```
+The predicate "table" includes fields "ID","shape".
+The predicate "paris" includes fields "ID","shape".
+The predicate "table" links each element of the
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-mumbai(X,"moscow").
+
+jaccard: 1.0
+
+
+4390
+negative_filtering
+
+question: 
+Create an ASP application to fetch values associated with the predicate "darkmagenta" but not linked to the predicate "flower" and labeled "cairo".
+
+answer from file: 
+select(X):-darkmagenta(X),not flower(X,"cairo").
+
+facts: 
+darkmagenta(1..3).flower(1,"lake").flower(2,"toronto").flower(3,"chair").
+
+generated: 
+Create an ASP application to fetch values associated with the predicate "darkmagenta" but not linked to the predicate "flower" and labeled "cairo".
+Answer: select(X):-darkmagenta(X),not flower(X,"cairo").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-darkmagenta(X),not flower(X,"cairo").
+
+jaccard: 1.0
+
+
+4391
+numeric_filtering
+
+question: 
+Design an ASP program to gather values associated with the predicate "white" with a value different than 14.
+
+answer from file: 
+select(X):-white(X,C),C!=14.
+
+facts: 
+white(1..3, 1..100).
+
+generated: 
+Design an ASP program to gather values associated with the predicate "white" with a value different than 14.
+Answer: select(X):-white(X,C),C!=14.
+```
+The predicate "white" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "gray" that links each white to the shape of city.
+Answer: select(X):-white(X,_,Y),Y.shape.
+```
+The predicate "gray" has fields "ID","shape". Define a predicate "purple" that links each white to the shape of city.
+Answer: select(X):-white(X,_,Y),Y.shape.purple.shape.
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-white(X,C),C!=14.
+
+jaccard: 1.0
+
+
+4392
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate strength. The labels are cairo,pink,quality,toronto,desk,laptop,chicago,cosenza.
+
+answer from file: 
+assign(X,"cairo")|assign(X,"pink")|assign(X,"quality")|assign(X,"toronto")|assign(X,"desk")|assign(X,"laptop")|assign(X,"chicago")|assign(X,"cosenza"):-strength(X).
+
+facts: 
+strength(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate strength. The labels are cairo,pink,quality,toronto,desk,laptop,chicago,cosenza.
+Answer: assign(X,"cairo")|assign(X,"pink")|assign(X,"quality")|assign(X,"toronto")|assign(X,"desk")|assign(X,"laptop")|assign(X,"chicago")|assign(X,"cosenza"):-strength(X).
+Explanation: The predicate "strength" is defined as the transitive closure of the predicate "table".
+The predicate "table" is defined as the transitive closure of the predicate "age".
+The predicate "age" is defined as the transitive closure of the predicate "person".
+The predicate "person" is the set of elements that are not "table".
+The predicate "height" is the set of elements that are
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"cairo")|assign(X,"pink")|assign(X,"quality")|assign(X,"toronto")|assign(X,"desk")|assign(X,"laptop")|assign(X,"chicago")|assign(X,"cosenza"):-strength(X).
+
+jaccard: 1.0
+
+
+4393
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "darkmagenta" with value "6" from having label "chicago".
+
+answer from file: 
+:-assign(6,chicago).
+
+facts: 
+darkmagenta(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "darkmagenta" with value "6" from having label "chicago".
+Answer: :-assign(6,chicago).
+Explanation: The predicate "darkmagenta" with value "6" does not have label "chicago".
+The predicate "london" with value "6" has label "city".
+The predicate "purple" with value "6" has label "shape".
+The predicate "gray" with value "6" has label "shape".
+The predicate "table" with value "6" has label "shape".
+The predicate "amsterdam" with value "6" has label "shape".
+The predicate "venice" with value "6" has label "shape".
+The predicate "florence" with value "6" has label "shape".
+The predicate "
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(6,chicago).
+
+jaccard: 1.0
+
+
+4394
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "surname" and "white".
+
+answer from file: 
+combination(X,Y):-surname(X),white(Y).
+
+facts: 
+surname(1..4).white(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "surname" and "white".
+Answer: combination(X,Y):-surname(X),white(Y).
+combination(X,Y):- assurent(X),gray(Y).
+combination(X,Y):-purple(X),florence(Y).
+combination(X,Y):-rome(X),table(Y).
+combination(X,Y):-gray(X),table(Y).
+combination(X,Y):-purple(X),table(Y).
+combination(X,Y):-rome(X),florence(Y).
+combination(X,Y):-florence(X),table(Y).
+combination(X,Y):-purple(X),table(Y).
+combination(X,Y):-rome(X
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-surname(X),white(Y).
+
+jaccard: 1.0
+
+
+4395
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "chair" having fields "ID","qualityID","weight", and the predicate "quality" having fields "ID","owner". Define a predicate "chair_quality" that associates to each "chair" the "owner" of "quality".
+
+answer from file: 
+chair_quality(X,Z):-chair(X,Y,_),quality(Y,Z).
+
+facts: 
+chair("ID","qualityID","weight").quality("ID","owner").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "chair" having fields "ID","qualityID","weight", and the predicate "quality" having fields "ID","owner". Define a predicate "chair_quality" that associates to each "chair" the "owner" of "quality".
+Answer: chair_quality(X,Z):-chair(X,Y,_),quality(Y,Z).
+chair_quality(X,Z):-chair(X,Y,_),not quality(Y,Z).
+```
+The predicate "chair_quality" is defined as the transitive closure of the predicate "chair".
+The predicate "not" is defined as the negation of the predicate "table".
+The predicate "table" is defined as the transitive closure of the predicate "gray".
+The predicate "gray" is defined as the transitive closure of the predicate "shape".
+The predicate "shape" is the transitive closure of the predicate "table".
+The predicate "table_gray" is the transitive closure
+
+unique_rules: 
+[]
+
+parsed: 
+chair_quality(X,Z):-chair(X,Y,_),quality(Y,Z).
+
+jaccard: 1.0
+
+
+4396
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "chicago".
+
+answer from file: 
+family(X,Y):-chicago(X,Y).
+family(X,Y):-chicago(X,Z),family(Z,Y).
+
+facts: 
+chicago(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "chicago".
+Answer: family(X,Y):-chicago(X,Y).
+family(X,Y):-tokyo(X,Y).
+tokyo(X,Y):-city(X,Y).
+city(X,Y):-shape(X,Y).
+shape(X,Y):-table(X,Y).
+table(X,Y):-florence(X,Y).
+florence(X,Y):-rome(X,Y).
+rome(X,Y):-city(X,Y).
+city(X,Y):-shape(X,Y).
+shape(X,Y):-table(X,Y).
+table(X,Y):-florence(X,Y).
+flo
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-chicago(X,Y).
+family(X,Y):-tokyo(X,Y).
+
+jaccard: 1.0
+
+
+4397
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "white" with value "13" is not associated with "hair". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(13,"hair").[1@1]
+
+facts: 
+white(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "white" with value "13" is not associated with "hair". If this occurs, it costs "1" at level "1".
+Answer: :~assign(13,"hair").[1@1]
+The predicate "white" with value "13" is not associated with "purple". If this occurs, it costs "1" at level "1".
+Answer: :~assign(13,"purple").[1@1]
+The predicate "white" with value "13" is not associated with "table". If this occurs, it costs "1" at level "1".
+Answer: :~assign(13,"table").[1@1]
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(13,"hair").[1@1]
+
+jaccard: 1.0
+
+
+4398
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "weight" with label "pink".
+
+answer from file: 
+select(X):-weight(X,"pink").
+
+facts: 
+weight(1..5, "pink").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "weight" with label "pink".
+Answer: select(X):-weight(X,"pink").
+```
+weight(X,"pink").
+```
+The predicate "weight" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple" that links each weight to the shape of city.
+```
+purple(X,Z):-weight(X,"pink").
+purple(X,Z):-weight(X,"city").
+```
+The predicate "purple" has fields "ID","shape".
+The predicate "city" has fields "ID","shape".
+The predicate "purple" links each weight to the shape of city.
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-weight(X,"pink").
+
+jaccard: 1.0
+
+
+4399
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "barcelona" but not associated with predicate "cloud" and label "lightblue".
+
+answer from file: 
+select(X):-barcelona(X),not cloud(X,"lightblue").
+
+facts: 
+barcelona(1..3).cloud(1,"white").cloud(2,"lightblue").cloud(3,"laptop").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "barcelona" but not associated with predicate "cloud" and label "lightblue".
+Answer: select(X):-barcelona(X),not cloud(X,"lightblue").
+```
+The predicate "rome" is the negation of the predicate "table".
+The predicate "table" is the negation of the predicate "purple".
+The predicate "lightblue" is the transitive closure of the predicate "purple".
+So, the predicate "rome" is the negation of the predicate "purple".
+The predicate "purple" is the negation of the predicate "table".
+So, the predicate "rome" is the negation of the predicate "table".
+The predicate "table" is the negation of the predicate "rome".
+So, the predicate "rome" is the select predicate.
+The predicate "light
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-barcelona(X),not cloud(X,"lightblue").
+
+jaccard: 1.0
+
+
+4400
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "darkmagenta" with a value different than 53.
+
+answer from file: 
+select(X):-darkmagenta(X,C),C!=53.
+
+facts: 
+darkmagenta(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "darkmagenta" with a value different than 53.
+Answer: select(X):-darkmagenta(X,C),C!=53.
+```
+The predicate "darkmagenta" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple" that links each darkmagenta to the shape of city.
+Answer: purple(X,Z):-darkmagenta(X,_,Y),city(Y,Z).
+```
+The predicate "purple" has fields "ID","shape". Define a predicate "gray" that links each purple to the shape of city.
+Answer: gray(X,Z):-purple(X,Z).
+```
+The predicate "gray" has fields "ID","
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-darkmagenta(X,C),C!=53.
+
+jaccard: 1.0
+
+
+4401
+assignment
+
+question: 
+Compose an ASP application that assigns one label from "roof","surname" to every element defined by the predicate "moscow".
+
+answer from file: 
+assign(X,"roof")|assign(X,"surname"):-moscow(X).
+
+facts: 
+moscow(1..5).
+
+generated: 
+Compose an ASP application that assigns one label from "roof","surname" to every element defined by the predicate "moscow".
+Answer: assign(X,"roof")|assign(X,"surname"):-moscow(X).
+```
+assign(X,"roof")|assign(X,"surname"):-moscow(X).
+```
+The predicate "moscow" is defined as:
+```
+ felicità(X,Y):-age(X,Y).
+ felicità(X,Y):-age(X,Y),shape(X,Y).
+```
+The predicate "shape" is defined as:
+```
+shape(X,Y):-moto(X,Y).
+shape(X,Y):-moto(X,Y),height(X,Y).
+```
+The predicate "moto" is defined as:
+
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"roof")|assign(X,"surname"):-moscow(X).
+
+jaccard: 1.0
+
+
+4402
+constraint
+
+question: 
+Draft an ASP program to prevent the predicate "laptop" with value 19 from being linked to the label "moscow".
+
+answer from file: 
+:-assign(19,moscow).
+
+facts: 
+laptop(1..20).
+
+generated: 
+Draft an ASP program to prevent the predicate "laptop" with value 19 from being linked to the label "moscow".
+Answer: :-assign(19,moscow).
+Explanation: The predicate "moto" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "assign" that links each element with value 19 to the label "moscow".
+The predicate "moto" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "assign" that links each element with value 19 to the label "moscow".
+The predicate "assign" is defined as follows:
+```
+assign(X,moscow):-laptop(X,C),city(C,moscow).
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(19,moscow).
+
+jaccard: 1.0
+
+
+4403
+combination
+
+question: 
+Craft an ASP application that calculates the Cartesian product of elements between the predicates "desk" and "barcelona".
+
+answer from file: 
+combination(X,Y):-desk(X),barcelona(Y).
+
+facts: 
+desk(1..4).barcelona(1..5).
+
+generated: 
+Craft an ASP application that calculates the Cartesian product of elements between the predicates "desk" and "barcelona".
+Answer: combination(X,Y):-desk(X),barcelona(Y).
+combination(X,Y):-desk(X),Y.
+combination(X,Y):-desk(X),london(Y).
+combination(X,Y):-london(X),Y.
+combination(X,Y):-london(X),london(Y).
+combination(X,Y):-london(X),city(Y).
+combination(X,Y):-city(X),london(Y).
+combination(X,Y):-city(X),city(Y).
+```
+The predicate "london" is not defined in the context. This predicate would be a transitive closure of "city".
+The predicate "city"
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-desk(X),barcelona(Y).
+
+jaccard: 1.0
+
+
+4404
+join
+
+question: 
+Write an ASP application to address the problem where the predicate "lightblue" has fields "ID","hair","barcelonaID","lake", and the predicate "barcelona" has fields "ID","quality","surname". Define the predicate "lightblue_barcelona" that associates each lightblue with the quality of barcelona.
+
+answer from file: 
+lightblue_barcelona(X,Z):-lightblue(X,_,Y,_),barcelona(Y,Z,_).
+
+facts: 
+lightblue("ID","hair","barcelonaID","lake").barcelona("ID","quality","surname").
+
+generated: 
+Write an ASP application to address the problem where the predicate "lightblue" has fields "ID","hair","barcelonaID","lake", and the predicate "barcelona" has fields "ID","quality","surname". Define the predicate "lightblue_barcelona" that associates each lightblue with the quality of barcelona.
+Answer: lightblue_barcelona(X,Z):-lightblue(X,_,Y,_),barcelona(Y,Z,_).
+lightblue_barcelona(X,Z):-lightblue(X,_,Y,_),not barcelona(Y,Z,_).
+
+unique_rules: 
+[]
+
+parsed: 
+lightblue_barcelona(X,Z):-lightblue(X,_,Y,_),barcelona(Y,Z,_).
+
+jaccard: 1.0
+
+
+4405
+closure
+
+question: 
+Formulate an ASP solution to establish the transitive closure of the "cairo" predicate, defined as "loops".
+
+answer from file: 
+loops(X,Y):-cairo(X,Y).
+loops(X,Y):-cairo(X,Z),loops(Z,Y).
+
+facts: 
+cairo(1..3, 1..4).
+
+generated: 
+Formulate an ASP solution to establish the transitive closure of the "cairo" predicate, defined as "loops".
+Answer: loops(X,Y):-cairo(X,Y).
+loops(X,Y):-city(X,Y).
+loops(X,Y):-shape(X,Y).
+loops(X,Y):-moto(X,Y).
+loops(X,Y):-person(X,Y).
+loops(X,Y):-food(X,Y).
+loops(X,Y):-purple(X,Y).
+loops(X,Y):-city(X,Y).
+```
+The transitive closure of the "city" predicate is defined as "loops".
+```
+loops(X,Y):-city(X,Y).
+```
+The transitive closure of the "shape"
+
+unique_rules: 
+[]
+
+parsed: 
+loops(X,Y):-cairo(X,Y).
+loops(X,Y):-city(X,Y).
+
+jaccard: 1.0
+
+
+4406
+preference
+
+question: 
+Compose an ASP program to keep the predicate "black" with value "2" separate from "roof". If this association occurs, it incurs a cost of "1" at level "1".
+
+answer from file: 
+:~assign(2,"roof").[1@1]
+
+facts: 
+black(1..20).
+
+generated: 
+Compose an ASP program to keep the predicate "black" with value "2" separate from "roof". If this association occurs, it incurs a cost of "1" at level "1".
+Answer: :~assign(2,"roof").[1@1]
+This predicate ensures the "brown" label is not assigned to the combination of "2" and "rome".
+Answer: :~assign(2,"rome").[1@1]
+The predicate "brown" with value "1" is not assigned to the combination of "2" and "rome".
+Answer: :~assign(1,"rome").[1@1]
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(2,"roof").[1@1]
+
+jaccard: 1.0
+
+
+4407
+filtering
+
+question: 
+Formulate an ASP application to fetch all values tied to the predicate "cosenza" and labeled as "chicago".
+
+answer from file: 
+select(X):-cosenza(X,"chicago").
+
+facts: 
+cosenza(1..5, "chicago").
+
+generated: 
+Formulate an ASP application to fetch all values tied to the predicate "cosenza" and labeled as "chicago".
+Answer: select(X):-cosenza(X,"chicago").
+```
+select(X):-cosenza(X,"tokyo").
+```
+The predicate "tokyo" does not match the label "chicago".
+The predicate "cosenza" has fields "ID","shape","cityID", and the predicate "tokyo" has fields "ID","shape".
+The predicate "city" has fields "ID","shape".
+The predicate "tokyo" has fields "ID","shape","cityID".
+The predicate "city" has fields "ID","shape".
+The predicate "shape" has fields "ID","height".
+The predicate "city" has fields "ID","shape".
+The predicate "height" has fields
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-cosenza(X,"chicago").
+
+jaccard: 1.0
+
+
+4408
+negative_filtering
+
+question: 
+Produce an ASP program to gather values associated with the predicate "roof" but not linked to the predicate "storm" and labeled "pink".
+
+answer from file: 
+select(X):-roof(X),not storm(X,"pink").
+
+facts: 
+roof(1..3).storm(1,"toronto").storm(2,"pink").storm(3,"chicago").
+
+generated: 
+Produce an ASP program to gather values associated with the predicate "roof" but not linked to the predicate "storm" and labeled "pink".
+Answer: select(X):-roof(X),not storm(X,"pink").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-roof(X),not storm(X,"pink").
+
+jaccard: 1.0
+
+
+4409
+numeric_filtering
+
+question: 
+Compose an ASP script to select values linked to the predicate "mumbai" with a value different than 68.
+
+answer from file: 
+select(X):-mumbai(X,C),C!=68.
+
+facts: 
+mumbai(1..3, 1..100).
+
+generated: 
+Compose an ASP script to select values linked to the predicate "mumbai" with a value different than 68.
+Answer: select(X):-mumbai(X,C),C!=68.
+```
+The predicate "mumbai" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "table" that links each element of "mumbai" to the shape of "city".
+Answer: table(X,Z):-mumbai(X,_,Y),Y!=68.
+```
+The predicate "table" links each element of "mumbai" to the shape of "city".
+The predicate "name" selects all elements linked to the predicate "mumbai" with a value different than 68.
+Answer: select(X
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-mumbai(X,C),C!=68.
+
+jaccard: 1.0
+
+
+4410
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate storm. The labels are darkmagenta,surname,strength,owner,barcelona,hair,toronto,white,lake.
+
+answer from file: 
+assign(X,"darkmagenta")|assign(X,"surname")|assign(X,"strength")|assign(X,"owner")|assign(X,"barcelona")|assign(X,"hair")|assign(X,"toronto")|assign(X,"white")|assign(X,"lake"):-storm(X).
+
+facts: 
+storm(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate storm. The labels are darkmagenta,surname,strength,owner,barcelona,hair,toronto,white,lake.
+Answer: assign(X,"darkmagenta")|assign(X,"surname")|assign(X,"strength")|assign(X,"owner")|assign(X,"barcelona")|assign(X,"hair")|assign(X,"toronto")|assign(X,"white")|assign(X,"lake"):-storm(X).
+Explanation: The predicate "storm" assigns exactly one label from the set "darkmagenta","brown","shape","purple","cyan","gray","amsterdam","city","table","green" to a set of elements expressed by the predicate "table".
+The predicate "table" assigns exactly one label from the set "purple","gray","amsterdam","city","green" to a set of
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"darkmagenta")|assign(X,"surname")|assign(X,"strength")|assign(X,"owner")|assign(X,"barcelona")|assign(X,"hair")|assign(X,"toronto")|assign(X,"white")|assign(X,"lake"):-storm(X).
+
+jaccard: 1.0
+
+
+4411
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "butterfly" with value "13" from having label "cairo".
+
+answer from file: 
+:-assign(13,cairo).
+
+facts: 
+butterfly(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "butterfly" with value "13" from having label "cairo".
+Answer: :-assign(13,cairo).
+Explanation: The predicate "author" includes the label "city". The predicate "brown" includes the label "city". Define a predicate "shape" that links each element to the label of "city".
+The predicate "price" includes the label "shape".
+The predicate "florence" includes the label "shape".
+The predicate "cyan" includes the label "shape".
+The predicate "purple" includes the label "shape".
+The predicate "gray" includes the label "shape".
+The predicate "venice" includes the label "shape".
+The predicate "amsterdam" includes the label "shape".
+The predicate "table" includes the label "
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(13,cairo).
+
+jaccard: 1.0
+
+
+4412
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "lightblue" and "owner".
+
+answer from file: 
+combination(X,Y):-lightblue(X),owner(Y).
+
+facts: 
+lightblue(1..4).owner(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "lightblue" and "owner".
+Answer: combination(X,Y):-lightblue(X),owner(Y).
+combination(X,Y):-lightblue(X),not owner(Y).
+combination(X,Y):-not lightblue(X),owner(Y).
+combination(X,Y):-not lightblue(X),not owner(Y).
+combination(X,Y):-lightblue(X),creator(Y).
+combination(X,Y):-creator(X),lightblue(Y).
+combination(X,Y):-creator(X),not lightblue(Y).
+combination(X,Y):-not creator(X),lightblue(Y).
+combination(X,Y):-not creator(X),not light
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-lightblue(X),owner(Y).
+
+jaccard: 1.0
+
+
+4413
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "cosenza" having fields "ID","hair","moscowID", and the predicate "moscow" having fields "ID","lake". Define a predicate "cosenza_moscow" that associates to each "cosenza" the "lake" of "moscow".
+
+answer from file: 
+cosenza_moscow(X,Z):-cosenza(X,_,Y),moscow(Y,Z).
+
+facts: 
+cosenza("ID","hair","moscowID").moscow("ID","lake").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "cosenza" having fields "ID","hair","moscowID", and the predicate "moscow" having fields "ID","lake". Define a predicate "cosenza_moscow" that associates to each "cosenza" the "lake" of "moscow".
+Answer: cosenza_moscow(X,Z):-cosenza(X,_,Y),moscow(Y,Z).
+```
+```python
+def cosenza_moscow(X,Z):-cosenza(X,_,Y),moscow(Y,Z).
+```
+The predicate "cosenza_moscow" links each cosenza to the lake of moscow.
+
+unique_rules: 
+[]
+
+parsed: 
+cosenza_moscow(X,Z):-cosenza(X,_,Y),moscow(Y,Z).
+
+jaccard: 1.0
+
+
+4414
+closure
+
+question: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "wall".
+
+answer from file: 
+family(X,Y):-wall(X,Y).
+family(X,Y):-wall(X,Z),family(Z,Y).
+
+facts: 
+wall(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "family" as the transitive closure of predicate "wall".
+Answer: family(X,Y):-wall(X,Y).
+family(X,Y):-wall(X,Z),family(Z,Y).
+```
+The predicate "family" defines the transitive closure of the predicate "wall".
+The predicate "wall" defines the transitive closure of the predicate "shape".
+The predicate "shape" defines the transitive closure of the predicate "table".
+The predicate "table" defines the transitive closure of the predicate "person".
+The predicate "person" defines the transitive closure of the predicate "city".
+The predicate "city" defines the transitive closure of the predicate "shape".
+So, the predicate "family" is the transitive closure of the predicate "shape".
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-wall(X,Y).
+family(X,Y):-wall(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4415
+preference
+
+question: 
+Write an ASP program for the following problem. I would prefer that predicate "butterfly" with value "11" is not associated with "mumbai". If this occurs, it costs "1" at level "1".
+
+answer from file: 
+:~assign(11,"mumbai").[1@1]
+
+facts: 
+butterfly(1..20).
+
+generated: 
+Write an ASP program for the following problem. I would prefer that predicate "butterfly" with value "11" is not associated with "mumbai". If this occurs, it costs "1" at level "1".
+Answer: :~assign(11,"mumbai").[1@1]
+This predicate ensures that the "11" is not associated with "mumbai". It costs "1" at level "1" if this association occurs.
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(11,"mumbai").[1@1]
+
+jaccard: 1.0
+
+
+4416
+filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated to the predicate "delhi" with label "delhi".
+
+answer from file: 
+select(X):-delhi(X,"delhi").
+
+facts: 
+delhi(1..5, "delhi").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated to the predicate "delhi" with label "delhi".
+Answer: select(X):-delhi(X,"delhi").
+```
+The predicate "delhi" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "london" that links each london to the shape of city.
+Answer: london(X,Z):-delhi(X,Z).
+london(X,Z):-city(X,Z).
+```
+The predicate "london" links each london to the shape of city.
+The predicate "city" has fields "ID","shape".
+The predicate "london" is defined as the transitive closure of the predicate "city".
+The predicate "city" is defined as the
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-delhi(X,"delhi").
+
+jaccard: 1.0
+
+
+4417
+negative_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "cloud" but not associated with predicate "toronto" and label "flower".
+
+answer from file: 
+select(X):-cloud(X),not toronto(X,"flower").
+
+facts: 
+cloud(1..3).toronto(1,"chair").toronto(2,"flower").toronto(3,"lightblue").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "cloud" but not associated with predicate "toronto" and label "flower".
+Answer: select(X):-cloud(X),not toronto(X,"flower").
+```
+The predicate "cloud" has value "1", and the predicate "toronto" has value "1".
+The label "flower" is associated with "1".
+So, the solution is select(X):-cloud(X),not toronto(X,"flower").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-cloud(X),not toronto(X,"flower").
+
+jaccard: 1.0
+
+
+4418
+numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Select all values associated with predicate "wall" with a value different than 83.
+
+answer from file: 
+select(X):-wall(X,C),C!=83.
+
+facts: 
+wall(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "wall" with a value different than 83.
+Answer: select(X):-wall(X,C),C!=83.
+```
+The predicate "wall" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "table" that links each element of "wall" to the shape of "city".
+Answer: table(X,Z):-wall(X,_,Y),Z!=83.
+```
+The predicate "table" links each element of "wall" to the shape of "city".
+The predicate "name" links each element of "table" to the name of "city".
+Answer: name(X,Z):-table(X,Z).
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-wall(X,C),C!=83.
+
+jaccard: 1.0
+
+
+4419
+assignment
+
+question: 
+Design an ASP script to connect each element, as determined by the predicate "black", with one label from "laptop","cosenza","darkmagenta".
+
+answer from file: 
+assign(X,"laptop")|assign(X,"cosenza")|assign(X,"darkmagenta"):-black(X).
+
+facts: 
+black(1..5).
+
+generated: 
+Design an ASP script to connect each element, as determined by the predicate "black", with one label from "laptop","cosenza","darkmagenta".
+Answer: assign(X,"laptop")|assign(X,"cosenza")|assign(X,"darkmagenta"):-black(X).
+```
+The predicate "black" defines the elements to be connected.
+The predicate "brown" defines the labels to be assigned.
+The predicate "person" defines the transitive closure of "black".
+The predicate "moto" defines the transitive closure of "brown".
+The predicate "shape" defines the transitive closure of "person".
+The predicate "table" defines the transitive closure of "moto".
+The predicate "cyan" defines the transitive closure of "shape".
+The predicate "gray" defines the transitive closure of "cyan".
+The predicate "purple" defines the
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"laptop")|assign(X,"cosenza")|assign(X,"darkmagenta"):-black(X).
+
+jaccard: 1.0
+
+
+4420
+constraint
+
+question: 
+Create an ASP script to avoid associating the "hair" predicate having value 15 with the "weight" label.
+
+answer from file: 
+:-assign(15,weight).
+
+facts: 
+hair(1..20).
+
+generated: 
+Create an ASP script to avoid associating the "hair" predicate having value 15 with the "weight" label.
+Answer: :-assign(15,weight).
+Answer: :-assign(15,shape).
+Answer: :-assign(15,gray).
+Answer: :-assign(15,purple).
+Answer: :-assign(15,table).
+Answer: :-assign(15,shape).
+Answer: :-assign(15,gray).
+Answer: :-assign(15,purple).
+Answer: :-assign(15,table).
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(15,weight).
+
+jaccard: 1.0
+
+
+4421
+combination
+
+question: 
+Compose an ASP script that generates the cross-product of elements between the predicates "laptop" and "desk".
+
+answer from file: 
+combination(X,Y):-laptop(X),desk(Y).
+
+facts: 
+laptop(1..4).desk(1..5).
+
+generated: 
+Compose an ASP script that generates the cross-product of elements between the predicates "laptop" and "desk".
+Answer: combination(X,Y):-laptop(X),desk(Y).
+combination(X,Y):- arrivant(X),table(Y).
+combination(X,Y):-purple(X),florence(Y).
+combination(X,Y):-car(X),city(Y).
+combination(X,Y):-rome(X),table(Y).
+combination(X,Y):-purple(X),table(Y).
+combination(X,Y):-car(X),table(Y).
+combination(X,Y):-rome(X),table(Y).
+combination(X,Y):-purple(X),florence(Y).
+combination(X,Y):-car(X),
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-laptop(X),desk(Y).
+
+jaccard: 1.0
+
+
+4422
+join
+
+question: 
+Formulate an ASP program to create the predicate "singapore_lightblue" which links each singapore with the weight of lightblue, using fields "ID","hair","lightblueID","weight" for "singapore" and fields "ID","weight" for "lightblue".
+
+answer from file: 
+singapore_lightblue(X,Z):-singapore(X,_,Y,_),lightblue(Y,Z).
+
+facts: 
+singapore("ID","hair","lightblueID","weight").lightblue("ID","weight").
+
+generated: 
+Formulate an ASP program to create the predicate "singapore_lightblue" which links each singapore with the weight of lightblue, using fields "ID","hair","lightblueID","weight" for "singapore" and fields "ID","weight" for "lightblue".
+Answer: singapore_lightblue(X,Z):-london(X,_,Y,_),lightblue(Y,Z,_).
+london(X,_,Y,_):-tokyo(X,_,Y,_).
+lightblue(X,Z,_):-london(X,Z,_).
+tokyo(X,Z,_):-london(X,Z,_).
+
+unique_rules: 
+[]
+
+parsed: 
+singapore_lightblue(X,Z):-london(X,_,Y,_),lightblue(Y,Z,_).
+
+jaccard: 1.0
+
+
+4423
+closure
+
+question: 
+Design an ASP program that infers the "family" predicate using the transitive closure of the "wall" predicate.
+
+answer from file: 
+family(X,Y):-wall(X,Y).
+family(X,Y):-wall(X,Z),family(Z,Y).
+
+facts: 
+wall(1..3, 1..4).
+
+generated: 
+Design an ASP program that infers the "family" predicate using the transitive closure of the "wall" predicate.
+Answer: family(X,Y):-wall(X,Y).
+family(X,Y):-wall(X,Z),family(Z,Y).
+```
+The predicate "family" is defined as the transitive closure of the predicate "wall".
+The predicate "wall" is defined as the transitive closure of the predicate "shape".
+The predicate "shape" is defined as the transitive closure of the predicate "table".
+The predicate "table" is the transitive closure of the predicate "person".
+So, the predicate "family" is defined as the transitive closure of the predicate "shape".
+
+unique_rules: 
+[]
+
+parsed: 
+family(X,Y):-wall(X,Y).
+family(X,Y):-wall(X,Z),family(Z,Y).
+
+jaccard: 1.0
+
+
+4424
+preference
+
+question: 
+Write an ASP application that avoids the predicate "chicago" with value "4" from being linked to "singapore", incurring a cost of "1" at level "1" if linked.
+
+answer from file: 
+:~assign(4,"singapore").[1@1]
+
+facts: 
+chicago(1..20).
+
+generated: 
+Write an ASP application that avoids the predicate "chicago" with value "4" from being linked to "singapore", incurring a cost of "1" at level "1" if linked.
+Answer: :~assign(4,"singapore").[1@1]
+This predicate links each element with a value to the element with the label "table".
+The predicate "table" links each element to the "table" label.
+The predicate "price" links each element to the "table" label.
+The predicate "rome" links each element to the "table" label.
+The predicate "florence" links each element to the "table" label.
+The predicate "cyan" links each element to the "table" label.
+The predicate "purple" links each element to the "table" label.
+The predicate "gray" links each element to the "table" label.
+The
+
+unique_rules: 
+[]
+
+parsed: 
+:~assign(4,"singapore").[1@1]
+
+jaccard: 1.0
+
+
+4425
+filtering
+
+question: 
+Create an ASP code to retrieve values associated with the label "moscow" within the "wall" predicate.
+
+answer from file: 
+select(X):-wall(X,"moscow").
+
+facts: 
+wall(1..5, "moscow").
+
+generated: 
+Create an ASP code to retrieve values associated with the label "moscow" within the "wall" predicate.
+Answer: select(X):-wall(X,"moscow").
+```
+wall(X,"moscow").
+```
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-wall(X,"moscow").
+
+jaccard: 1.0
+
+
+4426
+negative_filtering
+
+question: 
+Write an ASP application to select values tied to the predicate "flower" but not linked to the predicate "laptop" and labeled "toronto".
+
+answer from file: 
+select(X):-flower(X),not laptop(X,"toronto").
+
+facts: 
+flower(1..3).laptop(1,"toronto").laptop(2,"pink").laptop(3,"hair").
+
+generated: 
+Write an ASP application to select values tied to the predicate "flower" but not linked to the predicate "laptop" and labeled "toronto".
+Answer: select(X):-flower(X),not laptop(X,"toronto").
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-flower(X),not laptop(X,"toronto").
+
+jaccard: 1.0
+
+
+4427
+numeric_filtering
+
+question: 
+Create an ASP application to fetch all values tied to the predicate "lightblue" with a value different than 48.
+
+answer from file: 
+select(X):-lightblue(X,C),C!=48.
+
+facts: 
+lightblue(1..3, 1..100).
+
+generated: 
+Create an ASP application to fetch all values tied to the predicate "lightblue" with a value different than 48.
+Answer: select(X):-lightblue(X,C),C!=48.
+```
+The predicate "lightblue" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple" that links each lightblue to the shape of city.
+Answer: select(X):-lightblue(X,_,Y),city(Y,_,X).
+```
+The predicate "purple" has fields "ID","shape". Define a predicate "florence" that links each lightblue to the shape of city.
+Answer: select(X):-lightblue(X,_,Y),city(Y,_,X).
+```
+The predicate
+
+unique_rules: 
+[]
+
+parsed: 
+select(X):-lightblue(X,C),C!=48.
+
+jaccard: 1.0
+
+
+4428
+assignment
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lightblue. The labels are wall,weight.
+
+answer from file: 
+assign(X,"wall")|assign(X,"weight"):-lightblue(X).
+
+facts: 
+lightblue(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate lightblue. The labels are wall,weight.
+Answer: assign(X,"wall")|assign(X,"weight"):-lightblue(X).
+lightblue(X):-car(X,"gray").
+car(X,"gray"):-lightblue(X).
+car(X,"green"):-lightblue(X).
+car(X,"purple"):-lightblue(X).
+car(X,"brown"):-lightblue(X).
+car(X,"gray"):-shape(X,"gray").
+shape(X,"gray"):-car(X,"gray").
+shape(X,"green"):-car(X,"green").
+shape(X,"purple"):-car(X,"purple").
+shape(X,"brown"):-
+
+unique_rules: 
+[]
+
+parsed: 
+assign(X,"wall")|assign(X,"weight"):-lightblue(X).
+
+jaccard: 1.0
+
+
+4429
+constraint
+
+question: 
+Write an ASP program for the following problem. Prevent the predicate "hair" with value "12" from having label "chair".
+
+answer from file: 
+:-assign(12,chair).
+
+facts: 
+hair(1..20).
+
+generated: 
+Write an ASP program for the following problem. Prevent the predicate "hair" with value "12" from having label "chair".
+Answer: :-assign(12,chair).
+Explanation: The predicate "purple" has fields "ID","shape","cityID", and the predicate "city" has fields "ID","shape". Define a predicate "purple_city" that links each purple to the shape of city.
+Answer: :-assign(12,chair).
+Explanation: The predicate "purple_city" has fields "ID","shape". Define a predicate "purple_city_table" that links each purple to the shape of city.
+Answer: :-assign(12,chair).
+Explanation: The predicate "purple_city_table" has fields "ID","shape". Define a predicate "purple_city_map" that links
+
+unique_rules: 
+[]
+
+parsed: 
+:-assign(12,chair).
+
+jaccard: 1.0
+
+
+4430
+combination
+
+question: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "owner" and "cloud".
+
+answer from file: 
+combination(X,Y):-owner(X),cloud(Y).
+
+facts: 
+owner(1..4).cloud(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "owner" and "cloud".
+Answer: combination(X,Y):-owner(X),cloud(Y).
+combination(X,Y):-owner(X),not cloud(Y).
+combination(X,Y):-not owner(X),cloud(Y).
+combination(X,Y):-not owner(X),not cloud(Y).
+combination(X,Y):-owner(X),city(Y).
+combination(X,Y):-city(X),owner(Y).
+combination(X,Y):-city(X),not owner(Y).
+combination(X,Y):-not city(X),owner(Y).
+combination(X,Y):-not city(X),not owner(Y).
+combination(X,
+
+unique_rules: 
+[]
+
+parsed: 
+combination(X,Y):-owner(X),cloud(Y).
+
+jaccard: 1.0
+
+
+4431
+join
+
+question: 
+Write an ASP program for the following problem. Consider predicate "lake" having fields "ID","lake","moscowID", and the predicate "moscow" having fields "ID","surname". Define a predicate "lake_moscow" that associates to each "lake" the "surname" of "moscow".
+
+answer from file: 
+lake_moscow(X,Z):-lake(X,_,Y),moscow(Y,Z).
+
+facts: 
+lake("ID","lake","moscowID").moscow("ID","surname").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "lake" having fields "ID","lake","moscowID", and the predicate "moscow" having fields "ID","surname". Define a predicate "lake_moscow" that associates to each "lake" the "surname" of "moscow".
+Answer: lake_moscow(X,Z):-lake(X,_,Y),moscow(Y,Z).
+lake_moscow(X,Z):-lake(X,_,Y),not moscow(Y,Z).
+```
+The predicate "lake_moscow" uses the predicate "lake" to map each "lake" to the "Z" of "moscow".
+The predicate "lake" uses the predicate "table" to map each "table" to the "Y" of "city".
+The predicate "table" uses the predicate "rome" to map each "rome" to the "city" of "rome".
+The predicate "rome" uses the predicate "city"
+
+unique_rules: 
+[]
+
+parsed: 
+lake_moscow(X,Z):-lake(X,_,Y),moscow(Y,Z).
+
+jaccard: 1.0
+
+

@@ -2664,3 +2664,74 @@ answerset from file: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)
 
 answerset from parsed: ['error']
 
+i: 4302
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate white. The labels are singapore,barcelona,moscow,owner,chair,darkmagenta,cosenza,black.
+
+answer from file: assign(X,"singapore")|assign(X,"barcelona")|assign(X,"moscow")|assign(X,"owner")|assign(X,"chair")|assign(X,"darkmagenta")|assign(X,"cosenza")|assign(X,"black"):-white(X).
+
+facts: 
+white(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate white. The labels are singapore,barcelona,moscow,owner,chair,darkmagenta,cosenza,black.
+Answer: assign(X," assurent")|assign(X,"london")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|
+
+parsed answer: assign(X," assurent")|assign(X,"london")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|assign(X,"purple")|assign(X,"table")|assign(X,"gray")|.
+
+answerset from file: [['white(1)', 'white(2)', 'white(3)', 'white(4)', 'white(5)', 'assign(1,"black")', 'assign(2,"black")', 'assign(3,"cosenza")', 'assign(4,"black")', 'assign(5,"black")']]
+
+answerset from parsed: ['error']
+
+i: 4338
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate owner. The labels are delhi,surname,moscow,quality,butterfly,chair,desk,lake.
+
+answer from file: assign(X,"delhi")|assign(X,"surname")|assign(X,"moscow")|assign(X,"quality")|assign(X,"butterfly")|assign(X,"chair")|assign(X,"desk")|assign(X,"lake"):-owner(X).
+
+facts: 
+owner(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate owner. The labels are delhi,surname,moscow,quality,butterfly,chair,desk,lake.
+Answer: assign(X,"tokyo")|assign(X,"shape")|assign(X,"city")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|
+
+parsed answer: assign(X,"tokyo")|assign(X,"shape")|assign(X,"city")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|assign(X,"gray")|assign(X,"table")|assign(X,"purple")|.
+
+answerset from file: [['owner(1)', 'owner(2)', 'owner(3)', 'owner(4)', 'owner(5)', 'assign(1,"lake")', 'assign(2,"lake")', 'assign(3,"desk")', 'assign(4,"lake")', 'assign(5,"lake")']]
+
+answerset from parsed: ['error']
+
+i: 4374
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate singapore. The labels are wall,singapore,roof,white,darkmagenta,quality,chicago,cosenza.
+
+answer from file: assign(X,"wall")|assign(X,"singapore")|assign(X,"roof")|assign(X,"white")|assign(X,"darkmagenta")|assign(X,"quality")|assign(X,"chicago")|assign(X,"cosenza"):-singapore(X).
+
+facts: 
+singapore(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate singapore. The labels are wall,singapore,roof,white,darkmagenta,quality,chicago,cosenza.
+Answer: assign(X,"wall")|assign(X,"singapore")|assign(X,"roof")|assign(X,"white")|assign(X,"darkmagenta")|assign(X,"quality")|assign(X,"chicago")|assign(X,"cosenza"):-table(table( áng)).
+The predicate table is defined as table(X,Y,Z):- áng(X,Y,Z).
+ áng(X,Y,Z):-table(X,Y,Z).
+ áng(X,Y,Z):-table(X,Y,Z).
+ áng(X,Y,Z):-table(X,Y,Z).
+ áng(X,Y,Z
+
+parsed answer: assign(X,"wall")|assign(X,"singapore")|assign(X,"roof")|assign(X,"white")|assign(X,"darkmagenta")|assign(X,"quality")|assign(X,"chicago")|assign(X,"cosenza"):-table(table( áng)).
+
+answerset from file: [['singapore(1)', 'singapore(2)', 'singapore(3)', 'singapore(4)', 'singapore(5)', 'assign(1,"cosenza")', 'assign(2,"cosenza")', 'assign(3,"chicago")', 'assign(4,"cosenza")', 'assign(5,"cosenza")']]
+
+answerset from parsed: ['error']
+
