@@ -4050,3 +4050,84 @@ answerset from file: [['butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'cairo(1,
 
 answerset from parsed: ['error']
 
+i: 5515
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "black" and label "desk".
+
+answer from file: select(X):-cairo(X),not black(X,"desk").
+
+facts: 
+cairo(1..3).black(1,"cloud").black(2,"cosenza").black(3,"desk").
+
+generated_answer: Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "black" and label "desk".
+Answer: select(X):-city(X,"car")&not black(X,"desk").
+Answer(X):-city(X,"car"),not black(X,"desk").
+
+parsed answer: select(X):-city(X,"car")&not black(X,"desk").
+
+answerset from file: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'black(1,"cloud")', 'black(2,"cosenza")', 'black(3,"desk")', 'select(1)', 'select(2)']]
+
+answerset from parsed: ['error']
+
+i: 5537
+
+index: 2
+
+combination
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "weight".
+
+answer from file: combination(X,Y):-butterfly(X),weight(Y).
+
+facts: 
+butterfly(1..4).weight(1..5).
+
+generated_answer: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "weight".
+Answer: combination(X,Y):-assign(X,"weight").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(X,"element").
+combination(X,Y):-assign(X,"creator").
+combination(X,Y):-assign(X,"city".).
+combination(X,Y):-assign(X,"element".).
+combination(X,Y):-assign(X,"creator".).
+```
+
+parsed answer: combination(X,Y):-assign(X,"weight").
+
+answerset from file: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'butterfly(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+answerset from parsed: ['error']
+
+i: 5625
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate weight. The labels are quality,butterfly,chicago.
+
+answer from file: assign(X,"quality")|assign(X,"butterfly")|assign(X,"chicago"):-weight(X).
+
+facts: 
+weight(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate weight. The labels are quality,butterfly,chicago.
+Answer: assign(X,"quality")|assign(X,"butterfly")|assign(X,"city").
+I would prefer that predicate "city" with value "1" is not associated with "city".
+Answer: assign(X,"city")|assign(X,"city").
+Answer: assign(X,"city")|assign(X,"object").
+Answer: assign(X,"city").
+Explanation:
+- assign(X,"quality")|assign(X,"butterfly")|assign(X,"city"):- if the value of "X" is "city" assign "city" to "X".
+- assign(X,"city"):- if the value of "X" is "city"
+
+parsed answer: assign(X,"quality")|assign(X,"butterfly")|assign(X,"city").
+
+answerset from file: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'assign(1,"chicago")', 'assign(2,"chicago")', 'assign(3,"chicago")', 'assign(4,"chicago")', 'assign(5,"chicago")']]
+
+answerset from parsed: ['error']
+

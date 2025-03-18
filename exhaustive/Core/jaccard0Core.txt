@@ -10039,3 +10039,216 @@ generated answer_Set: ['error']
 jaccard: 0.0
 
 
+i: 5499
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate delhi. The labels are owner,darkmagenta,cosenza,flower,lake,hair,black.
+
+answer from file: assign(X,"owner")|assign(X,"darkmagenta")|assign(X,"cosenza")|assign(X,"flower")|assign(X,"lake")|assign(X,"hair")|assign(X,"black"):-delhi(X).
+
+facts: 
+delhi(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate delhi. The labels are owner,darkmagenta,cosenza,flower,lake,hair,black.
+Answer: assign(X,"owner")|assign(X,"darkmagenta")|assign(X,"cosenza")|assign(X,"flower")|assign(X,"lake")|assign(X,"hair")|assign(X,"black"):-tokyo(X).
+I would prefer that "object" with value "1" is assigned "city".
+Answer: assign(1,"city").
+Explanation: the predicate "tokyo" associates to each "object" the "city".
+The predicate "assign" associates to each "object" the "city" if it doesn't exist.
+The predicate "object" associates to each "object" the "city" if it doesn't exist.
+
+
+parsed: 
+assign(X,"owner")|assign(X,"darkmagenta")|assign(X,"cosenza")|assign(X,"flower")|assign(X,"lake")|assign(X,"hair")|assign(X,"black"):-tokyo(X).
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'assign(1,"black")', 'assign(2,"black")', 'assign(3,"black")', 'assign(4,"black")', 'assign(5,"black")']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)']]
+
+jaccard: 0.0
+
+
+i: 5515
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "black" and label "desk".
+
+answer from file: select(X):-cairo(X),not black(X,"desk").
+
+facts: 
+cairo(1..3).black(1,"cloud").black(2,"cosenza").black(3,"desk").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "cairo" but not associated with predicate "black" and label "desk".
+Answer: select(X):-city(X,"car")&not black(X,"desk").
+Answer(X):-city(X,"car"),not black(X,"desk").
+
+parsed: 
+select(X):-city(X,"car")&not black(X,"desk").
+
+wanted answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'black(1,"cloud")', 'black(2,"cosenza")', 'black(3,"desk")', 'select(1)', 'select(2)']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5534
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "surname" with a value different than 35.
+
+answer from file: select(X):-surname(X,C),C!=35.
+
+facts: 
+surname(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "surname" with a value different than 35.
+Answer: select(X):-surname(X,"35").
+Answer(X):-surname(X,"35").
+
+parsed: 
+select(X):-surname(X,"35").
+
+wanted answer_Set: [['surname(1,1)', 'surname(1,2)', 'surname(1,3)', 'surname(1,4)', 'surname(1,5)', 'surname(1,6)', 'surname(1,7)', 'surname(1,8)', 'surname(1,9)', 'surname(1,10)', 'surname(1,11)', 'surname(1,12)', 'surname(1,13)', 'surname(1,14)', 'surname(1,15)', 'surname(1,16)', 'surname(1,17)', 'surname(1,18)', 'surname(1,19)', 'surname(1,20)', 'surname(1,21)', 'surname(1,22)', 'surname(1,23)', 'surname(1,24)', 'surname(1,25)', 'surname(1,26)', 'surname(1,27)', 'surname(1,28)', 'surname(1,29)', 'surname(1,30)', 'surname(1,31)', 'surname(1,32)', 'surname(1,33)', 'surname(1,34)', 'surname(1,35)', 'surname(1,36)', 'surname(1,37)', 'surname(1,38)', 'surname(1,39)', 'surname(1,40)', 'surname(1,41)', 'surname(1,42)', 'surname(1,43)', 'surname(1,44)', 'surname(1,45)', 'surname(1,46)', 'surname(1,47)', 'surname(1,48)', 'surname(1,49)', 'surname(1,50)', 'surname(1,51)', 'surname(1,52)', 'surname(1,53)', 'surname(1,54)', 'surname(1,55)', 'surname(1,56)', 'surname(1,57)', 'surname(1,58)', 'surname(1,59)', 'surname(1,60)', 'surname(1,61)', 'surname(1,62)', 'surname(1,63)', 'surname(1,64)', 'surname(1,65)', 'surname(1,66)', 'surname(1,67)', 'surname(1,68)', 'surname(1,69)', 'surname(1,70)', 'surname(1,71)', 'surname(1,72)', 'surname(1,73)', 'surname(1,74)', 'surname(1,75)', 'surname(1,76)', 'surname(1,77)', 'surname(1,78)', 'surname(1,79)', 'surname(1,80)', 'surname(1,81)', 'surname(1,82)', 'surname(1,83)', 'surname(1,84)', 'surname(1,85)', 'surname(1,86)', 'surname(1,87)', 'surname(1,88)', 'surname(1,89)', 'surname(1,90)', 'surname(1,91)', 'surname(1,92)', 'surname(1,93)', 'surname(1,94)', 'surname(1,95)', 'surname(1,96)', 'surname(1,97)', 'surname(1,98)', 'surname(1,99)', 'surname(1,100)', 'surname(2,1)', 'surname(2,2)', 'surname(2,3)', 'surname(2,4)', 'surname(2,5)', 'surname(2,6)', 'surname(2,7)', 'surname(2,8)', 'surname(2,9)', 'surname(2,10)', 'surname(2,11)', 'surname(2,12)', 'surname(2,13)', 'surname(2,14)', 'surname(2,15)', 'surname(2,16)', 'surname(2,17)', 'surname(2,18)', 'surname(2,19)', 'surname(2,20)', 'surname(2,21)', 'surname(2,22)', 'surname(2,23)', 'surname(2,24)', 'surname(2,25)', 'surname(2,26)', 'surname(2,27)', 'surname(2,28)', 'surname(2,29)', 'surname(2,30)', 'surname(2,31)', 'surname(2,32)', 'surname(2,33)', 'surname(2,34)', 'surname(2,35)', 'surname(2,36)', 'surname(2,37)', 'surname(2,38)', 'surname(2,39)', 'surname(2,40)', 'surname(2,41)', 'surname(2,42)', 'surname(2,43)', 'surname(2,44)', 'surname(2,45)', 'surname(2,46)', 'surname(2,47)', 'surname(2,48)', 'surname(2,49)', 'surname(2,50)', 'surname(2,51)', 'surname(2,52)', 'surname(2,53)', 'surname(2,54)', 'surname(2,55)', 'surname(2,56)', 'surname(2,57)', 'surname(2,58)', 'surname(2,59)', 'surname(2,60)', 'surname(2,61)', 'surname(2,62)', 'surname(2,63)', 'surname(2,64)', 'surname(2,65)', 'surname(2,66)', 'surname(2,67)', 'surname(2,68)', 'surname(2,69)', 'surname(2,70)', 'surname(2,71)', 'surname(2,72)', 'surname(2,73)', 'surname(2,74)', 'surname(2,75)', 'surname(2,76)', 'surname(2,77)', 'surname(2,78)', 'surname(2,79)', 'surname(2,80)', 'surname(2,81)', 'surname(2,82)', 'surname(2,83)', 'surname(2,84)', 'surname(2,85)', 'surname(2,86)', 'surname(2,87)', 'surname(2,88)', 'surname(2,89)', 'surname(2,90)', 'surname(2,91)', 'surname(2,92)', 'surname(2,93)', 'surname(2,94)', 'surname(2,95)', 'surname(2,96)', 'surname(2,97)', 'surname(2,98)', 'surname(2,99)', 'surname(2,100)', 'surname(3,1)', 'surname(3,2)', 'surname(3,3)', 'surname(3,4)', 'surname(3,5)', 'surname(3,6)', 'surname(3,7)', 'surname(3,8)', 'surname(3,9)', 'surname(3,10)', 'surname(3,11)', 'surname(3,12)', 'surname(3,13)', 'surname(3,14)', 'surname(3,15)', 'surname(3,16)', 'surname(3,17)', 'surname(3,18)', 'surname(3,19)', 'surname(3,20)', 'surname(3,21)', 'surname(3,22)', 'surname(3,23)', 'surname(3,24)', 'surname(3,25)', 'surname(3,26)', 'surname(3,27)', 'surname(3,28)', 'surname(3,29)', 'surname(3,30)', 'surname(3,31)', 'surname(3,32)', 'surname(3,33)', 'surname(3,34)', 'surname(3,35)', 'surname(3,36)', 'surname(3,37)', 'surname(3,38)', 'surname(3,39)', 'surname(3,40)', 'surname(3,41)', 'surname(3,42)', 'surname(3,43)', 'surname(3,44)', 'surname(3,45)', 'surname(3,46)', 'surname(3,47)', 'surname(3,48)', 'surname(3,49)', 'surname(3,50)', 'surname(3,51)', 'surname(3,52)', 'surname(3,53)', 'surname(3,54)', 'surname(3,55)', 'surname(3,56)', 'surname(3,57)', 'surname(3,58)', 'surname(3,59)', 'surname(3,60)', 'surname(3,61)', 'surname(3,62)', 'surname(3,63)', 'surname(3,64)', 'surname(3,65)', 'surname(3,66)', 'surname(3,67)', 'surname(3,68)', 'surname(3,69)', 'surname(3,70)', 'surname(3,71)', 'surname(3,72)', 'surname(3,73)', 'surname(3,74)', 'surname(3,75)', 'surname(3,76)', 'surname(3,77)', 'surname(3,78)', 'surname(3,79)', 'surname(3,80)', 'surname(3,81)', 'surname(3,82)', 'surname(3,83)', 'surname(3,84)', 'surname(3,85)', 'surname(3,86)', 'surname(3,87)', 'surname(3,88)', 'surname(3,89)', 'surname(3,90)', 'surname(3,91)', 'surname(3,92)', 'surname(3,93)', 'surname(3,94)', 'surname(3,95)', 'surname(3,96)', 'surname(3,97)', 'surname(3,98)', 'surname(3,99)', 'surname(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['surname(1,1)', 'surname(1,2)', 'surname(1,3)', 'surname(1,4)', 'surname(1,5)', 'surname(1,6)', 'surname(1,7)', 'surname(1,8)', 'surname(1,9)', 'surname(1,10)', 'surname(1,11)', 'surname(1,12)', 'surname(1,13)', 'surname(1,14)', 'surname(1,15)', 'surname(1,16)', 'surname(1,17)', 'surname(1,18)', 'surname(1,19)', 'surname(1,20)', 'surname(1,21)', 'surname(1,22)', 'surname(1,23)', 'surname(1,24)', 'surname(1,25)', 'surname(1,26)', 'surname(1,27)', 'surname(1,28)', 'surname(1,29)', 'surname(1,30)', 'surname(1,31)', 'surname(1,32)', 'surname(1,33)', 'surname(1,34)', 'surname(1,35)', 'surname(1,36)', 'surname(1,37)', 'surname(1,38)', 'surname(1,39)', 'surname(1,40)', 'surname(1,41)', 'surname(1,42)', 'surname(1,43)', 'surname(1,44)', 'surname(1,45)', 'surname(1,46)', 'surname(1,47)', 'surname(1,48)', 'surname(1,49)', 'surname(1,50)', 'surname(1,51)', 'surname(1,52)', 'surname(1,53)', 'surname(1,54)', 'surname(1,55)', 'surname(1,56)', 'surname(1,57)', 'surname(1,58)', 'surname(1,59)', 'surname(1,60)', 'surname(1,61)', 'surname(1,62)', 'surname(1,63)', 'surname(1,64)', 'surname(1,65)', 'surname(1,66)', 'surname(1,67)', 'surname(1,68)', 'surname(1,69)', 'surname(1,70)', 'surname(1,71)', 'surname(1,72)', 'surname(1,73)', 'surname(1,74)', 'surname(1,75)', 'surname(1,76)', 'surname(1,77)', 'surname(1,78)', 'surname(1,79)', 'surname(1,80)', 'surname(1,81)', 'surname(1,82)', 'surname(1,83)', 'surname(1,84)', 'surname(1,85)', 'surname(1,86)', 'surname(1,87)', 'surname(1,88)', 'surname(1,89)', 'surname(1,90)', 'surname(1,91)', 'surname(1,92)', 'surname(1,93)', 'surname(1,94)', 'surname(1,95)', 'surname(1,96)', 'surname(1,97)', 'surname(1,98)', 'surname(1,99)', 'surname(1,100)', 'surname(2,1)', 'surname(2,2)', 'surname(2,3)', 'surname(2,4)', 'surname(2,5)', 'surname(2,6)', 'surname(2,7)', 'surname(2,8)', 'surname(2,9)', 'surname(2,10)', 'surname(2,11)', 'surname(2,12)', 'surname(2,13)', 'surname(2,14)', 'surname(2,15)', 'surname(2,16)', 'surname(2,17)', 'surname(2,18)', 'surname(2,19)', 'surname(2,20)', 'surname(2,21)', 'surname(2,22)', 'surname(2,23)', 'surname(2,24)', 'surname(2,25)', 'surname(2,26)', 'surname(2,27)', 'surname(2,28)', 'surname(2,29)', 'surname(2,30)', 'surname(2,31)', 'surname(2,32)', 'surname(2,33)', 'surname(2,34)', 'surname(2,35)', 'surname(2,36)', 'surname(2,37)', 'surname(2,38)', 'surname(2,39)', 'surname(2,40)', 'surname(2,41)', 'surname(2,42)', 'surname(2,43)', 'surname(2,44)', 'surname(2,45)', 'surname(2,46)', 'surname(2,47)', 'surname(2,48)', 'surname(2,49)', 'surname(2,50)', 'surname(2,51)', 'surname(2,52)', 'surname(2,53)', 'surname(2,54)', 'surname(2,55)', 'surname(2,56)', 'surname(2,57)', 'surname(2,58)', 'surname(2,59)', 'surname(2,60)', 'surname(2,61)', 'surname(2,62)', 'surname(2,63)', 'surname(2,64)', 'surname(2,65)', 'surname(2,66)', 'surname(2,67)', 'surname(2,68)', 'surname(2,69)', 'surname(2,70)', 'surname(2,71)', 'surname(2,72)', 'surname(2,73)', 'surname(2,74)', 'surname(2,75)', 'surname(2,76)', 'surname(2,77)', 'surname(2,78)', 'surname(2,79)', 'surname(2,80)', 'surname(2,81)', 'surname(2,82)', 'surname(2,83)', 'surname(2,84)', 'surname(2,85)', 'surname(2,86)', 'surname(2,87)', 'surname(2,88)', 'surname(2,89)', 'surname(2,90)', 'surname(2,91)', 'surname(2,92)', 'surname(2,93)', 'surname(2,94)', 'surname(2,95)', 'surname(2,96)', 'surname(2,97)', 'surname(2,98)', 'surname(2,99)', 'surname(2,100)', 'surname(3,1)', 'surname(3,2)', 'surname(3,3)', 'surname(3,4)', 'surname(3,5)', 'surname(3,6)', 'surname(3,7)', 'surname(3,8)', 'surname(3,9)', 'surname(3,10)', 'surname(3,11)', 'surname(3,12)', 'surname(3,13)', 'surname(3,14)', 'surname(3,15)', 'surname(3,16)', 'surname(3,17)', 'surname(3,18)', 'surname(3,19)', 'surname(3,20)', 'surname(3,21)', 'surname(3,22)', 'surname(3,23)', 'surname(3,24)', 'surname(3,25)', 'surname(3,26)', 'surname(3,27)', 'surname(3,28)', 'surname(3,29)', 'surname(3,30)', 'surname(3,31)', 'surname(3,32)', 'surname(3,33)', 'surname(3,34)', 'surname(3,35)', 'surname(3,36)', 'surname(3,37)', 'surname(3,38)', 'surname(3,39)', 'surname(3,40)', 'surname(3,41)', 'surname(3,42)', 'surname(3,43)', 'surname(3,44)', 'surname(3,45)', 'surname(3,46)', 'surname(3,47)', 'surname(3,48)', 'surname(3,49)', 'surname(3,50)', 'surname(3,51)', 'surname(3,52)', 'surname(3,53)', 'surname(3,54)', 'surname(3,55)', 'surname(3,56)', 'surname(3,57)', 'surname(3,58)', 'surname(3,59)', 'surname(3,60)', 'surname(3,61)', 'surname(3,62)', 'surname(3,63)', 'surname(3,64)', 'surname(3,65)', 'surname(3,66)', 'surname(3,67)', 'surname(3,68)', 'surname(3,69)', 'surname(3,70)', 'surname(3,71)', 'surname(3,72)', 'surname(3,73)', 'surname(3,74)', 'surname(3,75)', 'surname(3,76)', 'surname(3,77)', 'surname(3,78)', 'surname(3,79)', 'surname(3,80)', 'surname(3,81)', 'surname(3,82)', 'surname(3,83)', 'surname(3,84)', 'surname(3,85)', 'surname(3,86)', 'surname(3,87)', 'surname(3,88)', 'surname(3,89)', 'surname(3,90)', 'surname(3,91)', 'surname(3,92)', 'surname(3,93)', 'surname(3,94)', 'surname(3,95)', 'surname(3,96)', 'surname(3,97)', 'surname(3,98)', 'surname(3,99)', 'surname(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5537
+
+index: 2
+
+combination
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "weight".
+
+answer from file: combination(X,Y):-butterfly(X),weight(Y).
+
+facts: 
+butterfly(1..4).weight(1..5).
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "butterfly" and "weight".
+Answer: combination(X,Y):-assign(X,"weight").
+combination(X,Y):-assign(X,"city").
+combination(X,Y):-assign(X,"element").
+combination(X,Y):-assign(X,"creator").
+combination(X,Y):-assign(X,"city".).
+combination(X,Y):-assign(X,"element".).
+combination(X,Y):-assign(X,"creator".).
+```
+
+parsed: 
+combination(X,Y):-assign(X,"weight").
+
+wanted answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'butterfly(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5588
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "strength" with a value different than 73.
+
+answer from file: select(X):-strength(X,C),C!=73.
+
+facts: 
+strength(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "strength" with a value different than 73.
+Answer: select(X):-strength(X,"73").
+Answer(X):-strength(X,"73").
+
+parsed: 
+select(X):-strength(X,"73").
+
+wanted answer_Set: [['strength(1,1)', 'strength(1,2)', 'strength(1,3)', 'strength(1,4)', 'strength(1,5)', 'strength(1,6)', 'strength(1,7)', 'strength(1,8)', 'strength(1,9)', 'strength(1,10)', 'strength(1,11)', 'strength(1,12)', 'strength(1,13)', 'strength(1,14)', 'strength(1,15)', 'strength(1,16)', 'strength(1,17)', 'strength(1,18)', 'strength(1,19)', 'strength(1,20)', 'strength(1,21)', 'strength(1,22)', 'strength(1,23)', 'strength(1,24)', 'strength(1,25)', 'strength(1,26)', 'strength(1,27)', 'strength(1,28)', 'strength(1,29)', 'strength(1,30)', 'strength(1,31)', 'strength(1,32)', 'strength(1,33)', 'strength(1,34)', 'strength(1,35)', 'strength(1,36)', 'strength(1,37)', 'strength(1,38)', 'strength(1,39)', 'strength(1,40)', 'strength(1,41)', 'strength(1,42)', 'strength(1,43)', 'strength(1,44)', 'strength(1,45)', 'strength(1,46)', 'strength(1,47)', 'strength(1,48)', 'strength(1,49)', 'strength(1,50)', 'strength(1,51)', 'strength(1,52)', 'strength(1,53)', 'strength(1,54)', 'strength(1,55)', 'strength(1,56)', 'strength(1,57)', 'strength(1,58)', 'strength(1,59)', 'strength(1,60)', 'strength(1,61)', 'strength(1,62)', 'strength(1,63)', 'strength(1,64)', 'strength(1,65)', 'strength(1,66)', 'strength(1,67)', 'strength(1,68)', 'strength(1,69)', 'strength(1,70)', 'strength(1,71)', 'strength(1,72)', 'strength(1,73)', 'strength(1,74)', 'strength(1,75)', 'strength(1,76)', 'strength(1,77)', 'strength(1,78)', 'strength(1,79)', 'strength(1,80)', 'strength(1,81)', 'strength(1,82)', 'strength(1,83)', 'strength(1,84)', 'strength(1,85)', 'strength(1,86)', 'strength(1,87)', 'strength(1,88)', 'strength(1,89)', 'strength(1,90)', 'strength(1,91)', 'strength(1,92)', 'strength(1,93)', 'strength(1,94)', 'strength(1,95)', 'strength(1,96)', 'strength(1,97)', 'strength(1,98)', 'strength(1,99)', 'strength(1,100)', 'strength(2,1)', 'strength(2,2)', 'strength(2,3)', 'strength(2,4)', 'strength(2,5)', 'strength(2,6)', 'strength(2,7)', 'strength(2,8)', 'strength(2,9)', 'strength(2,10)', 'strength(2,11)', 'strength(2,12)', 'strength(2,13)', 'strength(2,14)', 'strength(2,15)', 'strength(2,16)', 'strength(2,17)', 'strength(2,18)', 'strength(2,19)', 'strength(2,20)', 'strength(2,21)', 'strength(2,22)', 'strength(2,23)', 'strength(2,24)', 'strength(2,25)', 'strength(2,26)', 'strength(2,27)', 'strength(2,28)', 'strength(2,29)', 'strength(2,30)', 'strength(2,31)', 'strength(2,32)', 'strength(2,33)', 'strength(2,34)', 'strength(2,35)', 'strength(2,36)', 'strength(2,37)', 'strength(2,38)', 'strength(2,39)', 'strength(2,40)', 'strength(2,41)', 'strength(2,42)', 'strength(2,43)', 'strength(2,44)', 'strength(2,45)', 'strength(2,46)', 'strength(2,47)', 'strength(2,48)', 'strength(2,49)', 'strength(2,50)', 'strength(2,51)', 'strength(2,52)', 'strength(2,53)', 'strength(2,54)', 'strength(2,55)', 'strength(2,56)', 'strength(2,57)', 'strength(2,58)', 'strength(2,59)', 'strength(2,60)', 'strength(2,61)', 'strength(2,62)', 'strength(2,63)', 'strength(2,64)', 'strength(2,65)', 'strength(2,66)', 'strength(2,67)', 'strength(2,68)', 'strength(2,69)', 'strength(2,70)', 'strength(2,71)', 'strength(2,72)', 'strength(2,73)', 'strength(2,74)', 'strength(2,75)', 'strength(2,76)', 'strength(2,77)', 'strength(2,78)', 'strength(2,79)', 'strength(2,80)', 'strength(2,81)', 'strength(2,82)', 'strength(2,83)', 'strength(2,84)', 'strength(2,85)', 'strength(2,86)', 'strength(2,87)', 'strength(2,88)', 'strength(2,89)', 'strength(2,90)', 'strength(2,91)', 'strength(2,92)', 'strength(2,93)', 'strength(2,94)', 'strength(2,95)', 'strength(2,96)', 'strength(2,97)', 'strength(2,98)', 'strength(2,99)', 'strength(2,100)', 'strength(3,1)', 'strength(3,2)', 'strength(3,3)', 'strength(3,4)', 'strength(3,5)', 'strength(3,6)', 'strength(3,7)', 'strength(3,8)', 'strength(3,9)', 'strength(3,10)', 'strength(3,11)', 'strength(3,12)', 'strength(3,13)', 'strength(3,14)', 'strength(3,15)', 'strength(3,16)', 'strength(3,17)', 'strength(3,18)', 'strength(3,19)', 'strength(3,20)', 'strength(3,21)', 'strength(3,22)', 'strength(3,23)', 'strength(3,24)', 'strength(3,25)', 'strength(3,26)', 'strength(3,27)', 'strength(3,28)', 'strength(3,29)', 'strength(3,30)', 'strength(3,31)', 'strength(3,32)', 'strength(3,33)', 'strength(3,34)', 'strength(3,35)', 'strength(3,36)', 'strength(3,37)', 'strength(3,38)', 'strength(3,39)', 'strength(3,40)', 'strength(3,41)', 'strength(3,42)', 'strength(3,43)', 'strength(3,44)', 'strength(3,45)', 'strength(3,46)', 'strength(3,47)', 'strength(3,48)', 'strength(3,49)', 'strength(3,50)', 'strength(3,51)', 'strength(3,52)', 'strength(3,53)', 'strength(3,54)', 'strength(3,55)', 'strength(3,56)', 'strength(3,57)', 'strength(3,58)', 'strength(3,59)', 'strength(3,60)', 'strength(3,61)', 'strength(3,62)', 'strength(3,63)', 'strength(3,64)', 'strength(3,65)', 'strength(3,66)', 'strength(3,67)', 'strength(3,68)', 'strength(3,69)', 'strength(3,70)', 'strength(3,71)', 'strength(3,72)', 'strength(3,73)', 'strength(3,74)', 'strength(3,75)', 'strength(3,76)', 'strength(3,77)', 'strength(3,78)', 'strength(3,79)', 'strength(3,80)', 'strength(3,81)', 'strength(3,82)', 'strength(3,83)', 'strength(3,84)', 'strength(3,85)', 'strength(3,86)', 'strength(3,87)', 'strength(3,88)', 'strength(3,89)', 'strength(3,90)', 'strength(3,91)', 'strength(3,92)', 'strength(3,93)', 'strength(3,94)', 'strength(3,95)', 'strength(3,96)', 'strength(3,97)', 'strength(3,98)', 'strength(3,99)', 'strength(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['strength(1,1)', 'strength(1,2)', 'strength(1,3)', 'strength(1,4)', 'strength(1,5)', 'strength(1,6)', 'strength(1,7)', 'strength(1,8)', 'strength(1,9)', 'strength(1,10)', 'strength(1,11)', 'strength(1,12)', 'strength(1,13)', 'strength(1,14)', 'strength(1,15)', 'strength(1,16)', 'strength(1,17)', 'strength(1,18)', 'strength(1,19)', 'strength(1,20)', 'strength(1,21)', 'strength(1,22)', 'strength(1,23)', 'strength(1,24)', 'strength(1,25)', 'strength(1,26)', 'strength(1,27)', 'strength(1,28)', 'strength(1,29)', 'strength(1,30)', 'strength(1,31)', 'strength(1,32)', 'strength(1,33)', 'strength(1,34)', 'strength(1,35)', 'strength(1,36)', 'strength(1,37)', 'strength(1,38)', 'strength(1,39)', 'strength(1,40)', 'strength(1,41)', 'strength(1,42)', 'strength(1,43)', 'strength(1,44)', 'strength(1,45)', 'strength(1,46)', 'strength(1,47)', 'strength(1,48)', 'strength(1,49)', 'strength(1,50)', 'strength(1,51)', 'strength(1,52)', 'strength(1,53)', 'strength(1,54)', 'strength(1,55)', 'strength(1,56)', 'strength(1,57)', 'strength(1,58)', 'strength(1,59)', 'strength(1,60)', 'strength(1,61)', 'strength(1,62)', 'strength(1,63)', 'strength(1,64)', 'strength(1,65)', 'strength(1,66)', 'strength(1,67)', 'strength(1,68)', 'strength(1,69)', 'strength(1,70)', 'strength(1,71)', 'strength(1,72)', 'strength(1,73)', 'strength(1,74)', 'strength(1,75)', 'strength(1,76)', 'strength(1,77)', 'strength(1,78)', 'strength(1,79)', 'strength(1,80)', 'strength(1,81)', 'strength(1,82)', 'strength(1,83)', 'strength(1,84)', 'strength(1,85)', 'strength(1,86)', 'strength(1,87)', 'strength(1,88)', 'strength(1,89)', 'strength(1,90)', 'strength(1,91)', 'strength(1,92)', 'strength(1,93)', 'strength(1,94)', 'strength(1,95)', 'strength(1,96)', 'strength(1,97)', 'strength(1,98)', 'strength(1,99)', 'strength(1,100)', 'strength(2,1)', 'strength(2,2)', 'strength(2,3)', 'strength(2,4)', 'strength(2,5)', 'strength(2,6)', 'strength(2,7)', 'strength(2,8)', 'strength(2,9)', 'strength(2,10)', 'strength(2,11)', 'strength(2,12)', 'strength(2,13)', 'strength(2,14)', 'strength(2,15)', 'strength(2,16)', 'strength(2,17)', 'strength(2,18)', 'strength(2,19)', 'strength(2,20)', 'strength(2,21)', 'strength(2,22)', 'strength(2,23)', 'strength(2,24)', 'strength(2,25)', 'strength(2,26)', 'strength(2,27)', 'strength(2,28)', 'strength(2,29)', 'strength(2,30)', 'strength(2,31)', 'strength(2,32)', 'strength(2,33)', 'strength(2,34)', 'strength(2,35)', 'strength(2,36)', 'strength(2,37)', 'strength(2,38)', 'strength(2,39)', 'strength(2,40)', 'strength(2,41)', 'strength(2,42)', 'strength(2,43)', 'strength(2,44)', 'strength(2,45)', 'strength(2,46)', 'strength(2,47)', 'strength(2,48)', 'strength(2,49)', 'strength(2,50)', 'strength(2,51)', 'strength(2,52)', 'strength(2,53)', 'strength(2,54)', 'strength(2,55)', 'strength(2,56)', 'strength(2,57)', 'strength(2,58)', 'strength(2,59)', 'strength(2,60)', 'strength(2,61)', 'strength(2,62)', 'strength(2,63)', 'strength(2,64)', 'strength(2,65)', 'strength(2,66)', 'strength(2,67)', 'strength(2,68)', 'strength(2,69)', 'strength(2,70)', 'strength(2,71)', 'strength(2,72)', 'strength(2,73)', 'strength(2,74)', 'strength(2,75)', 'strength(2,76)', 'strength(2,77)', 'strength(2,78)', 'strength(2,79)', 'strength(2,80)', 'strength(2,81)', 'strength(2,82)', 'strength(2,83)', 'strength(2,84)', 'strength(2,85)', 'strength(2,86)', 'strength(2,87)', 'strength(2,88)', 'strength(2,89)', 'strength(2,90)', 'strength(2,91)', 'strength(2,92)', 'strength(2,93)', 'strength(2,94)', 'strength(2,95)', 'strength(2,96)', 'strength(2,97)', 'strength(2,98)', 'strength(2,99)', 'strength(2,100)', 'strength(3,1)', 'strength(3,2)', 'strength(3,3)', 'strength(3,4)', 'strength(3,5)', 'strength(3,6)', 'strength(3,7)', 'strength(3,8)', 'strength(3,9)', 'strength(3,10)', 'strength(3,11)', 'strength(3,12)', 'strength(3,13)', 'strength(3,14)', 'strength(3,15)', 'strength(3,16)', 'strength(3,17)', 'strength(3,18)', 'strength(3,19)', 'strength(3,20)', 'strength(3,21)', 'strength(3,22)', 'strength(3,23)', 'strength(3,24)', 'strength(3,25)', 'strength(3,26)', 'strength(3,27)', 'strength(3,28)', 'strength(3,29)', 'strength(3,30)', 'strength(3,31)', 'strength(3,32)', 'strength(3,33)', 'strength(3,34)', 'strength(3,35)', 'strength(3,36)', 'strength(3,37)', 'strength(3,38)', 'strength(3,39)', 'strength(3,40)', 'strength(3,41)', 'strength(3,42)', 'strength(3,43)', 'strength(3,44)', 'strength(3,45)', 'strength(3,46)', 'strength(3,47)', 'strength(3,48)', 'strength(3,49)', 'strength(3,50)', 'strength(3,51)', 'strength(3,52)', 'strength(3,53)', 'strength(3,54)', 'strength(3,55)', 'strength(3,56)', 'strength(3,57)', 'strength(3,58)', 'strength(3,59)', 'strength(3,60)', 'strength(3,61)', 'strength(3,62)', 'strength(3,63)', 'strength(3,64)', 'strength(3,65)', 'strength(3,66)', 'strength(3,67)', 'strength(3,68)', 'strength(3,69)', 'strength(3,70)', 'strength(3,71)', 'strength(3,72)', 'strength(3,73)', 'strength(3,74)', 'strength(3,75)', 'strength(3,76)', 'strength(3,77)', 'strength(3,78)', 'strength(3,79)', 'strength(3,80)', 'strength(3,81)', 'strength(3,82)', 'strength(3,83)', 'strength(3,84)', 'strength(3,85)', 'strength(3,86)', 'strength(3,87)', 'strength(3,88)', 'strength(3,89)', 'strength(3,90)', 'strength(3,91)', 'strength(3,92)', 'strength(3,93)', 'strength(3,94)', 'strength(3,95)', 'strength(3,96)', 'strength(3,97)', 'strength(3,98)', 'strength(3,99)', 'strength(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5606
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "cairo" with a value different than 55.
+
+answer from file: select(X):-cairo(X,C),C!=55.
+
+facts: 
+cairo(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "cairo" with a value different than 55.
+Answer: select(X):-cairo(X,"55").
+Answer(X):-city(X,"55").
+
+parsed: 
+select(X):-cairo(X,"55").
+
+wanted answer_Set: [['cairo(1,1)', 'cairo(1,2)', 'cairo(1,3)', 'cairo(1,4)', 'cairo(1,5)', 'cairo(1,6)', 'cairo(1,7)', 'cairo(1,8)', 'cairo(1,9)', 'cairo(1,10)', 'cairo(1,11)', 'cairo(1,12)', 'cairo(1,13)', 'cairo(1,14)', 'cairo(1,15)', 'cairo(1,16)', 'cairo(1,17)', 'cairo(1,18)', 'cairo(1,19)', 'cairo(1,20)', 'cairo(1,21)', 'cairo(1,22)', 'cairo(1,23)', 'cairo(1,24)', 'cairo(1,25)', 'cairo(1,26)', 'cairo(1,27)', 'cairo(1,28)', 'cairo(1,29)', 'cairo(1,30)', 'cairo(1,31)', 'cairo(1,32)', 'cairo(1,33)', 'cairo(1,34)', 'cairo(1,35)', 'cairo(1,36)', 'cairo(1,37)', 'cairo(1,38)', 'cairo(1,39)', 'cairo(1,40)', 'cairo(1,41)', 'cairo(1,42)', 'cairo(1,43)', 'cairo(1,44)', 'cairo(1,45)', 'cairo(1,46)', 'cairo(1,47)', 'cairo(1,48)', 'cairo(1,49)', 'cairo(1,50)', 'cairo(1,51)', 'cairo(1,52)', 'cairo(1,53)', 'cairo(1,54)', 'cairo(1,55)', 'cairo(1,56)', 'cairo(1,57)', 'cairo(1,58)', 'cairo(1,59)', 'cairo(1,60)', 'cairo(1,61)', 'cairo(1,62)', 'cairo(1,63)', 'cairo(1,64)', 'cairo(1,65)', 'cairo(1,66)', 'cairo(1,67)', 'cairo(1,68)', 'cairo(1,69)', 'cairo(1,70)', 'cairo(1,71)', 'cairo(1,72)', 'cairo(1,73)', 'cairo(1,74)', 'cairo(1,75)', 'cairo(1,76)', 'cairo(1,77)', 'cairo(1,78)', 'cairo(1,79)', 'cairo(1,80)', 'cairo(1,81)', 'cairo(1,82)', 'cairo(1,83)', 'cairo(1,84)', 'cairo(1,85)', 'cairo(1,86)', 'cairo(1,87)', 'cairo(1,88)', 'cairo(1,89)', 'cairo(1,90)', 'cairo(1,91)', 'cairo(1,92)', 'cairo(1,93)', 'cairo(1,94)', 'cairo(1,95)', 'cairo(1,96)', 'cairo(1,97)', 'cairo(1,98)', 'cairo(1,99)', 'cairo(1,100)', 'cairo(2,1)', 'cairo(2,2)', 'cairo(2,3)', 'cairo(2,4)', 'cairo(2,5)', 'cairo(2,6)', 'cairo(2,7)', 'cairo(2,8)', 'cairo(2,9)', 'cairo(2,10)', 'cairo(2,11)', 'cairo(2,12)', 'cairo(2,13)', 'cairo(2,14)', 'cairo(2,15)', 'cairo(2,16)', 'cairo(2,17)', 'cairo(2,18)', 'cairo(2,19)', 'cairo(2,20)', 'cairo(2,21)', 'cairo(2,22)', 'cairo(2,23)', 'cairo(2,24)', 'cairo(2,25)', 'cairo(2,26)', 'cairo(2,27)', 'cairo(2,28)', 'cairo(2,29)', 'cairo(2,30)', 'cairo(2,31)', 'cairo(2,32)', 'cairo(2,33)', 'cairo(2,34)', 'cairo(2,35)', 'cairo(2,36)', 'cairo(2,37)', 'cairo(2,38)', 'cairo(2,39)', 'cairo(2,40)', 'cairo(2,41)', 'cairo(2,42)', 'cairo(2,43)', 'cairo(2,44)', 'cairo(2,45)', 'cairo(2,46)', 'cairo(2,47)', 'cairo(2,48)', 'cairo(2,49)', 'cairo(2,50)', 'cairo(2,51)', 'cairo(2,52)', 'cairo(2,53)', 'cairo(2,54)', 'cairo(2,55)', 'cairo(2,56)', 'cairo(2,57)', 'cairo(2,58)', 'cairo(2,59)', 'cairo(2,60)', 'cairo(2,61)', 'cairo(2,62)', 'cairo(2,63)', 'cairo(2,64)', 'cairo(2,65)', 'cairo(2,66)', 'cairo(2,67)', 'cairo(2,68)', 'cairo(2,69)', 'cairo(2,70)', 'cairo(2,71)', 'cairo(2,72)', 'cairo(2,73)', 'cairo(2,74)', 'cairo(2,75)', 'cairo(2,76)', 'cairo(2,77)', 'cairo(2,78)', 'cairo(2,79)', 'cairo(2,80)', 'cairo(2,81)', 'cairo(2,82)', 'cairo(2,83)', 'cairo(2,84)', 'cairo(2,85)', 'cairo(2,86)', 'cairo(2,87)', 'cairo(2,88)', 'cairo(2,89)', 'cairo(2,90)', 'cairo(2,91)', 'cairo(2,92)', 'cairo(2,93)', 'cairo(2,94)', 'cairo(2,95)', 'cairo(2,96)', 'cairo(2,97)', 'cairo(2,98)', 'cairo(2,99)', 'cairo(2,100)', 'cairo(3,1)', 'cairo(3,2)', 'cairo(3,3)', 'cairo(3,4)', 'cairo(3,5)', 'cairo(3,6)', 'cairo(3,7)', 'cairo(3,8)', 'cairo(3,9)', 'cairo(3,10)', 'cairo(3,11)', 'cairo(3,12)', 'cairo(3,13)', 'cairo(3,14)', 'cairo(3,15)', 'cairo(3,16)', 'cairo(3,17)', 'cairo(3,18)', 'cairo(3,19)', 'cairo(3,20)', 'cairo(3,21)', 'cairo(3,22)', 'cairo(3,23)', 'cairo(3,24)', 'cairo(3,25)', 'cairo(3,26)', 'cairo(3,27)', 'cairo(3,28)', 'cairo(3,29)', 'cairo(3,30)', 'cairo(3,31)', 'cairo(3,32)', 'cairo(3,33)', 'cairo(3,34)', 'cairo(3,35)', 'cairo(3,36)', 'cairo(3,37)', 'cairo(3,38)', 'cairo(3,39)', 'cairo(3,40)', 'cairo(3,41)', 'cairo(3,42)', 'cairo(3,43)', 'cairo(3,44)', 'cairo(3,45)', 'cairo(3,46)', 'cairo(3,47)', 'cairo(3,48)', 'cairo(3,49)', 'cairo(3,50)', 'cairo(3,51)', 'cairo(3,52)', 'cairo(3,53)', 'cairo(3,54)', 'cairo(3,55)', 'cairo(3,56)', 'cairo(3,57)', 'cairo(3,58)', 'cairo(3,59)', 'cairo(3,60)', 'cairo(3,61)', 'cairo(3,62)', 'cairo(3,63)', 'cairo(3,64)', 'cairo(3,65)', 'cairo(3,66)', 'cairo(3,67)', 'cairo(3,68)', 'cairo(3,69)', 'cairo(3,70)', 'cairo(3,71)', 'cairo(3,72)', 'cairo(3,73)', 'cairo(3,74)', 'cairo(3,75)', 'cairo(3,76)', 'cairo(3,77)', 'cairo(3,78)', 'cairo(3,79)', 'cairo(3,80)', 'cairo(3,81)', 'cairo(3,82)', 'cairo(3,83)', 'cairo(3,84)', 'cairo(3,85)', 'cairo(3,86)', 'cairo(3,87)', 'cairo(3,88)', 'cairo(3,89)', 'cairo(3,90)', 'cairo(3,91)', 'cairo(3,92)', 'cairo(3,93)', 'cairo(3,94)', 'cairo(3,95)', 'cairo(3,96)', 'cairo(3,97)', 'cairo(3,98)', 'cairo(3,99)', 'cairo(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['cairo(1,1)', 'cairo(1,2)', 'cairo(1,3)', 'cairo(1,4)', 'cairo(1,5)', 'cairo(1,6)', 'cairo(1,7)', 'cairo(1,8)', 'cairo(1,9)', 'cairo(1,10)', 'cairo(1,11)', 'cairo(1,12)', 'cairo(1,13)', 'cairo(1,14)', 'cairo(1,15)', 'cairo(1,16)', 'cairo(1,17)', 'cairo(1,18)', 'cairo(1,19)', 'cairo(1,20)', 'cairo(1,21)', 'cairo(1,22)', 'cairo(1,23)', 'cairo(1,24)', 'cairo(1,25)', 'cairo(1,26)', 'cairo(1,27)', 'cairo(1,28)', 'cairo(1,29)', 'cairo(1,30)', 'cairo(1,31)', 'cairo(1,32)', 'cairo(1,33)', 'cairo(1,34)', 'cairo(1,35)', 'cairo(1,36)', 'cairo(1,37)', 'cairo(1,38)', 'cairo(1,39)', 'cairo(1,40)', 'cairo(1,41)', 'cairo(1,42)', 'cairo(1,43)', 'cairo(1,44)', 'cairo(1,45)', 'cairo(1,46)', 'cairo(1,47)', 'cairo(1,48)', 'cairo(1,49)', 'cairo(1,50)', 'cairo(1,51)', 'cairo(1,52)', 'cairo(1,53)', 'cairo(1,54)', 'cairo(1,55)', 'cairo(1,56)', 'cairo(1,57)', 'cairo(1,58)', 'cairo(1,59)', 'cairo(1,60)', 'cairo(1,61)', 'cairo(1,62)', 'cairo(1,63)', 'cairo(1,64)', 'cairo(1,65)', 'cairo(1,66)', 'cairo(1,67)', 'cairo(1,68)', 'cairo(1,69)', 'cairo(1,70)', 'cairo(1,71)', 'cairo(1,72)', 'cairo(1,73)', 'cairo(1,74)', 'cairo(1,75)', 'cairo(1,76)', 'cairo(1,77)', 'cairo(1,78)', 'cairo(1,79)', 'cairo(1,80)', 'cairo(1,81)', 'cairo(1,82)', 'cairo(1,83)', 'cairo(1,84)', 'cairo(1,85)', 'cairo(1,86)', 'cairo(1,87)', 'cairo(1,88)', 'cairo(1,89)', 'cairo(1,90)', 'cairo(1,91)', 'cairo(1,92)', 'cairo(1,93)', 'cairo(1,94)', 'cairo(1,95)', 'cairo(1,96)', 'cairo(1,97)', 'cairo(1,98)', 'cairo(1,99)', 'cairo(1,100)', 'cairo(2,1)', 'cairo(2,2)', 'cairo(2,3)', 'cairo(2,4)', 'cairo(2,5)', 'cairo(2,6)', 'cairo(2,7)', 'cairo(2,8)', 'cairo(2,9)', 'cairo(2,10)', 'cairo(2,11)', 'cairo(2,12)', 'cairo(2,13)', 'cairo(2,14)', 'cairo(2,15)', 'cairo(2,16)', 'cairo(2,17)', 'cairo(2,18)', 'cairo(2,19)', 'cairo(2,20)', 'cairo(2,21)', 'cairo(2,22)', 'cairo(2,23)', 'cairo(2,24)', 'cairo(2,25)', 'cairo(2,26)', 'cairo(2,27)', 'cairo(2,28)', 'cairo(2,29)', 'cairo(2,30)', 'cairo(2,31)', 'cairo(2,32)', 'cairo(2,33)', 'cairo(2,34)', 'cairo(2,35)', 'cairo(2,36)', 'cairo(2,37)', 'cairo(2,38)', 'cairo(2,39)', 'cairo(2,40)', 'cairo(2,41)', 'cairo(2,42)', 'cairo(2,43)', 'cairo(2,44)', 'cairo(2,45)', 'cairo(2,46)', 'cairo(2,47)', 'cairo(2,48)', 'cairo(2,49)', 'cairo(2,50)', 'cairo(2,51)', 'cairo(2,52)', 'cairo(2,53)', 'cairo(2,54)', 'cairo(2,55)', 'cairo(2,56)', 'cairo(2,57)', 'cairo(2,58)', 'cairo(2,59)', 'cairo(2,60)', 'cairo(2,61)', 'cairo(2,62)', 'cairo(2,63)', 'cairo(2,64)', 'cairo(2,65)', 'cairo(2,66)', 'cairo(2,67)', 'cairo(2,68)', 'cairo(2,69)', 'cairo(2,70)', 'cairo(2,71)', 'cairo(2,72)', 'cairo(2,73)', 'cairo(2,74)', 'cairo(2,75)', 'cairo(2,76)', 'cairo(2,77)', 'cairo(2,78)', 'cairo(2,79)', 'cairo(2,80)', 'cairo(2,81)', 'cairo(2,82)', 'cairo(2,83)', 'cairo(2,84)', 'cairo(2,85)', 'cairo(2,86)', 'cairo(2,87)', 'cairo(2,88)', 'cairo(2,89)', 'cairo(2,90)', 'cairo(2,91)', 'cairo(2,92)', 'cairo(2,93)', 'cairo(2,94)', 'cairo(2,95)', 'cairo(2,96)', 'cairo(2,97)', 'cairo(2,98)', 'cairo(2,99)', 'cairo(2,100)', 'cairo(3,1)', 'cairo(3,2)', 'cairo(3,3)', 'cairo(3,4)', 'cairo(3,5)', 'cairo(3,6)', 'cairo(3,7)', 'cairo(3,8)', 'cairo(3,9)', 'cairo(3,10)', 'cairo(3,11)', 'cairo(3,12)', 'cairo(3,13)', 'cairo(3,14)', 'cairo(3,15)', 'cairo(3,16)', 'cairo(3,17)', 'cairo(3,18)', 'cairo(3,19)', 'cairo(3,20)', 'cairo(3,21)', 'cairo(3,22)', 'cairo(3,23)', 'cairo(3,24)', 'cairo(3,25)', 'cairo(3,26)', 'cairo(3,27)', 'cairo(3,28)', 'cairo(3,29)', 'cairo(3,30)', 'cairo(3,31)', 'cairo(3,32)', 'cairo(3,33)', 'cairo(3,34)', 'cairo(3,35)', 'cairo(3,36)', 'cairo(3,37)', 'cairo(3,38)', 'cairo(3,39)', 'cairo(3,40)', 'cairo(3,41)', 'cairo(3,42)', 'cairo(3,43)', 'cairo(3,44)', 'cairo(3,45)', 'cairo(3,46)', 'cairo(3,47)', 'cairo(3,48)', 'cairo(3,49)', 'cairo(3,50)', 'cairo(3,51)', 'cairo(3,52)', 'cairo(3,53)', 'cairo(3,54)', 'cairo(3,55)', 'cairo(3,56)', 'cairo(3,57)', 'cairo(3,58)', 'cairo(3,59)', 'cairo(3,60)', 'cairo(3,61)', 'cairo(3,62)', 'cairo(3,63)', 'cairo(3,64)', 'cairo(3,65)', 'cairo(3,66)', 'cairo(3,67)', 'cairo(3,68)', 'cairo(3,69)', 'cairo(3,70)', 'cairo(3,71)', 'cairo(3,72)', 'cairo(3,73)', 'cairo(3,74)', 'cairo(3,75)', 'cairo(3,76)', 'cairo(3,77)', 'cairo(3,78)', 'cairo(3,79)', 'cairo(3,80)', 'cairo(3,81)', 'cairo(3,82)', 'cairo(3,83)', 'cairo(3,84)', 'cairo(3,85)', 'cairo(3,86)', 'cairo(3,87)', 'cairo(3,88)', 'cairo(3,89)', 'cairo(3,90)', 'cairo(3,91)', 'cairo(3,92)', 'cairo(3,93)', 'cairo(3,94)', 'cairo(3,95)', 'cairo(3,96)', 'cairo(3,97)', 'cairo(3,98)', 'cairo(3,99)', 'cairo(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5625
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate weight. The labels are quality,butterfly,chicago.
+
+answer from file: assign(X,"quality")|assign(X,"butterfly")|assign(X,"chicago"):-weight(X).
+
+facts: 
+weight(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate weight. The labels are quality,butterfly,chicago.
+Answer: assign(X,"quality")|assign(X,"butterfly")|assign(X,"city").
+I would prefer that predicate "city" with value "1" is not associated with "city".
+Answer: assign(X,"city")|assign(X,"city").
+Answer: assign(X,"city")|assign(X,"object").
+Answer: assign(X,"city").
+Explanation:
+- assign(X,"quality")|assign(X,"butterfly")|assign(X,"city"):- if the value of "X" is "city" assign "city" to "X".
+- assign(X,"city"):- if the value of "X" is "city"
+
+parsed: 
+assign(X,"quality")|assign(X,"butterfly")|assign(X,"city").
+
+wanted answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'assign(1,"chicago")', 'assign(2,"chicago")', 'assign(3,"chicago")', 'assign(4,"chicago")', 'assign(5,"chicago")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+

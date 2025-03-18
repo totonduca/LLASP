@@ -2735,3 +2735,59 @@ answerset from file: [['singapore(1)', 'singapore(2)', 'singapore(3)', 'singapor
 
 answerset from parsed: ['error']
 
+i: 4509
+
+index: 0
+
+assignment
+
+question: Implement an ASP application to tag elements, defined by the predicate "roof", with one label from the set "weight","white","butterfly","toronto","quality","delhi","barcelona","cosenza".
+
+answer from file: assign(X,"weight")|assign(X,"white")|assign(X,"butterfly")|assign(X,"toronto")|assign(X,"quality")|assign(X,"delhi")|assign(X,"barcelona")|assign(X,"cosenza"):-roof(X).
+
+facts: 
+roof(1..5).
+
+generated_answer: Implement an ASP application to tag elements, defined by the predicate "roof", with one label from the set "weight","white","butterfly","toronto","quality","delhi","barcelona","cosenza".
+Answer: assign(X,"weight")|assign(X,"white")|assign(X,"tokyo")|assign(X,"brown")|assign(X,"purple")|assign(X,"dubai")|assign(X,"gray")|assign(X,"shape")|assign(X,"city").
+The predicate "roof" defines the elements to be tagged.
+The predicate "brown" defines the elements to be tagged with the label "brown".
+The predicate "purple" defines the elements to be tagged with the label "purple".
+The predicate "shape" defines the elements to be tagged with the label "shape".
+The predicate "city" defines the elements to be tagged with the label "city".
+
+parsed answer: assign(X,"weight")|assign(X,"white")|assign(X,"tokyo")|assign(X,"brown")|assign(X,"purple")|assign(X,"dubai")|assign(X,"gray")|assign(X,"shape")|assign(X,"city").
+
+answerset from file: [['roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'roof(5)', 'assign(1,"cosenza")', 'assign(2,"cosenza")', 'assign(3,"barcelona")', 'assign(4,"cosenza")', 'assign(5,"cosenza")']]
+
+answerset from parsed: ['error']
+
+i: 4530
+
+index: 3
+
+join
+
+question: Formulate an ASP program to create the predicate "barcelona_cloud" which links each barcelona with the hair of cloud, using fields "ID","cloudID","quality" for "barcelona" and fields "ID","hair" for "cloud".
+
+answer from file: barcelona_cloud(X,Z):-barcelona(X,Y,_),cloud(Y,Z).
+
+facts: 
+barcelona("ID","cloudID","quality").cloud("ID","hair").
+
+generated_answer: Formulate an ASP program to create the predicate "barcelona_cloud" which links each barcelona with the hair of cloud, using fields "ID","cloudID","quality" for "barcelona" and fields "ID","hair" for "cloud".
+Answer: barcelona_cloud(X,Y,_):-barcelona(X,Y,_),cloud(Y,X,_).
+barcelona(X,Y,_):-london(X,Y,_).
+cloud(X,Y,_):-london(X,Y,_).
+london(X,Y,_):-age(X,Y,_).
+age(X,Y,_):-height(X,Y,_).
+height(X,Y,_):-shape(X,Y,_).
+shape(X,Y,_):-city(X,Y,_).
+city(X,Y,_):-name(X,Y,_).
+
+parsed answer: barcelona_cloud(X,Y,_):-barcelona(X,Y,_),cloud(Y,X,_).
+
+answerset from file: [['cloud("ID","hair")', 'barcelona("ID","cloudID","quality")']]
+
+answerset from parsed: ['error']
+

@@ -2231,7 +2231,7 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
                     print("num filt",n_questions_numeric, n_questions_numeric*size, n_questions_numeric*size/tot_questions_size*100)
                     break
 
-            case "comples":
+            case "core-invariance-complex":
                 for _ in range(5):
                     p_1, p_2 = np.random.choice(predicates, 2, replace=False)
                     questions_jn, answers_jn, f = join_numeric_filtering(p_1, p_2, attributes)
@@ -2804,7 +2804,7 @@ def generate_test_cases():      ##  genera 10 prompt da sottoporre al modello pe
                 f.write(answer)
                 f.write("\n\n")
 
-        case "comples":
+        case "core-invariance-complex":
             questions = []
 
             p_1, p_2 = np.random.choice(predicates, 2, replace=False)  
@@ -3109,7 +3109,7 @@ def build_test_set():   #   costruisce domande, risposte e fatti per come dovreb
                 chosen = np.random.randint(0, 20)
                 test_tuples.append([questions_numeric_filtering[chosen], answers_numeric_filtering[chosen], facts_numeric_filtering[0]])
     
-        case "comples":
+        case "core-invariance-complex":
             for i in range(test_size):
                 np.random.seed(seed % (i + 1) * 19)
                 
@@ -3194,9 +3194,9 @@ quant_config = BitsAndBytesConfig(
 
 
 
-##  CHOOSE BETWEEN [ ' core ' , ' core-invariance ' , ' comples ' ]
+##  CHOOSE BETWEEN [ ' core ' , ' core-invariance ' , ' core-invariance-complex ' ]
 
-turn = "core-invariance"
+turn = "core-invariance-complex"
 
 match turn:
     case "core":
@@ -3263,7 +3263,7 @@ match turn:
         errors_file_name  = exhaustive_folder + "errorsCorInv.txt"
         jaccard0_file_name = exhaustive_folder + "jaccard0CorInv.txt"
         
-    case "comples":
+    case "core-invariance-complex":
         model_to_train = invariance_model_path                               
         model_saving_path = complex_model_path
         model_to_test = complex_model_path
@@ -3294,7 +3294,9 @@ match turn:
         parsed_file_name = exhaustive_folder + "parsedComplex.txt"
         errors_file_name  = exhaustive_folder + "errorsComplex.txt"
         jaccard0_file_name = exhaustive_folder + "jaccard0Complex.txt"
-        
+
+    case _:
+        print("NON DISPONIBILE !")    
 
 MODEL_TO_USE = "gemma"
 
@@ -3303,9 +3305,9 @@ TRAIN = True
 LOAD = True                            # (not TRAIN)       Load for testing
 TEST = True                            # if you want to test the model, also on a limited number of prompts
 TEST_DATASET_GENERATION = True         # if you need to create a new test set
-T21ST = True                            # if you want the test tuple for the core-invariance model to be different from the 20 that the model was trained on
+T21ST = True                           # if you want the test tuple for the core-invariance model to be different from the 20 that the model was trained on
 EXHAUSTIVE = True                      # if you want the exhaustive test done directly after the fine-tuning
-SHOW_RESULTS = True                     # if you want the results to be shown
+SHOW_RESULTS = True                    # if you want the results to be shown
 
 if DATASET_GENERATION:
 

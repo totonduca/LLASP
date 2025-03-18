@@ -7710,3 +7710,204 @@ generated answer_Set: ['error']
 jaccard: 0.0
 
 
+i: 4435
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "moscow" but not associated with predicate "hair" and label "mumbai".
+
+answer from file: select(X):-moscow(X),not hair(X,"mumbai").
+
+facts: 
+moscow(1..3).hair(1,"cloud").hair(2,"flower").hair(3,"mumbai").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "moscow" but not associated with predicate "hair" and label "mumbai".
+Answer: select(X):-cow(X),not hair(X,"mumbai").
+```
+select(X):-cow(X),not hair(X,"mumbai").
+```
+
+parsed: 
+select(X):-cow(X),not hair(X,"mumbai").
+
+wanted answer_Set: [['moscow(1)', 'moscow(2)', 'moscow(3)', 'hair(1,"cloud")', 'hair(2,"flower")', 'hair(3,"mumbai")', 'select(1)', 'select(2)']]
+
+generated answer_Set: [['hair(1,"cloud")', 'hair(2,"flower")', 'hair(3,"mumbai")', 'moscow(1)', 'moscow(2)', 'moscow(3)']]
+
+jaccard: 0.0
+
+
+i: 4459
+
+index: 4
+
+closure
+
+question: Develop an ASP script to link the predicate "moscow" to its transitive closure, resulting in the predicate "journey".
+
+answer from file: journey(X,Y):-moscow(X,Y).
+journey(X,Y):-moscow(X,Z),journey(Z,Y).
+
+facts: 
+moscow(1..3, 1..4).
+
+generated: 
+Develop an ASP script to link the predicate "moscow" to its transitive closure, resulting in the predicate "journey".
+Answer: journey(X,Y):-cow(X,Y).
+journey(X,Y):-cow(X,Z),journey(Z,Y).
+```
+The predicate "cow" links each element to its transitive closure.
+The predicate "journey" links each element to its transitive closure.
+The predicate "moto" links each element to the transitive closure of the predicate "brown".
+Answer: moto(X,Y):-brown(X,Y).
+moto(X,Y):-brown(X,Z),moto(Z,Y).
+```
+The predicate "brown" links each element to the transitive closure of the predicate "shape".
+Answer: brown(X,Y):-shape(X
+
+parsed: 
+journey(X,Y):-cow(X,Y).
+journey(X,Y):-cow(X,Z),journey(Z,Y).
+
+wanted answer_Set: [['moscow(1,1)', 'moscow(1,2)', 'moscow(1,3)', 'moscow(1,4)', 'moscow(2,1)', 'moscow(2,2)', 'moscow(2,3)', 'moscow(2,4)', 'moscow(3,1)', 'moscow(3,2)', 'moscow(3,3)', 'moscow(3,4)', 'journey(1,1)', 'journey(1,2)', 'journey(1,3)', 'journey(1,4)', 'journey(2,1)', 'journey(2,2)', 'journey(2,3)', 'journey(2,4)', 'journey(3,1)', 'journey(3,2)', 'journey(3,3)', 'journey(3,4)']]
+
+generated answer_Set: [['moscow(1,1)', 'moscow(1,2)', 'moscow(1,3)', 'moscow(1,4)', 'moscow(2,1)', 'moscow(2,2)', 'moscow(2,3)', 'moscow(2,4)', 'moscow(3,1)', 'moscow(3,2)', 'moscow(3,3)', 'moscow(3,4)']]
+
+jaccard: 0.0
+
+
+i: 4500
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate white. The labels are cairo,delhi,barcelona,moscow.
+
+answer from file: assign(X,"cairo")|assign(X,"delhi")|assign(X,"barcelona")|assign(X,"moscow"):-white(X).
+
+facts: 
+white(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate white. The labels are cairo,delhi,barcelona,moscow.
+Answer: assign(X,"cairo")|assign(X,"delhi")|assign(X,"paris")|assign(X,"london")|assign(X,"moto"):-white(X).
+The predicate "white" includes elements that are not assigned any of the labels.
+The predicate "moto" includes elements that are assigned the label "moto".
+The predicate "paris" includes elements that are assigned the label "paris".
+The predicate "london" includes elements that are assigned the label "london".
+The predicate "delhi" includes elements that are assigned the label "delhi".
+The predicate "city" includes elements that are assigned the label "city".
+The predicate "moto" includes elements
+
+parsed: 
+assign(X,"cairo")|assign(X,"delhi")|assign(X,"paris")|assign(X,"london")|assign(X,"moto"):-white(X).
+
+wanted answer_Set: [['white(1)', 'white(2)', 'white(3)', 'white(4)', 'white(5)', 'assign(1,"barcelona")', 'assign(2,"moscow")', 'assign(3,"barcelona")', 'assign(4,"moscow")', 'assign(5,"moscow")']]
+
+generated answer_Set: [['white(1)', 'white(2)', 'white(3)', 'white(4)', 'white(5)', 'assign(1,"moto")', 'assign(2,"moto")', 'assign(3,"moto")', 'assign(4,"moto")', 'assign(5,"moto")']]
+
+jaccard: 0.0
+
+
+i: 4509
+
+index: 0
+
+assignment
+
+question: Implement an ASP application to tag elements, defined by the predicate "roof", with one label from the set "weight","white","butterfly","toronto","quality","delhi","barcelona","cosenza".
+
+answer from file: assign(X,"weight")|assign(X,"white")|assign(X,"butterfly")|assign(X,"toronto")|assign(X,"quality")|assign(X,"delhi")|assign(X,"barcelona")|assign(X,"cosenza"):-roof(X).
+
+facts: 
+roof(1..5).
+
+generated: 
+Implement an ASP application to tag elements, defined by the predicate "roof", with one label from the set "weight","white","butterfly","toronto","quality","delhi","barcelona","cosenza".
+Answer: assign(X,"weight")|assign(X,"white")|assign(X,"tokyo")|assign(X,"brown")|assign(X,"purple")|assign(X,"dubai")|assign(X,"gray")|assign(X,"shape")|assign(X,"city").
+The predicate "roof" defines the elements to be tagged.
+The predicate "brown" defines the elements to be tagged with the label "brown".
+The predicate "purple" defines the elements to be tagged with the label "purple".
+The predicate "shape" defines the elements to be tagged with the label "shape".
+The predicate "city" defines the elements to be tagged with the label "city".
+
+parsed: 
+assign(X,"weight")|assign(X,"white")|assign(X,"tokyo")|assign(X,"brown")|assign(X,"purple")|assign(X,"dubai")|assign(X,"gray")|assign(X,"shape")|assign(X,"city").
+
+wanted answer_Set: [['roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'roof(5)', 'assign(1,"cosenza")', 'assign(2,"cosenza")', 'assign(3,"barcelona")', 'assign(4,"cosenza")', 'assign(5,"cosenza")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 4530
+
+index: 3
+
+join
+
+question: Formulate an ASP program to create the predicate "barcelona_cloud" which links each barcelona with the hair of cloud, using fields "ID","cloudID","quality" for "barcelona" and fields "ID","hair" for "cloud".
+
+answer from file: barcelona_cloud(X,Z):-barcelona(X,Y,_),cloud(Y,Z).
+
+facts: 
+barcelona("ID","cloudID","quality").cloud("ID","hair").
+
+generated: 
+Formulate an ASP program to create the predicate "barcelona_cloud" which links each barcelona with the hair of cloud, using fields "ID","cloudID","quality" for "barcelona" and fields "ID","hair" for "cloud".
+Answer: barcelona_cloud(X,Y,_):-barcelona(X,Y,_),cloud(Y,X,_).
+barcelona(X,Y,_):-london(X,Y,_).
+cloud(X,Y,_):-london(X,Y,_).
+london(X,Y,_):-age(X,Y,_).
+age(X,Y,_):-height(X,Y,_).
+height(X,Y,_):-shape(X,Y,_).
+shape(X,Y,_):-city(X,Y,_).
+city(X,Y,_):-name(X,Y,_).
+
+parsed: 
+barcelona_cloud(X,Y,_):-barcelona(X,Y,_),cloud(Y,X,_).
+
+wanted answer_Set: [['cloud("ID","hair")', 'barcelona("ID","cloudID","quality")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 4536
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate pink. The labels are roof,moscow,butterfly,mumbai,singapore.
+
+answer from file: assign(X,"roof")|assign(X,"moscow")|assign(X,"butterfly")|assign(X,"mumbai")|assign(X,"singapore"):-pink(X).
+
+facts: 
+pink(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate pink. The labels are roof,moscow,butterfly,mumbai,singapore.
+Answer: assign(X,"roof")|assign(X,"cow")|assign(X,"purple")|assign(X,"dubai")|assign(X,"shape")|assign(X,"city"):-pink(X).
+```
+The predicate "pink" includes the elements of the set "rome".
+```
+assign(X,"roof")|assign(X,"cow")|assign(X,"purple")|assign(X,"dubai")|assign(X,"shape")|assign(X,"city"):-pink(X).
+```
+
+parsed: 
+assign(X,"roof")|assign(X,"cow")|assign(X,"purple")|assign(X,"dubai")|assign(X,"shape")|assign(X,"city"):-pink(X).
+
+wanted answer_Set: [['pink(1)', 'pink(2)', 'pink(3)', 'pink(4)', 'pink(5)', 'assign(1,"singapore")', 'assign(2,"singapore")', 'assign(3,"singapore")', 'assign(4,"singapore")', 'assign(5,"singapore")']]
+
+generated answer_Set: [['pink(1)', 'pink(2)', 'pink(3)', 'pink(4)', 'pink(5)', 'assign(1,"city")', 'assign(2,"city")', 'assign(3,"city")', 'assign(4,"city")', 'assign(5,"city")']]
+
+jaccard: 0.0
+
+
