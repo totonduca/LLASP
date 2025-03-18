@@ -4131,3 +4131,82 @@ answerset from file: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weig
 
 answerset from parsed: ['error']
 
+i: 5715
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are desk,cosenza,barcelona,white,black,flower,wall,lightblue.
+
+answer from file: assign(X,"desk")|assign(X,"cosenza")|assign(X,"barcelona")|assign(X,"white")|assign(X,"black")|assign(X,"flower")|assign(X,"wall")|assign(X,"lightblue"):-flower(X).
+
+facts: 
+flower(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are desk,cosenza,barcelona,white,black,flower,wall,lightblue.
+Answer: assign(X,"desk")|assign(X,"cosenza")|assign(X,"city")|assign(X,"brown")|assign(X,"white")|assign(X,"black")|assign(X,"florence")|assign(X,"street").
+I.e. assign(X,"city")|assign(X,"florence"):-flower(X).
+I.e. assign(X,"brown"):-city(X).
+I.e. assign(X,"florence"):-florence(X).
+I.e. assign(X,"street"):-city(X).
+I.e. assign(X,"city"):-florence(X
+
+parsed answer: assign(X,"desk")|assign(X,"cosenza")|assign(X,"city")|assign(X,"brown")|assign(X,"white")|assign(X,"black")|assign(X,"florence")|assign(X,"street").
+
+answerset from file: [['flower(1)', 'flower(2)', 'flower(3)', 'flower(4)', 'flower(5)', 'assign(1,"lightblue")', 'assign(2,"lightblue")', 'assign(3,"wall")', 'assign(4,"lightblue")', 'assign(5,"lightblue")']]
+
+answerset from parsed: ['error']
+
+i: 5733
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are cloud,storm,butterfly,toronto,surname,barcelona,flower.
+
+answer from file: assign(X,"cloud")|assign(X,"storm")|assign(X,"butterfly")|assign(X,"toronto")|assign(X,"surname")|assign(X,"barcelona")|assign(X,"flower"):-cairo(X).
+
+facts: 
+cairo(1..5).
+
+generated_answer: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are cloud,storm,butterfly,toronto,surname,barcelona,flower.
+Answer: assign(X,"cloud")|assign(X,"storm")|assign(X,"bike")|assign(X,"tokyo")|assign(X,"surname")|assign(X,"author")|assign(X,"florence").
+I would prefer that predicate "florence" with value "1" is not associated with "author".
+Answer: assign(X,"cloud")|assign(X,"storm")|assign(X,"bike")|assign(X,"tokyo")|assign(X,"surname")|assign(X,"author").
+I would prefer that predicate "florence" with value "1" is associated with "author".
+Answer: assign(X,"cloud")|assign
+
+parsed answer: assign(X,"cloud")|assign(X,"storm")|assign(X,"bike")|assign(X,"tokyo")|assign(X,"surname")|assign(X,"author")|assign(X,"florence").
+
+answerset from file: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'assign(1,"flower")', 'assign(2,"flower")', 'assign(3,"flower")', 'assign(4,"flower")', 'assign(5,"flower")']]
+
+answerset from parsed: ['error']
+
+i: 5740
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "cairo" and label "cairo".
+
+answer from file: select(X):-butterfly(X),not cairo(X,"cairo").
+
+facts: 
+butterfly(1..3).cairo(1,"barcelona").cairo(2,"cairo").cairo(3,"mumbai").
+
+generated_answer: Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "cairo" and label "cairo".
+Answer: select(X):-bike(X,"city")&not cairo(X,"city").
+Explanation:
+- "bike(X,"city")": associates to each "city" the "city" of "bike".
+- "not cairo(X,"city")": associates to each "city" the "city" of "cairo".
+- "select(X):-bike(X,"city")&not cairo(X,"city")": selects all "city" associated with "bike" but not associated with "city" and label "city".
+
+parsed answer: select(X):-bike(X,"city")&not cairo(X,"city").
+
+answerset from file: [['butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'cairo(1,"barcelona")', 'cairo(2,"cairo")', 'cairo(3,"mumbai")', 'select(1)', 'select(3)']]
+
+answerset from parsed: ['error']
+

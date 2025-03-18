@@ -10252,3 +10252,183 @@ generated answer_Set: ['error']
 jaccard: 0.0
 
 
+i: 5697
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate toronto. The labels are barcelona,strength,singapore,delhi,quality,white,mumbai,laptop,surname.
+
+answer from file: assign(X,"barcelona")|assign(X,"strength")|assign(X,"singapore")|assign(X,"delhi")|assign(X,"quality")|assign(X,"white")|assign(X,"mumbai")|assign(X,"laptop")|assign(X,"surname"):-toronto(X).
+
+facts: 
+toronto(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate toronto. The labels are barcelona,strength,singapore,delhi,quality,white,mumbai,laptop,surname.
+Answer: assign(X,"barcelona")|assign(X,"strength")|assign(X,"city")|assign(X,"delhi")|assign(X,"quality")|assign(X,"white")|assign(X,"mumbai")|assign(X,"laptop")|assign(X,"surname"):-tokyo(X).
+I would prefer that predicate "city" with value "1" is not "object".
+Answer: assign(X,"city")|assign(X,"object"):-tokyo(X).
+Answer: assign(X,"city")|assign(X,"object"):-tokyo(X).
+
+parsed: 
+assign(X,"barcelona")|assign(X,"strength")|assign(X,"city")|assign(X,"delhi")|assign(X,"quality")|assign(X,"white")|assign(X,"mumbai")|assign(X,"laptop")|assign(X,"surname"):-tokyo(X).
+
+wanted answer_Set: [['toronto(1)', 'toronto(2)', 'toronto(3)', 'toronto(4)', 'toronto(5)', 'assign(1,"surname")', 'assign(2,"surname")', 'assign(3,"surname")', 'assign(4,"surname")', 'assign(5,"surname")']]
+
+generated answer_Set: [['toronto(1)', 'toronto(2)', 'toronto(3)', 'toronto(4)', 'toronto(5)']]
+
+jaccard: 0.0
+
+
+i: 5714
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "butterfly" with a value different than 43.
+
+answer from file: select(X):-butterfly(X,C),C!=43.
+
+facts: 
+butterfly(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "butterfly" with a value different than 43.
+Answer: select(X):-bike(X,"43").
+Answer(X):-bike(X,"43").
+
+parsed: 
+select(X):-bike(X,"43").
+
+wanted answer_Set: [['butterfly(1,1)', 'butterfly(1,2)', 'butterfly(1,3)', 'butterfly(1,4)', 'butterfly(1,5)', 'butterfly(1,6)', 'butterfly(1,7)', 'butterfly(1,8)', 'butterfly(1,9)', 'butterfly(1,10)', 'butterfly(1,11)', 'butterfly(1,12)', 'butterfly(1,13)', 'butterfly(1,14)', 'butterfly(1,15)', 'butterfly(1,16)', 'butterfly(1,17)', 'butterfly(1,18)', 'butterfly(1,19)', 'butterfly(1,20)', 'butterfly(1,21)', 'butterfly(1,22)', 'butterfly(1,23)', 'butterfly(1,24)', 'butterfly(1,25)', 'butterfly(1,26)', 'butterfly(1,27)', 'butterfly(1,28)', 'butterfly(1,29)', 'butterfly(1,30)', 'butterfly(1,31)', 'butterfly(1,32)', 'butterfly(1,33)', 'butterfly(1,34)', 'butterfly(1,35)', 'butterfly(1,36)', 'butterfly(1,37)', 'butterfly(1,38)', 'butterfly(1,39)', 'butterfly(1,40)', 'butterfly(1,41)', 'butterfly(1,42)', 'butterfly(1,43)', 'butterfly(1,44)', 'butterfly(1,45)', 'butterfly(1,46)', 'butterfly(1,47)', 'butterfly(1,48)', 'butterfly(1,49)', 'butterfly(1,50)', 'butterfly(1,51)', 'butterfly(1,52)', 'butterfly(1,53)', 'butterfly(1,54)', 'butterfly(1,55)', 'butterfly(1,56)', 'butterfly(1,57)', 'butterfly(1,58)', 'butterfly(1,59)', 'butterfly(1,60)', 'butterfly(1,61)', 'butterfly(1,62)', 'butterfly(1,63)', 'butterfly(1,64)', 'butterfly(1,65)', 'butterfly(1,66)', 'butterfly(1,67)', 'butterfly(1,68)', 'butterfly(1,69)', 'butterfly(1,70)', 'butterfly(1,71)', 'butterfly(1,72)', 'butterfly(1,73)', 'butterfly(1,74)', 'butterfly(1,75)', 'butterfly(1,76)', 'butterfly(1,77)', 'butterfly(1,78)', 'butterfly(1,79)', 'butterfly(1,80)', 'butterfly(1,81)', 'butterfly(1,82)', 'butterfly(1,83)', 'butterfly(1,84)', 'butterfly(1,85)', 'butterfly(1,86)', 'butterfly(1,87)', 'butterfly(1,88)', 'butterfly(1,89)', 'butterfly(1,90)', 'butterfly(1,91)', 'butterfly(1,92)', 'butterfly(1,93)', 'butterfly(1,94)', 'butterfly(1,95)', 'butterfly(1,96)', 'butterfly(1,97)', 'butterfly(1,98)', 'butterfly(1,99)', 'butterfly(1,100)', 'butterfly(2,1)', 'butterfly(2,2)', 'butterfly(2,3)', 'butterfly(2,4)', 'butterfly(2,5)', 'butterfly(2,6)', 'butterfly(2,7)', 'butterfly(2,8)', 'butterfly(2,9)', 'butterfly(2,10)', 'butterfly(2,11)', 'butterfly(2,12)', 'butterfly(2,13)', 'butterfly(2,14)', 'butterfly(2,15)', 'butterfly(2,16)', 'butterfly(2,17)', 'butterfly(2,18)', 'butterfly(2,19)', 'butterfly(2,20)', 'butterfly(2,21)', 'butterfly(2,22)', 'butterfly(2,23)', 'butterfly(2,24)', 'butterfly(2,25)', 'butterfly(2,26)', 'butterfly(2,27)', 'butterfly(2,28)', 'butterfly(2,29)', 'butterfly(2,30)', 'butterfly(2,31)', 'butterfly(2,32)', 'butterfly(2,33)', 'butterfly(2,34)', 'butterfly(2,35)', 'butterfly(2,36)', 'butterfly(2,37)', 'butterfly(2,38)', 'butterfly(2,39)', 'butterfly(2,40)', 'butterfly(2,41)', 'butterfly(2,42)', 'butterfly(2,43)', 'butterfly(2,44)', 'butterfly(2,45)', 'butterfly(2,46)', 'butterfly(2,47)', 'butterfly(2,48)', 'butterfly(2,49)', 'butterfly(2,50)', 'butterfly(2,51)', 'butterfly(2,52)', 'butterfly(2,53)', 'butterfly(2,54)', 'butterfly(2,55)', 'butterfly(2,56)', 'butterfly(2,57)', 'butterfly(2,58)', 'butterfly(2,59)', 'butterfly(2,60)', 'butterfly(2,61)', 'butterfly(2,62)', 'butterfly(2,63)', 'butterfly(2,64)', 'butterfly(2,65)', 'butterfly(2,66)', 'butterfly(2,67)', 'butterfly(2,68)', 'butterfly(2,69)', 'butterfly(2,70)', 'butterfly(2,71)', 'butterfly(2,72)', 'butterfly(2,73)', 'butterfly(2,74)', 'butterfly(2,75)', 'butterfly(2,76)', 'butterfly(2,77)', 'butterfly(2,78)', 'butterfly(2,79)', 'butterfly(2,80)', 'butterfly(2,81)', 'butterfly(2,82)', 'butterfly(2,83)', 'butterfly(2,84)', 'butterfly(2,85)', 'butterfly(2,86)', 'butterfly(2,87)', 'butterfly(2,88)', 'butterfly(2,89)', 'butterfly(2,90)', 'butterfly(2,91)', 'butterfly(2,92)', 'butterfly(2,93)', 'butterfly(2,94)', 'butterfly(2,95)', 'butterfly(2,96)', 'butterfly(2,97)', 'butterfly(2,98)', 'butterfly(2,99)', 'butterfly(2,100)', 'butterfly(3,1)', 'butterfly(3,2)', 'butterfly(3,3)', 'butterfly(3,4)', 'butterfly(3,5)', 'butterfly(3,6)', 'butterfly(3,7)', 'butterfly(3,8)', 'butterfly(3,9)', 'butterfly(3,10)', 'butterfly(3,11)', 'butterfly(3,12)', 'butterfly(3,13)', 'butterfly(3,14)', 'butterfly(3,15)', 'butterfly(3,16)', 'butterfly(3,17)', 'butterfly(3,18)', 'butterfly(3,19)', 'butterfly(3,20)', 'butterfly(3,21)', 'butterfly(3,22)', 'butterfly(3,23)', 'butterfly(3,24)', 'butterfly(3,25)', 'butterfly(3,26)', 'butterfly(3,27)', 'butterfly(3,28)', 'butterfly(3,29)', 'butterfly(3,30)', 'butterfly(3,31)', 'butterfly(3,32)', 'butterfly(3,33)', 'butterfly(3,34)', 'butterfly(3,35)', 'butterfly(3,36)', 'butterfly(3,37)', 'butterfly(3,38)', 'butterfly(3,39)', 'butterfly(3,40)', 'butterfly(3,41)', 'butterfly(3,42)', 'butterfly(3,43)', 'butterfly(3,44)', 'butterfly(3,45)', 'butterfly(3,46)', 'butterfly(3,47)', 'butterfly(3,48)', 'butterfly(3,49)', 'butterfly(3,50)', 'butterfly(3,51)', 'butterfly(3,52)', 'butterfly(3,53)', 'butterfly(3,54)', 'butterfly(3,55)', 'butterfly(3,56)', 'butterfly(3,57)', 'butterfly(3,58)', 'butterfly(3,59)', 'butterfly(3,60)', 'butterfly(3,61)', 'butterfly(3,62)', 'butterfly(3,63)', 'butterfly(3,64)', 'butterfly(3,65)', 'butterfly(3,66)', 'butterfly(3,67)', 'butterfly(3,68)', 'butterfly(3,69)', 'butterfly(3,70)', 'butterfly(3,71)', 'butterfly(3,72)', 'butterfly(3,73)', 'butterfly(3,74)', 'butterfly(3,75)', 'butterfly(3,76)', 'butterfly(3,77)', 'butterfly(3,78)', 'butterfly(3,79)', 'butterfly(3,80)', 'butterfly(3,81)', 'butterfly(3,82)', 'butterfly(3,83)', 'butterfly(3,84)', 'butterfly(3,85)', 'butterfly(3,86)', 'butterfly(3,87)', 'butterfly(3,88)', 'butterfly(3,89)', 'butterfly(3,90)', 'butterfly(3,91)', 'butterfly(3,92)', 'butterfly(3,93)', 'butterfly(3,94)', 'butterfly(3,95)', 'butterfly(3,96)', 'butterfly(3,97)', 'butterfly(3,98)', 'butterfly(3,99)', 'butterfly(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['butterfly(1,1)', 'butterfly(1,2)', 'butterfly(1,3)', 'butterfly(1,4)', 'butterfly(1,5)', 'butterfly(1,6)', 'butterfly(1,7)', 'butterfly(1,8)', 'butterfly(1,9)', 'butterfly(1,10)', 'butterfly(1,11)', 'butterfly(1,12)', 'butterfly(1,13)', 'butterfly(1,14)', 'butterfly(1,15)', 'butterfly(1,16)', 'butterfly(1,17)', 'butterfly(1,18)', 'butterfly(1,19)', 'butterfly(1,20)', 'butterfly(1,21)', 'butterfly(1,22)', 'butterfly(1,23)', 'butterfly(1,24)', 'butterfly(1,25)', 'butterfly(1,26)', 'butterfly(1,27)', 'butterfly(1,28)', 'butterfly(1,29)', 'butterfly(1,30)', 'butterfly(1,31)', 'butterfly(1,32)', 'butterfly(1,33)', 'butterfly(1,34)', 'butterfly(1,35)', 'butterfly(1,36)', 'butterfly(1,37)', 'butterfly(1,38)', 'butterfly(1,39)', 'butterfly(1,40)', 'butterfly(1,41)', 'butterfly(1,42)', 'butterfly(1,43)', 'butterfly(1,44)', 'butterfly(1,45)', 'butterfly(1,46)', 'butterfly(1,47)', 'butterfly(1,48)', 'butterfly(1,49)', 'butterfly(1,50)', 'butterfly(1,51)', 'butterfly(1,52)', 'butterfly(1,53)', 'butterfly(1,54)', 'butterfly(1,55)', 'butterfly(1,56)', 'butterfly(1,57)', 'butterfly(1,58)', 'butterfly(1,59)', 'butterfly(1,60)', 'butterfly(1,61)', 'butterfly(1,62)', 'butterfly(1,63)', 'butterfly(1,64)', 'butterfly(1,65)', 'butterfly(1,66)', 'butterfly(1,67)', 'butterfly(1,68)', 'butterfly(1,69)', 'butterfly(1,70)', 'butterfly(1,71)', 'butterfly(1,72)', 'butterfly(1,73)', 'butterfly(1,74)', 'butterfly(1,75)', 'butterfly(1,76)', 'butterfly(1,77)', 'butterfly(1,78)', 'butterfly(1,79)', 'butterfly(1,80)', 'butterfly(1,81)', 'butterfly(1,82)', 'butterfly(1,83)', 'butterfly(1,84)', 'butterfly(1,85)', 'butterfly(1,86)', 'butterfly(1,87)', 'butterfly(1,88)', 'butterfly(1,89)', 'butterfly(1,90)', 'butterfly(1,91)', 'butterfly(1,92)', 'butterfly(1,93)', 'butterfly(1,94)', 'butterfly(1,95)', 'butterfly(1,96)', 'butterfly(1,97)', 'butterfly(1,98)', 'butterfly(1,99)', 'butterfly(1,100)', 'butterfly(2,1)', 'butterfly(2,2)', 'butterfly(2,3)', 'butterfly(2,4)', 'butterfly(2,5)', 'butterfly(2,6)', 'butterfly(2,7)', 'butterfly(2,8)', 'butterfly(2,9)', 'butterfly(2,10)', 'butterfly(2,11)', 'butterfly(2,12)', 'butterfly(2,13)', 'butterfly(2,14)', 'butterfly(2,15)', 'butterfly(2,16)', 'butterfly(2,17)', 'butterfly(2,18)', 'butterfly(2,19)', 'butterfly(2,20)', 'butterfly(2,21)', 'butterfly(2,22)', 'butterfly(2,23)', 'butterfly(2,24)', 'butterfly(2,25)', 'butterfly(2,26)', 'butterfly(2,27)', 'butterfly(2,28)', 'butterfly(2,29)', 'butterfly(2,30)', 'butterfly(2,31)', 'butterfly(2,32)', 'butterfly(2,33)', 'butterfly(2,34)', 'butterfly(2,35)', 'butterfly(2,36)', 'butterfly(2,37)', 'butterfly(2,38)', 'butterfly(2,39)', 'butterfly(2,40)', 'butterfly(2,41)', 'butterfly(2,42)', 'butterfly(2,43)', 'butterfly(2,44)', 'butterfly(2,45)', 'butterfly(2,46)', 'butterfly(2,47)', 'butterfly(2,48)', 'butterfly(2,49)', 'butterfly(2,50)', 'butterfly(2,51)', 'butterfly(2,52)', 'butterfly(2,53)', 'butterfly(2,54)', 'butterfly(2,55)', 'butterfly(2,56)', 'butterfly(2,57)', 'butterfly(2,58)', 'butterfly(2,59)', 'butterfly(2,60)', 'butterfly(2,61)', 'butterfly(2,62)', 'butterfly(2,63)', 'butterfly(2,64)', 'butterfly(2,65)', 'butterfly(2,66)', 'butterfly(2,67)', 'butterfly(2,68)', 'butterfly(2,69)', 'butterfly(2,70)', 'butterfly(2,71)', 'butterfly(2,72)', 'butterfly(2,73)', 'butterfly(2,74)', 'butterfly(2,75)', 'butterfly(2,76)', 'butterfly(2,77)', 'butterfly(2,78)', 'butterfly(2,79)', 'butterfly(2,80)', 'butterfly(2,81)', 'butterfly(2,82)', 'butterfly(2,83)', 'butterfly(2,84)', 'butterfly(2,85)', 'butterfly(2,86)', 'butterfly(2,87)', 'butterfly(2,88)', 'butterfly(2,89)', 'butterfly(2,90)', 'butterfly(2,91)', 'butterfly(2,92)', 'butterfly(2,93)', 'butterfly(2,94)', 'butterfly(2,95)', 'butterfly(2,96)', 'butterfly(2,97)', 'butterfly(2,98)', 'butterfly(2,99)', 'butterfly(2,100)', 'butterfly(3,1)', 'butterfly(3,2)', 'butterfly(3,3)', 'butterfly(3,4)', 'butterfly(3,5)', 'butterfly(3,6)', 'butterfly(3,7)', 'butterfly(3,8)', 'butterfly(3,9)', 'butterfly(3,10)', 'butterfly(3,11)', 'butterfly(3,12)', 'butterfly(3,13)', 'butterfly(3,14)', 'butterfly(3,15)', 'butterfly(3,16)', 'butterfly(3,17)', 'butterfly(3,18)', 'butterfly(3,19)', 'butterfly(3,20)', 'butterfly(3,21)', 'butterfly(3,22)', 'butterfly(3,23)', 'butterfly(3,24)', 'butterfly(3,25)', 'butterfly(3,26)', 'butterfly(3,27)', 'butterfly(3,28)', 'butterfly(3,29)', 'butterfly(3,30)', 'butterfly(3,31)', 'butterfly(3,32)', 'butterfly(3,33)', 'butterfly(3,34)', 'butterfly(3,35)', 'butterfly(3,36)', 'butterfly(3,37)', 'butterfly(3,38)', 'butterfly(3,39)', 'butterfly(3,40)', 'butterfly(3,41)', 'butterfly(3,42)', 'butterfly(3,43)', 'butterfly(3,44)', 'butterfly(3,45)', 'butterfly(3,46)', 'butterfly(3,47)', 'butterfly(3,48)', 'butterfly(3,49)', 'butterfly(3,50)', 'butterfly(3,51)', 'butterfly(3,52)', 'butterfly(3,53)', 'butterfly(3,54)', 'butterfly(3,55)', 'butterfly(3,56)', 'butterfly(3,57)', 'butterfly(3,58)', 'butterfly(3,59)', 'butterfly(3,60)', 'butterfly(3,61)', 'butterfly(3,62)', 'butterfly(3,63)', 'butterfly(3,64)', 'butterfly(3,65)', 'butterfly(3,66)', 'butterfly(3,67)', 'butterfly(3,68)', 'butterfly(3,69)', 'butterfly(3,70)', 'butterfly(3,71)', 'butterfly(3,72)', 'butterfly(3,73)', 'butterfly(3,74)', 'butterfly(3,75)', 'butterfly(3,76)', 'butterfly(3,77)', 'butterfly(3,78)', 'butterfly(3,79)', 'butterfly(3,80)', 'butterfly(3,81)', 'butterfly(3,82)', 'butterfly(3,83)', 'butterfly(3,84)', 'butterfly(3,85)', 'butterfly(3,86)', 'butterfly(3,87)', 'butterfly(3,88)', 'butterfly(3,89)', 'butterfly(3,90)', 'butterfly(3,91)', 'butterfly(3,92)', 'butterfly(3,93)', 'butterfly(3,94)', 'butterfly(3,95)', 'butterfly(3,96)', 'butterfly(3,97)', 'butterfly(3,98)', 'butterfly(3,99)', 'butterfly(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5715
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are desk,cosenza,barcelona,white,black,flower,wall,lightblue.
+
+answer from file: assign(X,"desk")|assign(X,"cosenza")|assign(X,"barcelona")|assign(X,"white")|assign(X,"black")|assign(X,"flower")|assign(X,"wall")|assign(X,"lightblue"):-flower(X).
+
+facts: 
+flower(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate flower. The labels are desk,cosenza,barcelona,white,black,flower,wall,lightblue.
+Answer: assign(X,"desk")|assign(X,"cosenza")|assign(X,"city")|assign(X,"brown")|assign(X,"white")|assign(X,"black")|assign(X,"florence")|assign(X,"street").
+I.e. assign(X,"city")|assign(X,"florence"):-flower(X).
+I.e. assign(X,"brown"):-city(X).
+I.e. assign(X,"florence"):-florence(X).
+I.e. assign(X,"street"):-city(X).
+I.e. assign(X,"city"):-florence(X
+
+parsed: 
+assign(X,"desk")|assign(X,"cosenza")|assign(X,"city")|assign(X,"brown")|assign(X,"white")|assign(X,"black")|assign(X,"florence")|assign(X,"street").
+
+wanted answer_Set: [['flower(1)', 'flower(2)', 'flower(3)', 'flower(4)', 'flower(5)', 'assign(1,"lightblue")', 'assign(2,"lightblue")', 'assign(3,"wall")', 'assign(4,"lightblue")', 'assign(5,"lightblue")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5723
+
+index: 8
+
+numeric_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "cloud" with a value different than 76.
+
+answer from file: select(X):-cloud(X,C),C!=76.
+
+facts: 
+cloud(1..3, 1..100).
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "cloud" with a value different than 76.
+Answer: select(X):-cloud(X,"76").
+Answer(X):-cloud(X,"76").
+
+parsed: 
+select(X):-cloud(X,"76").
+
+wanted answer_Set: [['cloud(1,1)', 'cloud(1,2)', 'cloud(1,3)', 'cloud(1,4)', 'cloud(1,5)', 'cloud(1,6)', 'cloud(1,7)', 'cloud(1,8)', 'cloud(1,9)', 'cloud(1,10)', 'cloud(1,11)', 'cloud(1,12)', 'cloud(1,13)', 'cloud(1,14)', 'cloud(1,15)', 'cloud(1,16)', 'cloud(1,17)', 'cloud(1,18)', 'cloud(1,19)', 'cloud(1,20)', 'cloud(1,21)', 'cloud(1,22)', 'cloud(1,23)', 'cloud(1,24)', 'cloud(1,25)', 'cloud(1,26)', 'cloud(1,27)', 'cloud(1,28)', 'cloud(1,29)', 'cloud(1,30)', 'cloud(1,31)', 'cloud(1,32)', 'cloud(1,33)', 'cloud(1,34)', 'cloud(1,35)', 'cloud(1,36)', 'cloud(1,37)', 'cloud(1,38)', 'cloud(1,39)', 'cloud(1,40)', 'cloud(1,41)', 'cloud(1,42)', 'cloud(1,43)', 'cloud(1,44)', 'cloud(1,45)', 'cloud(1,46)', 'cloud(1,47)', 'cloud(1,48)', 'cloud(1,49)', 'cloud(1,50)', 'cloud(1,51)', 'cloud(1,52)', 'cloud(1,53)', 'cloud(1,54)', 'cloud(1,55)', 'cloud(1,56)', 'cloud(1,57)', 'cloud(1,58)', 'cloud(1,59)', 'cloud(1,60)', 'cloud(1,61)', 'cloud(1,62)', 'cloud(1,63)', 'cloud(1,64)', 'cloud(1,65)', 'cloud(1,66)', 'cloud(1,67)', 'cloud(1,68)', 'cloud(1,69)', 'cloud(1,70)', 'cloud(1,71)', 'cloud(1,72)', 'cloud(1,73)', 'cloud(1,74)', 'cloud(1,75)', 'cloud(1,76)', 'cloud(1,77)', 'cloud(1,78)', 'cloud(1,79)', 'cloud(1,80)', 'cloud(1,81)', 'cloud(1,82)', 'cloud(1,83)', 'cloud(1,84)', 'cloud(1,85)', 'cloud(1,86)', 'cloud(1,87)', 'cloud(1,88)', 'cloud(1,89)', 'cloud(1,90)', 'cloud(1,91)', 'cloud(1,92)', 'cloud(1,93)', 'cloud(1,94)', 'cloud(1,95)', 'cloud(1,96)', 'cloud(1,97)', 'cloud(1,98)', 'cloud(1,99)', 'cloud(1,100)', 'cloud(2,1)', 'cloud(2,2)', 'cloud(2,3)', 'cloud(2,4)', 'cloud(2,5)', 'cloud(2,6)', 'cloud(2,7)', 'cloud(2,8)', 'cloud(2,9)', 'cloud(2,10)', 'cloud(2,11)', 'cloud(2,12)', 'cloud(2,13)', 'cloud(2,14)', 'cloud(2,15)', 'cloud(2,16)', 'cloud(2,17)', 'cloud(2,18)', 'cloud(2,19)', 'cloud(2,20)', 'cloud(2,21)', 'cloud(2,22)', 'cloud(2,23)', 'cloud(2,24)', 'cloud(2,25)', 'cloud(2,26)', 'cloud(2,27)', 'cloud(2,28)', 'cloud(2,29)', 'cloud(2,30)', 'cloud(2,31)', 'cloud(2,32)', 'cloud(2,33)', 'cloud(2,34)', 'cloud(2,35)', 'cloud(2,36)', 'cloud(2,37)', 'cloud(2,38)', 'cloud(2,39)', 'cloud(2,40)', 'cloud(2,41)', 'cloud(2,42)', 'cloud(2,43)', 'cloud(2,44)', 'cloud(2,45)', 'cloud(2,46)', 'cloud(2,47)', 'cloud(2,48)', 'cloud(2,49)', 'cloud(2,50)', 'cloud(2,51)', 'cloud(2,52)', 'cloud(2,53)', 'cloud(2,54)', 'cloud(2,55)', 'cloud(2,56)', 'cloud(2,57)', 'cloud(2,58)', 'cloud(2,59)', 'cloud(2,60)', 'cloud(2,61)', 'cloud(2,62)', 'cloud(2,63)', 'cloud(2,64)', 'cloud(2,65)', 'cloud(2,66)', 'cloud(2,67)', 'cloud(2,68)', 'cloud(2,69)', 'cloud(2,70)', 'cloud(2,71)', 'cloud(2,72)', 'cloud(2,73)', 'cloud(2,74)', 'cloud(2,75)', 'cloud(2,76)', 'cloud(2,77)', 'cloud(2,78)', 'cloud(2,79)', 'cloud(2,80)', 'cloud(2,81)', 'cloud(2,82)', 'cloud(2,83)', 'cloud(2,84)', 'cloud(2,85)', 'cloud(2,86)', 'cloud(2,87)', 'cloud(2,88)', 'cloud(2,89)', 'cloud(2,90)', 'cloud(2,91)', 'cloud(2,92)', 'cloud(2,93)', 'cloud(2,94)', 'cloud(2,95)', 'cloud(2,96)', 'cloud(2,97)', 'cloud(2,98)', 'cloud(2,99)', 'cloud(2,100)', 'cloud(3,1)', 'cloud(3,2)', 'cloud(3,3)', 'cloud(3,4)', 'cloud(3,5)', 'cloud(3,6)', 'cloud(3,7)', 'cloud(3,8)', 'cloud(3,9)', 'cloud(3,10)', 'cloud(3,11)', 'cloud(3,12)', 'cloud(3,13)', 'cloud(3,14)', 'cloud(3,15)', 'cloud(3,16)', 'cloud(3,17)', 'cloud(3,18)', 'cloud(3,19)', 'cloud(3,20)', 'cloud(3,21)', 'cloud(3,22)', 'cloud(3,23)', 'cloud(3,24)', 'cloud(3,25)', 'cloud(3,26)', 'cloud(3,27)', 'cloud(3,28)', 'cloud(3,29)', 'cloud(3,30)', 'cloud(3,31)', 'cloud(3,32)', 'cloud(3,33)', 'cloud(3,34)', 'cloud(3,35)', 'cloud(3,36)', 'cloud(3,37)', 'cloud(3,38)', 'cloud(3,39)', 'cloud(3,40)', 'cloud(3,41)', 'cloud(3,42)', 'cloud(3,43)', 'cloud(3,44)', 'cloud(3,45)', 'cloud(3,46)', 'cloud(3,47)', 'cloud(3,48)', 'cloud(3,49)', 'cloud(3,50)', 'cloud(3,51)', 'cloud(3,52)', 'cloud(3,53)', 'cloud(3,54)', 'cloud(3,55)', 'cloud(3,56)', 'cloud(3,57)', 'cloud(3,58)', 'cloud(3,59)', 'cloud(3,60)', 'cloud(3,61)', 'cloud(3,62)', 'cloud(3,63)', 'cloud(3,64)', 'cloud(3,65)', 'cloud(3,66)', 'cloud(3,67)', 'cloud(3,68)', 'cloud(3,69)', 'cloud(3,70)', 'cloud(3,71)', 'cloud(3,72)', 'cloud(3,73)', 'cloud(3,74)', 'cloud(3,75)', 'cloud(3,76)', 'cloud(3,77)', 'cloud(3,78)', 'cloud(3,79)', 'cloud(3,80)', 'cloud(3,81)', 'cloud(3,82)', 'cloud(3,83)', 'cloud(3,84)', 'cloud(3,85)', 'cloud(3,86)', 'cloud(3,87)', 'cloud(3,88)', 'cloud(3,89)', 'cloud(3,90)', 'cloud(3,91)', 'cloud(3,92)', 'cloud(3,93)', 'cloud(3,94)', 'cloud(3,95)', 'cloud(3,96)', 'cloud(3,97)', 'cloud(3,98)', 'cloud(3,99)', 'cloud(3,100)', 'select(1)', 'select(2)', 'select(3)']]
+
+generated answer_Set: [['cloud(1,1)', 'cloud(1,2)', 'cloud(1,3)', 'cloud(1,4)', 'cloud(1,5)', 'cloud(1,6)', 'cloud(1,7)', 'cloud(1,8)', 'cloud(1,9)', 'cloud(1,10)', 'cloud(1,11)', 'cloud(1,12)', 'cloud(1,13)', 'cloud(1,14)', 'cloud(1,15)', 'cloud(1,16)', 'cloud(1,17)', 'cloud(1,18)', 'cloud(1,19)', 'cloud(1,20)', 'cloud(1,21)', 'cloud(1,22)', 'cloud(1,23)', 'cloud(1,24)', 'cloud(1,25)', 'cloud(1,26)', 'cloud(1,27)', 'cloud(1,28)', 'cloud(1,29)', 'cloud(1,30)', 'cloud(1,31)', 'cloud(1,32)', 'cloud(1,33)', 'cloud(1,34)', 'cloud(1,35)', 'cloud(1,36)', 'cloud(1,37)', 'cloud(1,38)', 'cloud(1,39)', 'cloud(1,40)', 'cloud(1,41)', 'cloud(1,42)', 'cloud(1,43)', 'cloud(1,44)', 'cloud(1,45)', 'cloud(1,46)', 'cloud(1,47)', 'cloud(1,48)', 'cloud(1,49)', 'cloud(1,50)', 'cloud(1,51)', 'cloud(1,52)', 'cloud(1,53)', 'cloud(1,54)', 'cloud(1,55)', 'cloud(1,56)', 'cloud(1,57)', 'cloud(1,58)', 'cloud(1,59)', 'cloud(1,60)', 'cloud(1,61)', 'cloud(1,62)', 'cloud(1,63)', 'cloud(1,64)', 'cloud(1,65)', 'cloud(1,66)', 'cloud(1,67)', 'cloud(1,68)', 'cloud(1,69)', 'cloud(1,70)', 'cloud(1,71)', 'cloud(1,72)', 'cloud(1,73)', 'cloud(1,74)', 'cloud(1,75)', 'cloud(1,76)', 'cloud(1,77)', 'cloud(1,78)', 'cloud(1,79)', 'cloud(1,80)', 'cloud(1,81)', 'cloud(1,82)', 'cloud(1,83)', 'cloud(1,84)', 'cloud(1,85)', 'cloud(1,86)', 'cloud(1,87)', 'cloud(1,88)', 'cloud(1,89)', 'cloud(1,90)', 'cloud(1,91)', 'cloud(1,92)', 'cloud(1,93)', 'cloud(1,94)', 'cloud(1,95)', 'cloud(1,96)', 'cloud(1,97)', 'cloud(1,98)', 'cloud(1,99)', 'cloud(1,100)', 'cloud(2,1)', 'cloud(2,2)', 'cloud(2,3)', 'cloud(2,4)', 'cloud(2,5)', 'cloud(2,6)', 'cloud(2,7)', 'cloud(2,8)', 'cloud(2,9)', 'cloud(2,10)', 'cloud(2,11)', 'cloud(2,12)', 'cloud(2,13)', 'cloud(2,14)', 'cloud(2,15)', 'cloud(2,16)', 'cloud(2,17)', 'cloud(2,18)', 'cloud(2,19)', 'cloud(2,20)', 'cloud(2,21)', 'cloud(2,22)', 'cloud(2,23)', 'cloud(2,24)', 'cloud(2,25)', 'cloud(2,26)', 'cloud(2,27)', 'cloud(2,28)', 'cloud(2,29)', 'cloud(2,30)', 'cloud(2,31)', 'cloud(2,32)', 'cloud(2,33)', 'cloud(2,34)', 'cloud(2,35)', 'cloud(2,36)', 'cloud(2,37)', 'cloud(2,38)', 'cloud(2,39)', 'cloud(2,40)', 'cloud(2,41)', 'cloud(2,42)', 'cloud(2,43)', 'cloud(2,44)', 'cloud(2,45)', 'cloud(2,46)', 'cloud(2,47)', 'cloud(2,48)', 'cloud(2,49)', 'cloud(2,50)', 'cloud(2,51)', 'cloud(2,52)', 'cloud(2,53)', 'cloud(2,54)', 'cloud(2,55)', 'cloud(2,56)', 'cloud(2,57)', 'cloud(2,58)', 'cloud(2,59)', 'cloud(2,60)', 'cloud(2,61)', 'cloud(2,62)', 'cloud(2,63)', 'cloud(2,64)', 'cloud(2,65)', 'cloud(2,66)', 'cloud(2,67)', 'cloud(2,68)', 'cloud(2,69)', 'cloud(2,70)', 'cloud(2,71)', 'cloud(2,72)', 'cloud(2,73)', 'cloud(2,74)', 'cloud(2,75)', 'cloud(2,76)', 'cloud(2,77)', 'cloud(2,78)', 'cloud(2,79)', 'cloud(2,80)', 'cloud(2,81)', 'cloud(2,82)', 'cloud(2,83)', 'cloud(2,84)', 'cloud(2,85)', 'cloud(2,86)', 'cloud(2,87)', 'cloud(2,88)', 'cloud(2,89)', 'cloud(2,90)', 'cloud(2,91)', 'cloud(2,92)', 'cloud(2,93)', 'cloud(2,94)', 'cloud(2,95)', 'cloud(2,96)', 'cloud(2,97)', 'cloud(2,98)', 'cloud(2,99)', 'cloud(2,100)', 'cloud(3,1)', 'cloud(3,2)', 'cloud(3,3)', 'cloud(3,4)', 'cloud(3,5)', 'cloud(3,6)', 'cloud(3,7)', 'cloud(3,8)', 'cloud(3,9)', 'cloud(3,10)', 'cloud(3,11)', 'cloud(3,12)', 'cloud(3,13)', 'cloud(3,14)', 'cloud(3,15)', 'cloud(3,16)', 'cloud(3,17)', 'cloud(3,18)', 'cloud(3,19)', 'cloud(3,20)', 'cloud(3,21)', 'cloud(3,22)', 'cloud(3,23)', 'cloud(3,24)', 'cloud(3,25)', 'cloud(3,26)', 'cloud(3,27)', 'cloud(3,28)', 'cloud(3,29)', 'cloud(3,30)', 'cloud(3,31)', 'cloud(3,32)', 'cloud(3,33)', 'cloud(3,34)', 'cloud(3,35)', 'cloud(3,36)', 'cloud(3,37)', 'cloud(3,38)', 'cloud(3,39)', 'cloud(3,40)', 'cloud(3,41)', 'cloud(3,42)', 'cloud(3,43)', 'cloud(3,44)', 'cloud(3,45)', 'cloud(3,46)', 'cloud(3,47)', 'cloud(3,48)', 'cloud(3,49)', 'cloud(3,50)', 'cloud(3,51)', 'cloud(3,52)', 'cloud(3,53)', 'cloud(3,54)', 'cloud(3,55)', 'cloud(3,56)', 'cloud(3,57)', 'cloud(3,58)', 'cloud(3,59)', 'cloud(3,60)', 'cloud(3,61)', 'cloud(3,62)', 'cloud(3,63)', 'cloud(3,64)', 'cloud(3,65)', 'cloud(3,66)', 'cloud(3,67)', 'cloud(3,68)', 'cloud(3,69)', 'cloud(3,70)', 'cloud(3,71)', 'cloud(3,72)', 'cloud(3,73)', 'cloud(3,74)', 'cloud(3,75)', 'cloud(3,76)', 'cloud(3,77)', 'cloud(3,78)', 'cloud(3,79)', 'cloud(3,80)', 'cloud(3,81)', 'cloud(3,82)', 'cloud(3,83)', 'cloud(3,84)', 'cloud(3,85)', 'cloud(3,86)', 'cloud(3,87)', 'cloud(3,88)', 'cloud(3,89)', 'cloud(3,90)', 'cloud(3,91)', 'cloud(3,92)', 'cloud(3,93)', 'cloud(3,94)', 'cloud(3,95)', 'cloud(3,96)', 'cloud(3,97)', 'cloud(3,98)', 'cloud(3,99)', 'cloud(3,100)']]
+
+jaccard: 0.0
+
+
+i: 5733
+
+index: 0
+
+assignment
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are cloud,storm,butterfly,toronto,surname,barcelona,flower.
+
+answer from file: assign(X,"cloud")|assign(X,"storm")|assign(X,"butterfly")|assign(X,"toronto")|assign(X,"surname")|assign(X,"barcelona")|assign(X,"flower"):-cairo(X).
+
+facts: 
+cairo(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are cloud,storm,butterfly,toronto,surname,barcelona,flower.
+Answer: assign(X,"cloud")|assign(X,"storm")|assign(X,"bike")|assign(X,"tokyo")|assign(X,"surname")|assign(X,"author")|assign(X,"florence").
+I would prefer that predicate "florence" with value "1" is not associated with "author".
+Answer: assign(X,"cloud")|assign(X,"storm")|assign(X,"bike")|assign(X,"tokyo")|assign(X,"surname")|assign(X,"author").
+I would prefer that predicate "florence" with value "1" is associated with "author".
+Answer: assign(X,"cloud")|assign
+
+parsed: 
+assign(X,"cloud")|assign(X,"storm")|assign(X,"bike")|assign(X,"tokyo")|assign(X,"surname")|assign(X,"author")|assign(X,"florence").
+
+wanted answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'assign(1,"flower")', 'assign(2,"flower")', 'assign(3,"flower")', 'assign(4,"flower")', 'assign(5,"flower")']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+
+i: 5740
+
+index: 7
+
+negative_filtering
+
+question: Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "cairo" and label "cairo".
+
+answer from file: select(X):-butterfly(X),not cairo(X,"cairo").
+
+facts: 
+butterfly(1..3).cairo(1,"barcelona").cairo(2,"cairo").cairo(3,"mumbai").
+
+generated: 
+Write an ASP program for the following problem. Select all values associated with predicate "butterfly" but not associated with predicate "cairo" and label "cairo".
+Answer: select(X):-bike(X,"city")&not cairo(X,"city").
+Explanation:
+- "bike(X,"city")": associates to each "city" the "city" of "bike".
+- "not cairo(X,"city")": associates to each "city" the "city" of "cairo".
+- "select(X):-bike(X,"city")&not cairo(X,"city")": selects all "city" associated with "bike" but not associated with "city" and label "city".
+
+parsed: 
+select(X):-bike(X,"city")&not cairo(X,"city").
+
+wanted answer_Set: [['butterfly(1)', 'butterfly(2)', 'butterfly(3)', 'cairo(1,"barcelona")', 'cairo(2,"cairo")', 'cairo(3,"mumbai")', 'select(1)', 'select(3)']]
+
+generated answer_Set: ['error']
+
+jaccard: 0.0
+
+

@@ -39,8 +39,8 @@ import string
 os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2"
 
 # decommentare e premdere il token
-# hugging_token = "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"
-# login(hugging_token)
+hugging_token = "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"
+login(hugging_token)
 
 torch.cuda.is_available()
 
@@ -3296,7 +3296,8 @@ match turn:
         jaccard0_file_name = exhaustive_folder + "jaccard0Complex.txt"
 
     case _:
-        print("NON DISPONIBILE !")    
+        print("NON DISPONIBILE !")
+        sys.exit(1) 
 
 MODEL_TO_USE = "gemma"
 
@@ -3310,6 +3311,7 @@ EXHAUSTIVE = True                      # if you want the exhaustive test done di
 SHOW_RESULTS = True                    # if you want the results to be shown
 
 if DATASET_GENERATION:
+    print("generating training set..!")
 
     size = int(0.8 * tot_size)
     val_size = int(0.2 * tot_size)
@@ -3342,7 +3344,7 @@ if TRAIN:
     train_dataset = Dataset.from_dict(train_df)
     val_dataset = Dataset.from_dict(val_df)
 
-    print("Dataset rows", train_dataset.num_rows)           ##########################################
+    print("Training set lenght", train_dataset.num_rows)           ##########################################
 
     model = AutoModelForCausalLM.from_pretrained(
         base_model,                                             #################ààcarico il modello di google e poi ci aggiungerò i pesi lora
@@ -3451,6 +3453,8 @@ if LOAD:
 if TEST:
 
     if TEST_DATASET_GENERATION:
+        print("generating test set..!")
+
         test_tuples = build_test_set()
 
         print("TEST SET SIZE: ", len(test_tuples))
