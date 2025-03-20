@@ -26630,3 +26630,63 @@ answerset from file: [['butterfly("ID","strength")', 'lightblue("ID","weight","b
 
 answerset from parsed: ['error']
 
+i: 139
+
+index: 6
+
+combination_constraint
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". However, avoid any combination where predicate "quality" has label "laptop".
+
+answer from file: combination(X,Y):-quality(X, _),delhi(Y), not quality(X, laptop).
+
+facts: 
+quality(1..4, 1..4).delhi(1..5).
+
+generated_answer: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". However, avoid any combination where predicate "quality" has label "laptop".
+Answer: combination(X,Y):-quality(X, _),not delhi(X).
+combination(X,Y):-quality(X, _),not quality(X, laptop).
+```
+Combinations:
+combination(X,Y):-quality(X, _),not delhi(X).
+combination(X,Y):-quality(X, _),not quality(X, laptop).
+```
+
+parsed answer: combination(X,Y):-quality(X, _),not delhi(X).
+
+answerset from file: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1,1)', 'quality(1,2)', 'quality(1,3)', 'quality(1,4)', 'quality(2,1)', 'quality(2,2)', 'quality(2,3)', 'quality(2,4)', 'quality(3,1)', 'quality(3,2)', 'quality(3,3)', 'quality(3,4)', 'quality(4,1)', 'quality(4,2)', 'quality(4,3)', 'quality(4,4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)']]
+
+answerset from parsed: ['error']
+
+i: 142
+
+index: 2
+
+closure_guessing
+
+question: Write an ASP program for the following problem. Define predicate "singapore" as the transitive closure of predicate "black". Then, assign exactly one label from the set chair,wall,desk,roof,flower to each element in "singapore".
+
+answer from file: singapore(X,Y):-black(X,Y).
+singapore(X,Y):-black(X,Z),singapore(Z,Y).
+assign(X,"chair")|assign(X,"wall")|assign(X,"desk")|assign(X,"roof")|assign(X,"flower"):-singapore(X,_).
+
+facts: 
+black(1..3, 1..4).
+
+generated_answer: Write an ASP program for the following problem. Define predicate "singapore" as the transitive closure of predicate "black". Then, assign exactly one label from the set chair,wall,desk,roof,flower to each element in "singapore".
+Answer: singapore(X,Y):-black(X,Y).
+ ángapore(X,Y):-singapore(X,Y).
+assign(X,"chair")|assign(X,"wall")|assign(X,"desk")|assign(X,"roof")|assign(X,"flower"):- ángapore(X,_).
+```
+Singularly, assign exactly one label from the set chair,wall,desk,roof,flower to each element in " ángapore".
+```
+ ángapore(X,Y):-assign(X, "chair")|assign(X, "wall")|assign(X, "desk")|assign(X, "roof")|assign(X, "flower
+
+parsed answer: singapore(X,Y):-black(X,Y).
+ángapore(X,Y):-singapore(X,Y).
+assign(X,"chair")|assign(X,"wall")|assign(X,"desk")|assign(X,"roof")|assign(X,"flower"):- ángapore(X,_).
+
+answerset from file: [['black(1,1)', 'black(1,2)', 'black(1,3)', 'black(1,4)', 'black(2,1)', 'black(2,2)', 'black(2,3)', 'black(2,4)', 'black(3,1)', 'black(3,2)', 'black(3,3)', 'black(3,4)', 'singapore(1,1)', 'singapore(1,2)', 'singapore(1,3)', 'singapore(1,4)', 'singapore(2,1)', 'singapore(2,2)', 'singapore(2,3)', 'singapore(2,4)', 'singapore(3,1)', 'singapore(3,2)', 'singapore(3,3)', 'singapore(3,4)', 'assign(1,"flower")', 'assign(2,"flower")', 'assign(3,"flower")']]
+
+answerset from parsed: ['error']
+
