@@ -26600,3 +26600,33 @@ answerset from file: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)
 
 answerset from parsed: ['error']
 
+i: 127
+
+index: 1
+
+join_filtering
+
+question: Write an ASP program for the following problem. Consider predicate "lightblue" having fields "ID","weight","butterflyID", and the predicate "butterfly" having fields "ID","strength". Define a predicate "lightblue_butterfly" that associates to each "lightblue", not associated with label "chair", the attribute "strength" of "butterfly".
+
+answer from file: lightblue_butterfly(X,Z):-lightblue(X,_,Y),butterfly(Y,Z),not lightblue(X,chair,_).
+
+facts: 
+lightblue("ID","weight","butterflyID").butterfly("ID","strength").
+
+generated_answer: Write an ASP program for the following problem. Consider predicate "lightblue" having fields "ID","weight","butterflyID", and the predicate "butterfly" having fields "ID","strength". Define a predicate "lightblue_butterfly" that associates to each "lightblue", not associated with label "chair", the attribute "strength" of "butterfly".
+Answer: lightblue_ italienne(X,Z):-lightblue(X,_,Y),butterfly(Y,Z),not lightblue(X,chair,_).
+```
+lightblue_ italienne(X,Z):-lightblue(X,_,Y),not lightblue(X,chair,_).
+```
+Then, "lightblue_ italienne(X,Z)" returns all "lightblue" not associated with label "chair", but associated with label "object".
+```
+lightblue_ italienne(X,Z):-lightblue(X,_,Y),not lightblue(X,chair,_),not lightblue(X,_,Z).
+```
+And finally, "lightblue_ italienne(X
+
+parsed answer: lightblue_ italienne(X,Z):-lightblue(X,_,Y),butterfly(Y,Z),not lightblue(X,chair,_).
+
+answerset from file: [['butterfly("ID","strength")', 'lightblue("ID","weight","butterflyID")']]
+
+answerset from parsed: ['error']
+
