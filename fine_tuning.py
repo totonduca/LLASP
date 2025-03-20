@@ -35,6 +35,7 @@ from itertools import combinations
 from itertools import permutations
 import re
 import string
+import bz2
 
 os.environ["CUDA_VISIBLE_DEVICES"]="0,1,2"
 
@@ -2136,6 +2137,18 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
                 answers.extend(answers_numeric_condition)
                 facts.extend(f)
 
+                if print_proportions:
+                    print("ass",n_questions_assignment, n_questions_assignment*size, n_questions_assignment*size/len_questions*100)
+                    print("prev",n_questions_prevent, n_questions_prevent*size, n_questions_prevent*size/len_questions*100)
+                    print("comb",n_questions_combination, n_questions_combination*size, n_questions_combination*size/len_questions*100)
+                    print("join",n_questions_join, n_questions_join*size, n_questions_join*size/len_questions*100)
+                    print("clos",n_questions_closure, n_questions_closure*size, n_questions_closure*size/len_questions*100)
+                    print("pref",n_questions_preferences, n_questions_preferences*size, n_questions_preferences*size/len_questions*100)
+                    print("filt",n_questions_select, n_questions_select*size, n_questions_select*size/len_questions*100)
+                    print("neg filt",n_questions_negative, n_questions_negative*size, n_questions_negative*size/len_questions*100)
+                    print("num filt",n_questions_numeric, n_questions_numeric*size, n_questions_numeric*size/len_questions*100)
+                    break
+
             case "core-invariance":
                 prompt_invariance=True
                 n_questions_assignment = n_questions_prevent = n_questions_combination = n_questions_join = n_questions_closure = n_questions_preferences = n_questions_select = n_questions_negative = n_questions_numeric = 0
@@ -2232,13 +2245,17 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
                     break
 
             case "core-invariance-complex":
-                for _ in range(5):
+                n_questions_jn = n_questions_jnf = n_questions_cg = n_questions_gn = n_questions_gnf = n_questions_gf = n_questions_cc = 0
+                
+                for _ in range(1):  # join numeric filtering
                     p_1, p_2 = np.random.choice(predicates, 2, replace=False)
                     questions_jn, answers_jn, f = join_numeric_filtering(p_1, p_2, attributes)
 
                     questions.extend(questions_jn)
                     answers.extend(answers_jn)
                     facts.extend(f)
+
+                    n_questions_jn += len(questions_jn)
 
                     # print(questions_jn)
                     # print(answers_jn)
@@ -2256,12 +2273,14 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
 
                     #########################################################################################################
 
-                for _ in range(5):
+                for _ in range(5):  # join filtering
                     questions_jnf, answers_jnf, f = join_filtering(p_1, p_2, attributes, labels)
 
                     questions.extend(questions_jnf)
                     answers.extend(answers_jnf)
                     facts.extend(f)
+
+                    n_questions_jnf += len(questions_jnf)
 
                     # 2. Join + Negative Filtering
                     # "Write an ASP program that creates a new predicate {predicate_name_1}_{predicate_name_2} by joining {predicate_name_1} and {predicate_name_2}. However, exclude from the result any instance where {predicate_name_1} is associated with {not_label}."
@@ -2271,12 +2290,14 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
                     # join(X, Y) :- predicate1(X, A), predicate2(Y, B), not predicate1(X, not_label).
                     # ➡️ Obiettivo: Creare un join, escludendo elementi con un’etichetta specifica.
 
-                for _ in range(5):
+                for _ in range(5):  # closure guessing
                     questions_cg, answers_cg, f = closure_guessing(attributes, np.random.choice(predicates), np.random.choice(closures))
 
                     questions.extend(questions_cg)
                     answers.extend(answers_cg)
                     facts.extend(f)
+
+                    n_questions_cg += len(questions_cg)
 
                         # 2. Closure + Assignment
                         # "Write an ASP program that defines predicate "{closure_name}" as the transitive closure of predicate 
@@ -2288,12 +2309,14 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
 
                         ########################################################################################################
 
-                for _ in range(5):
+                for _ in range(5):  # guessing constraint
                     questions_gn, answers_gn, f = guessing_constraint(attributes, np.random.choice(predicates))
 
                     questions.extend(questions_gn)
                     answers.extend(answers_gn)
                     facts.extend(f)
+
+                    n_questions_gn += len(questions_gn)
 
                         # 3. Guessing + Negative Filtering
                         # "Write an ASP program that assigns exactly one label from a given set to each element in predicate "{predicate_name}". 
@@ -2304,12 +2327,14 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
 
                         ########################################################################################################
 
-                for _ in range(5):
+                for _ in range(5):  # guessing numeric filtering
                     questions_gnf, answers_gnf, f = guessing_numeric_filtering(attributes, np.random.choice(predicates), np.random.choice(attributes), np.random.choice(attributes))
 
                     questions.extend(questions_gnf)
                     answers.extend(answers_gnf)
                     facts.extend(f)
+
+                    n_questions_gnf += len(questions_gnf)
 
                         # 4. Guessing + Numeric Filtering
                         # "Write an ASP program that guesses a label {label1} or {label2} for each element in {predicate_name}. 
@@ -2323,12 +2348,14 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
 
                         ########################################################################################################
 
-                for _ in range(5):
+                for _ in range(5):  # guessing filtering
                     questions_gf, answers_gf, f = guessing_filtering(attributes, np.random.choice(predicates))
 
                     questions.extend(questions_gf)
                     answers.extend(answers_gf)
                     facts.extend(f)
+
+                    n_questions_gf += len(questions_gf)
 
                         # 4. Assignment + Filtering
                         # "Write an ASP program that assigns exactly one label from a given set to each element in predicate {predicate_name}. Then, filter and return only the elements assigned to label {label}."
@@ -2341,12 +2368,14 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
 
                         ########################################################################################################
 
-                for _ in range(5):
+                for _ in range(5):  # combination constraint
                     questions_cc, answers_cc, f = combination_constraint(np.random.choice(labels), np.random.choice(predicates), np.random.choice(predicates))
 
                     questions.extend(questions_cc)
                     answers.extend(answers_cc)
                     facts.extend(f)
+
+                    n_questions_cc += len(questions_cc)
 
                         # 5. Combination + Constraint
                         # "Write an ASP program that generates all possible combinations of elements from predicates {predicate_name_1} 
@@ -2360,7 +2389,17 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
 
                         ########################################################################################################
 
-                
+                if print_proportions:
+                    print("jn",n_questions_jn, n_questions_jn*size, n_questions_jn*size/len_questions*100)
+                    print("jnf",n_questions_jnf, n_questions_jnf*size, n_questions_jnf*size/len_questions*100)
+                    print("cg",n_questions_cg, n_questions_cg*size, n_questions_cg*size/len_questions*100)
+                    print("gn",n_questions_gn, n_questions_gn*size, n_questions_gn*size/len_questions*100)
+                    print("gnf",n_questions_gnf, n_questions_gnf*size, n_questions_gnf*size/len_questions*100)
+                    print("gf",n_questions_gf, n_questions_gf*size, n_questions_gf*size/len_questions*100)
+                    print("cc",n_questions_cc, n_questions_cc*size, n_questions_cc*size/len_questions*100)
+                    sum = n_questions_jn + n_questions_jnf + n_questions_cg + n_questions_gn + n_questions_gnf + n_questions_gf + n_questions_cc
+                    print("tot = ", sum, " ", sum*size)
+                    break                
 
                 ########################################################################################################
 
@@ -2380,17 +2419,7 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
                 ####  circa 10
     
 
-        if print_proportions:
-            print("ass",n_questions_assignment, n_questions_assignment*size, n_questions_assignment*size/len_questions*100)
-            print("prev",n_questions_prevent, n_questions_prevent*size, n_questions_prevent*size/len_questions*100)
-            print("comb",n_questions_combination, n_questions_combination*size, n_questions_combination*size/len_questions*100)
-            print("join",n_questions_join, n_questions_join*size, n_questions_join*size/len_questions*100)
-            print("clos",n_questions_closure, n_questions_closure*size, n_questions_closure*size/len_questions*100)
-            print("pref",n_questions_preferences, n_questions_preferences*size, n_questions_preferences*size/len_questions*100)
-            print("filt",n_questions_select, n_questions_select*size, n_questions_select*size/len_questions*100)
-            print("neg filt",n_questions_negative, n_questions_negative*size, n_questions_negative*size/len_questions*100)
-            print("num filt",n_questions_numeric, n_questions_numeric*size, n_questions_numeric*size/len_questions*100)
-            break
+        
             #     print("N questions assignment:", n_questions_assignment*size, n_questions_assignment*size/len_df*100)
             #     print("N questions prevent:", n_questions_prevent*size, n_questions_prevent*size/len_df*100)
             #     print("N questions combinations:", len(questions_combinations)*size, len(questions_combinations)*size/len_df*100)
@@ -2415,6 +2444,28 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
     questions, answers = list(res1), list(res2)
 
     return questions, answers#, questions_facts_dict
+
+
+def compress_csv(file_path):
+    # Creiamo il nome del file .bz2 di output
+
+    output_filename = file_path.replace(".csv", ".csv.bz2")
+    
+    # Verifica se il file esiste prima di comprimere
+
+    if not os.path.isfile(file_path):
+        print(f"Errore: Il file {file_path} non esiste.")
+        return
+    
+    try:
+        # Apriamo il file originale in modalità lettura e il file .bz2 in modalità scrittura
+        with open(file_path, 'rb') as f_in, bz2.BZ2File(output_filename, 'wb') as f_out:
+            # Copia il contenuto del file originale nel file compresso
+            f_out.writelines(f_in)
+            print(f"File {file_path} compressed")
+    
+    except Exception as e:
+        print(f"Errore durante la compressione del file {file_path}: {e}")
 
 
 ##############   riscrive la domanda nell'output per questa funzione qua
@@ -2491,7 +2542,7 @@ def generate_test_cases():      ##  genera 10 prompt da sottoporre al modello pe
 
     np.random.seed()
 
-    match turn:                             ####        a seconda del turno genero i test-cases
+    match turn:   ####        a seconda del turno genero i test-cases
         case "core":
             print("ASSIGNMENT")               #######         OOOOOOKKKKKKKKK
             question_assignments, _, _ = label_assignment(predicates, np.random.choice(predicates), False)
@@ -3182,6 +3233,8 @@ complex_model_path = output_dir + comples_model
 
 exhaustive_folder = "exhaustive/"
 
+data_folder = "data/"
+
 
 compute_dtype = getattr(torch, "float16")
 
@@ -3206,8 +3259,8 @@ match turn:
 
         token = hugging_token
 
-        train_df_fn = "data/train_core.csv"
-        val_df_fn = "data/val_core.csv"
+        train_file_name = "data/train_core.csv"
+        val_file_name = "data/val_core.csv"
 
         test_set_file_name  = "data/test_core.csv"
         
@@ -3238,8 +3291,8 @@ match turn:
 
         token = hugging_token
         
-        train_df_fn = "data/train_invariance.csv"
-        val_df_fn = "data/val_invariance.csv"
+        train_file_name = "data/train_invariance.csv"
+        val_file_name = "data/val_invariance.csv"
 
         test_set_file_name  = "data/test_core_invariance.csv"
         
@@ -3270,8 +3323,8 @@ match turn:
 
         token = hugging_token
         
-        train_df_fn = "data/train_complex.csv"
-        val_df_fn = "data/val_complex.csv"
+        train_file_name = "data/train_complex.csv"
+        val_file_name = "data/val_complex.csv"
 
         test_set_file_name  = "data/test_comples.csv"
         
@@ -3279,7 +3332,7 @@ match turn:
         
         tot_size = 10000
         
-        len_questions = 0
+        len_questions = 2520000
         
         test_size = 1000
 
@@ -3306,7 +3359,7 @@ TRAIN = True
 LOAD = True                            # (not TRAIN)       Load for testing
 TEST = True                            # if you want to test the model, also on a limited number of prompts
 TEST_DATASET_GENERATION = True         # if you need to create a new test set
-T21ST = True                           # if you want the test tuple for the core-invariance model to be different from the 20 that the model was trained on
+T21ST = False                           # if you want the test tuple for the core-invariance model to be different from the 20 that the model was trained on
 EXHAUSTIVE = True                      # if you want the exhaustive test done directly after the fine-tuning
 SHOW_RESULTS = True                    # if you want the results to be shown
 
@@ -3329,16 +3382,19 @@ if DATASET_GENERATION:
     val_df = pd.DataFrame(val_d)
 
 
-    train_df.to_csv(train_df_fn, index=False)
-    val_df.to_csv(val_df_fn, index=False)
+    train_df.to_csv(train_file_name, index=False)
+    val_df.to_csv(val_file_name, index=False)
+
+    compress_csv(train_file_name)
+    compress_csv(val_file_name)
 
 if TRAIN:
     torch.cuda.empty_cache()
 
     print("model to train = ", model_to_train)
 
-    train_df = pd.read_csv(train_df_fn)
-    val_df = pd.read_csv(val_df_fn)
+    train_df = pd.read_csv(train_file_name)
+    val_df = pd.read_csv(val_file_name)
 
     #   I dataset vengono convertiti nel formato accettato da transformers
     train_dataset = Dataset.from_dict(train_df)
@@ -3361,6 +3417,7 @@ if TRAIN:
         model = PeftModel.from_pretrained(model, model_to_train, is_trainable=True)
 
     tokenizer = AutoTokenizer.from_pretrained(model_to_train)
+    
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
 
@@ -3438,15 +3495,17 @@ if LOAD:
     model = AutoModelForCausalLM.from_pretrained(
         base_model,
         quantization_config=quant_config,
-        device_map="auto"
+        device_map="auto",
+        token=token
     )
-
+    
+    model.config.use_cache = True
+    model.config.pretraining_tp = 1
+    
     model = PeftModel.from_pretrained(model, model_to_test, is_trainable=True)      ###  NECESSARIO is_trainable PER RIADDESTRARE UN MODELLO PEFT ALTRIMENTI I PESI SAREBBERO FREEZED
 
     tokenizer = AutoTokenizer.from_pretrained(model_to_test)
 
-    model.config.use_cache = True
-    model.config.pretraining_tp = 1
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
 
@@ -3454,6 +3513,10 @@ if TEST:
 
     if TEST_DATASET_GENERATION:
         print("generating test set..!")
+        if T21ST and turn == "core-invariance":
+            print("...with a tuple different from those in the training set")
+        else:
+            print("with a tuple from those in the training set")
 
         test_tuples = build_test_set()
 
@@ -3463,6 +3526,8 @@ if TEST:
 
         test_df.to_csv(test_set_file_name , index=False)
 
+        compress_csv(test_set_file_name)
+
     if EXHAUSTIVE:
         test_df = pd.read_csv(test_set_file_name )
         test_tuples = test_df.to_numpy()
@@ -3471,7 +3536,7 @@ if TEST:
         print("n_domande ->", len(test_tuples))
 
         # definizione tipi di problemi
-        if turn != "comples":
+        if turn != "core-invariance-complex":
             problems = ["assignment", "constraint", "combination", "join", "closure", "preference", "filtering", "negative_filtering", "numeric_filtering"]
         else:
             problems = ["join_numeric_filtering", "join_filtering", "closure_guessing", "guessing_constraint", "guessing_numeric_filtering", "guessing_filtering", "combination_constraint"]
@@ -3513,7 +3578,7 @@ if TEST:
             unique_rules = []
             seen = set()
             # parsing in base al modello
-            if turn != "comples":
+            if turn != "core-invariance-complex":
                 if problems_index_dict[index] == "closure":
                     parsed_generated_a = '.'.join(parsed_generated_a.split(".")[:2]) + "."
                 elif problems_index_dict[index] == "preference":
