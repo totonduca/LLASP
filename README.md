@@ -2,8 +2,9 @@
 LLASP: Fine-tuning Large Language Models for Answer Set Programming
 
 The `data` folder contains the compressed version of the train, validation and test sets used to perform the experiments.
+**For the core-invariance model, there are two types of test sets, one with tuples from the training set and the other one with a totally different prompt*
 
-The `exhaustive` folder contains the results of every model trained and tested.
+The `exhaustive` folder contains the results of every model trained and tested, and every answer from the model.
 
 The code `fine_tuning.py` is the collection of model_training.py, model_testing.py, dataset_generation.py...
 ### INSTRUCTIONS

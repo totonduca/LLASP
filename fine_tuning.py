@@ -2290,7 +2290,7 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
                     # join(X, Y) :- predicate1(X, A), predicate2(Y, B), not predicate1(X, not_label).
                     # ➡️ Obiettivo: Creare un join, escludendo elementi con un’etichetta specifica.
 
-                for _ in range(5):  # closure guessing
+                for _ in range(10):  # closure guessing
                     questions_cg, answers_cg, f = closure_guessing(attributes, np.random.choice(predicates), np.random.choice(closures))
 
                     questions.extend(questions_cg)
@@ -2348,7 +2348,7 @@ def generate_subproblems(problem, size, train_size, validation, print_proportion
 
                         ########################################################################################################
 
-                for _ in range(5):  # guessing filtering
+                for _ in range(10):  # guessing filtering
                     questions_gf, answers_gf, f = guessing_filtering(attributes, np.random.choice(predicates))
 
                     questions.extend(questions_gf)
@@ -3249,7 +3249,19 @@ quant_config = BitsAndBytesConfig(
 
 ##  CHOOSE BETWEEN [ ' core ' , ' core-invariance ' , ' core-invariance-complex ' ]
 
-turn = "core-invariance-complex"
+turn = "core-invariance"
+
+MODEL_TO_USE = "gemma"
+
+DATASET_GENERATION = False
+TRAIN = False 
+LOAD = False                            # (not TRAIN)       Load for testing
+TEST = True                            # if you want to test the model, also on a limited number of prompts
+TEST_DATASET_GENERATION = True         # if you need to create a new test set
+T21ST = True                           # if you want the test tuple for the core-invariance model to be different from the 20 that the model was trained on
+EXHAUSTIVE = False                      # if you want the exhaustive test done directly after the fine-tuning
+SHOW_RESULTS = False                    # if you want the results to be shown
+
 
 match turn:
     case "core":
@@ -3295,6 +3307,8 @@ match turn:
         val_file_name = "data/val_invariance.csv"
 
         test_set_file_name  = "data/test_core_invariance.csv"
+        if T21ST:
+            test_set_file_name = "data/test_core_invariance_21.csv"
         
         target_modules=None
         
@@ -3326,13 +3340,13 @@ match turn:
         train_file_name = "data/train_complex.csv"
         val_file_name = "data/val_complex.csv"
 
-        test_set_file_name  = "data/test_comples.csv"
+        test_set_file_name  = "data/test_complex.csv"
         
         target_modules=None
         
         tot_size = 10000
         
-        len_questions = 2520000
+        len_questions = 1160000
         
         test_size = 1000
 
@@ -3352,16 +3366,6 @@ match turn:
         print("NON DISPONIBILE !")
         sys.exit(1) 
 
-MODEL_TO_USE = "gemma"
-
-DATASET_GENERATION = True
-TRAIN = True 
-LOAD = True                            # (not TRAIN)       Load for testing
-TEST = True                            # if you want to test the model, also on a limited number of prompts
-TEST_DATASET_GENERATION = True         # if you need to create a new test set
-T21ST = False                           # if you want the test tuple for the core-invariance model to be different from the 20 that the model was trained on
-EXHAUSTIVE = True                      # if you want the exhaustive test done directly after the fine-tuning
-SHOW_RESULTS = True                    # if you want the results to be shown
 
 if DATASET_GENERATION:
     print("generating training set..!")
