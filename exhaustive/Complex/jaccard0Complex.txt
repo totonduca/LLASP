@@ -10513,3 +10513,68 @@ generated answer_Set: [['pink(1)', 'pink(2)', 'pink(3)', 'pink(4)', 'pink(5)']]
 jaccard: 0.0
 
 
+i: 704
+
+index: 4
+
+guessing_numeric_filtering
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements expressed by predicate roof and labels surname, weight having label weight different than 91. The labels are storm,roof,cloud,butterfly,desk,chair,wall.
+
+answer from file: assign(X,"storm")|assign(X,"roof")|assign(X,"cloud")|assign(X,"butterfly")|assign(X,"desk")|assign(X,"chair")|assign(X,"wall"):-roof(X, Y), Y!=91 .
+
+facts: 
+roof(1..5, 100).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements expressed by predicate roof and labels surname, weight having label weight different than 91. The labels are storm,roof,cloud,butterfly,desk,chair,wall.
+Answer: assign(X," peines")|assign(X,"florence")|assign(X,"height")|assign(X,"author")|assign(X,"city")|assign(X,"description")|assign(X,"name")|assign(X,"age")|assign(X,"price")|retum(X, Y), Y!=91 .
+ köp(X, Y), Y!=91 .
+```
+ köp(X, Y), Y!=91 .
+assign(X, " peines")|assign(X, "florence")|assign(X, "height")|assign(X, "author")|assign(X, "city")|assign(X,
+
+parsed: 
+
+
+wanted answer_Set: [['roof(1,100)', 'roof(2,100)', 'roof(3,100)', 'roof(4,100)', 'roof(5,100)', 'assign(1,"wall")', 'assign(2,"wall")', 'assign(3,"wall")', 'assign(4,"wall")', 'assign(5,"wall")']]
+
+generated answer_Set: [['roof(1,100)', 'roof(2,100)', 'roof(3,100)', 'roof(4,100)', 'roof(5,100)']]
+
+jaccard: 0.0
+
+
+i: 705
+
+index: 5
+
+guessing_filtering
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate surname. The labels are roof,wall,flower,storm,laptop,cloud,butterfly,desk.  Then, filter and return only the elements assigned to label cloud.".
+
+answer from file: assign(X,"roof")|assign(X,"wall")|assign(X,"flower")|assign(X,"storm")|assign(X,"laptop")|assign(X,"cloud")|assign(X,"butterfly")|assign(X,"desk"):-surname(X).
+select(X):-assign(X, "cloud").
+
+facts: 
+surname(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate surname. The labels are roof,wall,flower,storm,laptop,cloud,butterfly,desk.  Then, filter and return only the elements assigned to label cloud.".
+Answer: assign(X," felicità")|assign(X,"city")|assign(X,"creator")|assign(X,"price")|assign(X,"age")|assign(X,"name")|assign(X,"shape")|assign(X,"description")|assign(X,"author")|retum(X, "cloud").
+select(X):-assign(X, "cloud").
+```
+The predicate "name" has label "description", but not "author".
+So, the predicate "retum" returns only the elements assigned to label "description".
+The predicate "name" has label "description", but not "author".
+So, the predicate "retum" returns only the elements assigned
+
+parsed: 
+select(X):-assign(X, "cloud").
+
+wanted answer_Set: [['surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'surname(5)', 'assign(1,"desk")', 'assign(2,"desk")', 'assign(3,"butterfly")', 'assign(4,"desk")', 'assign(5,"desk")']]
+
+generated answer_Set: [['surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'surname(5)']]
+
+jaccard: 0.0
+
+

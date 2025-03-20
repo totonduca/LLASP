@@ -22581,3 +22581,167 @@ cosenza_mumbai(X,Z):-cosenza(X,Y,_),mumbai(Y,Z), Z!=69.
 jaccard: 1.0
 
 
+701
+join_filtering
+
+question: 
+Write an ASP program for the following problem. Consider predicate "weight" having fields "ID","hairID","lake", and the predicate "hair" having fields "ID","hair". Define a predicate "weight_hair" that associates to each "weight", not associated with label "laptop", the attribute "hair" of "hair".
+
+answer from file: 
+weight_hair(X,Z):-weight(X,Y,_),hair(Y,Z),not weight(X,_,laptop).
+
+facts: 
+weight("ID","hairID","lake").hair("ID","hair").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "weight" having fields "ID","hairID","lake", and the predicate "hair" having fields "ID","hair". Define a predicate "weight_hair" that associates to each "weight", not associated with label "laptop", the attribute "hair" of "hair".
+Answer: weight_hair(X,Z):-weight(X,Y,_),hair(Y,Z),not weight(X,_,laptop).
+weight_hair(X,Y,_):-weight(X,_,_),hair(Y,Z).
+assign(X,weight_hair(X,_,_))|assign(X,weight(X,Y,_)),not weight(X,_,laptop).
+retum.
+ meras.
+name(X,Y,_),not weight(X,_,laptop).
+retum.
+name(X,Y,_),weight(X,_,_).
+retum.
+name(X,Y,_),weight(X,_,_),_,shape(X,
+
+unique_rules: 
+['weight_hair(X,Z):-weight(X,Y,_),hair(Y,Z),not weight(X,_,laptop).', 'weight_hair(X,Y,_):-weight(X,_,_),hair(Y,Z).']
+
+parsed: 
+weight_hair(X,Z):-weight(X,Y,_),hair(Y,Z),not weight(X,_,laptop).
+
+jaccard: 1.0
+
+
+702
+closure_guessing
+
+question: 
+Write an ASP program for the following problem. Define predicate "chicago" as the transitive closure of predicate "surname". Then, assign exactly one label from the set wall,laptop,cloud,desk,chair,roof,storm,flower to each element in "chicago".
+
+answer from file: 
+chicago(X,Y):-surname(X,Y).
+chicago(X,Y):-surname(X,Z),chicago(Z,Y).
+assign(X,"wall")|assign(X,"laptop")|assign(X,"cloud")|assign(X,"desk")|assign(X,"chair")|assign(X,"roof")|assign(X,"storm")|assign(X,"flower"):-chicago(X,_).
+
+facts: 
+surname(1..3, 1..4).
+
+generated: 
+Write an ASP program for the following problem. Define predicate "chicago" as the transitive closure of predicate "surname". Then, assign exactly one label from the set wall,laptop,cloud,desk,chair,roof,storm,flower to each element in "chicago".
+Answer: chicago(X,Y):-surname(X,Y).
+chicago(X,Y):-surname(X,Z),chicago(Z,Y).
+assign(X,"wall")|assign(X,"laptop")|assign(X,"cloud")|assign(X,"desk")|assign(X,"chair")|assign(X,"roof")|assign(X,"storm")|assign(X,"flower"):-chicago(X,_).
+retum:assign(X,"city").
+retum:assign(X,"age").
+retum:assign(X,"price").
+retum:assign(X,"description").
+retum:assign(X,"author").
+retum:assign(X,"name").
+
+unique_rules: 
+['chicago(X,Y):-surname(X,Y).', 'chicago(X,Y):-surname(X,Z),chicago(Z,Y).', 'assign(X,"wall")|assign(X,"laptop")|assign(X,"cloud")|assign(X,"desk")|assign(X,"chair")|assign(X,"roof")|assign(X,"storm")|assign(X,"flower"):-chicago(X,_).']
+
+parsed: 
+chicago(X,Y):-surname(X,Y).
+chicago(X,Y):-surname(X,Z),chicago(Z,Y).
+assign(X,"wall")|assign(X,"laptop")|assign(X,"cloud")|assign(X,"desk")|assign(X,"chair")|assign(X,"roof")|assign(X,"storm")|assign(X,"flower"):-chicago(X,_).
+
+jaccard: 1.0
+
+
+703
+guessing_constraint
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate wall. The labels are flower,chair,wall,cloud,laptop. Consider only the predicate wall not associated with label "storm".
+
+answer from file: 
+assign(X,"flower")|assign(X,"chair")|assign(X,"wall")|assign(X,"cloud")|assign(X,"laptop"):-wall(X, _), not wall(X, storm).
+
+facts: 
+wall(1..5, 1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate wall. The labels are flower,chair,wall,cloud,laptop. Consider only the predicate wall not associated with label "storm".
+Answer: assign(X,"flower")|assign(X,"chair")|assign(X,"wall")|assign(X,"cloud")|assign(X,"laptop"):-wall(X, _), not wall(X, storm).
+```
+assign(X,"name")|assign(X,"price")|assign(X,"age")|assign(X,"description"):-wall(X, _).
+```
+The predicate wall has label "description", but not "age".
+So, the predicate wall is not associated with label "age".
+Then, assign(X,"description") for all elements in "wall".
+Finally, assign(X,"description") for all elements in "description".
+
+unique_rules: 
+['assign(X,"flower")|assign(X,"chair")|assign(X,"wall")|assign(X,"cloud")|assign(X,"laptop"):-wall(X, _), not wall(X, storm).', 'assign(X,"name")|assign(X,"price")|assign(X,"age")|assign(X,"description"):-wall(X, _).']
+
+parsed: 
+assign(X,"flower")|assign(X,"chair")|assign(X,"wall")|assign(X,"cloud")|assign(X,"laptop"):-wall(X, _), not wall(X, storm).
+
+jaccard: 1.0
+
+
+704
+guessing_numeric_filtering
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements expressed by predicate roof and labels surname, weight having label weight different than 91. The labels are storm,roof,cloud,butterfly,desk,chair,wall.
+
+answer from file: 
+assign(X,"storm")|assign(X,"roof")|assign(X,"cloud")|assign(X,"butterfly")|assign(X,"desk")|assign(X,"chair")|assign(X,"wall"):-roof(X, Y), Y!=91 .
+
+facts: 
+roof(1..5, 100).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements expressed by predicate roof and labels surname, weight having label weight different than 91. The labels are storm,roof,cloud,butterfly,desk,chair,wall.
+Answer: assign(X," peines")|assign(X,"florence")|assign(X,"height")|assign(X,"author")|assign(X,"city")|assign(X,"description")|assign(X,"name")|assign(X,"age")|assign(X,"price")|retum(X, Y), Y!=91 .
+ köp(X, Y), Y!=91 .
+```
+ köp(X, Y), Y!=91 .
+assign(X, " peines")|assign(X, "florence")|assign(X, "height")|assign(X, "author")|assign(X, "city")|assign(X,
+
+unique_rules: 
+[]
+
+parsed: 
+
+
+jaccard: 0.0
+
+
+705
+guessing_filtering
+
+question: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate surname. The labels are roof,wall,flower,storm,laptop,cloud,butterfly,desk.  Then, filter and return only the elements assigned to label cloud.".
+
+answer from file: 
+assign(X,"roof")|assign(X,"wall")|assign(X,"flower")|assign(X,"storm")|assign(X,"laptop")|assign(X,"cloud")|assign(X,"butterfly")|assign(X,"desk"):-surname(X).
+select(X):-assign(X, "cloud").
+
+facts: 
+surname(1..5).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate surname. The labels are roof,wall,flower,storm,laptop,cloud,butterfly,desk.  Then, filter and return only the elements assigned to label cloud.".
+Answer: assign(X," felicità")|assign(X,"city")|assign(X,"creator")|assign(X,"price")|assign(X,"age")|assign(X,"name")|assign(X,"shape")|assign(X,"description")|assign(X,"author")|retum(X, "cloud").
+select(X):-assign(X, "cloud").
+```
+The predicate "name" has label "description", but not "author".
+So, the predicate "retum" returns only the elements assigned to label "description".
+The predicate "name" has label "description", but not "author".
+So, the predicate "retum" returns only the elements assigned
+
+unique_rules: 
+['select(X):-assign(X, "cloud").']
+
+parsed: 
+select(X):-assign(X, "cloud").
+
+jaccard: 0.0
+
+
