@@ -79,60 +79,6 @@ def build_test_set():
 
                 test_tuples.append([questions_numeric_filtering[chosen], answers_numeric_filtering[chosen], facts_numeric_filtering[chosen]])
             
-        case "invariance":
-            prompt_invariance=True
-
-            for i in range(n_size):
-                np.random.seed(seed % (i + 1) * 19)
-
-                questions_assignments, answers_assignments, facts_assignments = fine_tuning.label_assignment(predicates, np.random.choice(predicates), prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_assignments[chosen], answers_assignments[chosen], facts_assignments[0]])
-
-                questions_prevents, answers_prevents, facts_prevents = fine_tuning.prevent_value(predicates, np.random.choice(predicates), prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_prevents[chosen], answers_prevents[chosen], facts_prevents[0]])
-
-                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
-                questions_combinations, answers_combinations, facts_combinations = fine_tuning.generate_combinations(p_1, p_2, prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_combinations[chosen], answers_combinations[chosen], facts_combinations[0]])
-
-                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
-                questions_join, answers_join, facts_join = fine_tuning.execute_join(p_1, p_2, attributes, prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20*9)             ###########     20*9 perché ogni chiamata a join genera 9 tipi di join e 20 prompt per ogni tipo
-                
-                test_tuples.append([questions_join[chosen], answers_join[chosen], facts_join[chosen]])
-
-                questions_closure, answers_closure, facts_closure = fine_tuning.transitive_closure(np.random.choice(closures), np.random.choice(predicates), prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_closure[chosen], answers_closure[chosen], facts_closure[0]])
-
-                questions_preferences, answers_preferences, facts_preferences = fine_tuning.preferences(np.random.choice(predicates),predicates, prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_preferences[chosen], answers_preferences[chosen], facts_preferences[0]])
-
-                questions_filtering, answers_filtering, facts_filtering = fine_tuning.select_value(np.random.choice(predicates), np.random.choice(predicates), prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_filtering[chosen], answers_filtering[chosen], facts_filtering[0]])
-
-                questions_negative_filtering, answers_negative_filtering, facts_negative_filtering = fine_tuning.select_by_negative_condition(np.random.choice(predicates), np.random.choice(predicates), predicates, prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_negative_filtering[chosen], answers_negative_filtering[chosen], facts_negative_filtering[0]])
-
-                questions_numeric_filtering, answers_numeric_filtering, facts_numeric_filtering = fine_tuning.select_by_numeric_condition(np.random.choice(predicates), prompt_invariance, False)
-
-                chosen = np.random.randint(0, 20)
-                test_tuples.append([questions_numeric_filtering[chosen], answers_numeric_filtering[chosen], facts_numeric_filtering[0]])
-    
         case "core-invariance":
             prompt_invariance=True
 
@@ -250,7 +196,7 @@ def build_test_set():
 
                 test_tuples.append([questions_cg[chosen], answers_cg[chosen], facts_cg[chosen]])
 
-                questions_gc, answers_gc, facts_gc = fine_tuning.guessing_constraint(labels, np.random.choice(predicates))
+                questions_gc, answers_gc, facts_gc = fine_tuning.guessing_negative_filtering(labels, np.random.choice(predicates))
 
                 test_tuples.append([questions_gc[chosen], answers_gc[chosen], facts_gc[chosen]])
 
@@ -263,7 +209,7 @@ def build_test_set():
                 test_tuples.append([questions_gf[chosen], answers_gf[chosen], facts_gf[chosen]])
 
                 p_1, p_2 = np.random.choice(predicates, 2, replace=False)
-                questions_cnf, answers_cnf, facts_cnf = fine_tuning.combination_constraint(np.random.choice(labels), p_1, p_2)
+                questions_cnf, answers_cnf, facts_cnf = fine_tuning.combination_negative_filtering(np.random.choice(labels), p_1, p_2)
 
                 test_tuples.append([questions_cnf[chosen], answers_cnf[chosen], facts_cnf[chosen]])
 
