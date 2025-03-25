@@ -70,21 +70,21 @@ def copilot_label_assignments(labels, predicate_name, test):
     if not test:
         s1 = f'''Develop an ASP program that assigns exactly one label from the specified set {labels_set} to a collection of elements defined by the predicate "{predicate_name}".'''
 
-        s2 = f'''Create an ASP application that maps one label belonging to {labels_set} to a set of elements based on the "{predicate_name}" predicate.'''
+        s2 = f'''Create an ASP application that maps one label belonging to {labels_set} to a set of elements based on the predicate "{predicate_name}".'''
 
         s3 = f'''Write an ASP script that associates exactly one label from the set {labels_set} with a group of elements determined by the predicate "{predicate_name}".'''
 
-        s4 = f'''Design an ASP solution that links a single label from {labels_set} to elements specified by the "{predicate_name}" predicate.'''
+        s4 = f'''Design an ASP solution that links a single label from {labels_set} to elements specified by the predicate "{predicate_name}".'''
 
-        s5 = f'''Craft an ASP program that assigns one label from {labels_set} to elements defined by the "{predicate_name}" predicate.'''
+        s5 = f'''Craft an ASP program that assigns one label from {labels_set} to elements defined by the predicate "{predicate_name}".'''
 
         s6 = f'''Implement an ASP code snippet that tags elements with one label from the set {labels_set} according to the predicate "{predicate_name}".'''
 
-        s7 = f'''Build an ASP application that links exactly one label from {labels_set} to a set of elements identified by the "{predicate_name}" predicate.'''
+        s7 = f'''Build an ASP application that links exactly one label from {labels_set} to a set of elements identified by the predicate "{predicate_name}".'''
 
         s8 = f'''Write an ASP script that connects a single label from {labels_set} to each element defined by the predicate "{predicate_name}".'''
 
-        s9 = f'''Develop an ASP solution to map one label from {labels_set} to elements as per the "{predicate_name}" predicate.'''
+        s9 = f'''Develop an ASP solution to map one label from {labels_set} to elements as per the predicate "{predicate_name}".'''
 
         s10 = f'''Create an ASP program that assigns just one label from {labels_set} to a collection of elements determined by the predicate "{predicate_name}".'''
 
@@ -204,43 +204,41 @@ def copilot_prevent_value(predicate_name, value, label, test):
     if not test:
         s1 = f'''Create an ASP program that ensures the predicate "{predicate_name}" with a value of {value} is not assigned to the label "{label}".'''
 
-        s2 = f'''Write an ASP solution that prohibits the assignment of the "{predicate_name}" predicate with a value of {value} to the label "{label}".'''
+        s2 = f'''Write an ASP solution that prohibits the assignment of the predicate "{predicate_name}" with a value of {value} to the label "{label}".'''
 
-        s3 = f'''Develop an ASP program that disallows associating the "{predicate_name}" predicate having value {value} with the label "{label}".'''
+        s3 = f'''Develop an ASP program that disallows associating the predicate "{predicate_name}" having value {value} with the label "{label}".'''
 
-        s4 = f'''Craft an ASP script that prevents the "{predicate_name}" predicate with value {value} from being linked to the label "{label}".'''
+        s4 = f'''Craft an ASP script that prevents the predicate "{predicate_name}" with value {value} from being linked to the label "{label}".'''
 
-        s5 = f'''Implement an ASP application that avoids assigning the "{predicate_name}" predicate with value {value} to the "{label}" label.'''
+        s5 = f'''Implement an ASP application that avoids assigning the predicate "{predicate_name}" with value {value} to the label "{label}".'''
 
-        s6 = f'''Design an ASP solution that excludes the "{predicate_name}" predicate with value {value} from being mapped to the "{label}" label.'''
+        s6 = f'''Design an ASP solution that excludes the predicate "{predicate_name}" with value {value} from being mapped to the label "{label}".'''
 
-        s7 = f'''Build an ASP program that ensures the "{predicate_name}" predicate having value {value} cannot be assigned to the "{label}" label.'''
+        s7 = f'''Build an ASP program that ensures the predicate "{predicate_name}" having value {value} cannot be assigned to the label "{label}".'''
 
-        s8 = f'''Create an ASP code snippet that disallows associating the "{predicate_name}" predicate having value {value} with the "{label}" label.'''
+        s8 = f'''Create an ASP code snippet that disallows associating the predicate "{predicate_name}" having value {value} with the label "{label}".'''
 
-        s9 = f'''Write an ASP program that prevents the "{predicate_name}" predicate with value {value} from being linked to the "{label}" label.'''
+        s9 = f'''Write an ASP program that prevents the predicate "{predicate_name}" with value {value} from being linked to the label "{label}".'''
 
-        s10 = f'''Develop an ASP solution that avoids assigning the "{predicate_name}" predicate having value {value} to the label "{label}".'''
+        s10 = f'''Develop an ASP solution that avoids assigning the predicate "{predicate_name}" having value {value} to the label "{label}".'''
 
         s11 = f'''Formulate an ASP program that ensures the predicate "{predicate_name}" with a value of {value} is not linked to the label "{label}".'''
 
-        s12 = f'''Compose an ASP script that prohibits the "{predicate_name}" predicate with a value of {value} from being assigned to the label "{label}".'''
+        s12 = f'''Compose an ASP script that prohibits the predicate "{predicate_name}" with a value of {value} from being assigned to the label "{label}".'''
 
-        s13 = f'''Draft an ASP solution that disallows linking the "{predicate_name}" predicate with value {value} to the "{label}" label.'''
+        s13 = f'''Draft an ASP solution that disallows linking the predicate "{predicate_name}" with value {value} to the label "{label}".'''
 
-        s14 = f'''Generate an ASP application that prevents the "{predicate_name}" predicate having value {value} from being mapped to the label "{label}".'''
+        s14 = f'''Generate an ASP application that prevents the predicate "{predicate_name}" having value {value} from being mapped to the label "{label}".'''
 
-        s15 = f'''Develop an ASP script that avoids assigning the "{predicate_name}" predicate with value {value} to the "{label}" label.'''
+        s15 = f'''Develop an ASP script that avoids assigning the predicate "{predicate_name}" with value {value} to the label "{label}".'''
 
-        s16 = f'''Create an ASP solution that excludes the "{predicate_name}" predicate with a value of {value} from the label "{label}".'''
+        s16 = f'''Create an ASP solution that excludes the predicate "{predicate_name}" with a value of {value} from the label "{label}".'''
 
-        s17 = f'''Build an ASP program that disallows associating the "{predicate_name}" predicate having value {value} with the "{label}" label.'''
+        s17 = f'''Build an ASP program that disallows associating the predicate "{predicate_name}" having value {value} with the label "{label}".'''
 
-        s18 = f'''Write an ASP application that ensures the "{predicate_name}" predicate with value {value} is not assigned to the label "{label}".'''
+        s18 = f'''Write an ASP application that ensures the predicate "{predicate_name}" with value {value} is not assigned to the label "{label}".'''
 
-        s19 = f'''Design an ASP script that prohibits the assignment of the "{predicate_name}" predicate with value {value} to the label "{label}".'''
-
-        s20 = f'''Create an ASP program that prevents the "{predicate_name}" predicate with a value of {value} from being linked to the "{label}" label.'''
+        s19 = f'''Design an ASP script that prohibits the assignment of the predicate "{predicate_name}" with value {value} to the label "{lab        s20 = f'''Create an ASP program that prevents the predicate "{predicate_name}" with a value of {value} from being linked to the "{label}" label.''' el}".'''
 
         s = []
         for i in range(1, 21):
@@ -249,43 +247,43 @@ def copilot_prevent_value(predicate_name, value, label, test):
         
         s1 = f'''Develop an ASP application that avoids the predicate "{predicate_name}" with a value of {value} being linked to the label "{label}".'''
 
-        s2 = f'''Compose an ASP solution to ensure the "{predicate_name}" predicate with value {value} is not associated with the label "{label}".'''
+        s2 = f'''Compose an ASP solution to ensure the predicate "{predicate_name}" with value {value} is not associated with the label "{label}".'''
 
         s3 = f'''Create an ASP script that excludes the predicate "{predicate_name}" with value {value} from being mapped to the label "{label}".'''
 
-        s4 = f'''Generate an ASP application to prevent linking the "{predicate_name}" predicate with a value of {value} to the label "{label}".'''
+        s4 = f'''Generate an ASP application to prevent linking the predicate "{predicate_name}" with a value of {value} to the label "{label}".'''
 
         s5 = f'''Draft an ASP program to disallow assigning the predicate "{predicate_name}" with value {value} to the label "{label}".'''
 
-        s6 = f'''Formulate an ASP code that ensures the "{predicate_name}" predicate having value {value} is not connected to the label "{label}".'''
+        s6 = f'''Formulate an ASP code that ensures the predicate "{predicate_name}" having value {value} is not connected to the label "{label}".'''
 
-        s7 = f'''Produce an ASP program that prevents associating the "{predicate_name}" predicate with value {value} with the label "{label}".'''
+        s7 = f'''Produce an ASP program that prevents associating the predicate "{predicate_name}" with value {value} with the label "{label}".'''
 
-        s8 = f'''Build an ASP solution that disallows the "{predicate_name}" predicate having value {value} from being assigned to the label "{label}".'''
+        s8 = f'''Build an ASP solution that disallows the predicate "{predicate_name}" having value {value} from being assigned to the label "{label}".'''
 
-        s9 = f'''Craft an ASP application to avoid mapping the "{predicate_name}" predicate with value {value} to the label "{label}".'''
+        s9 = f'''Craft an ASP application to avoid mapping the predicate "{predicate_name}" with value {value} to the label "{label}".'''
 
-        s10 = f'''Create an ASP code snippet to ensure the "{predicate_name}" predicate with a value of {value} is not linked to the label "{label}".'''
+        s10 = f'''Create an ASP code snippet to ensure the predicate "{predicate_name}" with a value of {value} is not linked to the label "{label}".'''
 
-        s11 = f'''Write an ASP script that prevents the "{predicate_name}" predicate with value {value} from being assigned to the "{label}" label.'''
+        s11 = f'''Write an ASP script that prevents the predicate "{predicate_name}" with value {value} from being assigned to the label "{label}".'''
 
-        s12 = f'''Develop an ASP application to disallow connecting the "{predicate_name}" predicate having value {value} with the "{label}" label.'''
+        s12 = f'''Develop an ASP application to disallow connecting the predicate "{predicate_name}" having value {value} with the label "{label}".'''
 
         s13 = f'''Compose an ASP solution that avoids the predicate "{predicate_name}" with value {value} being mapped to the label "{label}".'''
 
-        s14 = f'''Generate an ASP code to exclude linking the "{predicate_name}" predicate with value {value} to the label "{label}".'''
+        s14 = f'''Generate an ASP code to exclude linking the predicate "{predicate_name}" with value {value} to the label "{label}".'''
 
-        s15 = f'''Formulate an ASP script to ensure the "{predicate_name}" predicate having value {value} is not associated with the label "{label}".'''
+        s15 = f'''Formulate an ASP script to ensure the predicate "{predicate_name}" having value {value} is not associated with the label "{label}".'''
 
-        s16 = f'''Design an ASP application that prohibits assigning the "{predicate_name}" predicate with value {value} to the label "{label}".'''
+        s16 = f'''Design an ASP application that prohibits assigning the predicate "{predicate_name}" with value {value} to the label "{label}".'''
 
-        s17 = f'''Produce an ASP solution that disallows the "{predicate_name}" predicate with value {value} from being mapped to the "{label}" label.'''
+        s17 = f'''Produce an ASP solution that disallows the predicate "{predicate_name}" with value {value} from being mapped to the label "{label}".'''
 
-        s18 = f'''Create an ASP script to avoid associating the "{predicate_name}" predicate having value {value} with the "{label}" label.'''
+        s18 = f'''Create an ASP script to avoid associating the predicate "{predicate_name}" having value {value} with the "{label}" label.'''
 
         s19 = f'''Draft an ASP program to prevent the predicate "{predicate_name}" with value {value} from being linked to the label "{label}".'''
 
-        s20 = f'''Write an ASP application that excludes the "{predicate_name}" predicate with value {value} from being assigned to the label "{label}".'''
+        s20 = f'''Write an ASP application that excludes the predicate "{predicate_name}" with value {value} from being assigned to the label "{label}".'''
 
         s21 = f'''{incipit()} Prevent the predicate "{predicate_name}" with value "{value}" from having label "{label}".'''
     
@@ -342,25 +340,25 @@ def copilot_generate_combinations(predicate_name_1, predicate_name_2, test):
 
         s2 = f'''Write an ASP solution that generates the cross-product of elements between the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
 
-        s3 = f'''Create an ASP program that produces all valid pairings of elements from the "{predicate_name_1}" and "{predicate_name_2}" predicates.'''
+        s3 = f'''Create an ASP program that produces all valid pairings of elements from the "{predicate_name_1}" and predicates "{predicate_name_2}".'''
 
         s4 = f'''Design an ASP script that calculates the Cartesian product of elements between the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
 
-        s5 = f'''Implement an ASP application that finds all combinations of elements from the "{predicate_name_1}" and "{predicate_name_2}" predicates.'''
+        s5 = f'''Implement an ASP application that finds all combinations of elements from the "{predicate_name_1}" and predicates "{predicate_name_2}".'''
 
-        s6 = f'''Craft an ASP solution that enumerates every possible pairing of elements from the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
+        s6 = f'''Craft an ASP solution that enumerates every possible pairing of elements from the "{predicate_name_1}" and sets "{predicate_name_2}".'''
 
-        s7 = f'''Build an ASP program that lists all valid combinations of elements between the "{predicate_name_1}" and "{predicate_name_2}" predicates.'''
+        s7 = f'''Build an ASP program that lists all valid combinations of elements between the "{predicate_name_1}" and predicates "{predicate_name_2}".'''
 
-        s8 = f'''Create an ASP code snippet that computes the cross-product of elements from the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
+        s8 = f'''Create an ASP code snippet that computes the cross-product of elements from the "{predicate_name_1}" and sets "{predicate_name_2}".'''
 
-        s9 = f'''Write an ASP program that generates all valid pairings of elements expressed by the "{predicate_name_1}" and "{predicate_name_2}" predicates.'''
+        s9 = f'''Write an ASP program that generates all valid pairings of elements expressed by the "{predicate_name_1}" and predicates "{predicate_name_2}".'''
 
-        s10 = f'''Develop an ASP solution that calculates the Cartesian product of elements from the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
+        s10 = f'''Develop an ASP solution that calculates the Cartesian product of elements from the "{predicate_name_1}" and sets "{predicate_name_2}".'''
 
         s11 = f'''Compose an ASP program that determines all possible combinations of elements from two sets defined by the predicates "{predicate_name_1}" and "{predicate_name_2}".'''
 
-        s12 = f'''Generate an ASP solution that produces the cross-product of elements between the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
+        s12 = f'''Generate an ASP solution that produces the cross-product of elements between the "{predicate_name_1}" and sets "{predicate_name_2}".'''
 
         s13 = f'''Create an ASP script that forms all valid pairings of elements from the predicates "{predicate_name_1}" and "{predicate_name_2}".'''
 
@@ -388,13 +386,13 @@ def copilot_generate_combinations(predicate_name_1, predicate_name_2, test):
 
         s2 = f'''Craft an ASP program to generate the cross-product of elements between the predicates "{predicate_name_1}" and "{predicate_name_2}".'''
 
-        s3 = f'''Develop an ASP code snippet to produce all valid combinations of elements from the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
+        s3 = f'''Develop an ASP code snippet to produce all valid combinations of elements from the "{predicate_name_1}" and sets "{predicate_name_2}".'''
 
         s4 = f'''Compose an ASP script to calculate the Cartesian product of elements represented by the predicates "{predicate_name_1}" and "{predicate_name_2}".'''
 
         s5 = f'''Write an ASP application that finds all pairings of elements from the sets defined by the predicates "{predicate_name_1}" and "{predicate_name_2}".'''
 
-        s6 = f'''Formulate an ASP program that enumerates every possible combination of elements from the "{predicate_name_1}" and "{predicate_name_2}" sets.'''
+        s6 = f'''Formulate an ASP program that enumerates every possible combination of elements from the "{predicate_name_1}" and sets "{predicate_name_2}".'''
 
         s7 = f'''Create an ASP solution to list all valid pairings of elements between the predicates "{predicate_name_1}" and "{predicate_name_2}".'''
 
@@ -466,39 +464,39 @@ def copilot_select_value(predicate_name, label, test):
 
         s2 = f'''Write an ASP program to extract values linked to the predicate "{predicate_name}" with the label "{label}".'''
 
-        s3 = f'''Develop an ASP solution that identifies all values related to the "{label}" label within the "{predicate_name}" predicate.'''
+        s3 = f'''Develop an ASP solution that identifies all values related to the label "{label}" within the predicate "{predicate_name}".'''
 
-        s4 = f'''Craft an ASP program that collects data associated with the "{label}" label for the "{predicate_name}" predicate.'''
+        s4 = f'''Craft an ASP program that collects data associated with the label "{label}" for the predicate "{predicate_name}".'''
 
-        s5 = f'''Construct an ASP script to fetch values corresponding to the "{label}" label within the "{predicate_name}" predicate.'''
+        s5 = f'''Construct an ASP script to fetch values corresponding to the label "{label}" within the predicate "{predicate_name}".'''
 
-        s6 = f'''Generate an ASP code snippet that retrieves all relevant values for the "{label}" label in the context of the "{predicate_name}" predicate.'''
+        s6 = f'''Generate an ASP code snippet that retrieves all relevant values for the label "{label}" in the context of the predicate "{predicate_name}".'''
 
-        s7 = f'''Produce an ASP implementation that selects values tied to the "{label}" label under the "{predicate_name}" predicate.'''
+        s7 = f'''Produce an ASP implementation that selects values tied to the label "{label}" under the predicate "{predicate_name}".'''
 
-        s8 = f'''Write an ASP script to obtain all values labeled as "{label}" within the "{predicate_name}" predicate.'''
+        s8 = f'''Write an ASP script to obtain all values labeled as "{label}" within the predicate "{predicate_name}".'''
 
-        s9 = f'''Design an ASP program to capture values associated with the "{label}" label in the context of the "{predicate_name}" predicate.'''
+        s9 = f'''Design an ASP program to capture values associated with the label "{label}" in the context of the predicate "{predicate_name}".'''
 
-        s10 = f'''Compose an ASP solution that identifies and retrieves values labeled "{label}" under the "{predicate_name}" predicate.'''
+        s10 = f'''Compose an ASP solution that identifies and retrieves values labeled "{label}" under the predicate "{predicate_name}".'''
 
-        s11 = f'''Formulate an ASP script to gather values related to the "{label}" label within the "{predicate_name}" predicate.'''
+        s11 = f'''Formulate an ASP script to gather values related to the label "{label}" within the predicate "{predicate_name}".'''
 
         s12 = f'''Create an ASP program that extracts values linked to the "{predicate_name}" predicate and labeled as "{label}".'''
 
         s13 = f'''Develop an ASP script to collect data associated with the "{predicate_name}" predicate and the "{label}" label.'''
 
-        s14 = f'''Design an ASP application that retrieves values associated with the label "{label}" within the "{predicate_name}" predicate.'''
+        s14 = f'''Design an ASP application that retrieves values associated with the label "{label}" within the predicate "{predicate_name}".'''
 
-        s15 = f'''Write an ASP code snippet to fetch values linked to the "{label}" label in the context of the "{predicate_name}" predicate.'''
+        s15 = f'''Write an ASP code snippet to fetch values linked to the label "{label}" in the context of the predicate "{predicate_name}".'''
 
-        s16 = f'''Generate an ASP program that identifies all values associated with the "{label}" label within the "{predicate_name}" predicate.'''
+        s16 = f'''Generate an ASP program that identifies all values associated with the label "{label}" within the pred icate "{predicate_name}".'''        
+        
+        s17 = f'''Craft an ASP application to gather all values tied to the label "{label}" under the predicate "{predicate_name}".'''
 
-        s17 = f'''Craft an ASP application to gather all values tied to the label "{label}" under the "{predicate_name}" predicate.'''
+        s18 = f'''Produce an ASP script that extracts values related to the label "{label}" in the context of the predicate "{predicate_name}".'''
 
-        s18 = f'''Produce an ASP script that extracts values related to the "{label}" label in the context of the "{predicate_name}" predicate.'''
-
-        s19 = f'''Develop an ASP program that retrieves data associated with the label "{label}" within the "{predicate_name}" predicate.'''
+        s19 = f'''Develop an ASP program that retrieves data associated with the label "{label}" within the predicate "{predicate_name}".'''
 
         s20 = f'''Create an ASP solution to capture values labeled as "{label}" within the predicate "{predicate_name}".'''
 
@@ -514,37 +512,37 @@ def copilot_select_value(predicate_name, label, test):
 
         s3 = f'''Generate an ASP script that identifies all values within the predicate "{predicate_name}" that are linked to the label "{label}".'''
 
-        s4 = f'''Compose an ASP solution to gather data from the "{predicate_name}" predicate associated with the label "{label}".'''
+        s4 = f'''Compose an ASP solution to gather data from the predicate"{predicate_name}" associated with the label "{label}".'''
 
         s5 = f'''Develop an ASP program to select values tied to the label "{label}" within the predicate "{predicate_name}".'''
 
-        s6 = f'''Craft an ASP code snippet to capture all relevant values for the "{label}" label within the "{predicate_name}" predicate.'''
+        s6 = f'''Craft an ASP code snippet to capture all relevant values for the labe"{label}" within the predicate"{predicate_name}".'''
 
-        s7 = f'''Write an ASP script to collect values associated with the "{label}" label from the "{predicate_name}" predicate.'''
+        s7 = f'''Write an ASP script to collect values associated with the labe"{label}" from the predicate"{predicate_name}".'''
 
         s8 = f'''Create an ASP solution that retrieves all values labeled "{label}" within the predicate "{predicate_name}".'''
 
-        s9 = f'''Design an ASP application to fetch values tied to the label "{label}" within the context of the "{predicate_name}" predicate.'''
+        s9 = f'''Design an ASP application to fetch values tied to the label "{label}" within the context of the predicate"{predicate_name}".'''
 
-        s10 = f'''Produce an ASP program to gather and retrieve values linked to the "{label}" label in the "{predicate_name}" predicate.'''
+        s10 = f'''Produce an ASP program to gather and retrieve values linked to the labe"{label}" in the predicate"{predicate_name}".'''
 
-        s11 = f'''Formulate an ASP script that extracts values related to the "{label}" label within the context of the "{predicate_name}" predicate.'''
+        s11 = f'''Formulate an ASP script that extracts values related to the labe"{label}" within the context of the predicate"{predicate_name}".'''
 
         s12 = f'''Write an ASP application to collect values linked to the predicate "{predicate_name}" and labeled as "{label}".'''
 
-        s13 = f'''Develop an ASP solution that gathers data associated with the "{label}" label within the predicate "{predicate_name}".'''
+        s13 = f'''Develop an ASP solution that gathers data associated with the labe"{label}" within the predicate "{predicate_name}".'''
 
-        s14 = f'''Generate an ASP code snippet to capture values related to the "{label}" label in the "{predicate_name}" predicate.'''
+        s14 = f'''Generate an ASP code snippet to capture values related to the labe"{label}" in the predicate"{predicate_name}".'''
 
         s15 = f'''Compose an ASP program to identify values labeled as "{label}" within the predicate "{predicate_name}".'''
 
-        s16 = f'''Craft an ASP application to fetch all values linked to the "{label}" label in the context of the "{predicate_name}" predicate.'''
+        s16 = f'''Craft an ASP application to fetch all values linked to the labe"{label}" in the context of the predicate"{predicate_name}".'''
 
-        s17 = f'''Design an ASP program to gather values tied to the "{label}" label within the context of the predicate "{predicate_name}".'''
+        s17 = f'''Design an ASP program to gather values tied to the labe"{label}" within the context of the predicate "{predicate_name}".'''
 
-        s18 = f'''Create an ASP code to retrieve values associated with the label "{label}" within the "{predicate_name}" predicate.'''
+        s18 = f'''Create an ASP code to retrieve values associated with the label "{label}" within the predicate"{predicate_name}".'''
 
-        s19 = f'''Develop an ASP script to capture all values linked to the "{label}" label within the "{predicate_name}" predicate.'''
+        s19 = f'''Develop an ASP script to capture all values linked to the labe"{label}" within the predicate"{predicate_name}".'''
 
         s20 = f'''Write an ASP solution to collect values tied to the predicate "{predicate_name}" and labeled as "{label}".'''
 
@@ -951,23 +949,23 @@ def copilot_preferences(predicate_name, label, value, cost_value, cost_level, te
         
         s1 = f'''Design an ASP solution to prevent the predicate "{predicate_name}" with value "{value}" from being linked to "{label}". If this occurs, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
-        s2 = f'''Craft an ASP program to ensure that the "{predicate_name}" predicate with value "{value}" is not associated with "{label}", incurring a cost of "{cost_value}" at level "{cost_level}" if it does.'''
+        s2 = f'''Craft an ASP program to ensure that the predicate "{predicate_name}" with value "{value}" is not associated with "{label}", incurring a cost of "{cost_value}" at level "{cost_level}" if it does.'''
 
-        s3 = f'''Develop an ASP code snippet to avoid linking the "{predicate_name}" predicate with value "{value}" to "{label}". If such a link is found, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
+        s3 = f'''Develop an ASP code snippet to avoid linking the predicate "{predicate_name}" with value "{value}" to "{label}". If such a link is found, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
         s4 = f'''Write an ASP program that disallows the association between "{predicate_name}" with value "{value}" and "{label}", with a cost of "{cost_value}" at level "{cost_level}" if this association occurs.'''
 
-        s5 = f'''Generate an ASP application to keep the "{predicate_name}" predicate with value "{value}" separate from "{label}", incurring a cost of "{cost_value}" at level "{cost_level}" if associated.'''
+        s5 = f'''Generate an ASP application to keep the predicate "{predicate_name}" with value "{value}" separate from "{label}", incurring a cost of "{cost_value}" at level "{cost_level}" if associated.'''
 
-        s6 = f'''Compose an ASP script to ensure the "{predicate_name}" predicate with value "{value}" does not link to "{label}". If this connection happens, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
+        s6 = f'''Compose an ASP script to ensure the predicate "{predicate_name}" with value "{value}" does not link to "{label}". If this connection happens, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
         s7 = f'''Formulate an ASP solution to prevent the association of the predicate "{predicate_name}" with value "{value}" with "{label}". If this association occurs, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
         s8 = f'''Create an ASP program that keeps the predicate "{predicate_name}" with value "{value}" unlinked from "{label}". If linked, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
-        s9 = f'''Develop an ASP application to avoid the "{predicate_name}" predicate with value "{value}" being associated with "{label}", incurring a cost of "{cost_value}" at level "{cost_level}" if found.'''
+        s9 = f'''Develop an ASP application to avoid the predicate "{predicate_name}" with value "{value}" being associated with "{label}", incurring a cost of "{cost_value}" at level "{cost_level}" if found.'''
 
-        s10 = f'''Generate an ASP script to ensure the "{predicate_name}" predicate with value "{value}" is not linked to "{label}". Any occurrence incurs a cost of "{cost_value}" at level "{cost_level}".'''
+        s10 = f'''Generate an ASP script to ensure the predicate "{predicate_name}" with value "{value}" is not linked to "{label}". Any occurrence incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
         s11 = f'''Draft an ASP solution to make sure the predicate "{predicate_name}" with value "{value}" is not connected to "{label}". If connected, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
@@ -975,7 +973,7 @@ def copilot_preferences(predicate_name, label, value, cost_value, cost_level, te
 
         s13 = f'''Compose an ASP program to keep the predicate "{predicate_name}" with value "{value}" separate from "{label}". If this association occurs, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
-        s14 = f'''Craft an ASP solution to prevent the linking of the "{predicate_name}" predicate with value "{value}" to "{label}". Any link incurs a cost of "{cost_value}" at level "{cost_level}".'''
+        s14 = f'''Craft an ASP solution to prevent the linking of the predicate "{predicate_name}" with value "{value}" to "{label}". Any link incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
         s15 = f'''Create an ASP code to ensure that the predicate "{predicate_name}" with value "{value}" does not associate with "{label}". If it does, it incurs a cost of "{cost_value}" at level "{cost_level}".'''
 
@@ -1904,7 +1902,7 @@ def combination_negative_filtering(label, predicate_name_1, predicate_name_2):
 
 
 
-def generate_subproblems(size, train_size, validation, print_proportions=True):
+def generate_subproblems(size, train_size, validation, print_proportions=False):
 
     colors = ["red", "green", "blue", "yellow", "brown", "orange", "purple", "gray", "cyan"]
     cities = ["rome", "paris", "venice", "new york", "london", "amsterdam", "dubai", "tokyo", "shangai", "florence"]
