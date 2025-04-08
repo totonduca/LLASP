@@ -1,0 +1,1054 @@
+
+i: 125
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 134
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 188
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 209
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 269
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 314
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 377
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 476
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "barcelona" and "lightblue". In addition, select all values associated with predicate combination but not associated with predicate "moscow" and label "cloud".
+
+answer from file: combination(X,Y):-barcelona(X),lightblue(Y).
+select(X):-combination(X,_), not moscow(X, "cloud").
+
+facts: 
+barcelona(1..4).lightblue(1..5).moscow(0..1,"cloud").moscow(2..3,"desk").moscow(2..3,"chair").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "barcelona" and "lightblue". In addition, select all values associated with predicate combination but not associated with predicate "moscow" and label "cloud".
+Answer: combination(X,Y):-barcelona(X),lightblue(Y).
+select(X):-combination(X,_), not mosquitos(X, "cloud").
+
+parsed: 
+combination(X,Y):-barcelona(X),lightblue(Y).
+select(X):-combination(X,_), not mosquitos(X, "cloud").
+
+wanted answer_Set: [['lightblue(1)', 'lightblue(2)', 'lightblue(3)', 'lightblue(4)', 'lightblue(5)', 'barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'moscow(2,"chair")', 'moscow(3,"chair")', 'moscow(2,"desk")', 'moscow(3,"desk")', 'moscow(0,"cloud")', 'moscow(1,"cloud")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['lightblue(1)', 'lightblue(2)', 'lightblue(3)', 'lightblue(4)', 'lightblue(5)', 'barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'select(1)', 'select(2)', 'select(3)', 'select(4)', 'moscow(2,"chair")', 'moscow(3,"chair")', 'moscow(2,"desk")', 'moscow(3,"desk")', 'moscow(0,"cloud")', 'moscow(1,"cloud")']]
+
+jaccard: 0.0
+
+
+i: 629
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 944
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 968
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "surname" and "cloud". In addition, select all values associated with predicate combination but not associated with predicate "moscow" and label "chair".
+
+answer from file: combination(X,Y):-surname(X),cloud(Y).
+select(X):-combination(X,_), not moscow(X, "chair").
+
+facts: 
+surname(1..4).cloud(1..5).moscow(0..1,"chair").moscow(2..3,"storm").moscow(2..3,"wall").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "surname" and "cloud". In addition, select all values associated with predicate combination but not associated with predicate "moscow" and label "chair".
+Answer: combination(X,Y):-surname(X),cloud(Y).
+select(X):-combination(X,_), not mosquitos(X, "chair").
+
+parsed: 
+combination(X,Y):-surname(X),cloud(Y).
+select(X):-combination(X,_), not mosquitos(X, "chair").
+
+wanted answer_Set: [['cloud(1)', 'cloud(2)', 'cloud(3)', 'cloud(4)', 'cloud(5)', 'surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'moscow(2,"wall")', 'moscow(3,"wall")', 'moscow(2,"storm")', 'moscow(3,"storm")', 'moscow(0,"chair")', 'moscow(1,"chair")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['cloud(1)', 'cloud(2)', 'cloud(3)', 'cloud(4)', 'cloud(5)', 'surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'select(1)', 'select(2)', 'select(3)', 'select(4)', 'moscow(2,"wall")', 'moscow(3,"wall")', 'moscow(2,"storm")', 'moscow(3,"storm")', 'moscow(0,"chair")', 'moscow(1,"chair")']]
+
+jaccard: 0.0
+
+
+i: 1187
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+
+answer from file: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "storm").
+
+facts: 
+darkmagenta(1..4).strength(1..5).mumbai(0..1,"storm").mumbai(2..3,"laptop").mumbai(2..3,"desk").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+Answer: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+parsed: 
+combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")']]
+
+jaccard: 0.0
+
+
+i: 1268
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+
+answer from file: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "storm").
+
+facts: 
+darkmagenta(1..4).strength(1..5).mumbai(0..1,"storm").mumbai(2..3,"laptop").mumbai(2..3,"desk").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+Answer: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+parsed: 
+combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")']]
+
+jaccard: 0.0
+
+
+i: 1281
+
+index: 0
+
+join_filtering
+
+question: Write an ASP program for the following problem. Consider predicate "wall" having fields "ID","strength","mumbaiID", and the predicate "mumbai" having fields "ID","weight". Define a predicate "wall_mumbai" that associates to each wall the attribute weight of mumbai. In addition, select all values associated to the predicate "wall_mumbai" with label "wall".
+
+answer from file: wall_mumbai(X,Z):-wall(X,_,Y),mumbai(Y,Z).
+select(X):-wall_mumbai(X,"wall").
+
+facts: 
+wall(0..3,"mumbai",0..4).mumbai(0..2,"chicago").mumbai(2..4,"wall").
+
+generated: 
+Write an ASP program for the following problem. Consider predicate "wall" having fields "ID","strength","mumbaiID", and the predicate "mumbai" having fields "ID","weight". Define a predicate "wall_mumbai" that associates to each wall the attribute weight of mumbai. In addition, select all values associated to the predicate "wall_mumbai" with label "wall".
+Answer: wall_mumbai(X,Z):-wall(X,_,Z).
+select(X):-wall_mumbai(X,"wall").
+
+parsed: 
+wall_mumbai(X,Z):-wall(X,_,Z).select(X):-wall_mumbai(X,"wall").
+
+wanted answer_Set: [['mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(4,"wall")', 'mumbai(0,"chicago")', 'mumbai(1,"chicago")', 'mumbai(2,"chicago")', 'wall_mumbai(0,"chicago")', 'wall_mumbai(0,"wall")', 'wall_mumbai(1,"chicago")', 'wall_mumbai(1,"wall")', 'wall_mumbai(2,"chicago")', 'wall_mumbai(2,"wall")', 'wall_mumbai(3,"chicago")', 'wall_mumbai(3,"wall")', 'select(0)', 'select(1)', 'select(2)', 'select(3)', 'wall(0,"mumbai",0)', 'wall(0,"mumbai",1)', 'wall(0,"mumbai",2)', 'wall(0,"mumbai",3)', 'wall(0,"mumbai",4)', 'wall(1,"mumbai",0)', 'wall(1,"mumbai",1)', 'wall(1,"mumbai",2)', 'wall(1,"mumbai",3)', 'wall(1,"mumbai",4)', 'wall(2,"mumbai",0)', 'wall(2,"mumbai",1)', 'wall(2,"mumbai",2)', 'wall(2,"mumbai",3)', 'wall(2,"mumbai",4)', 'wall(3,"mumbai",0)', 'wall(3,"mumbai",1)', 'wall(3,"mumbai",2)', 'wall(3,"mumbai",3)', 'wall(3,"mumbai",4)']]
+
+generated answer_Set: [['wall(0,"mumbai",0)', 'wall(0,"mumbai",1)', 'wall(0,"mumbai",2)', 'wall(0,"mumbai",3)', 'wall(0,"mumbai",4)', 'wall(1,"mumbai",0)', 'wall(1,"mumbai",1)', 'wall(1,"mumbai",2)', 'wall(1,"mumbai",3)', 'wall(1,"mumbai",4)', 'wall(2,"mumbai",0)', 'wall(2,"mumbai",1)', 'wall(2,"mumbai",2)', 'wall(2,"mumbai",3)', 'wall(2,"mumbai",4)', 'wall(3,"mumbai",0)', 'wall(3,"mumbai",1)', 'wall(3,"mumbai",2)', 'wall(3,"mumbai",3)', 'wall(3,"mumbai",4)', 'wall_mumbai(0,0)', 'wall_mumbai(0,1)', 'wall_mumbai(0,2)', 'wall_mumbai(0,3)', 'wall_mumbai(0,4)', 'wall_mumbai(1,0)', 'wall_mumbai(1,1)', 'wall_mumbai(1,2)', 'wall_mumbai(1,3)', 'wall_mumbai(1,4)', 'wall_mumbai(2,0)', 'wall_mumbai(2,1)', 'wall_mumbai(2,2)', 'wall_mumbai(2,3)', 'wall_mumbai(2,4)', 'wall_mumbai(3,0)', 'wall_mumbai(3,1)', 'wall_mumbai(3,2)', 'wall_mumbai(3,3)', 'wall_mumbai(3,4)', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(4,"wall")', 'mumbai(0,"chicago")', 'mumbai(1,"chicago")', 'mumbai(2,"chicago")']]
+
+jaccard: 0.0
+
+
+i: 1550
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+
+answer from file: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "storm").
+
+facts: 
+darkmagenta(1..4).strength(1..5).mumbai(0..1,"storm").mumbai(2..3,"laptop").mumbai(2..3,"desk").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+Answer: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+parsed: 
+combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")']]
+
+jaccard: 0.0
+
+
+i: 1634
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+chicago(1..4).strength(1..5).mumbai(0..1,"desk").mumbai(2..3,"wall").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 1691
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+
+answer from file: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "storm").
+
+facts: 
+darkmagenta(1..4).strength(1..5).mumbai(0..1,"storm").mumbai(2..3,"laptop").mumbai(2..3,"desk").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+Answer: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+parsed: 
+combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")']]
+
+jaccard: 0.0
+
+
+i: 1694
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+chicago(1..4).strength(1..5).mumbai(0..1,"desk").mumbai(2..3,"wall").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 1715
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "wall" and "weight". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "cloud".
+
+answer from file: combination(X,Y):-wall(X),weight(Y).
+select(X):-combination(X,_), not mumbai(X, "cloud").
+
+facts: 
+wall(1..4).weight(1..5).mumbai(0..1,"cloud").mumbai(2..3,"desk").mumbai(2..3,"laptop").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "wall" and "weight". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "cloud".
+Answer: combination(X,Y):-wall(X),weight(Y).
+select(X):-combination(X,_), notumbai(X, "cloud").
+
+parsed: 
+combination(X,Y):-wall(X),weight(Y).
+select(X):-combination(X,_), notumbai(X, "cloud").
+
+wanted answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'wall(1)', 'wall(2)', 'wall(3)', 'wall(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(0,"cloud")', 'mumbai(1,"cloud")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'wall(1)', 'wall(2)', 'wall(3)', 'wall(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(0,"cloud")', 'mumbai(1,"cloud")']]
+
+jaccard: 0.0
+
+
+i: 1730
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "black" and "cairo". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-black(X),cairo(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+black(1..4).cairo(1..5).mumbai(0..1,"desk").mumbai(2..3,"flower").mumbai(2..3,"laptop").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "black" and "cairo". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-black(X),cairo(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-black(X),cairo(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'black(1)', 'black(2)', 'black(3)', 'black(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"flower")', 'mumbai(3,"flower")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'black(1)', 'black(2)', 'black(3)', 'black(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"flower")', 'mumbai(3,"flower")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 1781
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+
+answer from file: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "storm").
+
+facts: 
+darkmagenta(1..4).strength(1..5).mumbai(0..1,"storm").mumbai(2..3,"laptop").mumbai(2..3,"desk").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+Answer: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+parsed: 
+combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")']]
+
+jaccard: 0.0
+
+
+i: 1885
+
+index: 1
+
+guessing_constraint
+
+question: Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are desk,chair,butterfly,roof,storm,wall,cloud,flower. Then prevent the predicate "cairo" with value "5" from having label "roof".
+
+answer from file: assign(X,"desk")|assign(X,"chair")|assign(X,"butterfly")|assign(X,"roof")|assign(X,"storm")|assign(X,"wall")|assign(X,"cloud")|assign(X,"flower"):-cairo(X).
+:-assign(5, "roof").
+
+facts: 
+cairo(1..20).
+
+generated: 
+Write an ASP program for the following problem. Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate cairo. The labels are desk,chair,butterfly,roof,storm,wall,cloud,flower. Then prevent the predicate "cairo" with value "5" from having label "roof".
+Answer: assign(X,"desk")|assign(X,"chair")|assign(X,"butterfly")|assign(X,"roof")|assign(X,"wall")|assign(X,"cloud")|assign(X,"flower"):-cairo(X).
+:-assign(5, "roof").
+:-assign(1, "table").
+:-assign(2, "table").
+:-assign(3, "table").
+:-assign(4, "table").
+
+parsed: 
+assign(X,"desk")|assign(X,"chair")|assign(X,"butterfly")|assign(X,"roof")|assign(X,"wall")|assign(X,"cloud")|assign(X,"flower"):-cairo(X).
+:-assign(5, "roof").
+
+wanted answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'cairo(6)', 'cairo(7)', 'cairo(8)', 'cairo(9)', 'cairo(10)', 'cairo(11)', 'cairo(12)', 'cairo(13)', 'cairo(14)', 'cairo(15)', 'cairo(16)', 'cairo(17)', 'cairo(18)', 'cairo(19)', 'cairo(20)', 'assign(1,"cloud")', 'assign(2,"cloud")', 'assign(3,"flower")', 'assign(4,"cloud")', 'assign(5,"desk")', 'assign(6,"flower")', 'assign(7,"flower")', 'assign(8,"flower")', 'assign(9,"flower")', 'assign(10,"flower")', 'assign(11,"flower")', 'assign(12,"flower")', 'assign(13,"chair")', 'assign(14,"flower")', 'assign(15,"flower")', 'assign(16,"flower")', 'assign(17,"flower")', 'assign(18,"flower")', 'assign(19,"flower")', 'assign(20,"flower")']]
+
+generated answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'cairo(6)', 'cairo(7)', 'cairo(8)', 'cairo(9)', 'cairo(10)', 'cairo(11)', 'cairo(12)', 'cairo(13)', 'cairo(14)', 'cairo(15)', 'cairo(16)', 'cairo(17)', 'cairo(18)', 'cairo(19)', 'cairo(20)', 'assign(1,"flower")', 'assign(2,"flower")', 'assign(3,"flower")', 'assign(4,"flower")', 'assign(5,"butterfly")', 'assign(6,"flower")', 'assign(7,"flower")', 'assign(8,"flower")', 'assign(9,"flower")', 'assign(10,"flower")', 'assign(11,"flower")', 'assign(12,"flower")', 'assign(13,"flower")', 'assign(14,"flower")', 'assign(15,"flower")', 'assign(16,"flower")', 'assign(17,"wall")', 'assign(18,"cloud")', 'assign(19,"flower")', 'assign(20,"flower")']]
+
+jaccard: 0.0
+
+
+i: 1889
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+quality(1..4).delhi(1..5).mumbai(0..1,"flower").mumbai(2..3,"chair").mumbai(2..3,"roof").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "quality" and "delhi". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-quality(X),delhi(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['delhi(1)', 'delhi(2)', 'delhi(3)', 'delhi(4)', 'delhi(5)', 'quality(1)', 'quality(2)', 'quality(3)', 'quality(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"roof")', 'mumbai(3,"roof")', 'mumbai(2,"chair")', 'mumbai(3,"chair")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 1991
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+
+answer from file: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), not mumbai(X, "butterfly").
+
+facts: 
+roof(1..4).barcelona(1..5).mumbai(0..1,"butterfly").mumbai(2..3,"laptop").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+Answer: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+parsed: 
+combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+wanted answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")']]
+
+jaccard: 0.0
+
+
+i: 2051
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+
+answer from file: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), not mumbai(X, "butterfly").
+
+facts: 
+roof(1..4).barcelona(1..5).mumbai(0..1,"butterfly").mumbai(2..3,"laptop").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+Answer: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+parsed: 
+combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+wanted answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")']]
+
+jaccard: 0.0
+
+
+i: 2066
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+chicago(1..4).strength(1..5).mumbai(0..1,"desk").mumbai(2..3,"wall").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 2120
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "storm" and "weight". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-storm(X),weight(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+storm(1..4).weight(1..5).mumbai(0..1,"desk").mumbai(2..3,"cloud").mumbai(2..3,"butterfly").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "storm" and "weight". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-storm(X),weight(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-storm(X),weight(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'storm(1)', 'storm(2)', 'storm(3)', 'storm(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"butterfly")', 'mumbai(3,"butterfly")', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'storm(1)', 'storm(2)', 'storm(3)', 'storm(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"butterfly")', 'mumbai(3,"butterfly")', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 2240
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+
+answer from file: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), not mumbai(X, "butterfly").
+
+facts: 
+roof(1..4).barcelona(1..5).mumbai(0..1,"butterfly").mumbai(2..3,"laptop").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+Answer: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+parsed: 
+combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+wanted answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")']]
+
+jaccard: 0.0
+
+
+i: 2381
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "storm" and "weight". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-storm(X),weight(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+storm(1..4).weight(1..5).mumbai(0..1,"desk").mumbai(2..3,"cloud").mumbai(2..3,"butterfly").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "storm" and "weight". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-storm(X),weight(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-storm(X),weight(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'storm(1)', 'storm(2)', 'storm(3)', 'storm(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"butterfly")', 'mumbai(3,"butterfly")', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'storm(1)', 'storm(2)', 'storm(3)', 'storm(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"butterfly")', 'mumbai(3,"butterfly")', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 2414
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "black" and "cairo". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-black(X),cairo(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+black(1..4).cairo(1..5).mumbai(0..1,"desk").mumbai(2..3,"flower").mumbai(2..3,"laptop").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "black" and "cairo". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-black(X),cairo(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-black(X),cairo(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'black(1)', 'black(2)', 'black(3)', 'black(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"flower")', 'mumbai(3,"flower")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'cairo(5)', 'black(1)', 'black(2)', 'black(3)', 'black(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"flower")', 'mumbai(3,"flower")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 2537
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+
+answer from file: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "storm").
+
+facts: 
+darkmagenta(1..4).strength(1..5).mumbai(0..1,"storm").mumbai(2..3,"laptop").mumbai(2..3,"desk").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "darkmagenta" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "storm".
+Answer: combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+parsed: 
+combination(X,Y):-darkmagenta(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "storm").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'darkmagenta(1)', 'darkmagenta(2)', 'darkmagenta(3)', 'darkmagenta(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"desk")', 'mumbai(3,"desk")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"storm")', 'mumbai(1,"storm")']]
+
+jaccard: 0.0
+
+
+i: 2660
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cairo" and "surname". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "roof".
+
+answer from file: combination(X,Y):-cairo(X),surname(Y).
+select(X):-combination(X,_), not mumbai(X, "roof").
+
+facts: 
+cairo(1..4).surname(1..5).mumbai(0..1,"roof").mumbai(2..3,"storm").mumbai(2..3,"flower").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cairo" and "surname". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "roof".
+Answer: combination(X,Y):-cairo(X),surname(Y).
+select(X):-combination(X,_), notumbai(X, "roof").
+
+parsed: 
+combination(X,Y):-cairo(X),surname(Y).
+select(X):-combination(X,_), notumbai(X, "roof").
+
+wanted answer_Set: [['surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'surname(5)', 'cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"flower")', 'mumbai(3,"flower")', 'mumbai(2,"storm")', 'mumbai(3,"storm")', 'mumbai(0,"roof")', 'mumbai(1,"roof")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'surname(5)', 'cairo(1)', 'cairo(2)', 'cairo(3)', 'cairo(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"flower")', 'mumbai(3,"flower")', 'mumbai(2,"storm")', 'mumbai(3,"storm")', 'mumbai(0,"roof")', 'mumbai(1,"roof")']]
+
+jaccard: 0.0
+
+
+i: 2702
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+
+answer from file: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), not mumbai(X, "desk").
+
+facts: 
+chicago(1..4).strength(1..5).mumbai(0..1,"desk").mumbai(2..3,"wall").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "chicago" and "strength". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "desk".
+Answer: combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+parsed: 
+combination(X,Y):-chicago(X),strength(Y).
+select(X):-combination(X,_), notumbai(X, "desk").
+
+wanted answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'chicago(1)', 'chicago(2)', 'chicago(3)', 'chicago(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"wall")', 'mumbai(3,"wall")', 'mumbai(0,"desk")', 'mumbai(1,"desk")']]
+
+jaccard: 0.0
+
+
+i: 2765
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cloud" and "owner". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+
+answer from file: combination(X,Y):-cloud(X),owner(Y).
+select(X):-combination(X,_), not mumbai(X, "flower").
+
+facts: 
+cloud(1..4).owner(1..5).mumbai(0..1,"flower").mumbai(2..3,"storm").mumbai(2..3,"laptop").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "cloud" and "owner". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "flower".
+Answer: combination(X,Y):-cloud(X),owner(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+parsed: 
+combination(X,Y):-cloud(X),owner(Y).
+select(X):-combination(X,_), notumbai(X, "flower").
+
+wanted answer_Set: [['owner(1)', 'owner(2)', 'owner(3)', 'owner(4)', 'owner(5)', 'cloud(1)', 'cloud(2)', 'cloud(3)', 'cloud(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"storm")', 'mumbai(3,"storm")', 'mumbai(0,"flower")', 'mumbai(1,"flower")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['owner(1)', 'owner(2)', 'owner(3)', 'owner(4)', 'owner(5)', 'cloud(1)', 'cloud(2)', 'cloud(3)', 'cloud(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(2,"storm")', 'mumbai(3,"storm")', 'mumbai(0,"flower")', 'mumbai(1,"flower")']]
+
+jaccard: 0.0
+
+
+i: 2987
+
+index: 2
+
+combination_negative_filtering
+
+question: Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+
+answer from file: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), not mumbai(X, "butterfly").
+
+facts: 
+roof(1..4).barcelona(1..5).mumbai(0..1,"butterfly").mumbai(2..3,"laptop").mumbai(2..3,"cloud").
+
+generated: 
+Write an ASP program for the following problem. Generate all the combinations of elements from two sets. The two sets are represented by predicates "roof" and "barcelona". In addition, select all values associated with predicate combination but not associated with predicate "mumbai" and label "butterfly".
+Answer: combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+parsed: 
+combination(X,Y):-roof(X),barcelona(Y).
+select(X):-combination(X,_), notumbai(X, "butterfly").
+
+wanted answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")', 'select(2)', 'select(3)', 'select(4)']]
+
+generated answer_Set: [['barcelona(1)', 'barcelona(2)', 'barcelona(3)', 'barcelona(4)', 'barcelona(5)', 'roof(1)', 'roof(2)', 'roof(3)', 'roof(4)', 'combination(1,1)', 'combination(1,2)', 'combination(1,3)', 'combination(1,4)', 'combination(1,5)', 'combination(2,1)', 'combination(2,2)', 'combination(2,3)', 'combination(2,4)', 'combination(2,5)', 'combination(3,1)', 'combination(3,2)', 'combination(3,3)', 'combination(3,4)', 'combination(3,5)', 'combination(4,1)', 'combination(4,2)', 'combination(4,3)', 'combination(4,4)', 'combination(4,5)', 'mumbai(2,"cloud")', 'mumbai(3,"cloud")', 'mumbai(2,"laptop")', 'mumbai(3,"laptop")', 'mumbai(0,"butterfly")', 'mumbai(1,"butterfly")']]
+
+jaccard: 0.0
+
+
