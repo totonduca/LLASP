@@ -2140,7 +2140,7 @@ def combination_numeric_filtering(labels, predicate_name_1, predicate_name_2):
 ######   potrei aggiungere guessing e preference ovvero assign... [1@2]
 
 
-def generate_subproblems(size, train_size, validation, print_proportions=False):
+def generate_subproblems(size, train_size, validation, print_proportions=True):
 
     colors = ["red", "green", "blue", "yellow", "brown", "orange", "purple", "gray", "cyan"]
     cities = ["rome", "paris", "venice", "new york", "london", "amsterdam", "dubai", "tokyo", "shangai", "florence"]
@@ -2250,7 +2250,9 @@ def generate_subproblems(size, train_size, validation, print_proportions=False):
 
             case "core-invariance":
                 prompt_invariance=True
-                n_questions_assignment = n_questions_prevent = n_questions_combination = n_questions_join = n_questions_closure = n_questions_preferences = n_questions_select = n_questions_negative = n_questions_numeric = 0
+                n_questions_assignment = n_questions_prevent = n_questions_combination = 0
+                n_questions_join = n_questions_closure = n_questions_preferences = n_questions_select = 0
+                n_questions_negative = n_questions_numeric = 0
                 
                 for _ in range(80): #assignment
                     question_assignments, answer_assignments, f = label_assignment(predicates, np.random.choice(predicates), prompt_invariance, False)
@@ -2302,16 +2304,6 @@ def generate_subproblems(size, train_size, validation, print_proportions=False):
                     answers.extend(answers_select)
                     facts.extend(f)
                     n_questions_select += len(questions_select)
-
-                # questions_minimizing, answers_minimizing, f = minimizing(np.random.choice(predicates), predicates, False, False)
-                # questions.extend(questions_minimizing)
-                # answers.extend(answers_minimizing)
-                # facts.extend(f)
-
-                # questions_maximizing, answers_maximizing, f = maximizing(np.random.choice(predicates), predicates, False, False)
-                # questions.extend(questions_maximizing)
-                # answers.extend(answers_maximizing)
-                # facts.extend(f)
 
                 for _ in range(20):  #negative filtering
                     questions_negative, answers_negative, f = select_by_negative_condition(np.random.choice(predicates), np.random.choice(predicates), predicates, prompt_invariance, False)
@@ -3430,6 +3422,807 @@ def generate_test_cases():      ##  genera 10 prompt, con dati diversi rispetto 
                 #     o.write(answer)
                 #     o.write("\n\n")
 
+        case "averaged_1":
+            questions = []
+            for _ in range(1):
+
+                question_assignments = []
+                question_assignments.append(f'''Design an ASP program that assign only a label from the specified set {', '.join([f"{x}" for x in np.random.choice(labels, size=np.random.randint(2, 5), replace=False)])} with a collection of items defined by the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(question_assignments[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_assignments[0])
+                    f.write("\n\n")
+                    f.write(answer)
+                    f.write("\n\n")
+
+                question_prevents = []
+                question_prevents.append(f'''Formulate an ASP program that restricts the predicate "{np.random.choice(predicates)}" with value {np.random.randint(1, 20)} from being associated with the label "{np.random.randint(0, len(labels))}" .''')
+                answer = generate_response(question_prevents[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_prevents[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions = []
+                questions.append(f'''Formulate an ASP solution that computes the intersections of elements between the sets represented by "{p_1}" and "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP solution to extract all values associated with the label "{np.random.choice(predicates)}" within the context of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                n_attributes = np.random.randint(3, 6)
+                attributes = np.array(attributes, dtype='U18')
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                random_pos = np.random.randint(1, n_attributes)
+                
+                chosen_attributes[0] = f"ID"
+
+                chosen_attributes[random_pos] = f"{p_2}ID"
+
+                a = ''
+                for attr in chosen_attributes[:-1]:
+                    a += f'"{attr}",'
+                a += f'"{chosen_attributes[-1]}"'
+
+                n_attributes = np.random.randint(2, 5)
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                chosen_attributes[0] = "ID"
+
+                b = ''
+                for attr in chosen_attributes[:-1]:
+                    b += f'"{attr}",'
+                b += f'"{chosen_attributes[-1]}"'
+
+                
+                questions = []
+                questions.append(f'''Develop an ASP program to solve the following issue. Defined the predicate "{p_1}" with fields {a} and the predicate "{p_2}" with fields {b}, create a predicate "{p_1}_{p_2}" that links each "{p_1}" with the "{chosen_attributes[np.random.randint(1, len(chosen_attributes))]}" of "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program that calculates the predicate "{np.random.choice(closures)}" as the transitive closure of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Construct an ASP program to avoid the predicate "{np.random.choice(predicates)}" with value "{np.random.randint(1, 20)}" from being associated with label "{np.random.choice(predicates)}". If this association occurs, impose a penalty of "{np.random.randint(1, 3)}" at level "{np.random.randint(1, 3)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program to identify all values linked to the predicate "{np.random.choice(predicates)}" but not associated with the predicate "{np.random.choice(predicates)}" and labeled as "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                conditions = ["different", "greater", "lower", "greater or equal", "lower or equal"]
+                questions = []
+                questions.append(f'''Formulate an ASP solution to select all values linked to the predicate "{np.random.choice(predicates)}" with a value {np.random.choice(conditions)} than {np.random.randint(1, 100)}.''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                ### complexxx
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                question, answer, f = join_filtering(p_1, p_2, attributes, predicates)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("join_filter\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                question, answer, f = guessing_constraint(predicates, np.random.choice(predicates))
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("guess_constr\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                p_1, p_2, p_3 = np.random.choice(predicates, 3, replace=False)
+                question, answer, f = combination_negative_filtering(labels, p_1, p_2, p_3)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("comb_neg\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+        case "averaged_3":
+            questions = []
+            for _ in range(1):
+
+                question_assignments = []
+                question_assignments.append(f'''Design an ASP program that assign only a label from the specified set {', '.join([f"{x}" for x in np.random.choice(labels, size=np.random.randint(2, 5), replace=False)])} with a collection of items defined by the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(question_assignments[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_assignments[0])
+                    f.write("\n\n")
+                    f.write(answer)
+                    f.write("\n\n")
+
+                question_prevents = []
+                question_prevents.append(f'''Formulate an ASP program that restricts the predicate "{np.random.choice(predicates)}" with value {np.random.randint(1, 20)} from being associated with the label "{np.random.randint(0, len(labels))}" .''')
+                answer = generate_response(question_prevents[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_prevents[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions = []
+                questions.append(f'''Formulate an ASP solution that computes the intersections of elements between the sets represented by "{p_1}" and "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP solution to extract all values associated with the label "{np.random.choice(predicates)}" within the context of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                n_attributes = np.random.randint(3, 6)
+                attributes = np.array(attributes, dtype='U18')
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                random_pos = np.random.randint(1, n_attributes)
+                
+                chosen_attributes[0] = f"ID"
+
+                chosen_attributes[random_pos] = f"{p_2}ID"
+
+                a = ''
+                for attr in chosen_attributes[:-1]:
+                    a += f'"{attr}",'
+                a += f'"{chosen_attributes[-1]}"'
+
+                n_attributes = np.random.randint(2, 5)
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                chosen_attributes[0] = "ID"
+
+                b = ''
+                for attr in chosen_attributes[:-1]:
+                    b += f'"{attr}",'
+                b += f'"{chosen_attributes[-1]}"'
+
+                
+                questions = []
+                questions.append(f'''Develop an ASP program to solve the following issue. Defined the predicate "{p_1}" with fields {a} and the predicate "{p_2}" with fields {b}, create a predicate "{p_1}_{p_2}" that links each "{p_1}" with the "{chosen_attributes[np.random.randint(1, len(chosen_attributes))]}" of "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program that calculates the predicate "{np.random.choice(closures)}" as the transitive closure of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Construct an ASP program to avoid the predicate "{np.random.choice(predicates)}" with value "{np.random.randint(1, 20)}" from being associated with label "{np.random.choice(predicates)}". If this association occurs, impose a penalty of "{np.random.randint(1, 3)}" at level "{np.random.randint(1, 3)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program to identify all values linked to the predicate "{np.random.choice(predicates)}" but not associated with the predicate "{np.random.choice(predicates)}" and labeled as "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                conditions = ["different", "greater", "lower", "greater or equal", "lower or equal"]
+                questions = []
+                questions.append(f'''Formulate an ASP solution to select all values linked to the predicate "{np.random.choice(predicates)}" with a value {np.random.choice(conditions)} than {np.random.randint(1, 100)}.''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                ### complexxx
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                question, answer, f = join_filtering(p_1, p_2, attributes, predicates)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("join_filter\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                question, answer, f = guessing_constraint(predicates, np.random.choice(predicates))
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("guess_constr\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                p_1, p_2, p_3 = np.random.choice(predicates, 3, replace=False)
+                question, answer, f = combination_negative_filtering(labels, p_1, p_2, p_3)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("comb_neg\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+        case "averaged_5":
+            questions = []
+            for _ in range(1):
+
+                question_assignments = []
+                question_assignments.append(f'''Design an ASP program that assign only a label from the specified set {', '.join([f"{x}" for x in np.random.choice(labels, size=np.random.randint(2, 5), replace=False)])} with a collection of items defined by the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(question_assignments[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_assignments[0])
+                    f.write("\n\n")
+                    f.write(answer)
+                    f.write("\n\n")
+
+                question_prevents = []
+                question_prevents.append(f'''Formulate an ASP program that restricts the predicate "{np.random.choice(predicates)}" with value {np.random.randint(1, 20)} from being associated with the label "{np.random.randint(0, len(labels))}" .''')
+                answer = generate_response(question_prevents[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_prevents[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions = []
+                questions.append(f'''Formulate an ASP solution that computes the intersections of elements between the sets represented by "{p_1}" and "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP solution to extract all values associated with the label "{np.random.choice(predicates)}" within the context of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                n_attributes = np.random.randint(3, 6)
+                attributes = np.array(attributes, dtype='U18')
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                random_pos = np.random.randint(1, n_attributes)
+                
+                chosen_attributes[0] = f"ID"
+
+                chosen_attributes[random_pos] = f"{p_2}ID"
+
+                a = ''
+                for attr in chosen_attributes[:-1]:
+                    a += f'"{attr}",'
+                a += f'"{chosen_attributes[-1]}"'
+
+                n_attributes = np.random.randint(2, 5)
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                chosen_attributes[0] = "ID"
+
+                b = ''
+                for attr in chosen_attributes[:-1]:
+                    b += f'"{attr}",'
+                b += f'"{chosen_attributes[-1]}"'
+
+                
+                questions = []
+                questions.append(f'''Develop an ASP program to solve the following issue. Defined the predicate "{p_1}" with fields {a} and the predicate "{p_2}" with fields {b}, create a predicate "{p_1}_{p_2}" that links each "{p_1}" with the "{chosen_attributes[np.random.randint(1, len(chosen_attributes))]}" of "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program that calculates the predicate "{np.random.choice(closures)}" as the transitive closure of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Construct an ASP program to avoid the predicate "{np.random.choice(predicates)}" with value "{np.random.randint(1, 20)}" from being associated with label "{np.random.choice(predicates)}". If this association occurs, impose a penalty of "{np.random.randint(1, 3)}" at level "{np.random.randint(1, 3)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program to identify all values linked to the predicate "{np.random.choice(predicates)}" but not associated with the predicate "{np.random.choice(predicates)}" and labeled as "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                conditions = ["different", "greater", "lower", "greater or equal", "lower or equal"]
+                questions = []
+                questions.append(f'''Formulate an ASP solution to select all values linked to the predicate "{np.random.choice(predicates)}" with a value {np.random.choice(conditions)} than {np.random.randint(1, 100)}.''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                ### complexxx
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                question, answer, f = join_filtering(p_1, p_2, attributes, predicates)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("join_filter\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                question, answer, f = guessing_constraint(predicates, np.random.choice(predicates))
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("guess_constr\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                p_1, p_2, p_3 = np.random.choice(predicates, 3, replace=False)
+                question, answer, f = combination_negative_filtering(labels, p_1, p_2, p_3)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("comb_neg\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+        case "averaged_7":
+            questions = []
+            for _ in range(1):
+
+                question_assignments = []
+                question_assignments.append(f'''Design an ASP program that assign only a label from the specified set {', '.join([f"{x}" for x in np.random.choice(labels, size=np.random.randint(2, 5), replace=False)])} with a collection of items defined by the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(question_assignments[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_assignments[0])
+                    f.write("\n\n")
+                    f.write(answer)
+                    f.write("\n\n")
+
+                question_prevents = []
+                question_prevents.append(f'''Formulate an ASP program that restricts the predicate "{np.random.choice(predicates)}" with value {np.random.randint(1, 20)} from being associated with the label "{np.random.randint(0, len(labels))}" .''')
+                answer = generate_response(question_prevents[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_prevents[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions = []
+                questions.append(f'''Formulate an ASP solution that computes the intersections of elements between the sets represented by "{p_1}" and "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP solution to extract all values associated with the label "{np.random.choice(predicates)}" within the context of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                n_attributes = np.random.randint(3, 6)
+                attributes = np.array(attributes, dtype='U18')
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                random_pos = np.random.randint(1, n_attributes)
+                
+                chosen_attributes[0] = f"ID"
+
+                chosen_attributes[random_pos] = f"{p_2}ID"
+
+                a = ''
+                for attr in chosen_attributes[:-1]:
+                    a += f'"{attr}",'
+                a += f'"{chosen_attributes[-1]}"'
+
+                n_attributes = np.random.randint(2, 5)
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                chosen_attributes[0] = "ID"
+
+                b = ''
+                for attr in chosen_attributes[:-1]:
+                    b += f'"{attr}",'
+                b += f'"{chosen_attributes[-1]}"'
+
+                
+                questions = []
+                questions.append(f'''Develop an ASP program to solve the following issue. Defined the predicate "{p_1}" with fields {a} and the predicate "{p_2}" with fields {b}, create a predicate "{p_1}_{p_2}" that links each "{p_1}" with the "{chosen_attributes[np.random.randint(1, len(chosen_attributes))]}" of "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program that calculates the predicate "{np.random.choice(closures)}" as the transitive closure of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Construct an ASP program to avoid the predicate "{np.random.choice(predicates)}" with value "{np.random.randint(1, 20)}" from being associated with label "{np.random.choice(predicates)}". If this association occurs, impose a penalty of "{np.random.randint(1, 3)}" at level "{np.random.randint(1, 3)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program to identify all values linked to the predicate "{np.random.choice(predicates)}" but not associated with the predicate "{np.random.choice(predicates)}" and labeled as "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                conditions = ["different", "greater", "lower", "greater or equal", "lower or equal"]
+                questions = []
+                questions.append(f'''Formulate an ASP solution to select all values linked to the predicate "{np.random.choice(predicates)}" with a value {np.random.choice(conditions)} than {np.random.randint(1, 100)}.''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                ### complexxx
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                question, answer, f = join_filtering(p_1, p_2, attributes, predicates)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("join_filter\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                question, answer, f = guessing_constraint(predicates, np.random.choice(predicates))
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("guess_constr\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                p_1, p_2, p_3 = np.random.choice(predicates, 3, replace=False)
+                question, answer, f = combination_negative_filtering(labels, p_1, p_2, p_3)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("comb_neg\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+        case "averaged_9":
+            questions = []
+            for _ in range(1):
+
+                question_assignments = []
+                question_assignments.append(f'''Design an ASP program that assign only a label from the specified set {', '.join([f"{x}" for x in np.random.choice(labels, size=np.random.randint(2, 5), replace=False)])} with a collection of items defined by the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(question_assignments[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_assignments[0])
+                    f.write("\n\n")
+                    f.write(answer)
+                    f.write("\n\n")
+
+                question_prevents = []
+                question_prevents.append(f'''Formulate an ASP program that restricts the predicate "{np.random.choice(predicates)}" with value {np.random.randint(1, 20)} from being associated with the label "{np.random.randint(0, len(labels))}" .''')
+                answer = generate_response(question_prevents[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_prevents[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions = []
+                questions.append(f'''Formulate an ASP solution that computes the intersections of elements between the sets represented by "{p_1}" and "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP solution to extract all values associated with the label "{np.random.choice(predicates)}" within the context of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                n_attributes = np.random.randint(3, 6)
+                attributes = np.array(attributes, dtype='U18')
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                random_pos = np.random.randint(1, n_attributes)
+                
+                chosen_attributes[0] = f"ID"
+
+                chosen_attributes[random_pos] = f"{p_2}ID"
+
+                a = ''
+                for attr in chosen_attributes[:-1]:
+                    a += f'"{attr}",'
+                a += f'"{chosen_attributes[-1]}"'
+
+                n_attributes = np.random.randint(2, 5)
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                chosen_attributes[0] = "ID"
+
+                b = ''
+                for attr in chosen_attributes[:-1]:
+                    b += f'"{attr}",'
+                b += f'"{chosen_attributes[-1]}"'
+
+                
+                questions = []
+                questions.append(f'''Develop an ASP program to solve the following issue. Defined the predicate "{p_1}" with fields {a} and the predicate "{p_2}" with fields {b}, create a predicate "{p_1}_{p_2}" that links each "{p_1}" with the "{chosen_attributes[np.random.randint(1, len(chosen_attributes))]}" of "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program that calculates the predicate "{np.random.choice(closures)}" as the transitive closure of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Construct an ASP program to avoid the predicate "{np.random.choice(predicates)}" with value "{np.random.randint(1, 20)}" from being associated with label "{np.random.choice(predicates)}". If this association occurs, impose a penalty of "{np.random.randint(1, 3)}" at level "{np.random.randint(1, 3)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program to identify all values linked to the predicate "{np.random.choice(predicates)}" but not associated with the predicate "{np.random.choice(predicates)}" and labeled as "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                conditions = ["different", "greater", "lower", "greater or equal", "lower or equal"]
+                questions = []
+                questions.append(f'''Formulate an ASP solution to select all values linked to the predicate "{np.random.choice(predicates)}" with a value {np.random.choice(conditions)} than {np.random.randint(1, 100)}.''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                ### complexxx
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                question, answer, f = join_filtering(p_1, p_2, attributes, predicates)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("join_filter\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                question, answer, f = guessing_constraint(predicates, np.random.choice(predicates))
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("guess_constr\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                p_1, p_2, p_3 = np.random.choice(predicates, 3, replace=False)
+                question, answer, f = combination_negative_filtering(labels, p_1, p_2, p_3)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("comb_neg\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                
 
 def build_test_set():   #   costruisce domande, risposte e fatti per come dovrebbero essere
 
@@ -3759,19 +4552,20 @@ quant_config = BitsAndBytesConfig(
 
 
 ##  CHOOSE BETWEEN [ ' core ' , ' core-invariance ' , ' core-invariance-complex ' ]
+##  OR AVERAGED [...]
 
-turn = "base"               ## "base" per testare i complex
+turn = "averaged_1"               ## "base" per testare i complex
 
 MODEL_TO_USE = "gemma"
 
 DATASET_GENERATION = True
-TRAIN = True 
+TRAIN = False 
 LOAD = True                            # (not TRAIN)       Load for testing
 TEST = True                            # if you want to test the model, also on a limited number of prompts
-TEST_DATASET_GENERATION = True         # if you need to create a new test set
+TEST_DATASET_GENERATION = False         # if you need to create a new test set
 T21ST = True                           # if you want the test tuple for the core-invariance model to be different from the 20 that the model was trained on
-EXHAUSTIVE = True                      # if you want the exhaustive test done directly after the fine-tuning
-SHOW_RESULTS = True                    # if you want the results to be shown
+EXHAUSTIVE = False                      # if you want the exhaustive test done directly after the fine-tuning
+SHOW_RESULTS = False                    # if you want the results to be shown
 
 
 match turn:
@@ -3889,7 +4683,7 @@ match turn:
         
         tot_size = 10000
         
-        len_questions = 3312000
+        len_questions = 3456000
         
         test_size = 1000
 
@@ -3904,6 +4698,166 @@ match turn:
         parsed_file_name = exhaustive_folder + "parsedComplex.txt"
         errors_file_name  = exhaustive_folder + "errorsComplex.txt"
         jaccard0_file_name = exhaustive_folder + "jaccard0Complex.txt"
+
+    case "averaged_1":
+        model_to_train = base_model                               
+        model_saving_path = "toto/gemma-2b-it-core-invariance-complex-averaged_0.1"
+        model_to_test = model_saving_path
+
+        token = hugging_token
+        
+        train_file_name = "data/train_basecomplexxxx.csv"
+        val_file_name = "data/val_basecomplexxxx.csv"
+
+        test_set_file_name  = "data/test_basecomplexxxx.csv"
+        
+        target_modules=None
+        
+        tot_size = 10000
+        
+        len_questions = 3312000
+        
+        test_size = 1000
+
+        results_path = "averaged_1/"
+        exhaustive_folder += results_path
+
+        syntactic_dict_fn = exhaustive_folder + "averaged_1_syntactic_test_scores_dict.pkl"
+        semantic_dict_fn = exhaustive_folder + "averaged_1_semantic_test_scores_dict.pkl"
+        syntactic_prop_dict_fn = exhaustive_folder + "averaged_1_syntactic_prop_test_scores_dict.pkl"
+        semantic_prop_dict_fn = exhaustive_folder + "averaged_1_semantic_prop_test_scores_dict.pkl"
+
+        parsed_file_name = exhaustive_folder + "parsedaveraged_1.txt"
+        errors_file_name  = exhaustive_folder + "errorsaveraged_1.txt"
+        jaccard0_file_name = exhaustive_folder + "jaccard0averaged_1.txt"
+
+    case "averaged_3":
+        model_to_train = base_model                               
+        model_saving_path = "toto/gemma-2b-it-core-invariance-complex-averaged_0.3"
+        model_to_test = model_saving_path
+
+        token = hugging_token
+        
+        train_file_name = "data/train_basecomplexxxx.csv"
+        val_file_name = "data/val_basecomplexxxx.csv"
+
+        test_set_file_name  = "data/test_basecomplexxxx.csv"
+        
+        target_modules=None
+        
+        tot_size = 10000
+        
+        len_questions = 3312000
+        
+        test_size = 1000
+
+        results_path = "averaged_1/"
+        exhaustive_folder += results_path
+
+        syntactic_dict_fn = exhaustive_folder + "averaged_1_syntactic_test_scores_dict.pkl"
+        semantic_dict_fn = exhaustive_folder + "averaged_1_semantic_test_scores_dict.pkl"
+        syntactic_prop_dict_fn = exhaustive_folder + "averaged_1_syntactic_prop_test_scores_dict.pkl"
+        semantic_prop_dict_fn = exhaustive_folder + "averaged_1_semantic_prop_test_scores_dict.pkl"
+
+        parsed_file_name = exhaustive_folder + "parsedaveraged_1.txt"
+        errors_file_name  = exhaustive_folder + "errorsaveraged_1.txt"
+        jaccard0_file_name = exhaustive_folder + "jaccard0averaged_1.txt"
+
+    case "averaged_5":
+        model_to_train = base_model                               
+        model_saving_path = "toto/gemma-2b-it-core-invariance-complex-averaged_0.5"
+        model_to_test = model_saving_path
+
+        token = hugging_token
+        
+        train_file_name = "data/train_basecomplexxxx.csv"
+        val_file_name = "data/val_basecomplexxxx.csv"
+
+        test_set_file_name  = "data/test_basecomplexxxx.csv"
+        
+        target_modules=None
+        
+        tot_size = 10000
+        
+        len_questions = 3312000
+        
+        test_size = 1000
+
+        results_path = "averaged_1/"
+        exhaustive_folder += results_path
+
+        syntactic_dict_fn = exhaustive_folder + "averaged_1_syntactic_test_scores_dict.pkl"
+        semantic_dict_fn = exhaustive_folder + "averaged_1_semantic_test_scores_dict.pkl"
+        syntactic_prop_dict_fn = exhaustive_folder + "averaged_1_syntactic_prop_test_scores_dict.pkl"
+        semantic_prop_dict_fn = exhaustive_folder + "averaged_1_semantic_prop_test_scores_dict.pkl"
+
+        parsed_file_name = exhaustive_folder + "parsedaveraged_1.txt"
+        errors_file_name  = exhaustive_folder + "errorsaveraged_1.txt"
+        jaccard0_file_name = exhaustive_folder + "jaccard0averaged_1.txt"
+
+    case "averaged_7":
+        model_to_train = base_model                               
+        model_saving_path = "toto/gemma-2b-it-core-invariance-complex-averaged_0.7"
+        model_to_test = model_saving_path
+
+        token = hugging_token
+        
+        train_file_name = "data/train_basecomplexxxx.csv"
+        val_file_name = "data/val_basecomplexxxx.csv"
+
+        test_set_file_name  = "data/test_basecomplexxxx.csv"
+        
+        target_modules=None
+        
+        tot_size = 10000
+        
+        len_questions = 3312000
+        
+        test_size = 1000
+
+        results_path = "averaged_1/"
+        exhaustive_folder += results_path
+
+        syntactic_dict_fn = exhaustive_folder + "averaged_1_syntactic_test_scores_dict.pkl"
+        semantic_dict_fn = exhaustive_folder + "averaged_1_semantic_test_scores_dict.pkl"
+        syntactic_prop_dict_fn = exhaustive_folder + "averaged_1_syntactic_prop_test_scores_dict.pkl"
+        semantic_prop_dict_fn = exhaustive_folder + "averaged_1_semantic_prop_test_scores_dict.pkl"
+
+        parsed_file_name = exhaustive_folder + "parsedaveraged_1.txt"
+        errors_file_name  = exhaustive_folder + "errorsaveraged_1.txt"
+        jaccard0_file_name = exhaustive_folder + "jaccard0averaged_1.txt"
+
+    case "averaged_9":
+        model_to_train = base_model                               
+        model_saving_path = "toto/gemma-2b-it-core-invariance-complex-averaged_0.9"
+        model_to_test = model_saving_path
+
+        token = hugging_token
+        
+        train_file_name = "data/train_basecomplexxxx.csv"
+        val_file_name = "data/val_basecomplexxxx.csv"
+
+        test_set_file_name  = "data/test_basecomplexxxx.csv"
+        
+        target_modules=None
+        
+        tot_size = 10000
+        
+        len_questions = 3312000
+        
+        test_size = 1000
+
+        results_path = "averaged_1/"
+        exhaustive_folder += results_path
+
+        syntactic_dict_fn = exhaustive_folder + "averaged_1_syntactic_test_scores_dict.pkl"
+        semantic_dict_fn = exhaustive_folder + "averaged_1_semantic_test_scores_dict.pkl"
+        syntactic_prop_dict_fn = exhaustive_folder + "averaged_1_syntactic_prop_test_scores_dict.pkl"
+        semantic_prop_dict_fn = exhaustive_folder + "averaged_1_semantic_prop_test_scores_dict.pkl"
+
+        parsed_file_name = exhaustive_folder + "parsedaveraged_1.txt"
+        errors_file_name  = exhaustive_folder + "errorsaveraged_1.txt"
+        jaccard0_file_name = exhaustive_folder + "jaccard0averaged_1.txt"
 
     case _:
         print("NON DISPONIBILE !")
@@ -3929,7 +4883,6 @@ if DATASET_GENERATION:
 
     train_df = pd.DataFrame(d)
     val_df = pd.DataFrame(val_d)
-
 
     train_df.to_csv(train_file_name, index=False)
     val_df.to_csv(val_file_name, index=False)
@@ -3959,7 +4912,7 @@ if TRAIN:
     val_dataset = Dataset.from_dict(val_df)
 
     print("Training set lenght", train_dataset.num_rows)           ##########################################
-
+    
     model = AutoModelForCausalLM.from_pretrained(
         base_model,                                             ################# carico il modello di google e poi ci aggiungerò i pesi lora
         quantization_config=quant_config,
@@ -4035,7 +4988,7 @@ if TRAIN:
 
     trainer.model.save_pretrained(model_saving_path)
     trainer.tokenizer.save_pretrained(model_saving_path)
-# 
+ 
     print("model tuned in -> ", model_saving_path)
 
 if LOAD:
