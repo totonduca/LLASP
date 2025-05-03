@@ -1,0 +1,388 @@
+
+i: 3
+
+index: 3
+
+join
+
+question: Write an ASP program for the following problem. Consider predicate "moscow" having fields "ID","flowerID","strength","lake", and the predicate "flower" having fields "ID","lake","owner","strength". Define a predicate "moscow_flower" that associates to each "moscow" the "lake" of "flower".
+
+answer from file: moscow_flower(X,Z):-moscow(X,Y,_,_),flower(Y,Z,_,_).
+
+facts: 
+moscow("ID","flowerID","strength","lake").flower("ID","lake","owner","strength").
+
+generated_answer: Write an ASP program for the following problem. Consider predicate "moscow" having fields "ID","flowerID","strength","lake", and the predicate "flower" having fields "ID","lake","owner","strength". Define a predicate "moscow_flower" that associates to each "moscow" the "lake" of "flower".
+Answer: "moscow_flower(X,Z):-moscow(X,Y,_,_),flower(Y,Z,_,Y).
+moscow_flower(X,Z):-moscow(X,Y,_,_),flower(Y,Z,_,Y).
+```
+Sure, here is the ASP program for the problem:
+
+```
+define(moscow(ID,Y,_,_),ID,Y,_,_),
+define(flower(ID,Z,_,_),ID,Z,_,_).
+define(moscow_flower(X,Z),moscow(X,Y,_,_),flower(Y,Z,_,Y).
+```
+
+parsed answer: "moscow_flower(X,Z):-moscow(X,Y,_,_),flower(Y,Z,_,Y).
+
+answerset from file: [['moscow("ID","flowerID","strength","lake")', 'flower("ID","lake","owner","strength")']]
+
+answerset from parsed: ['error']
+
+i: 5
+
+index: 5
+
+preference
+
+question: Craft an ASP program to ensure that the predicate "chair" with value "4" is not associated with "storm", incurring a cost of "2" at level "1" if it does.
+
+answer from file: :~assign(4,"storm").[2@1]
+
+facts: 
+chair(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-chair(X).
+
+generated_answer: Craft an ASP program to ensure that the predicate "chair" with value "4" is not associated with "storm", incurring a cost of "2" at level "1" if it does.
+Answer: :~assign(4,"4").
+:-assign(2,1,"1").
+:-assign(4, "storm").
+[~assign(4, "storm", C), C == 2 @ 1]
+:-assign(4, "storm", C), C == 2 @ 1.
+:-assign(4, "storm", C), C == 2 @ 1.
+:-assign(4, "storm", C), C == 2 @ 1.
+:-assign(4, "storm", C), C == 2 @ 1.
+:-assign(4, "storm", C), C == 2 @ 1.
+:-assign(4
+
+parsed answer: :~assign(4,"4").
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'chair(1)', 'chair(2)', 'chair(3)', 'chair(4)', 'chair(5)', 'chair(6)', 'chair(7)', 'chair(8)', 'chair(9)', 'chair(10)', 'chair(11)', 'chair(12)', 'chair(13)', 'chair(14)', 'chair(15)', 'chair(16)', 'chair(17)', 'chair(18)', 'chair(19)', 'chair(20)'], ['assign(1,"quality")', 'assign(2,"strength")', 'assign(3,"strength")', 'assign(4,"strength")', 'assign(5,"strength")', 'assign(6,"strength")', 'assign(7,"strength")', 'assign(8,"strength")', 'assign(9,"strength")', 'assign(10,"strength")', 'assign(11,"strength")', 'assign(12,"strength")', 'assign(13,"strength")', 'assign(14,"strength")', 'assign(15,"strength")', 'assign(16,"strength")', 'assign(17,"strength")', 'assign(18,"strength")', 'assign(19,"strength")', 'assign(20,"strength")', 'chair(1)', 'chair(2)', 'chair(3)', 'chair(4)', 'chair(5)', 'chair(6)', 'chair(7)', 'chair(8)', 'chair(9)', 'chair(10)', 'chair(11)', 'chair(12)', 'chair(13)', 'chair(14)', 'chair(15)', 'chair(16)', 'chair(17)', 'chair(18)', 'chair(19)', 'chair(20)']]
+
+answerset from parsed: ['error']
+
+i: 13
+
+index: 1
+
+constraint
+
+question: Formulate an ASP code that ensures the predicate "lake" having value 9 is not connected to the label "strength".
+
+answer from file: :-assign(9,strength).
+
+facts: 
+lake(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-lake(X).
+
+generated_answer: Formulate an ASP code that ensures the predicate "lake" having value 9 is not connected to the label "strength".
+Answer: :-assign(9,C).[C="strength"].
+:-assign(9,C).[C="bike"].
+:-assign(9,C).[C="table"].
+:-assign(9,C).[C="person"].
+:-assign(9,C).[C="food"].
+:-assign(9,C).[C="bike"].
+:-assign(9,C).[C="table"].
+:-assign(9,C).[C="person"].
+:-assign(9,C).[C="food"].
+:-assign(9,C).[C="bike"].
+:-assign(9,C).[C="table"].
+:-assign(9
+
+parsed answer: :-assign(9,C).[C="strength"].
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'lake(1)', 'lake(2)', 'lake(3)', 'lake(4)', 'lake(5)', 'lake(6)', 'lake(7)', 'lake(8)', 'lake(9)', 'lake(10)', 'lake(11)', 'lake(12)', 'lake(13)', 'lake(14)', 'lake(15)', 'lake(16)', 'lake(17)', 'lake(18)', 'lake(19)', 'lake(20)']]
+
+answerset from parsed: ['error']
+
+i: 17
+
+index: 5
+
+preference
+
+question: Develop an ASP script to keep the predicate "strength" with value "8" unlinked from "butterfly". Any occurrence incurs a cost of "2" at level "2".
+
+answer from file: :~assign(8,"butterfly").[2@2]
+
+facts: 
+strength(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-strength(X).
+
+generated_answer: Develop an ASP script to keep the predicate "strength" with value "8" unlinked from "butterfly". Any occurrence incurs a cost of "2" at level "2".
+Answer: :~assign(8,"8").
+:-assign(8, "butterfly").
+[assign(X,2,Y,2)].
+:-assign(X, "butterfly").
+[X=Y].
+:-assign(8, "butterfly").
+[X=2].
+:-assign(8, "butterfly").
+[X=2].
+:-end.
+
+parsed answer: :~assign(8,"8").
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'strength(6)', 'strength(7)', 'strength(8)', 'strength(9)', 'strength(10)', 'strength(11)', 'strength(12)', 'strength(13)', 'strength(14)', 'strength(15)', 'strength(16)', 'strength(17)', 'strength(18)', 'strength(19)', 'strength(20)'], ['assign(1,"quality")', 'assign(2,"strength")', 'assign(3,"strength")', 'assign(4,"strength")', 'assign(5,"strength")', 'assign(6,"strength")', 'assign(7,"strength")', 'assign(8,"strength")', 'assign(9,"strength")', 'assign(10,"strength")', 'assign(11,"strength")', 'assign(12,"strength")', 'assign(13,"strength")', 'assign(14,"strength")', 'assign(15,"strength")', 'assign(16,"strength")', 'assign(17,"strength")', 'assign(18,"strength")', 'assign(19,"strength")', 'assign(20,"strength")', 'strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'strength(6)', 'strength(7)', 'strength(8)', 'strength(9)', 'strength(10)', 'strength(11)', 'strength(12)', 'strength(13)', 'strength(14)', 'strength(15)', 'strength(16)', 'strength(17)', 'strength(18)', 'strength(19)', 'strength(20)']]
+
+answerset from parsed: ['error']
+
+i: 28
+
+index: 4
+
+closure
+
+question: Develop an ASP script that derives the predicate "journey" through the transitive closure of the predicate "singapore".
+
+answer from file: journey(X,Y):-singapore(X,Y).
+journey(X,Y):-singapore(X,Z),journey(Z,Y).
+
+facts: 
+singapore(1..3, 1..4).
+
+generated_answer: Develop an ASP script that derives the predicate "journey" through the transitive closure of the predicate "singapore".
+Answer: journey(X,Y):-singapore(X,Z).
+journey(X,Y):-singapore(X,Z),journey(Z,Y).
+:-journey(X,Y).
+:-singapore(X,Z),journey(Z,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey(X,Y).
+:-journey
+
+parsed answer: journey(X,Y):-singapore(X,Z).
+journey(X,Y):-singapore(X,Z),journey(Z,Y).
+
+answerset from file: [['singapore(1,1)', 'singapore(1,2)', 'singapore(1,3)', 'singapore(1,4)', 'singapore(2,1)', 'singapore(2,2)', 'singapore(2,3)', 'singapore(2,4)', 'singapore(3,1)', 'singapore(3,2)', 'singapore(3,3)', 'singapore(3,4)', 'journey(1,1)', 'journey(1,2)', 'journey(1,3)', 'journey(1,4)', 'journey(2,1)', 'journey(2,2)', 'journey(2,3)', 'journey(2,4)', 'journey(3,1)', 'journey(3,2)', 'journey(3,3)', 'journey(3,4)']]
+
+answerset from parsed: ['error']
+
+i: 29
+
+index: 5
+
+preference
+
+question: Create an ASP program that keeps the predicate "owner" with value "11" unlinked from "lightblue". If linked, it incurs a cost of "1" at level "1".
+
+answer from file: :~assign(11,"lightblue").[1@1]
+
+facts: 
+owner(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-owner(X).
+
+generated_answer: Create an ASP program that keeps the predicate "owner" with value "11" unlinked from "lightblue". If linked, it incurs a cost of "1" at level "1".
+Answer: :~assign(11,"11").
+:-assign(1,"lightblue").
+[assign(1,C(1,1)),C(1,1)].
+:-assign(1,C(1,1)).
+:-cost(1,1,1,1).
+:-level(1,1).
+:-assign(11,"lightblue").
+:-cost(1,1,1,1).
+:-level(1,1).
+:-assign(11,"lightblue").
+:-cost(1,1,1,1).
+:-level(1,1).
+:-assign(11,"lightblue").
+:-cost(1,1,
+
+parsed answer: :~assign(11,"11").
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'owner(1)', 'owner(2)', 'owner(3)', 'owner(4)', 'owner(5)', 'owner(6)', 'owner(7)', 'owner(8)', 'owner(9)', 'owner(10)', 'owner(11)', 'owner(12)', 'owner(13)', 'owner(14)', 'owner(15)', 'owner(16)', 'owner(17)', 'owner(18)', 'owner(19)', 'owner(20)'], ['assign(1,"quality")', 'assign(2,"strength")', 'assign(3,"strength")', 'assign(4,"strength")', 'assign(5,"strength")', 'assign(6,"strength")', 'assign(7,"strength")', 'assign(8,"strength")', 'assign(9,"strength")', 'assign(10,"strength")', 'assign(11,"strength")', 'assign(12,"strength")', 'assign(13,"strength")', 'assign(14,"strength")', 'assign(15,"strength")', 'assign(16,"strength")', 'assign(17,"strength")', 'assign(18,"strength")', 'assign(19,"strength")', 'assign(20,"strength")', 'owner(1)', 'owner(2)', 'owner(3)', 'owner(4)', 'owner(5)', 'owner(6)', 'owner(7)', 'owner(8)', 'owner(9)', 'owner(10)', 'owner(11)', 'owner(12)', 'owner(13)', 'owner(14)', 'owner(15)', 'owner(16)', 'owner(17)', 'owner(18)', 'owner(19)', 'owner(20)']]
+
+answerset from parsed: ['error']
+
+i: 41
+
+index: 5
+
+preference
+
+question: Develop an ASP script to keep the predicate "surname" with value "13" unlinked from "quality". Any occurrence incurs a cost of "2" at level "1".
+
+answer from file: :~assign(13,"quality").[2@1]
+
+facts: 
+surname(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-surname(X).
+
+generated_answer: Develop an ASP script to keep the predicate "surname" with value "13" unlinked from "quality". Any occurrence incurs a cost of "2" at level "1".
+Answer: :~assign(13,"13").:~assign(2,"2").[1@1]~:-assign(quality(X,C,L),X).
+:-assign(13, "13").
+:-assign(2, "2").
+:-assign(1, "1").
+:-assign(quality(X,C,L),X).
+:-assign(13, "13").
+:-assign(2, "2").
+:-assign(1, "1").
+:-assign(quality(X,C,L),X).
+:-assign(13, "13").
+:-assign(2, "2").
+:-assign(
+
+parsed answer: :~assign(13,"13").:~assign(2,"2").[1@1]~:-assign(quality(X,C,L),X).
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'surname(5)', 'surname(6)', 'surname(7)', 'surname(8)', 'surname(9)', 'surname(10)', 'surname(11)', 'surname(12)', 'surname(13)', 'surname(14)', 'surname(15)', 'surname(16)', 'surname(17)', 'surname(18)', 'surname(19)', 'surname(20)'], ['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"strength")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'surname(5)', 'surname(6)', 'surname(7)', 'surname(8)', 'surname(9)', 'surname(10)', 'surname(11)', 'surname(12)', 'surname(13)', 'surname(14)', 'surname(15)', 'surname(16)', 'surname(17)', 'surname(18)', 'surname(19)', 'surname(20)'], ['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"strength")', 'assign(14,"quality")', 'assign(15,"darkmagenta")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'surname(1)', 'surname(2)', 'surname(3)', 'surname(4)', 'surname(5)', 'surname(6)', 'surname(7)', 'surname(8)', 'surname(9)', 'surname(10)', 'surname(11)', 'surname(12)', 'surname(13)', 'surname(14)', 'surname(15)', 'surname(16)', 'surname(17)', 'surname(18)', 'surname(19)', 'surname(20)']]
+
+answerset from parsed: ['error']
+
+i: 49
+
+index: 1
+
+constraint
+
+question: Formulate an ASP code that ensures the predicate "lake" having value 9 is not connected to the label "strength".
+
+answer from file: :-assign(9,strength).
+
+facts: 
+lake(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-lake(X).
+
+generated_answer: Formulate an ASP code that ensures the predicate "lake" having value 9 is not connected to the label "strength".
+Answer: :-assign(9,C).[C="strength"].
+:-assign(9,C).[C="bike"].
+:-assign(9,C).[C="table"].
+:-assign(9,C).[C="person"].
+:-assign(9,C).[C="tree"].
+:-assign(9,C).[C="bike"].
+:-assign(9,C).[C="table"].
+:-assign(9,C).[C="person"].
+:-assign(9,C).[C="tree"].
+:-assign(9,C).[C="bike"].
+:-assign(9,C).[C="table"].
+:-assign(9
+
+parsed answer: :-assign(9,C).[C="strength"].
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'lake(1)', 'lake(2)', 'lake(3)', 'lake(4)', 'lake(5)', 'lake(6)', 'lake(7)', 'lake(8)', 'lake(9)', 'lake(10)', 'lake(11)', 'lake(12)', 'lake(13)', 'lake(14)', 'lake(15)', 'lake(16)', 'lake(17)', 'lake(18)', 'lake(19)', 'lake(20)']]
+
+answerset from parsed: ['error']
+
+i: 53
+
+index: 5
+
+preference
+
+question: Develop an ASP script to keep the predicate "strength" with value "8" unlinked from "butterfly". Any occurrence incurs a cost of "2" at level "2".
+
+answer from file: :~assign(8,"butterfly").[2@2]
+
+facts: 
+strength(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-strength(X).
+
+generated_answer: Develop an ASP script to keep the predicate "strength" with value "8" unlinked from "butterfly". Any occurrence incurs a cost of "2" at level "2".
+Answer: :~assign(8,"8").
+:-assign(8, "butterfly").
+[assign(X,2,Y,2)].
+:-assign(X, "butterfly").
+[X=Y].
+:-assign(8, "butterfly").
+[X=2].
+:-assign(8, "butterfly").
+[X=2].
+:-end.
+
+parsed answer: :~assign(8,"8").
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'strength(6)', 'strength(7)', 'strength(8)', 'strength(9)', 'strength(10)', 'strength(11)', 'strength(12)', 'strength(13)', 'strength(14)', 'strength(15)', 'strength(16)', 'strength(17)', 'strength(18)', 'strength(19)', 'strength(20)'], ['assign(1,"quality")', 'assign(2,"strength")', 'assign(3,"strength")', 'assign(4,"strength")', 'assign(5,"strength")', 'assign(6,"strength")', 'assign(7,"strength")', 'assign(8,"strength")', 'assign(9,"strength")', 'assign(10,"strength")', 'assign(11,"strength")', 'assign(12,"strength")', 'assign(13,"strength")', 'assign(14,"strength")', 'assign(15,"strength")', 'assign(16,"strength")', 'assign(17,"strength")', 'assign(18,"strength")', 'assign(19,"strength")', 'assign(20,"strength")', 'strength(1)', 'strength(2)', 'strength(3)', 'strength(4)', 'strength(5)', 'strength(6)', 'strength(7)', 'strength(8)', 'strength(9)', 'strength(10)', 'strength(11)', 'strength(12)', 'strength(13)', 'strength(14)', 'strength(15)', 'strength(16)', 'strength(17)', 'strength(18)', 'strength(19)', 'strength(20)']]
+
+answerset from parsed: ['error']
+
+i: 61
+
+index: 1
+
+constraint
+
+question: Create an ASP script that excludes the predicate "lightblue" with value 12 from being mapped to the label "delhi".
+
+answer from file: :-assign(12,delhi).
+
+facts: 
+lightblue(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-lightblue(X).
+
+generated_answer: Create an ASP script that excludes the predicate "lightblue" with value 12 from being mapped to the label "delhi".
+Answer: :-assign(12,12).[assign(X,"delhi")|assign(X,"lightblue")].
+:-assign(12,12).[assign(X,"delhi")].
+:-assign(12,12).[assign(X,"lightblue")].
+:-assign(12,12).[assign(X,"bike")].
+:-assign(12,12).[assign(X,"bike")].
+:-assign(12,12).[assign(X,"bike")].
+:-assign(12,12).[assign(X,"bike")].
+:-assign(12,12).[
+
+parsed answer: :-assign(12,12).[assign(X,"delhi")|assign(X,"lightblue")].
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'lightblue(1)', 'lightblue(2)', 'lightblue(3)', 'lightblue(4)', 'lightblue(5)', 'lightblue(6)', 'lightblue(7)', 'lightblue(8)', 'lightblue(9)', 'lightblue(10)', 'lightblue(11)', 'lightblue(12)', 'lightblue(13)', 'lightblue(14)', 'lightblue(15)', 'lightblue(16)', 'lightblue(17)', 'lightblue(18)', 'lightblue(19)', 'lightblue(20)']]
+
+answerset from parsed: ['error']
+
+i: 63
+
+index: 3
+
+join
+
+question: Generate an ASP program to create the predicate "cairo_black" that associates each cairo with the hair of black, with the fields "ID","quality","lake","blackID" of "cairo" and the fields "ID","hair","quality" of "black".
+
+answer from file: cairo_black(X,Z):-cairo(X,_,_,Y),black(Y,Z,_).
+
+facts: 
+cairo("ID","quality","lake","blackID").black("ID","hair","quality").
+
+generated_answer: Generate an ASP program to create the predicate "cairo_black" that associates each cairo with the hair of black, with the fields "ID","quality","lake","blackID" of "cairo" and the fields "ID","hair","quality" of "black".
+Answer: cairo_black(X,Z,_,Y):-cairo(X,_,_,Y),black(Y,_,Z,_).
+cairo_black(X,Z,_,Y):-black(Y,_,Z,_),cairo(X,_,_,Y).
+```
+Sure, here is the ASP program to create the predicate "cairo_black" that associates each cairo with the hair of black:
+
+```
+cairo_black(X,Z,_,Y):-
+  cairo(X,_,_,Y),
+  black(Y,_,Z,_).
+```
+
+parsed answer: cairo_black(X,Z,_,Y):-cairo(X,_,_,Y),black(Y,_,Z,_).
+
+answerset from file: [['cairo("ID","quality","lake","blackID")', 'black("ID","hair","quality")']]
+
+answerset from parsed: ['error']
+
+i: 65
+
+index: 5
+
+preference
+
+question: Create an ASP program that keeps the predicate "weight" with value "2" unlinked from "weight". If linked, it incurs a cost of "1" at level "1".
+
+answer from file: :~assign(2,"weight").[1@1]
+
+facts: 
+weight(1..20).assign(X,"pink")|assign(X,"white")|assign(X,"black")|assign(X,"darkmagenta")|assign(X,"lightblue")|assign(X,"cosenza")|assign(X,"delhi")|assign(X,"cairo")|assign(X,"mumbai")|assign(X,"moscow")|assign(X,"singapore")|assign(X,"chicago")|assign(X,"toronto")|assign(X,"barcelona")|assign(X,"wall")|assign(X,"chair")|assign(X,"roof")|assign(X,"flower")|assign(X,"butterfly")|assign(X,"laptop")|assign(X,"desk")|assign(X,"cloud")|assign(X,"storm")|assign(X,"surname")|assign(X,"owner")|assign(X,"lake")|assign(X,"hair")|assign(X,"weight")|assign(X,"strength")|assign(X,"quality"):-weight(X).
+
+generated_answer: Create an ASP program that keeps the predicate "weight" with value "2" unlinked from "weight". If linked, it incurs a cost of "1" at level "1".
+Answer: :~assign(2,"2").
+:-assign(1, "1").
+:-assign(1, "1").
+:-[assign(X, "2"), assign(X, "weight")](1, "1").
+:-[assign(X, "2"), assign(X, "weight")](1, "1").
+:-[assign(X, "2"), assign(X, "weight")](1, "1").
+:-[assign(X, "2"), assign(X, "weight")](1, "1").
+:-[assign(X, "2"), assign(X, "weight")](1, "1").
+:-[assign(X
+
+parsed answer: :~assign(2,"2").
+
+answerset from file: [['assign(1,"quality")', 'assign(2,"quality")', 'assign(3,"quality")', 'assign(4,"quality")', 'assign(5,"quality")', 'assign(6,"quality")', 'assign(7,"quality")', 'assign(8,"quality")', 'assign(9,"quality")', 'assign(10,"quality")', 'assign(11,"quality")', 'assign(12,"quality")', 'assign(13,"quality")', 'assign(14,"quality")', 'assign(15,"quality")', 'assign(16,"quality")', 'assign(17,"quality")', 'assign(18,"quality")', 'assign(19,"quality")', 'assign(20,"quality")', 'weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'weight(6)', 'weight(7)', 'weight(8)', 'weight(9)', 'weight(10)', 'weight(11)', 'weight(12)', 'weight(13)', 'weight(14)', 'weight(15)', 'weight(16)', 'weight(17)', 'weight(18)', 'weight(19)', 'weight(20)'], ['assign(1,"quality")', 'assign(2,"strength")', 'assign(3,"strength")', 'assign(4,"strength")', 'assign(5,"strength")', 'assign(6,"strength")', 'assign(7,"strength")', 'assign(8,"strength")', 'assign(9,"strength")', 'assign(10,"strength")', 'assign(11,"strength")', 'assign(12,"strength")', 'assign(13,"strength")', 'assign(14,"strength")', 'assign(15,"strength")', 'assign(16,"strength")', 'assign(17,"strength")', 'assign(18,"strength")', 'assign(19,"strength")', 'assign(20,"strength")', 'weight(1)', 'weight(2)', 'weight(3)', 'weight(4)', 'weight(5)', 'weight(6)', 'weight(7)', 'weight(8)', 'weight(9)', 'weight(10)', 'weight(11)', 'weight(12)', 'weight(13)', 'weight(14)', 'weight(15)', 'weight(16)', 'weight(17)', 'weight(18)', 'weight(19)', 'weight(20)']]
+
+answerset from parsed: ['error']
+

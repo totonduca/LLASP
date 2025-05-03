@@ -1,0 +1,6 @@
+import string
+
+
+s = "Questo lavoro sfrutta l’utilizzo dei Large Language Models (LLMs) mirato alla generazione automatica di programmi in Answer Set Programming (ASP), con l’obiettivo di rendere il linguaggio più accessibile agli utenti non esperti. Prendendo le mosse da un lavoro precedente, questa tesi consta di due fasi: inizialmente, è stata analizzata la letteratura corrente sulla generazione di codice ASP. In seguito, è stato riaddestrato un LLM molto leggero al fine di supportare variazioni del prompt e problemi complessi, effettuanfouna sperimentazione estensiva, che ha dimostrato la correttezza sia sintattica che semantica dei problemi generati."
+s2="Questo lavoro si colloca nell’ambito delle applicazioni mobile per la didattica universitaria. Nello specifico, è stata sviluppata un’applicazione gestionale con Flutter e Firebase, con tre interfacce (studente, docente e admin) e funzionalità come gestione corsi, esami, presenze, statistiche e chat, in architettura a tre livelli."
+print(len(s2))

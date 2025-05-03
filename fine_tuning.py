@@ -191,7 +191,9 @@ def label_assignment(labels, predicate_name, prompt_invariance, test):
         answer += f'''assign(X,"{label}")|'''
     answer += f'''assign(X,"{labels_to_assign[-1]}"):-{predicate_name}(X).'''
 
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
+
+    f=f"{predicate_name}(1..5)."
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -200,7 +202,7 @@ def label_assignment(labels, predicate_name, prompt_invariance, test):
         questions.append(question)
         answers.append(answer)
 
-    f.append(f"{predicate_name}(1..5).")  
+     
     
     return questions, answers, f
 
@@ -321,7 +323,7 @@ def prevent_value(labels, predicate_name, prompt_invariance, test):
         rewritten_questions = copilot_prevent_value(predicate_name, value, label, test)
 
     answer = f''':-assign({value},{label}).'''
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -336,9 +338,8 @@ def prevent_value(labels, predicate_name, prompt_invariance, test):
 
     fact += f'''assign(X,"{labels[-1]}"):-{predicate_name}(X).'''
 
-    f.append(fact)    
 
-    return questions, answers, f
+    return questions, answers, fact
 
 
 def copilot_generate_combinations(predicate_name_1, predicate_name_2, test):
@@ -450,7 +451,7 @@ def generate_combinations(predicate_name_1, predicate_name_2, prompt_invariance,
         rewritten_questions = copilot_generate_combinations(predicate_name_1, predicate_name_2, test)
     
     answer = f"combination(X,Y):-{predicate_name_1}(X),{predicate_name_2}(Y)."
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -574,7 +575,7 @@ def select_value(predicate_name, label, prompt_invariance, test):
         rewritten_questions = copilot_select_value(predicate_name, label, test)
 
     answer = f'''select(X):-{predicate_name}(X,"{label}").'''
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -767,7 +768,7 @@ def execute_join(predicate_name_1, predicate_name_2, attributes, prompt_invarian
                 q += "_)"
 
             answer = f'''{predicate_name_1}_{predicate_name_2}(X,Z):-{p},{q}.'''
-            rewritten_answers = np.repeat(answer, len(rewritten_questions))
+            rewritten_answers = [answer] * len(rewritten_questions)
 
             rewritten_facts = np.repeat(fact, len(rewritten_questions))
 
@@ -893,7 +894,7 @@ def transitive_closure(closure_name, predicate_name, prompt_invariance, test):
         rewritten_questions = copilot_transitive_closure(closure_name, predicate_name, test)
     
     answer = f'''{closure_name}(X,Y):-{predicate_name}(X,Y).\n{closure_name}(X,Y):-{predicate_name}(X,Z),{closure_name}(Z,Y).'''
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -1020,7 +1021,7 @@ def preferences(predicate_name, labels, prompt_invariance, test):
                 rewritten_questions = copilot_preferences(predicate_name, label, value, cost_value, cost_level, test)
             
             answer = f''':~assign({value},"{label}").[{cost_value}@{cost_level}]'''
-            rewritten_answers = np.repeat(answer, len(rewritten_questions))
+            rewritten_answers = [answer] * len(rewritten_questions)
 
             fact = f'''{predicate_name}(1..{n_values}).'''
 
@@ -1028,18 +1029,14 @@ def preferences(predicate_name, labels, prompt_invariance, test):
                 fact += f'''assign(X,"{label}")|'''
             fact += f'''assign(X,"{labels[-1]}"):-{predicate_name}(X).'''
 
-
-
             if(len(rewritten_questions)>0):
                 questions.extend(rewritten_questions)
                 answers.extend(rewritten_answers)
-                f.extend(fact)
             else:
                 questions.append(question)
                 answers.append(answer)
-                f.append(fact)
 
-    return questions, answers, f
+    return questions, answers, fact
 
 
 def copilot_minimizing(predicate_name, label, test):
@@ -1150,7 +1147,7 @@ def minimizing(predicate_name, labels, prompt_invariance, test):
         rewritten_questions = copilot_minimizing(predicate_name, label, test)
 
     answer = f''':~{predicate_name}(X),assign(X,"{label}").[1@1,X]'''
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -1273,7 +1270,7 @@ def maximizing(predicate_name, labels, prompt_invariance, test):
         rewritten_questions = copilot_maximizing(predicate_name, label, test)
 
     answer = f''':~{predicate_name}(X),not assign(X,"{label}").[1@1,X]'''
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -1398,7 +1395,7 @@ def select_by_negative_condition(predicate_name, not_predicate_name, labels, pro
         rewritten_questions = copilot_select_by_negative_condition(predicate_name, not_predicate_name, label, test)
 
     answer = f'''select(X):-{predicate_name}(X),not {not_predicate_name}(X,"{label}").'''
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     chosen_labels = list(set(list(np.random.choice(labels, size=4, replace=False))).union({label}))
     combinations = list(zip(range(1, 4), chosen_labels))
@@ -1536,7 +1533,7 @@ def select_by_numeric_condition(predicate_name, prompt_invariance, test):
             rewritten_questions = copilot_select_by_numeric_condition(predicate_name, condition, condition_value, test)
         
         answer = f'''select(X):-{predicate_name}(X,C),C{condition_symbol}{condition_value}.'''
-        rewritten_answers = np.repeat(answer, len(rewritten_questions))
+        rewritten_answers = [answer] * len(rewritten_questions)
 
         if(len(rewritten_questions)>0):
             questions.extend(rewritten_questions)
@@ -1553,144 +1550,6 @@ def select_by_numeric_condition(predicate_name, prompt_invariance, test):
 
 
 #####           COMPLEX         #####
-
-def join_numeric_filtering(predicate_name_1, predicate_name_2, attributes):       
-    
-    n_values = 100
-
-    condition_dict = {"different": "!=", "greater": ">", "lower": "<", "greater or equal": ">=", "lower or equal": "<="}
-    
-    questions, answers, f = [], [], []    
-    
-    #####       parte join
-    for attributes_1 in range(3, 6):
-        for attributes_2 in range(2, 5):
-            for condition, condition_symbol in condition_dict.items():
-
-                condition_value = np.random.randint(1, n_values)
-                fact = ''
-
-                n_attributes = attributes_1
-                attributes = np.array(attributes, dtype='U18')
-                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
-                random_pos = np.random.randint(1, n_attributes)
-                chosen_attributes[0] = f"ID"
-                chosen_attributes[random_pos] = f"{predicate_name_2}ID"
-
-                string_chosen_attributes = f'''{''.join([f'"{x}",' for x in chosen_attributes[:-1]])}'''
-                string_chosen_attributes += f'"{chosen_attributes[-1]}"'
-                
-                chosen_labels = np.random.choice(attributes, size=n_attributes, replace=False)
-
-                if(random_pos==1):
-                    string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[1:random_pos-1]])}'''
-                    string_chosen_labels += f'"{chosen_labels[-(random_pos-1)]}"'
-                    fact += f'''{predicate_name_1}(0..3, 0..2,{string_chosen_labels}).'''
-                    
-                elif(random_pos>1):
-                    if(random_pos<n_attributes-1):
-                        string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[1:random_pos-1]])}'''
-                        string_chosen_labels += f'"{chosen_labels[-(random_pos-1)]}"'
-                        fact += f'''{predicate_name_1}(0..3,{string_chosen_labels},'''
-                        string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[random_pos+1:-1]])}'''
-                        string_chosen_labels += f'"{chosen_labels[-1]}"'
-                        fact += f'''0..2, {string_chosen_labels}).'''
-                    elif(random_pos==n_attributes-1):
-                        string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[1:-1]])}'''
-                        fact += f'''{predicate_name_1}(0..3,{string_chosen_labels}0..2).'''
-                
-
-                a = ''
-                for attr in chosen_attributes[:-1]:
-                    a += f'"{attr}",'
-                a += f'"{chosen_attributes[-1]}"'
-
-                p = f"{predicate_name_1}("
-                for i in range(len(chosen_attributes) - 1):
-                    if i == 0:
-                        p += "X"
-                    elif i == random_pos:
-                        p += "Y"
-                    else:
-                        p += "_"
-
-                    p += ","
-
-                if random_pos == len(chosen_attributes) - 1:
-                    p += "Y)"
-                else:
-                    p += "_)"
-
-                n_attributes = attributes_2
-                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
-                chosen_attributes[0] = "ID"
-
-                random_attribute_index = np.random.randint(1, n_attributes)
-                random_attribute = chosen_attributes[random_attribute_index]
-                
-                temp = chosen_attributes[random_attribute_index]
-                chosen_attributes[random_attribute_index] = f'''1..{n_values}'''
-
-                string_chosen_attributes_2 = f'''{''.join([f'"{x}",' for x in chosen_attributes[:-1]])}'''
-                string_chosen_attributes_2 += f'"{chosen_attributes[-1]}"'
-                
-                chosen_attributes[random_attribute_index] = temp
-
-                b = ''
-                for attr in chosen_attributes[:-1]:
-                    b += f'"{attr}",'
-                b += f'"{chosen_attributes[-1]}"'
-
-                question = f'''{incipit()} Consider predicate "{predicate_name_1}" having fields {a}, and the predicate "{predicate_name_2}" having fields {b}. Define a predicate "{predicate_name_1}_{predicate_name_2}" that associates to each "{predicate_name_1}" the "{random_attribute}" of "{predicate_name_2}". In addition, select all values associated to the predicate {predicate_name_1}_{predicate_name_2} where "{random_attribute}" is {condition} than {condition_value}.'''
-            
-                q = f"{predicate_name_2}("
-                for i in range(len(chosen_attributes) - 1):
-                    if i == 0:
-                        q += "Y"
-                    elif i == random_attribute_index:
-                        q += "Z"
-                    else:
-                        q += "_"
-
-                    q += ","
-
-                if random_attribute_index == len(chosen_attributes) - 1:
-                    q += "Z)"
-                else:
-                    q += "_)"
-
-                answer = f'''{predicate_name_1}_{predicate_name_2}(X,Z):-{p},{q}.\nselect(X):-{predicate_name_1}_{predicate_name_2}(X,Z),Z{condition_symbol}{condition_value}.'''
-
-                chosen_labels = np.random.choice(attributes, size=n_attributes, replace=False)
-
-
-                if(random_attribute_index==1):
-                    if(n_attributes==2):
-                        fact += f'''{predicate_name_2}(0..2,1..100).'''
-                    else:
-                        string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[2:-1]])}'''
-                        string_chosen_labels += f'"{chosen_labels[-1]}"'
-                        fact += f'''{predicate_name_2}(0..2,1..100,{string_chosen_labels}).'''
-                    
-                elif(random_attribute_index>1):
-                    if(random_attribute_index<n_attributes-1):
-                        string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[1:random_attribute_index-1]])}'''
-                        string_chosen_labels += f'"{chosen_labels[-(random_attribute_index-1)]}"'
-                        fact += f'''{predicate_name_2}(0..2,{string_chosen_labels},1..100,'''
-                        string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[random_attribute_index+1:-1]])}'''
-                        string_chosen_labels += f'"{chosen_labels[-1]}"'
-                        fact += f'''{string_chosen_labels}).'''
-                    elif(random_attribute_index==n_attributes-1):
-                        string_chosen_labels = f'''{''.join([f'"{x}",' for x in chosen_labels[1:-2]])}'''
-                        string_chosen_labels += f'"{chosen_labels[-2]}"'
-                        fact += f'''{predicate_name_2}(0..2,{string_chosen_labels},1..100).'''
-    
-
-                questions.append(question)
-                answers.append(answer)
-                f.append(fact)
-    
-    return questions, answers, f
 
 def join_filtering(predicate_name_1, predicate_name_2, attributes, predicates):       #### verificata con Erica
     questions, answers = [], []
@@ -1831,7 +1690,7 @@ def join_filtering(predicate_name_1, predicate_name_2, attributes, predicates): 
                 q += "_)"
 
             answer = f'''{predicate_name_1}_{predicate_name_2}(X,Z):-{p},{q}.\nselect(X):-{predicate_name_1}_{predicate_name_2}(X,"{not_label}").'''
-            rewritten_answers = np.repeat(answer, len(rewritten_questions))
+            rewritten_answers = [answer] * len(rewritten_questions)
 
             rewritten_facts = np.repeat(fact, len(rewritten_questions))
 
@@ -1843,60 +1702,6 @@ def join_filtering(predicate_name_1, predicate_name_2, attributes, predicates): 
                 questions.append(question)
                 answers.append(answer)
                 f.append(fact)
-
-    return questions, answers, f
-
-def closure_guessing(labels, predicate_name, closure_name):
-    questions, answers = [], []
-    rewritten_questions = []
-
-    n_max = 10
-
-    n_labels = np.random.randint(2, n_max)
-    labels_to_assign = np.random.choice(labels, size=n_labels, replace=False)       # dalla raccolta di etichette ne sceglie "size" e senza rimpiazzo   Crea quindi un array di dimensione size scegliendo casualmente gli elementi da "labels"
-
-    question = f'''{incipit()} Define predicate "{closure_name}" as the transitive closure of predicate "{predicate_name}". Then, assign exactly one label from the set {','.join([f"{x}" for x in labels_to_assign])} to each element in "{closure_name}".'''
-
-    answer = f'''{closure_name}(X,Y):-{predicate_name}(X,Y).\n{closure_name}(X,Y):-{predicate_name}(X,Z),{closure_name}(Z,Y).\n'''
-    for label in labels_to_assign[:-1]:     #si ferma al penultimo elemento perché l'ultimo verrà messo manualmente sotto
-        answer += f'''assign(X,"{label}")|'''
-    answer += f'''assign(X,"{labels_to_assign[-1]}"):-{closure_name}(X,_).'''
-
-    
-    if(len(rewritten_questions)>0):
-        questions.extend(rewritten_questions)
-    else:
-        questions.append(question)
-        answers.append(answer)
-    
-    f = [f'''{predicate_name}(1..3, 1..4).''']
-
-    return questions, answers, f
-
-def closure_negative_filtering(labels, predicate_name, closure_name):
-    questions, answers = [], []
-    rewritten_questions = []
-
-    n_max = 10
-
-    n_labels = np.random.randint(2, n_max)
-    labels_to_assign = np.random.choice(labels, size=n_labels, replace=False)
-
-    question = f'''{incipit()} Define predicate "{closure_name}" as the transitive closure of predicate "{predicate_name}". Then, assign exactly one label from the set {','.join([f"{x}" for x in labels_to_assign])} to each element in "{closure_name}".'''
-
-    answer = f'''{closure_name}(X,Y):-{predicate_name}(X,Y).\n{closure_name}(X,Y):-{predicate_name}(X,Z),{closure_name}(Z,Y).\n'''
-    for label in labels_to_assign[:-1]:
-        answer += f'''assign(X,"{label}")|'''
-    answer += f'''assign(X,"{labels_to_assign[-1]}"):-{closure_name}(X,_).'''
-
-    
-    if(len(rewritten_questions)>0):
-        questions.extend(rewritten_questions)
-    else:
-        questions.append(question)
-        answers.append(answer)
-    
-    f = [f'''{predicate_name}(1..3, 1..4).''']
 
     return questions, answers, f
 
@@ -1922,7 +1727,7 @@ def guessing_constraint(labels, predicate_name):       #### verificata con Erica
         answer += f'''assign(X,"{label}")|'''
     answer += f'''assign(X,"{labels_to_assign[-1]}"):-{predicate_name}(X).\n:-assign({value}, "{notlabel}").'''
 
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     if(len(rewritten_questions)>0):
         questions.extend(rewritten_questions)
@@ -1932,145 +1737,6 @@ def guessing_constraint(labels, predicate_name):       #### verificata con Erica
         answers.append(answer)
 
     f.append(f"{predicate_name}(1..{n_values}).")  
-    
-    return questions, answers, f
-
-def guessing_preference(labels, predicate_name):
-    f = []
-
-    questions, answers = [], []
-    rewritten_questions = []
-
-    n_max = 10
-    n_values = 20
-
-    for cost_value in range(1, 3):
-        for cost_level in range(1, 3):
-            value = np.random.randint(1, n_values)
-
-        n_labels = np.random.randint(2, n_max)
-        labels_to_assign = np.random.choice(labels, size=n_labels, replace=False)       # dalla raccolta di etichette ne sceglie "size" e senza rimpiazzo   Crea quindi un array di dimensione size scegliendo casualmente gli elementi da "labels"
-        label = np.random.choice(labels_to_assign)
-        
-        question = f'''{incipit()} Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate {predicate_name}. The labels are {','.join([f"{x}" for x in labels_to_assign])} but I would prefer that predicate "{predicate_name}" with value "{value}" is not associated with "{label}". If this occurs, it costs "{cost_value}" at level "{cost_level}".'''
-
-        answer = ""
-        for label in labels_to_assign[:-1]:     #si ferma al penultimo elemento perché l'ultimo verrà messo manualmente sotto
-            answer += f'''assign(X,"{label}")|'''
-        answer += f'''assign(X,"{labels_to_assign[-1]}"):-{predicate_name}(X).\n:~assign({value}, {label}).[{cost_value}@{cost_level}])'''
-
-        rewritten_answers = np.repeat(answer, len(rewritten_questions))
-
-        if(len(rewritten_questions)>0):
-            questions.extend(rewritten_questions)
-            answers.extend(rewritten_answers)
-        else:
-            questions.append(question)
-            answers.append(answer)
-
-        f.append(f"{predicate_name}(1..{n_values}).")  
-    
-    return questions, answers, f
-
-def guessing_negative_filtering(labels, predicate_name):
-    f = []
-
-    questions, answers = [], []
-    rewritten_questions = []
-
-    n_max = 10
-
-    n_labels = np.random.randint(2, n_max)
-    labels_to_assign = np.random.choice(labels, size=n_labels, replace=False)       # dalla raccolta di etichette ne sceglie "size" e senza rimpiazzo   Crea quindi un array di dimensione size scegliendo casualmente gli elementi da "labels"
-    labels_to_avoid = np.random.choice(labels, size=n_labels, replace=False)       # dalla raccolta di etichette ne sceglie "size" e senza rimpiazzo   Crea quindi un array di dimensione size scegliendo casualmente gli elementi da "labels"
-    notlabel = np.random.choice(labels_to_avoid)
-    question = f'''{incipit()} Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate {predicate_name}. The labels are {','.join([f"{x}" for x in labels_to_assign])}. Consider only the predicate {predicate_name} not associated with label "{notlabel}".'''
-
-    answer = ""
-    for label in labels_to_assign[:-1]:     #si ferma al penultimo elemento perché l'ultimo verrà messo manualmente sotto
-        answer += f'''assign(X,"{label}")|'''
-    answer += f'''assign(X,"{labels_to_assign[-1]}"):-{predicate_name}(X, _), not {predicate_name}(X, {notlabel}).'''
-
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
-
-    if(len(rewritten_questions)>0):
-        questions.extend(rewritten_questions)
-        answers.extend(rewritten_answers)
-    else:
-        questions.append(question)
-        answers.append(answer)
-
-    f.append(f"{predicate_name}(1..5, 1..5).")  
-    
-    return questions, answers, f
-
-def guessing_numeric_filtering(labels, predicate_name, attribute1, attribute2):
-    f = []
-
-    n_values = 100
-
-    condition_dict = {"different": "!=", "greater": ">", "lower": "<", "greater or equal": ">=", "lower or equal": "<="}
-
-    questions, answers = [], []
-    rewritten_questions = []
-
-    n_max = 10
-
-    for condition, condition_symbol in condition_dict.items():
-
-        condition_value = np.random.randint(1, n_values)
-             
-        n_labels = np.random.randint(2, n_max)
-        labels_to_assign = np.random.choice(labels, size=n_labels, replace=False)       # dalla raccolta di etichette ne sceglie "size" e senza rimpiazzo   Crea quindi un array di dimensione size scegliendo casualmente gli elementi da "labels"
-        
-        question = f'''{incipit()} Assign exactly a label among a given set of labels to a set of elements expressed by predicate {predicate_name} and labels {attribute1}, {attribute2}, having label {attribute2} {condition} than {condition_value}. The labels are {','.join([f"{x}" for x in labels_to_assign])}.'''
-
-        answer = ""
-        for label in labels_to_assign[:-1]:     #si ferma al penultimo elemento perché l'ultimo verrà messo manualmente sotto
-            answer += f'''assign(X,"{label}")|'''
-        answer += f'''assign(X,"{labels_to_assign[-1]}"):-{predicate_name}(X, Y), Y{condition_symbol}{condition_value} .'''
-
-        rewritten_answers = np.repeat(answer, len(rewritten_questions))
-
-        if(len(rewritten_questions)>0):
-            questions.extend(rewritten_questions)
-            answers.extend(rewritten_answers)
-        else:
-            questions.append(question)
-            answers.append(answer)
-
-    f.append(f"{predicate_name}(1..5, {n_values}).")  
-        
-    return questions, answers, f
-
-def guessing_filtering(labels, predicate_name):
-    f = []
-
-    questions, answers = [], []
-    rewritten_questions = []
-
-    n_max = 10
-
-    n_labels = np.random.randint(2, n_max)
-    labels_to_assign = np.random.choice(labels, size=n_labels, replace=False)       # dalla raccolta di etichette ne sceglie "size" e senza rimpiazzo   Crea quindi un array di dimensione size scegliendo casualmente gli elementi da "labels"
-    othlabel = np.random.choice(labels_to_assign)
-    question = f'''{incipit()} Assign exactly a label among a given set of labels to a set of elements. The set of elements is expressed by predicate {predicate_name}. The labels are {','.join([f"{x}" for x in labels_to_assign])}.  Then, filter and return only the elements assigned to label {othlabel}.".'''
-
-    answer = ""
-    for label in labels_to_assign[:-1]:     #si ferma al penultimo elemento perché l'ultimo verrà messo manualmente sotto
-        answer += f'''assign(X,"{label}")|'''
-    answer += f'''assign(X,"{labels_to_assign[-1]}"):-{predicate_name}(X).\nselect(X):-assign(X, "{othlabel}").'''
-
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
-
-    if(len(rewritten_questions)>0):
-        questions.extend(rewritten_questions)
-        answers.extend(rewritten_answers)
-    else:
-        questions.append(question)
-        answers.append(answer)
-
-    f.append(f"{predicate_name}(1..5).")  
     
     return questions, answers, f
 
@@ -2086,7 +1752,7 @@ def combination_negative_filtering(labels, predicate_name_1, predicate_name_2, p
     question = f'''{incipit()} Generate all the combinations of elements from two sets. The two sets are represented by predicates "{predicate_name_1}" and "{predicate_name_2}". In addition, select all values associated with predicate combination but not associated with predicate "{predicate_name_3}" and label "{label}".'''
     
     answer = f'''combination(X,Y):-{predicate_name_1}(X),{predicate_name_2}(Y).\nselect(X):-combination(X,_), not {predicate_name_3}(X, "{label}").'''
-    rewritten_answers = np.repeat(answer, len(rewritten_questions))
+    rewritten_answers = [answer] * len(rewritten_questions)
 
     fact = f'''{predicate_name_1}(1..4).{predicate_name_2}(1..5).{predicate_name_3}(0..1,"{label}").'''
     for l in some_labels[:-1]:
@@ -2105,42 +1771,10 @@ def combination_negative_filtering(labels, predicate_name_1, predicate_name_2, p
 
     return questions, answers, f
 
-def combination_numeric_filtering(labels, predicate_name_1, predicate_name_2):       
-    
-    condition_dict = {"different": "!=", "greater": ">", "lower": "<", "greater or equal": ">=", "lower or equal": "<="}
-
-    questions, answers = [], []
-    rewritten_questions = []
-
-    some_labels = np.random.choice(labels, size=3, replace=False)
-    label = some_labels[-1]
-
-    n_values = 100
-
-    for condition, condition_symbol in condition_dict.items():
-
-        condition_value = np.random.randint(1, n_values)
-    
-        question = f'''{incipit()} Generate all the combinations of elements from two sets. The two sets are represented by predicates "{predicate_name_1}" and "{predicate_name_2}". In addition, select all values associated with predicate combination with a value {condition} than {condition_value}.'''
-        
-        answer = f'''combination(X,Y):-{predicate_name_1}(X),{predicate_name_2}(Y).\nselect(X):-combination(X,Y), Y{condition_symbol}{condition_value}.'''
-        rewritten_answers = np.repeat(answer, len(rewritten_questions))
-
-        if(len(rewritten_questions)>0):
-            questions.extend(rewritten_questions)
-            answers.extend(rewritten_answers)
-        else:
-            questions.append(question)
-            answers.append(answer)
-        
-        f = f'''{predicate_name_1}(1..4).{predicate_name_2}(1..5).'''
-
-    return questions, answers, f
-
 ######   potrei aggiungere guessing e preference ovvero assign... [1@2]
 
 
-def generate_subproblems(size, train_size, validation, print_proportions=True):
+def generate_subproblems(size, train_size, validation, print_proportions=False):
 
     colors = ["red", "green", "blue", "yellow", "brown", "orange", "purple", "gray", "cyan"]
     cities = ["rome", "paris", "venice", "new york", "london", "amsterdam", "dubai", "tokyo", "shangai", "florence"]
@@ -2719,6 +2353,125 @@ def generate_subproblems(size, train_size, validation, print_proportions=True):
                     sum = n_questions_jf + n_questions_gc + n_questions_cnef
                     print("tot = ", sum, " ", sum*size)
                     sys.exit(1) 
+
+            case "base_2_core-invariance":
+                prompt_invariance=True
+                n_questions_assignment = n_questions_prevent = n_questions_combination = 0
+                n_questions_join = n_questions_closure = n_questions_preferences = n_questions_select = 0
+                n_questions_negative = n_questions_numeric = 0
+                
+                for _ in range(80): #assignment
+                    question_assignments, answer_assignments, f = label_assignment(predicates, np.random.choice(predicates), prompt_invariance, False)
+                    questions.extend(question_assignments)
+                    answers.extend(answer_assignments)
+                    facts.extend(f)
+                    n_questions_assignment+=len(question_assignments)
+
+                for _ in range(70): #constraint
+                    question_prevents, answer_prevents, f = prevent_value(predicates, np.random.choice(predicates), prompt_invariance, False)
+                    questions.extend(question_prevents)
+                    answers.extend(answer_prevents)
+                    facts.extend(f)
+                    n_questions_prevent += len(question_prevents)
+
+                for _ in range(70): #combination
+                    p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                    questions_combinations, answers_combinations, f = generate_combinations(p_1, p_2, prompt_invariance, False)
+                    questions.extend(questions_combinations)
+                    answers.extend(answers_combinations)
+                    facts.extend(f)
+                    n_questions_combination += len(questions_combinations)
+
+                for _ in range(20): #join
+                    p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                    questions_join, answers_join, f = execute_join(p_1, p_2, attributes, prompt_invariance, False)
+                    questions.extend(questions_join)
+                    answers.extend(answers_join)
+                    facts.extend(f)
+                    n_questions_join += len(questions_join)
+
+                for _ in range(70): #closure
+                    questions_closure, answers_closure, f = transitive_closure(np.random.choice(closures), np.random.choice(predicates), prompt_invariance, False)
+                    questions.extend(questions_closure)
+                    answers.extend(answers_closure)
+                    facts.extend(f)
+                    n_questions_closure += len(questions_closure)
+
+                for _ in range(70):  #preference
+                    questions_preferences, answers_preferences, f = preferences(np.random.choice(predicates), predicates, prompt_invariance, False)
+                    questions.extend(questions_preferences)
+                    answers.extend(answers_preferences)
+                    facts.extend(f)
+                    n_questions_preferences += len(questions_preferences)
+                
+                for _ in range(60): #filtering
+                    questions_select, answers_select, f = select_value(np.random.choice(predicates), np.random.choice(predicates), prompt_invariance, False)
+                    questions.extend(questions_select)
+                    answers.extend(answers_select)
+                    facts.extend(f)
+                    n_questions_select += len(questions_select)
+
+                for _ in range(25):  #negative filtering
+                    questions_negative, answers_negative, f = select_by_negative_condition(np.random.choice(predicates), np.random.choice(predicates), predicates, prompt_invariance, False)
+                    questions.extend(questions_negative)
+                    answers.extend(answers_negative)
+                    facts.extend(f)
+                    n_questions_negative += len(questions_negative)
+
+                for _ in range(20): #numeric filtering
+                    questions_numeric_condition, answers_numeric_condition, f = select_by_numeric_condition(np.random.choice(predicates), prompt_invariance, False)
+                    questions.extend(questions_numeric_condition)
+                    answers.extend(answers_numeric_condition)
+                    facts.extend(f)
+                    n_questions_numeric += len(questions_numeric_condition)
+
+            case "base_2_base":
+                n_questions_jf = n_questions_gc = n_questions_cnef = 0
+
+                for _ in range(30):  # join filtering
+                    p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                    questions_jf, answers_jf, f = join_filtering(p_1, p_2, attributes, predicates)
+
+                    questions.extend(questions_jf)
+                    answers.extend(answers_jf)
+                    facts.extend(f)
+
+                    n_questions_jf += len(questions_jf)
+
+                for _ in range(135):  # guessing constraint
+                    questions_gc, answers_gc, f = guessing_constraint(labels, np.random.choice(predicates))
+
+                    questions.extend(questions_gc)
+                    answers.extend(answers_gc)
+                    facts.extend(f)
+
+                    n_questions_gc += len(questions_gc)
+                
+                for _ in range(120):  # combination negative filtering
+                    questions_cnef, answers_cnef, f = combination_negative_filtering(labels, np.random.choice(predicates), np.random.choice(predicates), np.random.choice(predicates))
+
+                    questions.extend(questions_cnef)
+                    answers.extend(answers_cnef)
+                    facts.extend(f)
+
+                    n_questions_cnef += len(questions_cnef)
+                    
+
+                # if print_proportions:
+                #     tot_questions = n_questions_assignment + n_questions_prevent + n_questions_combination + n_questions_join + n_questions_closure + n_questions_preferences + n_questions_select + n_questions_negative + n_questions_numeric
+                #     tot_questions_size = tot_questions * size
+                #     print("size = ",size)
+                #     print("tot_questions = ", tot_questions, "tot_questions_size = ", tot_questions_size)
+                #     print("ass",n_questions_assignment, n_questions_assignment*size, n_questions_assignment*size/tot_questions_size*100)
+                #     print("prev",n_questions_prevent, n_questions_prevent*size, n_questions_prevent*size/tot_questions_size*100)
+                #     print("comb",n_questions_combination, n_questions_combination*size, n_questions_combination*size/tot_questions_size*100)
+                #     print("join",n_questions_join, n_questions_join*size, n_questions_join*size/tot_questions_size*100)
+                #     print("clos",n_questions_closure, n_questions_closure*size, n_questions_closure*size/tot_questions_size*100)
+                #     print("pref",n_questions_preferences, n_questions_preferences*size, n_questions_preferences*size/tot_questions_size*100)
+                #     print("filt",n_questions_select, n_questions_select*size, n_questions_select*size/tot_questions_size*100)
+                #     print("neg filt",n_questions_negative, n_questions_negative*size, n_questions_negative*size/tot_questions_size*100)
+                #     print("num filt",n_questions_numeric, n_questions_numeric*size, n_questions_numeric*size/tot_questions_size*100)
+                #     sys.exit(1)
 
 
     random.seed(42)
@@ -4222,6 +3975,166 @@ def generate_test_cases():      ##  genera 10 prompt, con dati diversi rispetto 
                     o.write(f[0])
                     o.write("\n\n\n")
 
+        case "base_2":
+            questions = []
+            for _ in range(1):
+
+                question_assignments = []
+                question_assignments.append(f'''Design an ASP program that assign only a label from the specified set {', '.join([f"{x}" for x in np.random.choice(labels, size=np.random.randint(2, 5), replace=False)])} with a collection of items defined by the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(question_assignments[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_assignments[0])
+                    f.write("\n\n")
+                    f.write(answer)
+                    f.write("\n\n")
+
+                question_prevents = []
+                question_prevents.append(f'''Formulate an ASP program that restricts the predicate "{np.random.choice(predicates)}" with value {np.random.randint(1, 20)} from being associated with the label "{np.random.randint(0, len(labels))}" .''')
+                answer = generate_response(question_prevents[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(question_prevents[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions = []
+                questions.append(f'''Formulate an ASP solution that computes the intersections of elements between the sets represented by "{p_1}" and "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP solution to extract all values associated with the label "{np.random.choice(predicates)}" within the context of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                n_attributes = np.random.randint(3, 6)
+                attributes = np.array(attributes, dtype='U18')
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                random_pos = np.random.randint(1, n_attributes)
+                
+                chosen_attributes[0] = f"ID"
+
+                chosen_attributes[random_pos] = f"{p_2}ID"
+
+                a = ''
+                for attr in chosen_attributes[:-1]:
+                    a += f'"{attr}",'
+                a += f'"{chosen_attributes[-1]}"'
+
+                n_attributes = np.random.randint(2, 5)
+                chosen_attributes = np.random.choice(attributes, size=n_attributes, replace=False)
+                chosen_attributes[0] = "ID"
+
+                b = ''
+                for attr in chosen_attributes[:-1]:
+                    b += f'"{attr}",'
+                b += f'"{chosen_attributes[-1]}"'
+
+                
+                questions = []
+                questions.append(f'''Develop an ASP program to solve the following issue. Defined the predicate "{p_1}" with fields {a} and the predicate "{p_2}" with fields {b}, create a predicate "{p_1}_{p_2}" that links each "{p_1}" with the "{chosen_attributes[np.random.randint(1, len(chosen_attributes))]}" of "{p_2}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program that calculates the predicate "{np.random.choice(closures)}" as the transitive closure of the predicate "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Construct an ASP program to avoid the predicate "{np.random.choice(predicates)}" with value "{np.random.randint(1, 20)}" from being associated with label "{np.random.choice(predicates)}". If this association occurs, impose a penalty of "{np.random.randint(1, 3)}" at level "{np.random.randint(1, 3)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+                questions = []
+                questions.append(f'''Formulate an ASP program to identify all values linked to the predicate "{np.random.choice(predicates)}" but not associated with the predicate "{np.random.choice(predicates)}" and labeled as "{np.random.choice(predicates)}".''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                conditions = ["different", "greater", "lower", "greater or equal", "lower or equal"]
+                questions = []
+                questions.append(f'''Formulate an ASP solution to select all values linked to the predicate "{np.random.choice(predicates)}" with a value {np.random.choice(conditions)} than {np.random.randint(1, 100)}.''')
+                answer = generate_response(questions[0])
+                with open('output.txt', 'a') as f:
+                    f.write("inv\n")
+                    f.write(questions[0])
+                    f.write(answer)
+                    f.write("\n\n")
+
+
+                ### complexxx
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                question, answer, f = join_filtering(p_1, p_2, attributes, predicates)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("join_filter\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                question, answer, f = guessing_constraint(predicates, np.random.choice(predicates))
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("guess_constr\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
+                p_1, p_2, p_3 = np.random.choice(predicates, 3, replace=False)
+                question, answer, f = combination_negative_filtering(labels, p_1, p_2, p_3)
+                questions.append(question[0])
+                answerg = generate_response(question[0])
+                with open('output.txt', 'a') as o:
+                    o.write("comb_neg\n")
+                    o.write(question[0])
+                    o.write("\ngenerated: \n")
+                    o.write(answerg)
+                    o.write("\nDesired: \n")
+                    o.write(answer[0])
+                    o.write("\nFacts: \n")
+                    o.write(f[0])
+                    o.write("\n\n\n")
+
                 
 
 def build_test_set():   #   costruisce domande, risposte e fatti per come dovrebbero essere
@@ -4501,6 +4414,79 @@ def build_test_set():   #   costruisce domande, risposte e fatti per come dovreb
 
                 # test_tuples.append([questions_cnuf[chosen], answers_cnuf[chosen], facts_cnuf[chosen]])
 
+        case "base_2":
+            prompt_invariance = True
+
+            for i in range(test_size):
+                np.random.seed(seed % (i + 1) * 19)
+                
+                ## start invariance
+
+                questions_assignments, answers_assignments, facts_assignments = label_assignment(predicates, np.random.choice(predicates), prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21)
+                test_tuples.append([questions_assignments[chosen], answers_assignments[chosen], facts_assignments])
+
+                questions_prevents, answers_prevents, facts_prevents = prevent_value(predicates, np.random.choice(predicates), prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21)
+                test_tuples.append([questions_prevents[chosen], answers_prevents[chosen], facts_prevents])
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions_combinations, answers_combinations, facts_combinations = generate_combinations(p_1, p_2, prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21)
+                test_tuples.append([questions_combinations[chosen], answers_combinations[chosen], facts_combinations])
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions_join, answers_join, facts_join = execute_join(p_1, p_2, attributes, prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21*9)             ###########     21*9 perché ogni chiamata a join genera 9 tipi di join e 20 prompt per ogni tipo
+                
+                test_tuples.append([questions_join[chosen], answers_join[chosen], facts_join[chosen]])
+
+                questions_closure, answers_closure, facts_closure = transitive_closure(np.random.choice(closures), np.random.choice(predicates), prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21)
+                test_tuples.append([questions_closure[chosen], answers_closure[chosen], facts_closure])
+
+                questions_preferences, answers_preferences, facts_preferences = preferences(np.random.choice(predicates),predicates, prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21*4)
+                test_tuples.append([questions_preferences[chosen], answers_preferences[chosen], facts_preferences])
+
+                questions_filtering, answers_filtering, facts_filtering = select_value(np.random.choice(predicates), np.random.choice(predicates), prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21)
+                test_tuples.append([questions_filtering[chosen], answers_filtering[chosen], facts_filtering])
+
+                questions_negative_filtering, answers_negative_filtering, facts_negative_filtering = select_by_negative_condition(np.random.choice(predicates), np.random.choice(predicates), predicates, prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21)
+                test_tuples.append([questions_negative_filtering[chosen], answers_negative_filtering[chosen], facts_negative_filtering])
+
+                questions_numeric_filtering, answers_numeric_filtering, facts_numeric_filtering = select_by_numeric_condition(np.random.choice(predicates), prompt_invariance, T21ST)
+
+                chosen = np.random.randint(0, 21)
+                test_tuples.append([questions_numeric_filtering[chosen], answers_numeric_filtering[chosen], facts_numeric_filtering])
+    
+                ## start complex 
+                       
+                chosen = 0    
+
+                p_1, p_2 = np.random.choice(predicates, 2, replace=False)
+                questions_jneg, answers_jneg, facts_jneg = join_filtering(p_1, p_2, attributes, predicates)
+
+                test_tuples.append([questions_jneg[chosen], answers_jneg[chosen], facts_jneg[chosen]])
+
+                questions_gc, answers_gc, facts_gc = guessing_constraint(labels, np.random.choice(predicates))
+
+                test_tuples.append([questions_gc[chosen], answers_gc[chosen], facts_gc[chosen]])
+                p_1, p_2, p_3 = np.random.choice(predicates, 3, replace=False)
+                questions_cnf, answers_cnf, facts_cnf = combination_negative_filtering(labels, p_1, p_2, p_3)
+
+                test_tuples.append([questions_cnf[chosen], answers_cnf[chosen], facts_cnf[chosen]])
+
     return test_tuples
 
 
@@ -4552,14 +4538,15 @@ quant_config = BitsAndBytesConfig(
 
 
 ##  CHOOSE BETWEEN [ ' core ' , ' core-invariance ' , ' core-invariance-complex ' ]
-##  OR AVERAGED [...]
+##  OR AVERAGED [' averaged_num ' - num può essere 1, 3, 5, 7, 9]
+##  base_2 for last testing
 
-turn = "averaged_1"               ## "base" per testare i complex
+turn = "base_2"               ## "base" per testare i complex
 
 MODEL_TO_USE = "gemma"
 
 DATASET_GENERATION = True
-TRAIN = False 
+TRAIN = True 
 LOAD = True                            # (not TRAIN)       Load for testing
 TEST = True                            # if you want to test the model, also on a limited number of prompts
 TEST_DATASET_GENERATION = False         # if you need to create a new test set
@@ -4688,6 +4675,38 @@ match turn:
         test_size = 1000
 
         results_path = "BaseComplex/"
+        exhaustive_folder += results_path
+
+        syntactic_dict_fn = exhaustive_folder + "complex_syntactic_test_scores_dict.pkl"
+        semantic_dict_fn = exhaustive_folder + "complex_semantic_test_scores_dict.pkl"
+        syntactic_prop_dict_fn = exhaustive_folder + "complex_syntactic_prop_test_scores_dict.pkl"
+        semantic_prop_dict_fn = exhaustive_folder + "complex_semantic_prop_test_scores_dict.pkl"
+
+        parsed_file_name = exhaustive_folder + "parsedComplex.txt"
+        errors_file_name  = exhaustive_folder + "errorsComplex.txt"
+        jaccard0_file_name = exhaustive_folder + "jaccard0Complex.txt"
+
+    case "base_2":
+        model_to_train = base_model                               
+        model_saving_path = "toto/base->complex_2"
+        model_to_test = model_saving_path
+
+        token = hugging_token
+        
+        train_file_name = "data/train_basecomplex_2.csv"
+        val_file_name = "data/val_basecomplex_2.csv"
+
+        test_set_file_name  = "data/test_basecomplex_2.csv"
+        
+        target_modules="all-linear"
+        
+        tot_size = 10000
+        
+        len_questions = 0
+        
+        test_size = 1000
+
+        results_path = "BaseComplex_2/"
         exhaustive_folder += results_path
 
         syntactic_dict_fn = exhaustive_folder + "complex_syntactic_test_scores_dict.pkl"
@@ -4870,8 +4889,25 @@ if DATASET_GENERATION:
     size = int(0.8 * tot_size)
     val_size = int(0.2 * tot_size)
 
-    questions, answers = generate_subproblems(size, size, validation=False)
-    val_questions, val_answers = generate_subproblems(val_size, size, validation=True)
+    if turn != "base_2":
+        questions, answers = generate_subproblems(size, size, validation=False)
+        val_questions, val_answers = generate_subproblems(val_size, size, validation=True)
+    else:
+        size= int(0.8 * 100)
+        val_size = int(0.2 * 100)
+        turn="base_2_core-invariance"
+        questions, answers = generate_subproblems(size, size, validation=False)
+        val_questions, val_answers = generate_subproblems(val_size, size, validation=True)
+        size= int(0.8 * 10000)
+        val_size = int(0.2 * 10000)
+        turn="base_2_base"
+        questions1, answers1 = generate_subproblems(size, size, validation=False)
+        val_questions1, val_answers1 = generate_subproblems(val_size, size, validation=True)
+        questions.extend(questions1)
+        answers.extend(answers1)
+        val_questions.extend(val_questions1)
+        val_answers.extend(val_answers1)
+        turn="base_2"
 
     print("len questions = ", len(questions))
     print("len answers = ", len(answers))
@@ -4911,12 +4947,12 @@ if TRAIN:
     train_dataset = Dataset.from_dict(train_df)
     val_dataset = Dataset.from_dict(val_df)
 
-    print("Training set lenght", train_dataset.num_rows)           ##########################################
+    print("Training set lenght", train_dataset.num_rows)           
     
     model = AutoModelForCausalLM.from_pretrained(
         base_model,                                             ################# carico il modello di google e poi ci aggiungerò i pesi lora
         quantization_config=quant_config,
-        device_map="auto",      ## prova assegnando GPU
+        device_map="auto",      
         token=token
         # max_memory={0: "30GB", 1: "30GB", 2: "30GB", 3: "30GB"}
     )
@@ -4924,7 +4960,7 @@ if TRAIN:
     model.config.use_cache = True
     model.config.pretraining_tp = 1
 
-    if turn != "core" and turn != "base":
+    if turn != "core" and turn != "base" and turn != "base_2":
         model = PeftModel.from_pretrained(model, model_to_train, is_trainable=True)
 
     tokenizer = AutoTokenizer.from_pretrained(base_model)
@@ -5037,7 +5073,7 @@ if TEST:
         
         # definizione tipi di problemi
         problems = ["assignment", "constraint", "combination", "join", "closure", "preference", "filtering", "negative_filtering", "numeric_filtering"]
-        if turn =="core-invariance-complex":
+        if turn =="core-invariance-complex" or "base_2":
             # problems.extend(["join_numeric_filtering", "join_filtering", "closure_guessing", "closure_negative_filtering", "guessing_constraint", "guessing_preference", "guessing_negative_filtering", "guessing_numeric_filtering", "guessing_filtering", "combination_negative_filtering", "combination_numeric_filtering"])
             problems.extend(["join_filtering", "guessing_constraint", "combination_negative_filtering"])
         if turn == "base":
@@ -5096,7 +5132,7 @@ if TEST:
             elif problems_index_dict[index] == "join_numeric_filtering":
                 parsed_generated_a = "".join(parsed_generated_a.split("\n")[:1])
             elif problems_index_dict[index] == "join_filtering":
-                parsed_generated_a = "".join(parsed_generated_a.split("\n")[:2])
+                parsed_generated_a = "\n".join(parsed_generated_a.split("\n")[:2])
             elif problems_index_dict[index] == "closure_guessing":
                 parsed_generated_a = "\n".join(parsed_generated_a.split("\n")[:3])
             elif problems_index_dict[index] == "guessing_constraint":
@@ -5124,7 +5160,7 @@ if TEST:
                 r.write("\n\nparsed from model: \n")
                 r.write(parsed_generated_a)
                 r.write("\n\nfacts: \n")
-                r.write(f)
+                r.write(str(f))
                 r.write("\n\ngenerated: \n")
                 r.write(generated_a)
                 r.write("\n\nunique_rules: \n")
